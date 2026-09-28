@@ -54,7 +54,7 @@ export default function CourseCategories() {
               SELF DEVELOPMENT & MASTERY
             </span>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#171E2E] leading-tight tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#171E2E] leading-tight tracking-tight">
               Get Instant Access To Expert Solutions
             </h2>
 

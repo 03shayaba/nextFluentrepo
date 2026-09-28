@@ -25,7 +25,7 @@ export default function Newsletter() {
             <span className="text-[#E59719] font-extrabold text-xs sm:text-sm uppercase tracking-widest block">
               NEWSLETTER
             </span>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#111726] tracking-tight">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#111726] tracking-tight">
               Subscribe to get latest news
             </h2>
           </div>

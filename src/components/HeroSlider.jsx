@@ -6,23 +6,30 @@ const slides = [
   {
     id: 1,
     tag: "ENGLISH LEARNING",
-    title: "IELTS & EXAM SUCCESS",
-    subtitle: "Crack IELTS, TOEFL, and more with expert guidance.",
-    bgImage: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=2000&q=80"
+    title: "EXCEL IN YOUR CAREER & ACADEMICS",
+    subtitle: "Crack IELTS, TOEFL, and Spoken English with expert guidance.",
+    bgImage: "/h2.jpg"
   },
   {
     id: 2,
-    tag: "ENGLISH LEARNING",
+    tag: "ONLINE COURSES",
     title: "SPOKEN ENGLISH MASTERY",
     subtitle: "Speak fluently and naturally in professional & daily situations.",
-    bgImage: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=2000&q=80"
+    bgImage: "/h3.jpg"
   },
   {
     id: 3,
-    tag: "ENGLISH LEARNING",
-    title: "GRAMMAR & WRITING SKILLS",
-    subtitle: "Master grammar, writing, and communication with confidence.",
-    bgImage: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=2000&q=80"
+    tag: "GRAMMAR & WRITING",
+    title: "MASTER ESSENTIAL SKILLS",
+    subtitle: "Build confidence, improve communication skills, and unlock new opportunities.",
+    bgImage: "/h4.jpg"
+  },
+  {
+    id: 4,
+    tag: "EXPERT SOLUTIONS",
+    title: "LEARN TODAY. BRIGHTER TOMORROW.",
+    subtitle: "Interactive lessons and structured pathways tailored to your goals.",
+    bgImage: "/h5.jpg"
   }
 ];
 
@@ -50,14 +57,14 @@ export default function HeroSlider() {
             key={slide.id}
             className="relative w-full h-full flex-shrink-0"
           >
-            {/* Bright Daylight Background Image */}
+            {/* Background Image from public folder (/h2.jpg, /h3.jpg, /h4.jpg, /h5.jpg) */}
             <div 
               className="absolute inset-0 bg-cover bg-center"
               style={{ backgroundImage: `url(${slide.bgImage})` }}
             />
 
-            {/* Subtle Ultra-Light Gradient for Bright Theme */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/15 to-transparent"></div>
+            {/* Subtle Gradient Overlay for Clean Legibility */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent"></div>
 
             {/* Main Content Area */}
             <div className="relative z-20 max-w-7xl mx-auto h-full px-6 sm:px-10 flex flex-col justify-center">
@@ -82,7 +89,7 @@ export default function HeroSlider() {
                 </div>
 
                 {/* Main Slide Title */}
-                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white leading-tight drop-shadow">
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-tight text-white leading-tight drop-shadow-md">
                   {slide.title}
                 </h1>
 
@@ -100,15 +107,15 @@ export default function HeroSlider() {
       </div>
 
       {/* Bottom Center Pagination Indicators */}
-      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-30 flex items-center space-x-2.5 bg-black/15 backdrop-blur-sm px-4 py-1.5 rounded-full">
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-30 flex items-center space-x-2.5 bg-black/25 backdrop-blur-md px-4 py-2 rounded-full border border-white/10">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
             className={`transition-all duration-300 rounded-full cursor-pointer ${
               currentSlide === index
-                ? 'w-10 h-2 bg-[#E59719]'
-                : 'w-2 h-2 bg-white/80 hover:bg-white'
+                ? 'w-10 h-2.5 bg-[#E59719]'
+                : 'w-2.5 h-2.5 bg-white/70 hover:bg-white'
             }`}
             aria-label={`Slide ${index + 1}`}
           />
@@ -118,7 +125,7 @@ export default function HeroSlider() {
       {/* Bottom Right Floating WhatsApp Action Button */}
       <div className="absolute bottom-6 right-6 z-30 flex items-center gap-3">
         <a 
-          href="https://wa.me/" 
+          href="https://wa.me/917889745674" 
           target="_blank" 
           rel="noopener noreferrer"
           className="w-12 h-12 bg-[#25D366] hover:bg-[#1eb956] text-white rounded-full flex items-center justify-center shadow-xl transition-transform transform hover:scale-110"

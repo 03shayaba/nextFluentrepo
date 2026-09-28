@@ -10,7 +10,7 @@ export default function GetInTouch() {
           <span className="text-[#E59719] font-extrabold text-xs sm:text-sm uppercase tracking-widest bg-amber-50 px-4 py-1.5 rounded-full border border-amber-200 inline-block">
             GET IN TOUCH
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#111726] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#111726] tracking-tight">
             We'd Love to Hear From You
           </h2>
           <p className="text-slate-600 text-sm sm:text-base font-normal leading-relaxed max-w-2xl mx-auto">
@@ -27,10 +27,14 @@ export default function GetInTouch() {
             {/* Top Amber Border Accent */}
             <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#E59719]" />
 
-            {/* Company Header */}
+            {/* Company Header with High Quality SVG Icon */}
             <div className="flex items-center gap-4 border-b border-slate-50 pb-6">
-              <div className="w-14 h-14 rounded-2xl bg-[#FFF8EE] border border-amber-100 flex items-center justify-center text-2xl text-[#E59719] shadow-sm flex-shrink-0">
-                🏢
+              <div className="w-14 h-14 rounded-2xl bg-[#FFF8EE] border border-amber-100 flex items-center justify-center text-[#E59719] shadow-sm flex-shrink-0">
+                <svg className="w-7 h-7 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="4" y="2" width="16" height="20" rx="2" ry="2"/>
+                  <path d="M9 22v-4h6v4"/>
+                  <path d="M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/>
+                </svg>
               </div>
               <div>
                 <span className="text-[10px] font-extrabold text-[#E59719] uppercase tracking-widest block">
@@ -42,13 +46,16 @@ export default function GetInTouch() {
               </div>
             </div>
 
-            {/* Contact Details List */}
+            {/* Contact Details List with SVG Icons */}
             <div className="space-y-4">
               
               {/* Address Item */}
-              <div className="bg-[#FAFBFD] rounded-2xl p-5 border border-slate-100/80 flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-amber-50 text-[#E59719] flex items-center justify-center text-lg flex-shrink-0 border border-amber-100">
-                  📍
+              <div className="bg-[#FAFBFD] rounded-2xl p-5 border border-slate-100/80 flex items-start gap-4 hover:border-amber-200 transition-colors">
+                <div className="w-11 h-11 rounded-2xl bg-[#FFF8EE] text-[#E59719] flex items-center justify-center flex-shrink-0 border border-amber-100 shadow-sm">
+                  <svg className="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                  </svg>
                 </div>
                 <div className="space-y-0.5">
                   <span className="text-[11px] font-extrabold text-slate-400 uppercase tracking-wider block">
@@ -61,9 +68,12 @@ export default function GetInTouch() {
               </div>
 
               {/* Email Item */}
-              <div className="bg-[#FAFBFD] rounded-2xl p-5 border border-slate-100/80 flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-amber-50 text-[#E59719] flex items-center justify-center text-lg flex-shrink-0 border border-amber-100">
-                  ✉️
+              <div className="bg-[#FAFBFD] rounded-2xl p-5 border border-slate-100/80 flex items-start gap-4 hover:border-amber-200 transition-colors">
+                <div className="w-11 h-11 rounded-2xl bg-[#FFF8EE] text-[#E59719] flex items-center justify-center flex-shrink-0 border border-amber-100 shadow-sm">
+                  <svg className="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    <polyline points="22,6 12,13 2,6"/>
+                  </svg>
                 </div>
                 <div className="space-y-0.5">
                   <span className="text-[11px] font-extrabold text-slate-400 uppercase tracking-wider block">
@@ -76,9 +86,11 @@ export default function GetInTouch() {
               </div>
 
               {/* Phone Item */}
-              <div className="bg-[#FAFBFD] rounded-2xl p-5 border border-slate-100/80 flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-amber-50 text-[#E59719] flex items-center justify-center text-lg flex-shrink-0 border border-amber-100">
-                  📞
+              <div className="bg-[#FAFBFD] rounded-2xl p-5 border border-slate-100/80 flex items-start gap-4 hover:border-amber-200 transition-colors">
+                <div className="w-11 h-11 rounded-2xl bg-[#FFF8EE] text-[#E59719] flex items-center justify-center flex-shrink-0 border border-amber-100 shadow-sm">
+                  <svg className="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                  </svg>
                 </div>
                 <div className="space-y-0.5">
                   <span className="text-[11px] font-extrabold text-slate-400 uppercase tracking-wider block">

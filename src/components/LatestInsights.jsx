@@ -41,7 +41,7 @@ export default function LatestInsights() {
             <span className="text-[#E59719] font-bold text-xs sm:text-sm uppercase tracking-widest block">
               EXPLORE NEWS
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#111726] tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#111726] tracking-tight">
               Our Latest Insights
             </h2>
           </div>

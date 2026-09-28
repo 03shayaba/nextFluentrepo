@@ -9,6 +9,7 @@ import Testimonials from "@/components/Testimonials";
 import LatestInsights from "@/components/LatestInsights";
 import GetInTouch from "@/components/GetInTouch";
 import Newsletter from "@/components/Newsletter";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
         <GetInTouch />
         <Newsletter />
       </main>
+      <Footer />
     </div>
   );
 }

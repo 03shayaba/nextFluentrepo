@@ -59,7 +59,7 @@ export default function PopularCourses() {
           <span className="text-[#E59719] font-serif italic text-lg sm:text-xl block font-semibold">
             What's New
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#111726] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#111726] tracking-tight">
             Popular Online Courses
           </h2>
           <p className="text-slate-500 text-sm sm:text-base leading-relaxed pt-2">
