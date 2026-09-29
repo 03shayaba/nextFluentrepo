@@ -8,28 +8,30 @@ const slides = [
     tag: "ENGLISH LEARNING",
     title: "EXCEL IN YOUR CAREER & ACADEMICS",
     subtitle: "Crack IELTS, TOEFL, and Spoken English with expert guidance.",
-    bgImage: "/h2.jpg"
+     bgImage: "https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=1920&q=80"
+    
   },
   {
     id: 2,
     tag: "ONLINE COURSES",
     title: "SPOKEN ENGLISH MASTERY",
     subtitle: "Speak fluently and naturally in professional & daily situations.",
-    bgImage: "/h3.jpg"
+    bgImage: "https://images.unsplash.com/photo-1491841550275-ad7854e35ca6?auto=format&fit=crop&w=1920&q=80"
+   
   },
   {
     id: 3,
     tag: "GRAMMAR & WRITING",
     title: "MASTER ESSENTIAL SKILLS",
     subtitle: "Build confidence, improve communication skills, and unlock new opportunities.",
-    bgImage: "/h4.jpg"
+    bgImage: "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1920&q=80"
   },
   {
     id: 4,
     tag: "EXPERT SOLUTIONS",
     title: "LEARN TODAY. BRIGHTER TOMORROW.",
     subtitle: "Interactive lessons and structured pathways tailored to your goals.",
-    bgImage: "/h5.jpg"
+    bgImage: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=1920&q=80"
   }
 ];
 
@@ -69,23 +71,16 @@ export default function HeroSlider() {
             {/* Main Content Area */}
             <div className="relative z-20 max-w-7xl mx-auto h-full px-6 sm:px-10 flex flex-col justify-center">
               
-              {/* Top-Left Yellow Dot Matrix */}
-              <div className="absolute top-8 left-6 sm:left-10 z-20">
-                <div className="grid grid-cols-4 gap-2">
-                  {[...Array(16)].map((_, i) => (
-                    <span key={i} className="w-1.5 h-1.5 rounded-full bg-[#E59719]"></span>
-                  ))}
-                </div>
-              </div>
+
 
               {/* Text Content */}
               <div className="max-w-xl space-y-4 pt-6 pl-6 sm:pl-10">
                 
                 {/* Orange Badge */}
                 <div>
-                  <span className="inline-block bg-[#E59719] text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-4 py-1.5 rounded-full shadow-md">
+                  <div className="inline-block bg-[#E59719] text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-4 py-1.5 rounded-full shadow-md">
                     {slide.tag}
-                  </span>
+                  </div>
                 </div>
 
                 {/* Main Slide Title */}

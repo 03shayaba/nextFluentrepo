@@ -42,7 +42,7 @@ export default function HowItWorks() {
             <span className="w-1.5 h-1.5 rounded-full bg-[#E59719] animate-pulse"></span>
             LEARNING PROCESS
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0F172A] tracking-tight">
             Our Learning Process
           </h2>
           <p className="text-sm sm:text-base text-slate-500 font-medium max-w-lg mx-auto">

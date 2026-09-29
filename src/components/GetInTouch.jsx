@@ -20,26 +20,41 @@ export default function GetInTouch() {
   };
 
   return (
-    <section className="bg-gradient-to-b from-slate-50/60 via-white to-slate-50/40 py-16 lg:py-24 border-b border-slate-100 overflow-hidden select-none relative">
+    <section className="relative bg-gradient-to-b from-white via-slate-50/50 to-white py-16 lg:py-24 border-b border-slate-100 overflow-hidden select-none">
       
+      {/* Decorative Background Elements */}
+      <div className="absolute top-20 left-0 w-96 h-96 bg-amber-50 rounded-full blur-3xl opacity-60 transform -translate-x-1/2 pointer-events-none"></div>
+      
+      <svg className="absolute right-0 top-0 w-64 h-64 text-amber-500/5 transform translate-x-1/3 -translate-y-1/3 pointer-events-none" viewBox="0 0 100 100" fill="currentColor">
+        <circle cx="50" cy="50" r="50" />
+      </svg>
+
       {/* Container */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
           {/* Left Column: Heading, Bullets, Paragraph & 3 Quick Contact Cards */}
-          <div className="lg:col-span-6 space-y-6 lg:pr-4">
+          <div className="lg:col-span-6 space-y-6 lg:pr-4 relative">
             
+            {/* Decorative Handwritten Text */}
+            <div 
+              className="absolute -top-6 -left-4 -rotate-6 text-blue-500 font-medium text-lg hidden md:block"
+              style={{ fontFamily: '"Caveat", "Comic Sans MS", cursive' }}
+            >
+              We're here to help!
+            </div>
+
             {/* Contact Us Badge */}
             <div>
-              <span className="inline-block bg-amber-100/70 text-[#E59719] font-bold text-xs sm:text-sm px-4 py-1.5 rounded-full tracking-wide">
-                Contact Us
+              <span className="inline-block bg-amber-100/70 text-[#E59719] font-bold text-xs sm:text-sm px-4 py-1.5 rounded-full tracking-wider uppercase shadow-sm">
+                📞 Contact Us
               </span>
             </div>
 
             {/* Main Headline */}
-            <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black text-[#0F172A] leading-tight tracking-tight">
-              Let's Solve Your Learning & Skill Challenges— <span className="text-[#E59719]">Start Today!</span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight leading-tight">
+              Let's Solve Your Learning & Skill Challenges— <br className="hidden lg:block"/><span className="text-[#E59719]">Start Today!</span>
             </h2>
 
             {/* 3 Feature Bullets */}
@@ -123,19 +138,18 @@ export default function GetInTouch() {
                 </span>
               </a>
 
-              {/* See Location Card */}
+              {/* Email Us Card */}
               <a 
-                href="#location-map"
+                href="mailto:contact@yourdomain.com"
                 className="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-xs hover:shadow-md hover:border-amber-300 transition-all flex flex-col items-center justify-center text-center group cursor-pointer"
               >
                 <div className="w-11 h-11 rounded-full bg-amber-50 text-[#E59719] group-hover:bg-[#E59719] group-hover:text-white flex items-center justify-center mb-2.5 transition-colors">
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                   </svg>
                 </div>
                 <span className="text-xs sm:text-sm font-bold text-slate-800 group-hover:text-[#E59719] transition-colors">
-                  See Location
+                  Email Us
                 </span>
               </a>
 
@@ -256,19 +270,6 @@ export default function GetInTouch() {
 
       </div>
 
-      {/* Embedded Location Map Section */}
-      <div id="location-map" className="w-full relative mt-16 sm:mt-20">
-        <div className="w-full h-[400px] sm:h-[450px] bg-slate-100 relative">
-          <iframe
-            title="Younus LMS Location Map"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3300.7516248919637!2d74.779435!3d34.22557!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38e185c7cb17bdf7%3A0x8e83cb2b716aa877!2sGanderbal%2C%20Jammu%20and%20Kashmir%20191201!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
-            className="w-full h-full border-0"
-            allowFullScreen=""
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
-        </div>
-      </div>
 
     </section>
   );

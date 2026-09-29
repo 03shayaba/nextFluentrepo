@@ -13,13 +13,8 @@ export default function Footer() {
             
             {/* Logo Header */}
             <div className="space-y-1">
-              <div className="flex items-center gap-2">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#E59719] to-amber-300 flex items-center justify-center text-white text-xl font-black shadow-md">
-                  Y
-                </div>
-                <span className="text-2xl font-black text-[#111726] tracking-tight">
-                  Younus <span className="text-[#E59719]">LMS</span>
-                </span>
+              <div className="flex items-center gap-3">
+                <img src="/NextFluentlogo.jpeg" alt="NextFluent Logo" className="h-10 sm:h-12 w-auto object-contain rounded-full shadow-sm" />
               </div>
               <p className="text-xs font-semibold text-[#E59719] tracking-wide">
                 Learn Today. Brighter Tomorrow.
@@ -28,7 +23,7 @@ export default function Footer() {
 
             {/* About Paragraph */}
             <p className="text-xs sm:text-sm text-slate-500 leading-relaxed max-w-sm font-normal">
-              Younus LMS is your trusted partner in learning English & modern skills. We help learners worldwide build confidence, improve communication skills, and unlock new opportunities.
+              NextFluent is your trusted partner in learning English & modern skills. We help learners worldwide build confidence, improve communication skills, and unlock new opportunities.
             </p>
 
             {/* Equal sized SVG Vector Social Icons Row matching 2nd image reference */}
@@ -184,7 +179,7 @@ export default function Footer() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-medium text-slate-300">
           <div>
-            © 2026 Younus LMS. All rights reserved.
+            © 2026 NextFluent. All rights reserved.
           </div>
 
           <div className="flex items-center gap-4 text-slate-400">

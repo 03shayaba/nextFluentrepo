@@ -105,7 +105,7 @@ const stats = [
 
 export default function OurAchievements() {
   return (
-    <section className="bg-gradient-to-b from-slate-50/50 via-white to-slate-50/80 py-16 lg:py-24 border-b border-slate-100/80 overflow-hidden select-none relative">
+    <section className="bg-gradient-to-b from-slate-50/50 via-white to-slate-50/80 py-10 lg:py-12 border-b border-slate-100/80 overflow-hidden select-none relative">
       
       {/* Decorative Ambient Glowing Orbs */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-gradient-to-tr from-amber-400/10 via-amber-200/5 to-transparent rounded-full blur-3xl pointer-events-none z-0"></div>
@@ -117,7 +117,7 @@ export default function OurAchievements() {
           <span className="inline-block bg-amber-100/70 text-[#E59719] font-bold text-xs sm:text-sm px-4 py-1.5 rounded-full tracking-wide">
             Our Achievements
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0F172A] tracking-tight">
             Empowering Learners Worldwide
           </h2>
           <p className="text-sm sm:text-base text-slate-500 font-medium leading-relaxed max-w-xl mx-auto">
@@ -126,11 +126,11 @@ export default function OurAchievements() {
         </div>
 
         {/* Clean Stats Row without cards (Image 2 style) */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+        <div className="flex flex-wrap justify-center sm:justify-between items-center gap-10 lg:gap-4 w-full">
           {stats.map((item) => (
             <div 
               key={item.id}
-              className="flex flex-col items-center justify-center text-center p-2 group transition-transform duration-300 hover:-translate-y-1"
+              className="flex flex-col items-center justify-center text-center p-2 group transition-transform duration-300 hover:-translate-y-1 w-[45%] sm:w-[22%]"
             >
               {/* Icon in Golden Yellow */}
               <div className="mb-3 transform group-hover:scale-110 transition-transform duration-300">

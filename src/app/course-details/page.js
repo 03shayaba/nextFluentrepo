@@ -4,9 +4,109 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PopularCourses from "@/components/PopularCourses";
 import TransformHero from "@/components/TransformHero";
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
+const CurriculumModule = ({ section, idx }) => {
+  const [isOpen, setIsOpen] = useState(idx === 0);
+
+  return (
+    <div className={`border rounded-2xl overflow-hidden mb-4 transition-colors ${isOpen ? 'bg-amber-50/30 border-amber-200 shadow-sm' : 'bg-white border-slate-200'}`}>
+      <button 
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full px-5 py-4 sm:px-6 sm:py-5 flex items-center justify-between text-left"
+      >
+        <div className="flex items-start gap-4">
+          <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm shrink-0 transition-colors ${isOpen ? 'bg-amber-100 text-[#E59719]' : 'bg-slate-50 text-slate-500 border border-slate-100'}`}>
+            0{idx + 1}
+          </div>
+          <div>
+            <h4 className={`font-bold text-base sm:text-lg transition-colors pr-4 ${isOpen ? 'text-[#E59719]' : 'text-[#0F172A]'}`}>
+              {section.title}
+            </h4>
+            <p className="text-sm text-slate-500 mt-1">{section.lessons} lessons</p>
+          </div>
+        </div>
+        <div className="shrink-0 ml-2">
+          <svg className={`w-5 h-5 transition-transform duration-300 ${isOpen ? 'rotate-180 text-[#E59719]' : 'text-slate-400'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </div>
+      </button>
+
+      <div className={`grid transition-all duration-300 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
+        <div className="overflow-hidden">
+          <div className="px-4 sm:px-6 pb-4 pt-2 space-y-3">
+            {[...Array(section.lessons)].map((_, i) => {
+              const isPreview = idx === 0 && (i === 0 || i === 1);
+              return (
+                <div key={i} className={`flex items-center justify-between p-3 sm:p-4 bg-white border rounded-xl transition-all shadow-sm ${isPreview ? 'border-l-4 border-l-[#E59719] border-y-slate-100 border-r-slate-100 cursor-pointer hover:shadow-md' : 'border-slate-100 hover:border-amber-200 cursor-not-allowed group'}`}>
+                  <div className="flex items-center gap-4">
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors shrink-0 ${isPreview ? 'bg-[#E59719] text-white shadow-sm' : 'bg-slate-50 border border-slate-200 group-hover:bg-amber-100 group-hover:border-amber-200'}`}>
+                      <svg className={`w-3.5 h-3.5 ml-0.5 ${isPreview ? 'text-white' : 'text-slate-400 group-hover:text-[#E59719]'}`} fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                    <span className={`text-sm sm:text-base font-medium transition-colors ${isPreview ? 'text-[#0F172A]' : 'text-slate-500 group-hover:text-[#0F172A]'}`}>
+                      {section.title.split(':')[0]} Lesson {i + 1}
+                    </span>
+                  </div>
+                  {isPreview ? (
+                    <button 
+                      className="text-[11px] sm:text-xs font-bold text-[#E59719] uppercase tracking-wider px-3 py-1.5 bg-amber-50 hover:bg-amber-100 rounded flex-shrink-0 transition-colors shadow-sm"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        // Handle preview logic
+                      }}
+                    >
+                      Preview
+                    </button>
+                  ) : (
+                    <svg className="w-5 h-5 text-slate-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default function CourseDetailsPage() {
+  const [activeTab, setActiveTab] = useState('overview');
+
+  const scrollToSection = (id) => {
+    setActiveTab(id);
+    const element = document.getElementById(id);
+    if (element) {
+      const y = element.getBoundingClientRect().top + window.scrollY - 120;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['overview', 'curriculum', 'instructor', 'reviews', 'faqs'];
+      let current = '';
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 150 && rect.bottom >= 150) {
+            current = section;
+          }
+        }
+      }
+      if (current && current !== activeTab) {
+        setActiveTab(current);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [activeTab]);
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans">
       <Header />
@@ -156,19 +256,29 @@ export default function CourseDetailsPage() {
               </div>
 
               {/* Tabs */}
-              <div className="flex flex-wrap items-center gap-3 border-b border-slate-200 pb-4 mb-8">
-                <button className="bg-[#E59719] text-white px-5 py-2 rounded-full text-sm font-semibold shadow-sm">Overview</button>
-                <button className="bg-amber-50/50 text-slate-600 hover:bg-amber-100 px-5 py-2 rounded-full text-sm font-medium transition-colors border border-amber-100/50">Curriculum</button>
-                <button className="bg-amber-50/50 text-slate-600 hover:bg-amber-100 px-5 py-2 rounded-full text-sm font-medium transition-colors border border-amber-100/50">Instructor</button>
-                <button className="bg-amber-50/50 text-slate-600 hover:bg-amber-100 px-5 py-2 rounded-full text-sm font-medium transition-colors border border-amber-100/50">Reviews</button>
-                <button className="bg-amber-50/50 text-slate-600 hover:bg-amber-100 px-5 py-2 rounded-full text-sm font-medium transition-colors border border-amber-100/50">FAQs</button>
+              <div className="flex flex-wrap items-center gap-3 border-b border-slate-200 pb-4 mb-8 sticky top-[64px] bg-slate-50 z-30 pt-4 -mx-4 px-4 sm:mx-0 sm:px-0">
+                {[
+                  { id: 'overview', label: 'Overview' },
+                  { id: 'curriculum', label: 'Curriculum' },
+                  { id: 'instructor', label: 'Instructor' },
+                  { id: 'reviews', label: 'Reviews' },
+                  { id: 'faqs', label: 'FAQs' }
+                ].map(tab => (
+                  <button 
+                    key={tab.id}
+                    onClick={() => scrollToSection(tab.id)}
+                    className={`${activeTab === tab.id ? 'bg-[#E59719] text-white shadow-sm' : 'bg-amber-50/50 text-slate-600 hover:bg-amber-100 border border-amber-100/50'} px-5 py-2 rounded-full text-sm font-semibold transition-colors`}
+                  >
+                    {tab.label}
+                  </button>
+                ))}
               </div>
               
               {/* Overview Content */}
               <div className="space-y-8">
                 
                 {/* Introduction */}
-                <div className="bg-white rounded-3xl border border-slate-100 p-6 sm:p-8 shadow-sm">
+                <div id="overview" className="bg-white rounded-3xl border border-slate-100 p-6 sm:p-8 shadow-sm scroll-mt-32">
                    <h3 className="text-2xl font-bold text-[#0F172A] mb-4">Course Overview</h3>
                    <p className="text-slate-600 leading-relaxed mb-4">
                      Welcome to the Master Spoken English & Achieve Fluency Bootcamp. This course is designed to take you from a basic understanding to complete fluency. You will learn the core mechanics of English grammar, how to naturally string together complex sentences, and build the confidence necessary to speak in any professional or casual real-world scenario.
@@ -217,40 +327,33 @@ export default function CourseDetailsPage() {
                 </div>
 
                 {/* Curriculum / Videos */}
-                <div className="bg-white rounded-3xl border border-slate-100 p-6 sm:p-8 shadow-sm">
-                  <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-2xl font-bold text-[#0F172A]">Curriculum</h3>
-                    <span className="text-sm font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-full">5 Sections • 42 Videos</span>
+                <div id="curriculum" className="bg-white rounded-3xl border border-slate-100 p-6 sm:p-8 shadow-sm scroll-mt-32">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+                    <h3 className="text-2xl sm:text-3xl font-bold text-[#0F172A]">Course curriculum</h3>
+                    <div className="text-sm font-medium text-slate-500 flex items-center gap-2">
+                      <span>5 modules</span>
+                      <span className="w-1 h-1 rounded-full bg-slate-300"></span>
+                      <span>42 lessons</span>
+                      <span className="w-1 h-1 rounded-full bg-slate-300"></span>
+                      <span>8h 35m total</span>
+                    </div>
                   </div>
                   
-                  <div className="space-y-4">
+                  <div className="space-y-0">
                     {[
-                      { title: "Section 1: The Foundations of Fluency", lessons: 6, time: "45 mins" },
-                      { title: "Section 2: Mastering Complex Sentences", lessons: 8, time: "1h 20 mins" },
-                      { title: "Section 3: Business & Corporate English", lessons: 10, time: "2h 15 mins" },
-                      { title: "Section 4: Perfecting Pronunciation", lessons: 7, time: "1h 10 mins" },
-                      { title: "Section 5: Real-World Conversation Practice", lessons: 11, time: "3h 05 mins" }
+                      { title: "Section 1: The Foundations of Fluency", lessons: 6 },
+                      { title: "Section 2: Mastering Complex Sentences", lessons: 8 },
+                      { title: "Section 3: Business & Corporate English", lessons: 10 },
+                      { title: "Section 4: Perfecting Pronunciation", lessons: 7 },
+                      { title: "Section 5: Real-World Conversation Practice", lessons: 11 }
                     ].map((section, idx) => (
-                      <div key={idx} className="border border-slate-200 rounded-2xl overflow-hidden">
-                        <button className="w-full bg-slate-50 hover:bg-slate-100 px-6 py-4 flex items-center justify-between transition-colors">
-                          <div className="flex items-center gap-4">
-                            <span className="flex items-center justify-center w-8 h-8 rounded-full bg-white border border-slate-200 text-[#0F172A] font-bold text-sm shadow-sm">{idx + 1}</span>
-                            <span className="font-bold text-[#0F172A] text-left">{section.title}</span>
-                          </div>
-                          <div className="flex items-center gap-4">
-                            <span className="text-xs font-medium text-slate-500 hidden sm:block">{section.lessons} lessons • {section.time}</span>
-                            <svg className="w-5 h-5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                            </svg>
-                          </div>
-                        </button>
-                      </div>
+                      <CurriculumModule key={idx} section={section} idx={idx} />
                     ))}
                   </div>
                 </div>
 
                 {/* Instructor Section */}
-                <div className="bg-white rounded-3xl border border-slate-100 p-6 sm:p-8 shadow-sm">
+                <div id="instructor" className="bg-white rounded-3xl border border-slate-100 p-6 sm:p-8 shadow-sm scroll-mt-32">
                   <h3 className="text-2xl font-bold text-[#0F172A] mb-6">Your Instructor</h3>
                   <div className="flex flex-col sm:flex-row gap-6 items-start">
                     <div className="w-24 h-24 rounded-full overflow-hidden shrink-0 border-2 border-slate-100 shadow-sm">
@@ -271,7 +374,7 @@ export default function CourseDetailsPage() {
                 </div>
 
                 {/* Reviews Section */}
-                <div className="bg-white rounded-3xl border border-slate-100 p-6 sm:p-8 shadow-sm">
+                <div id="reviews" className="bg-white rounded-3xl border border-slate-100 p-6 sm:p-8 shadow-sm scroll-mt-32">
                   <div className="flex items-center justify-between mb-6">
                     <h3 className="text-2xl font-bold text-[#0F172A]">Student Reviews</h3>
                     <div className="flex items-center gap-2">
@@ -310,7 +413,7 @@ export default function CourseDetailsPage() {
                 </div>
 
                 {/* FAQs Section */}
-                <div className="bg-white rounded-3xl border border-slate-100 p-6 sm:p-8 shadow-sm">
+                <div id="faqs" className="bg-white rounded-3xl border border-slate-100 p-6 sm:p-8 shadow-sm scroll-mt-32">
                   <h3 className="text-2xl font-bold text-[#0F172A] mb-6">Frequently Asked Questions</h3>
                   <div className="space-y-4">
                     {[

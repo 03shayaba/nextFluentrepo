@@ -11,138 +11,101 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-[#171E2E] text-white sticky top-0 z-50 shadow-md">
+    <header className="sticky w-full top-0 z-50 bg-white shadow-sm border-b border-slate-100 text-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           
           {/* Logo Section */}
           <div className="flex items-center gap-3 cursor-pointer">
-            <div className="text-[#E69D19] flex items-center justify-center">
-              {/* Graduation Cap Logo Icon */}
-              <svg 
-                className="w-8 h-8" 
-                viewBox="0 0 24 24" 
-                fill="currentColor"
-              >
-                <path d="M12 3L1 9L12 15L21 10.09V17H23V9M5 13.18V17.18L12 21L19 17.18V13.18L12 17L5 13.18Z" />
-              </svg>
-            </div>
-            <span className="text-xl sm:text-2xl font-bold tracking-tight text-[#E69D19]">
-              Younus LMS
-            </span>
+            <img src="/NextFluentlogo.jpeg" alt="NextFluent Logo" className="h-10 sm:h-12 w-auto object-contain rounded-full shadow-sm" />
           </div>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center space-x-8 text-sm font-medium">
+          <nav className="hidden md:flex items-center space-x-8 text-[15px] font-semibold">
             <a 
               href="/" 
-              className="text-gray-200 hover:text-white transition-colors py-2"
+              className="text-[#E59719] transition-colors py-2 border-b-2 border-[#E59719]"
             >
               Home
             </a>
 
             {/* Courses Dropdown */}
-            <div 
-              className="relative"
-              onMouseEnter={() => setActiveDropdown('courses')}
-              onMouseLeave={() => setActiveDropdown(null)}
-            >
-              <button 
-                onClick={() => toggleDropdown('courses')}
-                className="flex items-center gap-1.5 text-gray-200 hover:text-white transition-colors py-2 focus:outline-none"
-              >
+            <div className="relative" onMouseEnter={() => setActiveDropdown('courses')} onMouseLeave={() => setActiveDropdown(null)}>
+              <button onClick={() => toggleDropdown('courses')} className="flex items-center gap-1.5 text-slate-800 hover:text-[#E59719] transition-colors py-2 focus:outline-none">
                 <span>Courses</span>
-                <svg 
-                  className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'courses' ? 'rotate-180' : ''}`} 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                >
+                <svg className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'courses' ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-
               {activeDropdown === 'courses' && (
                 <div className="absolute left-0 top-full pt-1 w-48 z-50">
-                  <div className="bg-[#1F293D] border border-gray-700/60 rounded-xl shadow-xl py-2 animate-in fade-in slide-in-from-top-2 duration-150">
-                    <a href="/courses" className="block px-4 py-2 text-sm text-gray-300 hover:bg-[#2A3752] hover:text-white">Browse Courses</a>
-                    <a href="#course-category" className="block px-4 py-2 text-sm text-gray-300 hover:bg-[#2A3752] hover:text-white">Course Category</a>
+                  <div className="bg-white border border-slate-100 rounded-xl shadow-lg py-2 animate-in fade-in slide-in-from-top-2 duration-150">
+                    <a href="/courses" className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-[#E59719]">Browse Courses</a>
+                    <a href="/categories" className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-[#E59719]">Course Category</a>
                   </div>
                 </div>
               )}
             </div>
 
             {/* Quiz Dropdown */}
-            <div 
-              className="relative"
-              onMouseEnter={() => setActiveDropdown('quiz')}
-              onMouseLeave={() => setActiveDropdown(null)}
-            >
-              <button 
-                onClick={() => toggleDropdown('quiz')}
-                className="flex items-center gap-1.5 text-gray-200 hover:text-white transition-colors py-2 focus:outline-none"
-              >
+            <div className="relative" onMouseEnter={() => setActiveDropdown('quiz')} onMouseLeave={() => setActiveDropdown(null)}>
+              <button onClick={() => toggleDropdown('quiz')} className="flex items-center gap-1.5 text-slate-800 hover:text-[#E59719] transition-colors py-2 focus:outline-none">
                 <span>Quiz</span>
-                <svg 
-                  className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'quiz' ? 'rotate-180' : ''}`} 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                >
+                <svg className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'quiz' ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-
               {activeDropdown === 'quiz' && (
                 <div className="absolute left-0 top-full pt-1 w-48 z-50">
-                  <div className="bg-[#1F293D] border border-gray-700/60 rounded-xl shadow-xl py-2 animate-in fade-in slide-in-from-top-2 duration-150">
-                    <a href="#daily-quiz" className="block px-4 py-2 text-sm text-gray-300 hover:bg-[#2A3752] hover:text-white">Daily Quizzes</a>
-                    <a href="#practice-test" className="block px-4 py-2 text-sm text-gray-300 hover:bg-[#2A3752] hover:text-white">Practice Tests</a>
-                    <a href="#mock-exam" className="block px-4 py-2 text-sm text-gray-300 hover:bg-[#2A3752] hover:text-white">Mock Exams</a>
+                  <div className="bg-white border border-slate-100 rounded-xl shadow-lg py-2 animate-in fade-in slide-in-from-top-2 duration-150">
+                    <a href="/quiz" className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-[#E59719]">Check Your Level</a>
                   </div>
                 </div>
               )}
             </div>
 
             {/* Certificates Dropdown */}
-            <div 
-              className="relative"
-              onMouseEnter={() => setActiveDropdown('certificates')}
-              onMouseLeave={() => setActiveDropdown(null)}
-            >
-              <button 
-                onClick={() => toggleDropdown('certificates')}
-                className="flex items-center gap-1.5 text-gray-200 hover:text-white transition-colors py-2 focus:outline-none"
-              >
+            <div className="relative" onMouseEnter={() => setActiveDropdown('certificates')} onMouseLeave={() => setActiveDropdown(null)}>
+              <button onClick={() => toggleDropdown('certificates')} className="flex items-center gap-1.5 text-slate-800 hover:text-[#E59719] transition-colors py-2 focus:outline-none">
                 <span>Certificates</span>
-                <svg 
-                  className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'certificates' ? 'rotate-180' : ''}`} 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                >
+                <svg className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'certificates' ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-
               {activeDropdown === 'certificates' && (
                 <div className="absolute left-0 top-full pt-1 w-48 z-50">
-                  <div className="bg-[#1F293D] border border-gray-700/60 rounded-xl shadow-xl py-2 animate-in fade-in slide-in-from-top-2 duration-150">
-                    <a href="#verify" className="block px-4 py-2 text-sm text-gray-300 hover:bg-[#2A3752] hover:text-white">Verify Certificate</a>
-                    <a href="#my-certificates" className="block px-4 py-2 text-sm text-gray-300 hover:bg-[#2A3752] hover:text-white">My Certificates</a>
+                  <div className="bg-white border border-slate-100 rounded-xl shadow-lg py-2 animate-in fade-in slide-in-from-top-2 duration-150">
+                    <a href="#verify" className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-[#E59719]">Verify Certificate</a>
+                    <a href="#my-certificates" className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-[#E59719]">My Certificates</a>
                   </div>
                 </div>
               )}
             </div>
+            
+            <a href="#blog" className="text-slate-800 hover:text-[#E59719] transition-colors py-2">Blog</a>
+            <a href="/about" className="text-slate-800 hover:text-[#E59719] transition-colors py-2">About</a>
           </nav>
 
           {/* Right Action Buttons */}
-          <div className="hidden md:flex items-center space-x-3">
-            <button className="border border-slate-600 hover:border-slate-400 text-white text-sm font-medium px-5 py-2 rounded-lg transition-all hover:bg-slate-800/50 focus:outline-none">
-              Sign In
+          <div className="hidden md:flex items-center space-x-5">
+            {/* Search Icon */}
+            <button className="text-slate-800 hover:text-[#E59719] transition-colors focus:outline-none">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
             </button>
-            <button className="bg-[#E69D19] hover:bg-[#D48E12] text-white text-sm font-semibold px-5 py-2 rounded-lg shadow-md transition-all focus:outline-none active:scale-[0.98]">
-              Register
+
+            {/* Divider */}
+            <div className="w-[1px] h-6 bg-slate-300"></div>
+
+            {/* Login Link */}
+            <a href="/login" className="text-[13.5px] font-bold text-slate-800 hover:text-[#E59719] transition-colors cursor-pointer">
+              Log In
+            </a>
+
+            {/* Get Started Button */}
+            <button className="bg-[#E59719] hover:bg-[#D48E12] text-white text-[13.5px] font-bold px-6 py-2.5 rounded-full shadow-md shadow-amber-500/20 transition-all flex items-center gap-1.5">
+              Get Started <span className="font-normal">&rarr;</span>
             </button>
           </div>
 
@@ -150,7 +113,7 @@ export default function Header() {
           <div className="md:hidden flex items-center">
             <button 
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-gray-300 hover:text-white p-2 rounded-lg focus:outline-none"
+              className="text-slate-800 hover:text-[#E59719] p-2 rounded-lg focus:outline-none"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {mobileMenuOpen ? (
@@ -165,8 +128,8 @@ export default function Header() {
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="md:hidden border-t border-slate-700/60 py-4 px-2 space-y-3 bg-[#171E2E]">
-            <a href="/" className="block px-3 py-2 text-gray-200 hover:bg-[#2A3752] rounded-md font-medium">Home</a>
+          <div className="md:hidden border-t border-slate-200 py-4 px-2 space-y-3 bg-white shadow-xl">
+            <a href="/" className="block px-3 py-2 text-[#E59719] hover:bg-slate-50 rounded-md font-bold">Home</a>
             
             <div className="space-y-1">
               <button 
@@ -179,7 +142,7 @@ export default function Header() {
               {activeDropdown === 'mobile-courses' && (
                 <div className="pl-6 space-y-1 py-1">
                   <a href="/courses" className="block px-3 py-1.5 text-sm text-gray-400 hover:text-white">Browse Courses</a>
-                  <a href="#course-category" className="block px-3 py-1.5 text-sm text-gray-400 hover:text-white">Course Category</a>
+                  <a href="/categories" className="block px-3 py-1.5 text-sm text-gray-400 hover:text-white">Course Category</a>
                 </div>
               )}
             </div>
@@ -194,8 +157,7 @@ export default function Header() {
               </button>
               {activeDropdown === 'mobile-quiz' && (
                 <div className="pl-6 space-y-1 py-1">
-                  <a href="#daily-quiz" className="block px-3 py-1.5 text-sm text-gray-400 hover:text-white">Daily Quizzes</a>
-                  <a href="#practice-test" className="block px-3 py-1.5 text-sm text-gray-400 hover:text-white">Practice Tests</a>
+                  <a href="/quiz" className="block px-3 py-1.5 text-sm text-gray-400 hover:text-white">Check Your Level</a>
                 </div>
               )}
             </div>

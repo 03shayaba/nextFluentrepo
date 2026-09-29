@@ -5,6 +5,7 @@ import StatsBar from "@/components/StatsBar";
 import CourseCategories from "@/components/CourseCategories";
 import TrendingCategories from "@/components/TrendingCategories";
 import LearningProcess from "@/components/LearningProcess";
+import WhyChooseUs from "@/components/WhyChooseUs";
 import OurAchievements from "@/components/OurAchievements";
 import PopularCourses from "@/components/PopularCourses";
 import TrendingCourses from "@/components/TrendingCourses";
@@ -25,7 +26,7 @@ export default function Home() {
         <TrendingCategories />
         <OurAchievements />
         <PopularCourses />
-        <LearningProcess />
+        <WhyChooseUs />
         <TrendingCourses />
         <Testimonials />
         <LatestInsights />

@@ -139,22 +139,45 @@ const arcIcons = [
 
 export default function TrendingCategories() {
   return (
-    <section className="bg-gradient-to-b from-slate-50/80 via-white to-slate-50/50 py-16 lg:py-24 border-b border-slate-100/80 overflow-hidden select-none relative">
+    <section className="bg-gradient-to-b from-slate-50/80 via-white to-slate-50/50 py-10 lg:py-12 border-b border-slate-100/80 overflow-hidden select-none relative">
       
       {/* Decorative Ambient Glowing Orbs */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-gradient-to-tr from-amber-400/10 via-amber-200/5 to-transparent rounded-full blur-3xl pointer-events-none z-0"></div>
 
+      {/* Decorative Text Left */}
+      <div className="absolute top-24 left-10 hidden xl:block transform -rotate-12 z-0">
+        <div className="font-serif italic text-2xl font-bold text-slate-400/80 leading-tight">
+          Find<br/>Your<br/>Path
+        </div>
+        <div className="mt-1 w-12 h-0.5 bg-[#E59719]"></div>
+      </div>
+
+      {/* Decorative Text Right */}
+      <div className="absolute top-28 right-16 hidden xl:block transform rotate-12 z-0">
+        <div className="font-serif italic text-2xl font-bold text-slate-400/80 leading-tight">
+          Discover<br/>New Skills
+        </div>
+        <div className="mt-1 w-12 h-0.5 bg-[#E59719] ml-auto"></div>
+      </div>
+
+      {/* Dashed background arc */}
+      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-full max-w-4xl h-64 overflow-hidden -z-10 hidden lg:block opacity-40">
+        <svg viewBox="0 0 800 200" className="w-full h-full">
+          <path d="M 0 200 Q 400 -50 800 200" fill="none" stroke="#E59719" strokeWidth="2" strokeDasharray="6 8" />
+        </svg>
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-14 lg:mb-16 space-y-3">
+        <div className="text-center max-w-2xl mx-auto mb-14 lg:mb-16 space-y-3 relative z-20">
           <div>
-            <span className="inline-block bg-amber-100/70 text-[#E59719] font-bold text-xs sm:text-sm px-4 py-1.5 rounded-full tracking-wide">
-              Courses Categories
+            <span className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-[#E59719]/10 text-[#E59719] font-bold text-xs sm:text-sm tracking-widest uppercase shadow-sm border border-[#E59719]/20">
+              <span>⭐</span> TRENDING CATEGORIES
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight">
-            Browse Trending Categories
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight mb-4">
+            Browse Trending <span className="text-[#E59719]">Categories</span>
           </h2>
           <p className="text-sm sm:text-base text-slate-500 font-medium">
             Explore high-demand learning paths designed to build real-world skills
