@@ -15,8 +15,8 @@ const trendingCourses = [
     title: "Information About UI/UX Design Degree",
     instructor: "Masum Billah",
     lessons: "15 Lessons",
-    price: "$80.00",
-    originalPrice: "$100.00",
+    price: "₹2,499",
+    originalPrice: "₹3,499",
     image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80"
   },
   {
@@ -24,8 +24,8 @@ const trendingCourses = [
     title: "Advanced Spoken English & Accent Training",
     instructor: "Dr. Sarah Khan",
     lessons: "18 Lessons",
-    price: "$65.00",
-    originalPrice: "$90.00",
+    price: "₹1,899",
+    originalPrice: "₹2,699",
     image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80"
   },
   {
@@ -46,8 +46,8 @@ export default function TrendingCourses() {
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-14 space-y-2">
-          <span className="text-[#E59719] font-bold text-xs sm:text-sm uppercase tracking-widest block">
-            TRENDING COURSES
+          <span className="inline-block bg-amber-100/70 text-[#E59719] font-bold text-xs sm:text-sm px-4 py-1.5 rounded-full tracking-wide">
+            Trending Courses
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#111726] tracking-tight">
             Over 200+ Online Courses
@@ -60,9 +60,10 @@ export default function TrendingCourses() {
         {/* 2-Column Grid of Horizontal Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {trendingCourses.map((course) => (
-            <div 
+            <a 
+              href="/course-details"
               key={course.id}
-              className="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 flex items-center gap-5 group cursor-pointer"
+              className="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 flex items-center gap-5 group cursor-pointer block sm:flex"
             >
               {/* Left Circular Photo Thumbnail */}
               <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden shrink-0 border-2 border-slate-100 shadow-sm group-hover:scale-105 transition-transform duration-300">
@@ -105,7 +106,7 @@ export default function TrendingCourses() {
                 </div>
               </div>
 
-            </div>
+            </a>
           ))}
         </div>
 

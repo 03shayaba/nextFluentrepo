@@ -38,8 +38,8 @@ export default function LatestInsights() {
         {/* Header Row (EXPLORE NEWS | Our Latest Insights | Read All Button) */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-6">
           <div className="space-y-2">
-            <span className="text-[#E59719] font-bold text-xs sm:text-sm uppercase tracking-widest block">
-              EXPLORE NEWS
+            <span className="inline-block bg-amber-100/70 text-[#E59719] font-bold text-xs sm:text-sm px-4 py-1.5 rounded-full tracking-wide">
+              Explore News
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#111726] tracking-tight">
               Our Latest Insights
@@ -48,7 +48,9 @@ export default function LatestInsights() {
 
           <div>
             <button className="bg-[#E59719] hover:bg-[#d48d12] text-white font-bold text-sm px-6 py-3.5 rounded-xl shadow-md flex items-center gap-2 transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer">
-              <span>📖</span>
+              <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
               <span>Read All</span>
             </button>
           </div>
@@ -84,8 +86,10 @@ export default function LatestInsights() {
                     <span>By: <strong className="text-slate-600 font-semibold">{item.author}</strong></span>
                   </div>
 
-                  <div className="flex items-center gap-1">
-                    <span>📅</span>
+                  <div className="flex items-center gap-1.5">
+                    <svg className="w-3.5 h-3.5 text-[#E59719]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v13a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H8V3a1 1 0 00-1-1zm14 17H4V9h16v10z" />
+                    </svg>
                     <span>{item.date}</span>
                   </div>
                 </div>

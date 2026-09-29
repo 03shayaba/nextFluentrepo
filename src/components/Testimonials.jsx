@@ -69,8 +69,8 @@ export default function Testimonials() {
         {/* Header Row (Left Title | Right View All Button) */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-6">
           <div className="space-y-2">
-            <span className="text-[#E59719] font-bold text-xs sm:text-sm uppercase tracking-widest block">
-              TESTIMONIALS
+            <span className="inline-block bg-amber-100/70 text-[#E59719] font-bold text-xs sm:text-sm px-4 py-1.5 rounded-full tracking-wide">
+              Testimonials
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#111726] tracking-tight">
               Happy Students Says

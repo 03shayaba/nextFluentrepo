@@ -6,7 +6,7 @@ const courses = [
     category: "English Learning",
     instructor: "Jill King",
     title: "Certified English Grammar & Writing Masterclass",
-    price: "$55",
+    price: "₹1,499",
     students: "240 Students",
     lessons: "14 Lessons",
     duration: "4.5 hours",
@@ -17,7 +17,7 @@ const courses = [
     category: "Vocabulary",
     instructor: "Jill King",
     title: "Essential English Vocabulary for Daily Fluency",
-    price: "$20",
+    price: "₹799",
     students: "180 Students",
     lessons: "10 Lessons",
     duration: "3 hours",
@@ -28,7 +28,7 @@ const courses = [
     category: "Writing & Essays",
     instructor: "Ana Murphy",
     title: "Expository & Professional Business Writing",
-    price: "$45",
+    price: "₹1,299",
     students: "320 Students",
     lessons: "16 Lessons",
     duration: "5 hours",
@@ -70,9 +70,10 @@ export default function PopularCourses() {
         {/* Courses Grid matching Image 1 Design */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {courses.map((course) => (
-            <div 
+            <a 
+              href="/course-details"
               key={course.id}
-              className="bg-white rounded-3xl p-4 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group cursor-pointer"
+              className="bg-white rounded-3xl p-4 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group cursor-pointer block"
             >
               <div>
                 {/* Course Image Container with Circular Floating Price Badge */}
@@ -83,8 +84,8 @@ export default function PopularCourses() {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
 
-                  {/* Circular Floating Price Badge at Bottom-Right of Image */}
-                  <div className="absolute bottom-3 right-3 w-16 h-16 rounded-full bg-[#E59719] text-white flex items-center justify-center font-black text-lg shadow-lg border-4 border-white transform group-hover:scale-110 transition-transform">
+                  {/* Floating Price Pill Tag at Bottom-Right of Image */}
+                  <div className="absolute bottom-3 right-3 px-4 py-1.5 rounded-full bg-[#E59719] text-white flex items-center justify-center font-black text-sm sm:text-base shadow-lg border-2 border-white whitespace-nowrap transform group-hover:scale-105 transition-all duration-300">
                     {course.price}
                   </div>
                 </div>
@@ -140,7 +141,7 @@ export default function PopularCourses() {
                 </div>
               </div>
 
-            </div>
+            </a>
           ))}
         </div>
 

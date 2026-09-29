@@ -50,9 +50,11 @@ export default function CourseCategories() {
           
           {/* Left Information Area */}
           <div className="lg:col-span-6 space-y-6">
-            <span className="text-[#E59719] font-bold text-xs sm:text-sm uppercase tracking-widest block">
-              SELF DEVELOPMENT & MASTERY
-            </span>
+            <div>
+              <span className="inline-block bg-amber-100/70 text-[#E59719] font-bold text-xs sm:text-sm px-4 py-1.5 rounded-full tracking-wide">
+                Self Development & Mastery
+              </span>
+            </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#171E2E] leading-tight tracking-tight">
               Get Instant Access To Expert Solutions
@@ -91,86 +93,75 @@ export default function CourseCategories() {
             </div>
           </div>
 
-          {/* Right Column: Natural Clear Image Cards with Staggered Uppar-Neeche Expansion */}
-          <div className="lg:col-span-6 relative flex justify-center items-center min-h-[480px]">
+          {/* Right Column: Interactive Fanning Card Deck */}
+          <div className="lg:col-span-6 relative flex justify-center items-center min-h-[500px]">
             
             {/* Background Accent Glow */}
-            <div className="absolute w-80 h-80 bg-amber-500/10 rounded-full blur-3xl -z-10"></div>
+            <div className="absolute w-96 h-96 bg-amber-500/10 rounded-full blur-3xl -z-10 pointer-events-none"></div>
 
             <div 
-              className="relative w-full max-w-lg h-[440px] cursor-pointer"
+              className="relative w-full max-w-[520px] h-[500px] cursor-pointer group/container flex flex-col items-center justify-start p-2"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
-              <div className="text-center text-xs font-bold text-[#E59719] mb-3 tracking-wider uppercase flex items-center justify-center gap-1.5">
-                <span>✨ Hover over cards to expand categories</span>
+              {/* Instruction badge */}
+              <div className="text-center text-xs font-bold text-[#E59719] tracking-wider uppercase flex items-center justify-center gap-1.5 pointer-events-none z-30 mb-2">
+                <span className="animate-pulse">✨</span>
+                <span>{isHovered ? 'Click any card to explore' : 'Hover over deck to expand categories'}</span>
               </div>
 
-              {/* 4 Cards Container */}
-              <div className="relative w-full h-[400px]">
+              {/* 4 Cards Deck Area */}
+              <div className="relative w-full h-[440px] mt-2">
                 {featuredCards.map((card, idx) => {
                   
-                  let transformStyle = {};
+                  // Unhovered Stacked Deck Transforms (Replicating Image 1's 3D cascade with ample top clearance)
+                  const stackedTransforms = [
+                    'translate3d(30px, 48px, 0) rotate(-6deg) scale(1)',
+                    'translate3d(55px, 63px, 0) rotate(-2deg) scale(0.98)',
+                    'translate3d(80px, 78px, 0) rotate(3deg) scale(0.96)',
+                    'translate3d(105px, 93px, 0) rotate(8deg) scale(0.94)'
+                  ];
 
-                  if (!isHovered) {
-                    // STACKED STATE (Natural 3D Layered Deck)
-                    const offset = idx * 16;
-                    const rotate = (idx - 1.5) * 5;
-                    const scale = 1 - idx * 0.03;
-                    transformStyle = {
-                      transform: `translate(${offset}px, ${offset}px) rotate(${rotate}deg) scale(${scale})`,
-                      zIndex: 4 - idx,
-                      top: '15px',
-                      left: '25px',
-                      width: '82%',
-                      height: '82%'
-                    };
-                  } else {
-                    // STAGGERED EXPANDED LAYOUT (Uppar-Neeche / Offset arrangement)
-                    // Card 1: Top-Left (top: 0px, left: 0px)
-                    // Card 2: Top-Right (top: 25px, left: 225px) -> Slightly lower (Neeche)
-                    // Card 3: Bottom-Left (top: 215px, left: 0px) -> Slightly higher (Uppar)
-                    // Card 4: Bottom-Right (top: 235px, left: 225px) -> Offset staggered
-                    const positions = [
-                      { top: '0px', left: '0px', width: '210px', height: '195px' },
-                      { top: '30px', left: '225px', width: '210px', height: '185px' },
-                      { top: '215px', left: '0px', width: '210px', height: '185px' },
-                      { top: '235px', left: '225px', width: '210px', height: '195px' }
-                    ];
-                    
-                    const pos = positions[idx];
-                    transformStyle = {
-                      transform: 'translate(0px, 0px) rotate(0deg) scale(1)',
-                      zIndex: 10,
-                      top: pos.top,
-                      left: pos.left,
-                      width: pos.width,
-                      height: pos.height
-                    };
-                  }
+                  // Hovered Expanded Grid Transforms (Fan out smoothly to 4 corners)
+                  const expandedTransforms = [
+                    'translate3d(0px, 15px, 0) rotate(0deg) scale(0.66)',       // Top-Left
+                    'translate3d(260px, 30px, 0) rotate(0deg) scale(0.66)',     // Top-Right
+                    'translate3d(0px, 230px, 0) rotate(0deg) scale(0.66)',      // Bottom-Left
+                    'translate3d(260px, 250px, 0) rotate(0deg) scale(0.66)'     // Bottom-Right
+                  ];
+
+                  const transform = isHovered ? expandedTransforms[idx] : stackedTransforms[idx];
+                  const zIndex = isHovered ? 10 : (4 - idx);
 
                   return (
                     <div
                       key={card.id}
-                      className="absolute rounded-2xl overflow-hidden shadow-xl border-2 border-white transition-all duration-500 ease-out group"
-                      style={transformStyle}
+                      className="absolute top-0 left-0 w-[360px] h-[290px] origin-top-left rounded-3xl overflow-hidden shadow-2xl border-2 border-white transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform transform-gpu group cursor-pointer"
+                      style={{
+                        transform,
+                        zIndex,
+                      }}
                     >
-                      {/* Natural Clean Photo (No Solid Color Tint Overlays!) */}
+                      {/* Natural Photo */}
                       <img 
                         src={card.image} 
                         alt={card.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                       />
 
-                      {/* Soft Bottom Shadow Gradient for Crisp Text Contrast Only */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent"></div>
+                      {/* Soft Bottom Shadow Gradient for Crisp Text Contrast */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent pointer-events-none"></div>
 
                       {/* Card Content Overlay */}
-                      <div className="absolute inset-0 p-4 flex flex-col justify-end text-white">
-                        <span className="text-[10px] font-extrabold uppercase tracking-wider bg-black/60 backdrop-blur-md px-2.5 py-0.5 rounded-md w-fit mb-1 border border-white/20 text-amber-400">
+                      <div 
+                        className={`absolute inset-0 p-6 flex flex-col justify-end text-white pointer-events-none transition-opacity duration-300 ${
+                          isHovered || idx === 0 ? 'opacity-100' : 'opacity-0'
+                        }`}
+                      >
+                        <span className="text-xs font-extrabold uppercase tracking-wider bg-black/60 backdrop-blur-md px-3 py-1 rounded-lg w-fit mb-2 border border-white/20 text-amber-400">
                           {card.courses}
                         </span>
-                        <h4 className="text-sm sm:text-base font-extrabold leading-snug drop-shadow-md text-white">
+                        <h4 className="text-xl font-extrabold leading-snug drop-shadow-md text-white">
                           {card.title}
                         </h4>
                       </div>

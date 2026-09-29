@@ -7,7 +7,7 @@ export default function GetInTouch() {
     name: '',
     email: '',
     phone: '',
-    subject: '',
+    service: '',
     message: ''
   });
   const [submitted, setSubmitted] = useState(false);
@@ -15,228 +15,240 @@ export default function GetInTouch() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
-    setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+    setFormData({ name: '', email: '', phone: '', service: '', message: '' });
     setTimeout(() => setSubmitted(false), 4000);
   };
 
   return (
-    <section className="bg-white pt-16 lg:pt-24 border-b border-slate-100 select-none overflow-hidden">
+    <section className="bg-gradient-to-b from-slate-50/60 via-white to-slate-50/40 py-16 lg:py-24 border-b border-slate-100 overflow-hidden select-none relative">
       
-      {/* Container for Form and Contact Details */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+      {/* Container */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Center Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <span className="text-[#E59719] font-extrabold text-xs sm:text-sm uppercase tracking-widest bg-amber-50 px-4 py-1.5 rounded-full border border-amber-200 inline-block">
-            GET IN TOUCH
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#111726] tracking-tight">
-            We'd Love to Hear From You
-          </h2>
-          <p className="text-slate-600 text-sm sm:text-base font-normal leading-relaxed max-w-2xl mx-auto">
-            Whether you have a question about our courses, need support, or just want to say hello, feel free to drop us a message below.
-          </p>
-        </div>
-
-        {/* 2-Column Grid (Left: Company Contact Cards | Right: Interactive Contact Form) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
-          {/* Left Column: Contact Details Cards */}
-          <div className="lg:col-span-5 bg-white rounded-3xl p-8 border border-slate-100 shadow-lg shadow-slate-100 relative overflow-hidden flex flex-col justify-between space-y-6">
+          {/* Left Column: Heading, Bullets, Paragraph & 3 Quick Contact Cards */}
+          <div className="lg:col-span-6 space-y-6 lg:pr-4">
             
-            {/* Top Amber Border Accent */}
-            <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#E59719]" />
-
-            {/* Company Header */}
-            <div className="flex items-center gap-4 border-b border-slate-50 pb-5">
-              <div className="w-14 h-14 rounded-2xl bg-[#FFF8EE] border border-amber-100 flex items-center justify-center text-[#E59719] shadow-sm flex-shrink-0">
-                <svg className="w-7 h-7 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <rect x="4" y="2" width="16" height="20" rx="2" ry="2"/>
-                  <path d="M9 22v-4h6v4"/>
-                  <path d="M8 6h.01M16 6h.01M12 6h.01M12 10h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/>
-                </svg>
-              </div>
-              <div>
-                <span className="text-[10px] font-extrabold text-[#E59719] uppercase tracking-widest block">
-                  COMPANY
-                </span>
-                <h3 className="text-2xl font-black text-[#111726]">
-                  Younus LMS
-                </h3>
-              </div>
+            {/* Contact Us Badge */}
+            <div>
+              <span className="inline-block bg-amber-100/70 text-[#E59719] font-bold text-xs sm:text-sm px-4 py-1.5 rounded-full tracking-wide">
+                Contact Us
+              </span>
             </div>
 
-            {/* Contact Details List */}
-            <div className="space-y-4">
+            {/* Main Headline */}
+            <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black text-[#0F172A] leading-tight tracking-tight">
+              Let's Solve Your Learning & Skill Challenges— <span className="text-[#E59719]">Start Today!</span>
+            </h2>
+
+            {/* 3 Feature Bullets */}
+            <div className="space-y-4 pt-2">
               
-              {/* Address Item */}
-              <div className="bg-[#FAFBFD] rounded-2xl p-4 sm:p-5 border border-slate-100/80 flex items-start gap-4 hover:border-amber-200 transition-colors">
-                <div className="w-11 h-11 rounded-2xl bg-[#FFF8EE] text-[#E59719] flex items-center justify-center flex-shrink-0 border border-amber-100 shadow-sm">
-                  <svg className="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                    <circle cx="12" cy="10" r="3"/>
+              {/* Bullet 1 */}
+              <div className="flex items-center gap-3.5">
+                <div className="w-10 h-10 rounded-xl bg-amber-100/70 text-[#E59719] flex items-center justify-center shrink-0 shadow-xs">
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <div className="space-y-0.5">
-                  <span className="text-[11px] font-extrabold text-slate-400 uppercase tracking-wider block">
-                    ADDRESS
-                  </span>
-                  <p className="text-xs sm:text-sm font-semibold text-slate-700 leading-relaxed">
-                    Opposite Punjab National Bank Duderhama, Ganderbal, Jammu and Kashmir, 191201
-                  </p>
-                </div>
+                <span className="text-sm sm:text-base font-bold text-slate-700">
+                  24/7 Online Support
+                </span>
               </div>
 
-              {/* Email Item */}
-              <div className="bg-[#FAFBFD] rounded-2xl p-4 sm:p-5 border border-slate-100/80 flex items-start gap-4 hover:border-amber-200 transition-colors">
-                <div className="w-11 h-11 rounded-2xl bg-[#FFF8EE] text-[#E59719] flex items-center justify-center flex-shrink-0 border border-amber-100 shadow-sm">
-                  <svg className="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                    <polyline points="22,6 12,13 2,6"/>
+              {/* Bullet 2 */}
+              <div className="flex items-center gap-3.5">
+                <div className="w-10 h-10 rounded-xl bg-amber-100/70 text-[#E59719] flex items-center justify-center shrink-0 shadow-xs">
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
                   </svg>
                 </div>
-                <div className="space-y-0.5">
-                  <span className="text-[11px] font-extrabold text-slate-400 uppercase tracking-wider block">
-                    EMAIL
-                  </span>
-                  <p className="text-xs sm:text-sm font-semibold text-slate-700">
-                    ngecsupport@gmail.com
-                  </p>
-                </div>
+                <span className="text-sm sm:text-base font-bold text-slate-700">
+                  Free Consultation
+                </span>
               </div>
 
-              {/* Phone Item */}
-              <div className="bg-[#FAFBFD] rounded-2xl p-4 sm:p-5 border border-slate-100/80 flex items-start gap-4 hover:border-amber-200 transition-colors">
-                <div className="w-11 h-11 rounded-2xl bg-[#FFF8EE] text-[#E59719] flex items-center justify-center flex-shrink-0 border border-amber-100 shadow-sm">
-                  <svg className="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              {/* Bullet 3 */}
+              <div className="flex items-center gap-3.5">
+                <div className="w-10 h-10 rounded-xl bg-amber-100/70 text-[#E59719] flex items-center justify-center shrink-0 shadow-xs">
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a24.12 24.12 0 017.5 0m-7.5 0l3.75 3.75M3 5.621l3.75 3.75M6.75 9.371a24.12 24.12 0 013.75 0" />
                   </svg>
                 </div>
-                <div className="space-y-0.5">
-                  <span className="text-[11px] font-extrabold text-slate-400 uppercase tracking-wider block">
-                    PHONE
-                  </span>
-                  <p className="text-xs sm:text-sm font-semibold text-slate-700">
-                    +91-7889745674
-                  </p>
-                </div>
+                <span className="text-sm sm:text-base font-bold text-slate-700">
+                  Multilingual Support
+                </span>
               </div>
+
+            </div>
+
+            {/* Descriptive Paragraph */}
+            <p className="text-slate-500 text-sm sm:text-base leading-relaxed pt-2">
+              Fill out the form below, and one of our experts will contact you within 24 hours to discuss your needs. We're here to tailor a plan that works for you.
+            </p>
+
+            {/* 3 Quick Contact Action Cards at Bottom-Left */}
+            <div className="grid grid-cols-3 gap-3 sm:gap-4 pt-4">
+              
+              {/* Call Us Card */}
+              <a 
+                href="tel:+917889745674"
+                className="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-xs hover:shadow-md hover:border-amber-300 transition-all flex flex-col items-center justify-center text-center group cursor-pointer"
+              >
+                <div className="w-11 h-11 rounded-full bg-amber-50 text-[#E59719] group-hover:bg-[#E59719] group-hover:text-white flex items-center justify-center mb-2.5 transition-colors">
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                  </svg>
+                </div>
+                <span className="text-xs sm:text-sm font-bold text-slate-800 group-hover:text-[#E59719] transition-colors">
+                  Call Us
+                </span>
+              </a>
+
+              {/* Chat with Us Card */}
+              <a 
+                href="https://wa.me/917889745674"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-xs hover:shadow-md hover:border-amber-300 transition-all flex flex-col items-center justify-center text-center group cursor-pointer"
+              >
+                <div className="w-11 h-11 rounded-full bg-amber-50 text-[#E59719] group-hover:bg-[#E59719] group-hover:text-white flex items-center justify-center mb-2.5 transition-colors">
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
+                  </svg>
+                </div>
+                <span className="text-xs sm:text-sm font-bold text-slate-800 group-hover:text-[#E59719] transition-colors">
+                  Chat with Us
+                </span>
+              </a>
+
+              {/* See Location Card */}
+              <a 
+                href="#location-map"
+                className="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-xs hover:shadow-md hover:border-amber-300 transition-all flex flex-col items-center justify-center text-center group cursor-pointer"
+              >
+                <div className="w-11 h-11 rounded-full bg-amber-50 text-[#E59719] group-hover:bg-[#E59719] group-hover:text-white flex items-center justify-center mb-2.5 transition-colors">
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                  </svg>
+                </div>
+                <span className="text-xs sm:text-sm font-bold text-slate-800 group-hover:text-[#E59719] transition-colors">
+                  See Location
+                </span>
+              </a>
 
             </div>
 
           </div>
 
-          {/* Right Column: Contact Form */}
-          <div className="lg:col-span-7 bg-[#FAFBFD] rounded-3xl p-8 sm:p-10 border border-slate-100 shadow-lg shadow-slate-100 relative overflow-hidden flex flex-col justify-between">
+          {/* Right Column: Contact Form Card */}
+          <div className="lg:col-span-6 bg-white rounded-3xl p-8 sm:p-10 border border-slate-200/80 shadow-xl shadow-slate-100">
             
-            {/* Top Amber Border Accent */}
-            <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#E59719]" />
+            <h3 className="text-2xl font-bold text-[#0F172A] mb-6">
+              Send us a Message
+            </h3>
 
-            <div className="space-y-6">
-              <div className="space-y-1">
-                <h3 className="text-2xl font-bold text-[#111726]">
-                  Send Us A Message
-                </h3>
-                <p className="text-xs text-slate-500">
-                  Fill out the form below and our team will get back to you within 24 hours.
-                </p>
+            {submitted ? (
+              <div className="bg-amber-50 text-amber-900 font-bold text-sm p-6 rounded-2xl border border-amber-200 text-center space-y-2">
+                <span className="text-3xl block">🎉</span>
+                <p>Thank you! Your message has been sent successfully. One of our experts will contact you within 24 hours.</p>
               </div>
-
-              {submitted ? (
-                <div className="bg-emerald-50 text-emerald-700 font-bold text-sm p-6 rounded-2xl border border-emerald-200 text-center animate-fade-in space-y-2">
-                  <span className="text-3xl block">🎉</span>
-                  <p>Thank you! Your message has been sent successfully. We will get back to you shortly.</p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {/* Full Name */}
-                    <div className="space-y-1">
-                      <label className="text-xs font-bold text-slate-700 uppercase tracking-wider">
-                        Full Name <span className="text-[#E59719]">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="John Doe"
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-4 py-3 text-xs sm:text-sm bg-white rounded-xl border border-slate-200 outline-none focus:border-[#E59719] focus:ring-2 focus:ring-amber-500/20 transition-all"
-                      />
-                    </div>
-
-                    {/* Email */}
-                    <div className="space-y-1">
-                      <label className="text-xs font-bold text-slate-700 uppercase tracking-wider">
-                        Email Address <span className="text-[#E59719]">*</span>
-                      </label>
-                      <input
-                        type="email"
-                        required
-                        placeholder="john@example.com"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-4 py-3 text-xs sm:text-sm bg-white rounded-xl border border-slate-200 outline-none focus:border-[#E59719] focus:ring-2 focus:ring-amber-500/20 transition-all"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {/* Phone Number */}
-                    <div className="space-y-1">
-                      <label className="text-xs font-bold text-slate-700 uppercase tracking-wider">
-                        Phone Number
-                      </label>
-                      <input
-                        type="tel"
-                        placeholder="+91 9876543210"
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full px-4 py-3 text-xs sm:text-sm bg-white rounded-xl border border-slate-200 outline-none focus:border-[#E59719] focus:ring-2 focus:ring-amber-500/20 transition-all"
-                      />
-                    </div>
-
-                    {/* Subject */}
-                    <div className="space-y-1">
-                      <label className="text-xs font-bold text-slate-700 uppercase tracking-wider">
-                        Subject <span className="text-[#E59719]">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="Course Inquiry / Support"
-                        value={formData.subject}
-                        onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                        className="w-full px-4 py-3 text-xs sm:text-sm bg-white rounded-xl border border-slate-200 outline-none focus:border-[#E59719] focus:ring-2 focus:ring-amber-500/20 transition-all"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Message */}
-                  <div className="space-y-1">
-                    <label className="text-xs font-bold text-slate-700 uppercase tracking-wider">
-                      Your Message <span className="text-[#E59719]">*</span>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-4">
+                
+                {/* Row 1: Name & Email */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-semibold text-slate-600">
+                      Your Name <span className="text-amber-500">*</span>
                     </label>
-                    <textarea
+                    <input
+                      type="text"
                       required
-                      rows="4"
-                      placeholder="Write your message here..."
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-4 py-3 text-xs sm:text-sm bg-white rounded-xl border border-slate-200 outline-none focus:border-[#E59719] focus:ring-2 focus:ring-amber-500/20 transition-all resize-none"
-                    ></textarea>
+                      placeholder="Enter your name"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className="w-full px-4 py-3 text-sm bg-slate-50/70 rounded-xl border border-slate-200 outline-none focus:border-[#E59719] focus:bg-white focus:ring-2 focus:ring-amber-500/20 transition-all"
+                    />
                   </div>
 
-                  <button
-                    type="submit"
-                    className="w-full bg-[#E59719] hover:bg-[#d48d12] text-white font-bold text-sm py-4 rounded-xl shadow-lg shadow-amber-500/20 transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer flex items-center justify-center gap-2"
-                  >
-                    <span>Send Message</span>
-                    <span>✉️</span>
-                  </button>
-                </form>
-              )}
-            </div>
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-semibold text-slate-600">
+                      Email Address <span className="text-amber-500">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      placeholder="Enter your email"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="w-full px-4 py-3 text-sm bg-slate-50/70 rounded-xl border border-slate-200 outline-none focus:border-[#E59719] focus:bg-white focus:ring-2 focus:ring-amber-500/20 transition-all"
+                    />
+                  </div>
+                </div>
+
+                {/* Row 2: Phone & Service Select */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-semibold text-slate-600">
+                      Phone Number
+                    </label>
+                    <input
+                      type="tel"
+                      placeholder="Enter phone number"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      className="w-full px-4 py-3 text-sm bg-slate-50/70 rounded-xl border border-slate-200 outline-none focus:border-[#E59719] focus:bg-white focus:ring-2 focus:ring-amber-500/20 transition-all"
+                    />
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-semibold text-slate-600">
+                      Select Service <span className="text-amber-500">*</span>
+                    </label>
+                    <select
+                      required
+                      value={formData.service}
+                      onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                      className="w-full px-4 py-3 text-sm bg-slate-50/70 rounded-xl border border-slate-200 outline-none focus:border-[#E59719] focus:bg-white focus:ring-2 focus:ring-amber-500/20 transition-all text-slate-700"
+                    >
+                      <option value="">Choose a service</option>
+                      <option value="english-speaking">Spoken English & Fluency</option>
+                      <option value="ielts-prep">IELTS Preparation</option>
+                      <option value="grammar-masterclass">Grammar & Writing Masterclass</option>
+                      <option value="business-english">Business Communication</option>
+                      <option value="other">Other Inquiry</option>
+                    </select>
+                  </div>
+                </div>
+
+                {/* Row 3: Message Textarea */}
+                <div className="space-y-1.5">
+                  <label className="text-xs font-semibold text-slate-600">
+                    Your Message <span className="text-amber-500">*</span>
+                  </label>
+                  <textarea
+                    required
+                    rows="4"
+                    placeholder="Write your message..."
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    className="w-full px-4 py-3 text-sm bg-slate-50/70 rounded-xl border border-slate-200 outline-none focus:border-[#E59719] focus:bg-white focus:ring-2 focus:ring-amber-500/20 transition-all resize-none"
+                  ></textarea>
+                </div>
+
+                {/* Submit Button */}
+                <button
+                  type="submit"
+                  className="w-full bg-[#E59719] hover:bg-[#d48d12] text-white font-bold text-base py-3.5 sm:py-4 rounded-xl shadow-lg shadow-amber-500/25 transition-all cursor-pointer transform hover:-translate-y-0.5 active:translate-y-0 mt-2"
+                >
+                  Send Message
+                </button>
+
+              </form>
+            )}
 
           </div>
 
@@ -244,16 +256,11 @@ export default function GetInTouch() {
 
       </div>
 
-      {/* Clean 100% Screen Full-Width Location Google Map Section */}
-      <div className="w-full relative">
-        <div className="w-full h-[450px] sm:h-[500px] bg-slate-100 relative">
-          
-          {/* Top Amber Accent Line Across Screen Edge */}
-          <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#E59719] z-20" />
-
-          {/* Embedded Google Map Iframe (Clean Full-Width without center card) */}
+      {/* Embedded Location Map Section */}
+      <div id="location-map" className="w-full relative mt-16 sm:mt-20">
+        <div className="w-full h-[400px] sm:h-[450px] bg-slate-100 relative">
           <iframe
-            title="Younus LMS Edge-to-Edge Location Map"
+            title="Younus LMS Location Map"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3300.7516248919637!2d74.779435!3d34.22557!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38e185c7cb17bdf7%3A0x8e83cb2b716aa877!2sGanderbal%2C%20Jammu%20and%20Kashmir%20191201!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
             className="w-full h-full border-0"
             allowFullScreen=""

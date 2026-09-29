@@ -35,7 +35,7 @@ export default function Header() {
           {/* Desktop Navigation Links */}
           <nav className="hidden md:flex items-center space-x-8 text-sm font-medium">
             <a 
-              href="#home" 
+              href="/" 
               className="text-gray-200 hover:text-white transition-colors py-2"
             >
               Home
@@ -63,11 +63,11 @@ export default function Header() {
               </button>
 
               {activeDropdown === 'courses' && (
-                <div className="absolute left-0 mt-1 w-48 bg-[#1F293D] border border-gray-700/60 rounded-xl shadow-xl py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
-                  <a href="#all-courses" className="block px-4 py-2 text-sm text-gray-300 hover:bg-[#2A3752] hover:text-white">All Courses</a>
-                  <a href="#web-dev" className="block px-4 py-2 text-sm text-gray-300 hover:bg-[#2A3752] hover:text-white">Web Development</a>
-                  <a href="#data-science" className="block px-4 py-2 text-sm text-gray-300 hover:bg-[#2A3752] hover:text-white">Data Science</a>
-                  <a href="#design" className="block px-4 py-2 text-sm text-gray-300 hover:bg-[#2A3752] hover:text-white">UI/UX Design</a>
+                <div className="absolute left-0 top-full pt-1 w-48 z-50">
+                  <div className="bg-[#1F293D] border border-gray-700/60 rounded-xl shadow-xl py-2 animate-in fade-in slide-in-from-top-2 duration-150">
+                    <a href="/courses" className="block px-4 py-2 text-sm text-gray-300 hover:bg-[#2A3752] hover:text-white">Browse Courses</a>
+                    <a href="#course-category" className="block px-4 py-2 text-sm text-gray-300 hover:bg-[#2A3752] hover:text-white">Course Category</a>
+                  </div>
                 </div>
               )}
             </div>
@@ -94,10 +94,12 @@ export default function Header() {
               </button>
 
               {activeDropdown === 'quiz' && (
-                <div className="absolute left-0 mt-1 w-48 bg-[#1F293D] border border-gray-700/60 rounded-xl shadow-xl py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
-                  <a href="#daily-quiz" className="block px-4 py-2 text-sm text-gray-300 hover:bg-[#2A3752] hover:text-white">Daily Quizzes</a>
-                  <a href="#practice-test" className="block px-4 py-2 text-sm text-gray-300 hover:bg-[#2A3752] hover:text-white">Practice Tests</a>
-                  <a href="#mock-exam" className="block px-4 py-2 text-sm text-gray-300 hover:bg-[#2A3752] hover:text-white">Mock Exams</a>
+                <div className="absolute left-0 top-full pt-1 w-48 z-50">
+                  <div className="bg-[#1F293D] border border-gray-700/60 rounded-xl shadow-xl py-2 animate-in fade-in slide-in-from-top-2 duration-150">
+                    <a href="#daily-quiz" className="block px-4 py-2 text-sm text-gray-300 hover:bg-[#2A3752] hover:text-white">Daily Quizzes</a>
+                    <a href="#practice-test" className="block px-4 py-2 text-sm text-gray-300 hover:bg-[#2A3752] hover:text-white">Practice Tests</a>
+                    <a href="#mock-exam" className="block px-4 py-2 text-sm text-gray-300 hover:bg-[#2A3752] hover:text-white">Mock Exams</a>
+                  </div>
                 </div>
               )}
             </div>
@@ -124,9 +126,11 @@ export default function Header() {
               </button>
 
               {activeDropdown === 'certificates' && (
-                <div className="absolute left-0 mt-1 w-48 bg-[#1F293D] border border-gray-700/60 rounded-xl shadow-xl py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
-                  <a href="#verify" className="block px-4 py-2 text-sm text-gray-300 hover:bg-[#2A3752] hover:text-white">Verify Certificate</a>
-                  <a href="#my-certificates" className="block px-4 py-2 text-sm text-gray-300 hover:bg-[#2A3752] hover:text-white">My Certificates</a>
+                <div className="absolute left-0 top-full pt-1 w-48 z-50">
+                  <div className="bg-[#1F293D] border border-gray-700/60 rounded-xl shadow-xl py-2 animate-in fade-in slide-in-from-top-2 duration-150">
+                    <a href="#verify" className="block px-4 py-2 text-sm text-gray-300 hover:bg-[#2A3752] hover:text-white">Verify Certificate</a>
+                    <a href="#my-certificates" className="block px-4 py-2 text-sm text-gray-300 hover:bg-[#2A3752] hover:text-white">My Certificates</a>
+                  </div>
                 </div>
               )}
             </div>
@@ -162,7 +166,7 @@ export default function Header() {
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
           <div className="md:hidden border-t border-slate-700/60 py-4 px-2 space-y-3 bg-[#171E2E]">
-            <a href="#home" className="block px-3 py-2 text-gray-200 hover:bg-[#2A3752] rounded-md font-medium">Home</a>
+            <a href="/" className="block px-3 py-2 text-gray-200 hover:bg-[#2A3752] rounded-md font-medium">Home</a>
             
             <div className="space-y-1">
               <button 
@@ -174,9 +178,8 @@ export default function Header() {
               </button>
               {activeDropdown === 'mobile-courses' && (
                 <div className="pl-6 space-y-1 py-1">
-                  <a href="#all-courses" className="block px-3 py-1.5 text-sm text-gray-400 hover:text-white">All Courses</a>
-                  <a href="#web-dev" className="block px-3 py-1.5 text-sm text-gray-400 hover:text-white">Web Development</a>
-                  <a href="#data-science" className="block px-3 py-1.5 text-sm text-gray-400 hover:text-white">Data Science</a>
+                  <a href="/courses" className="block px-3 py-1.5 text-sm text-gray-400 hover:text-white">Browse Courses</a>
+                  <a href="#course-category" className="block px-3 py-1.5 text-sm text-gray-400 hover:text-white">Course Category</a>
                 </div>
               )}
             </div>
