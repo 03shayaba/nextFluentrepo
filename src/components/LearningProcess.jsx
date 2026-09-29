@@ -55,7 +55,7 @@ export default function LearningProcess() {
               🚀 How It Works
             </span>
           </div>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#0F172A] tracking-tight leading-tight">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-[#0F172A] tracking-tight leading-tight">
             Your Journey to <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E59719] to-amber-400">Fluency</span>
           </h2>
           <p className="text-base sm:text-lg text-slate-500 font-medium max-w-xl mx-auto">

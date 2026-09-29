@@ -36,7 +36,7 @@ export default function Newsletter() {
             <span className="inline-block bg-amber-500/10 border border-amber-500/20 text-[#E59719] font-bold text-xs sm:text-sm px-4 py-1.5 rounded-full tracking-wider uppercase shadow-sm">
               🚀 Stay Updated
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white tracking-tight leading-tight">
               Subscribe for <span className="text-[#E59719]">Offers & News!</span>
             </h2>
             <p className="text-slate-400 text-sm sm:text-base leading-relaxed">

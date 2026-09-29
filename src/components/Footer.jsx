@@ -2,7 +2,7 @@
 
 export default function Footer() {
   return (
-    <footer className="bg-[#FAFBFD] pt-16 lg:pt-20 border-t border-slate-100 select-none overflow-hidden relative">
+    <footer className="bg-[#0F172A] pt-16 lg:pt-20 border-t border-slate-800 select-none overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         
         {/* Main 5-Column Grid */}
@@ -22,13 +22,13 @@ export default function Footer() {
             </div>
 
             {/* About Paragraph */}
-            <p className="text-xs sm:text-sm text-slate-500 leading-relaxed max-w-sm font-normal">
+            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm font-normal">
               Your Company is a leading platform for online learning, offering a wide range of courses to help you achieve your career goals.
             </p>
 
             {/* Equal sized SVG Vector Social Icons Row matching 2nd image reference */}
             <div className="space-y-2">
-              <div className="flex items-center gap-4 text-slate-500">
+              <div className="flex items-center gap-4 text-slate-400">
                 
                 {/* LinkedIn */}
                 <a href="#" className="hover:text-[#0A66C2] transition-colors inline-flex items-center justify-center" aria-label="LinkedIn">
@@ -79,11 +79,11 @@ export default function Footer() {
 
           {/* Column 2: Courses */}
           <div className="lg:col-span-2 space-y-4">
-            <h4 className="text-base font-bold text-[#111726] relative inline-block">
+            <h4 className="text-base font-bold text-white relative inline-block">
               Courses
               <span className="block w-6 h-0.5 bg-[#E59719] rounded-full mt-1" />
             </h4>
-            <ul className="space-y-2.5 text-xs sm:text-sm font-medium text-slate-600">
+            <ul className="space-y-2.5 text-xs sm:text-sm font-medium text-slate-400">
               <li><a href="/courses" className="hover:text-[#E59719] transition-colors">Browse Courses</a></li>
               <li><a href="/categories" className="hover:text-[#E59719] transition-colors">Course Categories</a></li>
               <li><a href="#" className="hover:text-[#E59719] transition-colors">Free Classes</a></li>
@@ -93,11 +93,11 @@ export default function Footer() {
 
           {/* Column 3: Company */}
           <div className="lg:col-span-2 space-y-4">
-            <h4 className="text-base font-bold text-[#111726] relative inline-block">
+            <h4 className="text-base font-bold text-white relative inline-block">
               Company
               <span className="block w-6 h-0.5 bg-[#E59719] rounded-full mt-1" />
             </h4>
-            <ul className="space-y-2.5 text-xs sm:text-sm font-medium text-slate-600">
+            <ul className="space-y-2.5 text-xs sm:text-sm font-medium text-slate-400">
               <li><a href="/about" className="hover:text-[#E59719] transition-colors">About Us</a></li>
               <li><a href="#" className="hover:text-[#E59719] transition-colors">Help Center</a></li>
               <li><a href="#" className="hover:text-[#E59719] transition-colors">FAQ</a></li>
@@ -110,11 +110,11 @@ export default function Footer() {
             
             {/* Contact Info */}
             <div className="space-y-4">
-              <h4 className="text-base font-bold text-[#111726] relative inline-block">
+              <h4 className="text-base font-bold text-white relative inline-block">
                 Contact
                 <span className="block w-6 h-0.5 bg-[#E59719] rounded-full mt-1" />
               </h4>
-              <ul className="space-y-3 text-xs sm:text-sm text-slate-600">
+              <ul className="space-y-3 text-xs sm:text-sm text-slate-400">
                 <li className="flex items-start gap-2">
                   <span className="mt-0.5">📍</span>
                   <p>Opposite Punjab National Bank Duderhama, Ganderbal, Jammu and Kashmir, 191201</p>
@@ -132,11 +132,11 @@ export default function Footer() {
 
             {/* Download Our App */}
             <div className="space-y-3">
-              <h5 className="text-sm font-bold text-[#111726]">Download LMS Mobile Apps for Trainees</h5>
+              <h5 className="text-sm font-bold text-white">Download LMS Mobile Apps for Trainees</h5>
               
               <div className="flex items-center gap-3">
                 {/* App Store Button */}
-                <button className="bg-[#111726] hover:bg-slate-800 text-white px-4 py-2.5 rounded-xl flex items-center gap-2 transition-colors">
+                <button className="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white px-4 py-2.5 rounded-xl flex items-center gap-2 transition-colors">
                   <span className="text-xl">🍏</span>
                   <div className="text-left leading-none">
                     <span className="text-[9px] uppercase font-semibold text-slate-400 block">Download on the</span>
@@ -145,7 +145,7 @@ export default function Footer() {
                 </button>
 
                 {/* Google Play Button */}
-                <button className="bg-[#111726] hover:bg-slate-800 text-white px-4 py-2.5 rounded-xl flex items-center gap-2 transition-colors">
+                <button className="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white px-4 py-2.5 rounded-xl flex items-center gap-2 transition-colors">
                   <span className="text-xl">▶</span>
                   <div className="text-left leading-none">
                     <span className="text-[9px] uppercase font-semibold text-slate-400 block">GET IT ON</span>
@@ -161,18 +161,15 @@ export default function Footer() {
 
       </div>
 
-      {/* Bottom Wave Wavy Dark Navy Footer Bar */}
-      <div className="bg-[#111726] text-white pt-10 pb-6 relative overflow-hidden">
-        
-        {/* Subtle Wave SVG Top Edge */}
-        <div className="absolute -top-6 left-0 right-0 h-8 bg-gradient-to-r from-[#111726] via-[#171E2E] to-[#111726]" />
+      {/* Bottom Footer Bar */}
+      <div className="bg-[#0F172A] text-white pt-10 pb-6 relative overflow-hidden border-t border-slate-800">
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-medium text-slate-300">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-medium text-slate-500">
           <div>
             © 2026 NextFluent. All rights reserved.
           </div>
 
-          <div className="flex items-center gap-4 text-slate-400">
+          <div className="flex items-center gap-4 text-slate-500">
             <span>Better English</span>
             <span>•</span>
             <span>Brighter Opportunities</span>
@@ -180,10 +177,8 @@ export default function Footer() {
             <span>A More Confident You</span>
           </div>
 
-          <div className="flex items-center gap-1">
-            <span>Made with</span>
-            <span className="text-[#E59719]">🧡</span>
-            <span>for global learners</span>
+          <div className="flex items-center gap-1 text-slate-400">
+            <span>Design and developed by <strong className="text-white">BTPL soft</strong></span>
           </div>
         </div>
       </div>

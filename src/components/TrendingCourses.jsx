@@ -8,7 +8,7 @@ const trendingCourses = [
     lessons: "14 Lessons",
     price: "Free",
     originalPrice: null,
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80"
+    image: "/course1.avif"
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ const trendingCourses = [
     lessons: "15 Lessons",
     price: "₹2,499",
     originalPrice: "₹3,499",
-    image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80"
+    image: "/course2.avif"
   },
   {
     id: 3,
@@ -26,7 +26,7 @@ const trendingCourses = [
     lessons: "18 Lessons",
     price: "₹1,899",
     originalPrice: "₹2,699",
-    image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80"
+    image: "/course3.avif"
   },
   {
     id: 4,
@@ -35,7 +35,7 @@ const trendingCourses = [
     lessons: "20 Lessons",
     price: "Free",
     originalPrice: null,
-    image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80"
+    image: "/course4.avif"
   }
 ];
 
@@ -77,7 +77,7 @@ export default function TrendingCourses() {
           <span className="relative z-10 inline-flex items-center gap-2 bg-amber-100/70 text-[#E59719] font-bold text-xs sm:text-sm px-4 py-1.5 rounded-full tracking-wide mb-4 uppercase">
             ⭐ Trending Courses
           </span>
-          <h2 className="relative z-10 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight mb-4">
+          <h2 className="relative z-10 text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#0F172A] tracking-tight mb-4">
             Over 200+ <span className="text-[#E59719]">Online Courses</span>
           </h2>
           <p className="relative z-10 text-slate-500 text-sm sm:text-base leading-relaxed max-w-xl mx-auto">

@@ -17,7 +17,7 @@ const popularCoursesData = [
     id: 1,
     title: "English Speaking Mastery",
     description: "Build fluency, improve pronunciation and speak confidently in real-life situations.",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
+    image: "/course5.avif",
     category: "Spoken English",
     rating: "4.8",
     reviews: "2.5K",
@@ -33,7 +33,7 @@ const popularCoursesData = [
     id: 2,
     title: "English Grammar Foundation",
     description: "Master essential grammar rules with simple explanations and practical examples.",
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
+    image: "/course6.avif",
     category: "Grammar",
     rating: "4.9",
     reviews: "1.8K",
@@ -49,7 +49,7 @@ const popularCoursesData = [
     id: 3,
     title: "IELTS Preparation Course",
     description: "Comprehensive training for all IELTS modules with expert strategies and practice tests.",
-    image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
+    image: "/t1.avif",
     category: "IELTS",
     rating: "4.7",
     reviews: "3.2K",
@@ -65,7 +65,7 @@ const popularCoursesData = [
     id: 4,
     title: "Business English Pro",
     description: "Learn professional communication skills for the modern global workplace.",
-    image: "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=800&q=80",
+    image: "/t2.avif",
     category: "Business English",
     rating: "4.9",
     reviews: "1.2K",
@@ -124,7 +124,7 @@ export default function PopularCourses() {
           <div className="text-amber-500 text-sm font-bold px-4 py-1.5 rounded-full inline-flex items-center gap-2 mb-4 uppercase tracking-wider bg-transparent">
             ⭐ LEARN & GROW
           </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-[#0F172A] mb-4">
+          <h2 className="text-4xl md:text-5xl font-semibold text-[#0F172A] mb-4">
             Explore Our <span className="text-[#E59719]">Popular Courses</span>
           </h2>
           <p className="text-slate-500 text-sm md:text-base max-w-2xl">
@@ -212,9 +212,9 @@ export default function PopularCourses() {
 
                   {/* Buttons */}
                   <div className="grid grid-cols-2 gap-3">
-                    <button className="flex items-center justify-center py-2.5 rounded-xl border border-slate-300 text-slate-600 font-bold text-sm hover:bg-slate-50 transition-colors">
+                    <a href="/course-details" className="flex items-center justify-center py-2.5 rounded-xl border border-slate-300 text-slate-600 font-bold text-sm hover:bg-slate-50 transition-colors cursor-pointer">
                       View Details
-                    </button>
+                    </a>
                     <button className="flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-amber-500 text-white font-bold text-sm hover:bg-amber-600 transition-colors shadow-md shadow-amber-500/20">
                       Enroll Now &rarr;
                     </button>
@@ -245,14 +245,6 @@ export default function PopularCourses() {
             </div>
           </div>
 
-          {/* Dots Indicator */}
-          <div className="flex gap-2 mb-6 md:mb-0">
-            <div className="w-8 h-2 bg-amber-500 rounded-full"></div>
-            <div className="w-2 h-2 bg-slate-200 rounded-full"></div>
-            <div className="w-2 h-2 bg-slate-200 rounded-full"></div>
-            <div className="w-2 h-2 bg-slate-200 rounded-full"></div>
-            <div className="w-2 h-2 bg-slate-200 rounded-full"></div>
-          </div>
 
           {/* View All */}
           <a href="/courses" className="font-bold text-amber-500 text-sm flex items-center gap-1 hover:text-amber-600 transition-colors">

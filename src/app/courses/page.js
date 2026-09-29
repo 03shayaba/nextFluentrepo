@@ -10,7 +10,7 @@ import TransformHero from "@/components/TransformHero";
 const courses = [
   {
     id: 1,
-    image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=600&h=400&fit=crop",
+    image: "course1.avif",
     price: "₹1,499",
     category: "English Learning",
     instructorImage: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop",
@@ -24,7 +24,7 @@ const courses = [
   },
   {
     id: 2,
-    image: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=600&h=400&fit=crop",
+    image: "course2.avif",
     price: "₹799",
     category: "Vocabulary",
     instructorImage: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop",
@@ -38,7 +38,7 @@ const courses = [
   },
   {
     id: 3,
-    image: "https://images.unsplash.com/photo-1455390582262-044cdead27d8?w=600&h=400&fit=crop",
+    image: "course3.avif",
     price: "₹1,299",
     category: "Writing & Essays",
     instructorImage: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop",
@@ -52,7 +52,7 @@ const courses = [
   },
   {
     id: 4,
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop",
+    image: "course4.avif",
     price: "₹1,999",
     category: "Technology",
     instructorImage: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop",
@@ -66,7 +66,7 @@ const courses = [
   },
   {
     id: 5,
-    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&h=400&fit=crop",
+    image: "course5.avif",
     price: "₹899",
     category: "Design",
     instructorImage: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop",
@@ -80,7 +80,7 @@ const courses = [
   },
   {
     id: 6,
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
+    image: "course6.avif",
     price: "₹1,199",
     category: "Business",
     instructorImage: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop",
@@ -418,10 +418,10 @@ export default function CoursesPage() {
 
                         {/* Buttons */}
                         <div className="grid grid-cols-2 gap-3 mt-auto">
-                          <button className="flex items-center justify-center py-2.5 rounded-xl border border-slate-300 text-slate-600 font-bold text-sm hover:bg-slate-50 transition-colors" onClick={(e) => e.preventDefault()}>
+                          <button className="flex items-center justify-center py-2.5 rounded-xl border border-slate-300 text-slate-600 font-bold text-sm hover:bg-slate-50 transition-colors pointer-events-none">
                             View Details
                           </button>
-                          <button className="flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-[#E59719] text-white font-bold text-sm hover:bg-amber-600 transition-colors shadow-md shadow-amber-500/20" onClick={(e) => e.preventDefault()}>
+                          <button className="flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-[#E59719] text-white font-bold text-sm hover:bg-amber-600 transition-colors shadow-md shadow-amber-500/20 pointer-events-none">
                             Enroll Now &rarr;
                           </button>
                         </div>

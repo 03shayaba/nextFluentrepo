@@ -66,41 +66,27 @@ const testimonials = [
   }
 ];
 
+const extendedTestimonials = Array(40).fill(testimonials).flat();
+
 export default function Testimonials() {
-  const [activeIndex, setActiveIndex] = useState(1);
+  const [activeIndex, setActiveIndex] = useState(testimonials.length * 20);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  // Auto slide every 4 seconds
-  useEffect(() => {
-    const timer = setInterval(() => {
-      handleNext();
-    }, 4000);
-    return () => clearInterval(timer);
-  }, [activeIndex]);
+
 
   const handleNext = () => {
     if (isAnimating) return;
     setIsAnimating(true);
-    setActiveIndex((prev) => (prev + 1) % testimonials.length);
+    setActiveIndex((prev) => prev + 1);
     setTimeout(() => setIsAnimating(false), 500);
   };
 
   const handlePrev = () => {
     if (isAnimating) return;
     setIsAnimating(true);
-    setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setActiveIndex((prev) => prev - 1);
     setTimeout(() => setIsAnimating(false), 500);
   };
-
-  // Helper to get exactly 3 visible items based on current activeIndex
-  const getVisibleCards = () => {
-    const prev = (activeIndex - 1 + testimonials.length) % testimonials.length;
-    const current = activeIndex;
-    const next = (activeIndex + 1) % testimonials.length;
-    return [testimonials[prev], testimonials[current], testimonials[next]];
-  };
-
-  const visibleCards = getVisibleCards();
 
   return (
     <section className="relative bg-[#FDFCF8] pt-16 lg:pt-24 pb-8 lg:pb-12 overflow-hidden font-sans ">
@@ -119,7 +105,7 @@ export default function Testimonials() {
               <span className="w-2 h-2 rounded-full bg-[#E59719]"></span>
               <span className="text-xs font-bold text-[#E59719] tracking-widest uppercase">Learner Success</span>
             </div>
-            <h2 className="text-4xl lg:text-6xl font-extrabold text-slate-900 leading-tight mb-4 tracking-tight">
+            <h2 className="text-4xl lg:text-6xl font-semibold text-slate-900 leading-tight mb-4 tracking-tight">
               Real Learners.<br/>
               <span className="text-[#E59719]">Real Progress.</span>
             </h2>
@@ -198,12 +184,12 @@ export default function Testimonials() {
                 transform: `translateX(calc(-${activeIndex * 420 + 210}px))` 
               }}
             >
-              {testimonials.map((card, idx) => {
+              {extendedTestimonials.map((card, idx) => {
                 const isCenter = idx === activeIndex;
                 
                 return (
                   <div 
-                    key={card.id}
+                    key={idx}
                     className={`transition-all duration-500 ease-out relative flex-shrink-0 w-[400px] mx-[10px] pointer-events-auto cursor-pointer ${
                       isCenter 
                         ? 'scale-105 z-20 opacity-100 shadow-2xl border-[#E59719]/50 hover:border-[#E59719]' 

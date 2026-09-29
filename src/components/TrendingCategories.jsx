@@ -3,8 +3,8 @@
 const leftCategories = [
   {
     id: 1,
-    name: "Technology",
-    courses: "12 Courses",
+    name: "Spoken English",
+    courses: "15 Courses",
     icon: (
       <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
         <circle cx="6" cy="6" r="2" />
@@ -18,8 +18,8 @@ const leftCategories = [
   },
   {
     id: 2,
-    name: "Health & Care",
-    courses: "8 Courses",
+    name: "IELTS Preparation",
+    courses: "12 Courses",
     icon: (
       <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
@@ -28,8 +28,8 @@ const leftCategories = [
   },
   {
     id: 3,
-    name: "Mathematics",
-    courses: "6 Courses",
+    name: "Business English",
+    courses: "8 Courses",
     icon: (
       <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
@@ -38,8 +38,8 @@ const leftCategories = [
   },
   {
     id: 4,
-    name: "Languages",
-    courses: "15 Courses",
+    name: "English Grammar",
+    courses: "20 Courses",
     icon: (
       <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
         <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a24.12 24.12 0 017.5 0m-7.5 0l3.75 3.75M3 5.621l3.75 3.75M6.75 9.371a24.12 24.12 0 013.75 0" />
@@ -51,8 +51,8 @@ const leftCategories = [
 const rightCategories = [
   {
     id: 5,
-    name: "Science",
-    courses: "10 Courses",
+    name: "Vocabulary Building",
+    courses: "14 Courses",
     icon: (
       <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
         <path strokeLinecap="round" strokeLinejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L5.605 15.13a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
@@ -61,8 +61,8 @@ const rightCategories = [
   },
   {
     id: 6,
-    name: "Business",
-    courses: "14 Courses",
+    name: "Interview Prep",
+    courses: "10 Courses",
     icon: (
       <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
         <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387M3.75 14.15a2.18 2.18 0 01-.75-1.661V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m4.5 8.006h4.5" />
@@ -71,8 +71,8 @@ const rightCategories = [
   },
   {
     id: 7,
-    name: "Graphics Design",
-    courses: "18 Courses",
+    name: "Kids English",
+    courses: "6 Courses",
     icon: (
       <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
         <path strokeLinecap="round" strokeLinejoin="round" d="M6.429 9.75L2.25 12l4.179 2.25m0-4.5l5.571 3 5.571-3m-11.142 0L12 7.5l5.571 2.25m0 0L21.75 12l-4.179 2.25m0 0l-5.571 3-5.571-3m11.142 0L12 16.5l-5.571-2.25" />
@@ -81,7 +81,7 @@ const rightCategories = [
   },
   {
     id: 8,
-    name: "Marketing",
+    name: "Accent Training",
     courses: "9 Courses",
     icon: (
       <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -176,7 +176,7 @@ export default function TrendingCategories() {
               <span>⭐</span> TRENDING CATEGORIES
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#0F172A] tracking-tight mb-4">
             Browse Trending <span className="text-[#E59719]">Categories</span>
           </h2>
           <p className="text-sm sm:text-base text-slate-500 font-medium">

@@ -90,7 +90,7 @@ export default function WhyChooseUs() {
             <Star className="w-4 h-4 fill-[#E59719]" />
             Why Choose Us
           </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 mb-6 tracking-tight">
             Why Learn With <span className="text-[#E59719]">NextFluent</span>?
           </h2>
           <p className="text-lg text-slate-600 leading-relaxed">

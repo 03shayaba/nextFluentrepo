@@ -114,7 +114,7 @@ export default function OurAchievements() {
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-14 lg:mb-16 space-y-3">
-          <span className="inline-block bg-amber-100/70 text-[#E59719] font-bold text-xs sm:text-sm px-4 py-1.5 rounded-full tracking-wide">
+          <span className="inline-block bg-amber-100/70 text-[#E59719] font-semibold text-xs sm:text-sm px-4 py-1.5 rounded-full tracking-wide">
             Our Achievements
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0F172A] tracking-tight">

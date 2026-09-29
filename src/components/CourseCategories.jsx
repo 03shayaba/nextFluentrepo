@@ -63,7 +63,10 @@ const coursesData = [
 
 export default function CourseCategories() {
   const scrollRef = useRef(null);
-  const [activeIndex, setActiveIndex] = useState(1);
+  const [activeIndex, setActiveIndex] = useState(-1);
+
+  // Create an array with many duplicates to simulate infinite scrolling
+  const extendedCourses = Array(10).fill(coursesData).flat();
 
   const handleScroll = () => {
     if (!scrollRef.current) return;
@@ -77,7 +80,6 @@ export default function CourseCategories() {
     let minDistance = Infinity;
 
     cards.forEach((card, index) => {
-      // get the left position relative to the scroll container's content width
       const cardCenter = card.offsetLeft + card.offsetWidth / 2;
       const distance = Math.abs(cardCenter - containerCenter);
       
@@ -91,24 +93,45 @@ export default function CourseCategories() {
   };
 
   useEffect(() => {
-    // Check initial active item after mount
+    // Jump to the middle of the list on mount without smooth scrolling
+    if (scrollRef.current) {
+      const container = scrollRef.current;
+      const cards = Array.from(container.children).filter(child => child.classList.contains('card-item'));
+      
+      if (cards.length > 0) {
+        const middleIndex = Math.floor(cards.length / 2);
+        const middleCard = cards[middleIndex];
+        
+        // Calculate exact scroll position to center the middle card
+        const containerCenter = container.clientWidth / 2;
+        const cardCenter = middleCard.offsetLeft + middleCard.offsetWidth / 2;
+        
+        container.scrollLeft = cardCenter - containerCenter;
+      }
+    }
+    
     handleScroll();
   }, []);
 
   const scrollLeft = () => {
     if (scrollRef.current && scrollRef.current.firstElementChild) {
-      const cardWidth = scrollRef.current.firstElementChild.offsetWidth;
-      // Get the gap (md:gap-6 is 24px)
-      const gap = window.innerWidth >= 768 ? 24 : 16;
-      scrollRef.current.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
+      const cards = Array.from(scrollRef.current.children).filter(child => child.classList.contains('card-item'));
+      if (cards.length > 0) {
+        const cardWidth = cards[0].offsetWidth;
+        const gap = window.innerWidth >= 768 ? 24 : 16;
+        scrollRef.current.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
+      }
     }
   };
 
   const scrollRight = () => {
     if (scrollRef.current && scrollRef.current.firstElementChild) {
-      const cardWidth = scrollRef.current.firstElementChild.offsetWidth;
-      const gap = window.innerWidth >= 768 ? 24 : 16;
-      scrollRef.current.scrollBy({ left: (cardWidth + gap), behavior: 'smooth' });
+      const cards = Array.from(scrollRef.current.children).filter(child => child.classList.contains('card-item'));
+      if (cards.length > 0) {
+        const cardWidth = cards[0].offsetWidth;
+        const gap = window.innerWidth >= 768 ? 24 : 16;
+        scrollRef.current.scrollBy({ left: (cardWidth + gap), behavior: 'smooth' });
+      }
     }
   };
 
@@ -148,7 +171,7 @@ export default function CourseCategories() {
           <div className="bg-amber-100 text-[#D97706] text-xs font-bold px-4 py-1.5 rounded-full inline-flex items-center gap-2 mb-4 uppercase tracking-wider">
             <span className="text-sm">🎓</span> Learning Resources
           </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-[#0F172A] mb-4">
+          <h2 className="text-4xl md:text-5xl font-semibold text-[#0F172A] mb-4">
             Our <span className="text-[#E59719]">Courses</span>
           </h2>
           <p className="text-slate-500 text-sm md:text-base max-w-2xl">
@@ -178,23 +201,18 @@ export default function CourseCategories() {
           <div 
             ref={scrollRef}
             onScroll={handleScroll}
-            className="flex overflow-x-auto gap-4 md:gap-6 pb-12 pt-8 snap-x snap-mandatory hide-scrollbar relative scroll-smooth"
+            className="flex overflow-x-auto gap-4 md:gap-6 py-12 px-2 snap-x snap-mandatory hide-scrollbar relative"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
-            <style jsx>{`
-              .hide-scrollbar::-webkit-scrollbar {
-                display: none;
-              }
-            `}</style>
             
-            {coursesData.map((course, index) => {
+            {extendedCourses.map((course, index) => {
               const isActive = index === activeIndex;
               return (
                 <div 
-                  key={course.id}
+                  key={index}
                   className={`card-item snap-center shrink-0 w-[80vw] sm:w-[240px] md:w-[calc((100%-48px)/3)] xl:w-[calc((100%-96px)/5)] group relative transition-all duration-300 ${isActive ? 'scale-110 z-10' : 'scale-100 opacity-90'}`}
                 >
-                  <div className={`h-full bg-white rounded-[1.5rem] p-6 shadow-sm flex flex-col items-center text-center transition-all duration-300 border ${isActive ? 'border-amber-400 shadow-xl shadow-amber-500/20 -translate-y-2' : 'border-slate-100'}`}>
+                  <div className={`h-full bg-white rounded-[1.5rem] p-6 flex flex-col items-center text-center transition-all duration-300 border ${isActive ? 'border-amber-400 shadow-xl shadow-amber-500/20 -translate-y-2' : 'border-slate-100 shadow-sm'}`}>
                     
                     {/* Icon Area */}
                     <div className={`w-28 h-24 rounded-2xl ${course.iconBg} flex items-center justify-center mb-6 text-5xl transition-transform duration-300 ${isActive ? 'scale-110' : ''}`}>
@@ -207,13 +225,13 @@ export default function CourseCategories() {
                     {/* Bottom Action */}
                     <div className="w-full mt-auto">
                       {!isActive ? (
-                        <div className="flex items-center justify-center text-amber-500 font-bold text-sm">
+                        <a href="/courses" className="flex items-center justify-center text-amber-500 font-bold text-sm hover:text-amber-600 transition-colors">
                           Explore &rarr;
-                        </div>
+                        </a>
                       ) : (
-                        <button className="flex items-center justify-center w-full bg-amber-500 text-white font-bold text-sm py-3 rounded-xl shadow-md transition-all">
+                        <a href="/courses" className="flex items-center justify-center w-full bg-amber-500 text-white font-bold text-sm py-3 rounded-xl shadow-md transition-all hover:bg-amber-600">
                           Explore Course &rarr;
-                        </button>
+                        </a>
                       )}
                     </div>
                     
