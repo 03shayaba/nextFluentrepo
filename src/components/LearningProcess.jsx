@@ -33,15 +33,15 @@ const steps = [
 
 export default function LearningProcess() {
   return (
-    <section className="relative bg-[#0F172A] py-20 lg:py-32 overflow-hidden select-none z-0">
+    <section className="relative bg-slate-50 py-20 lg:py-32 overflow-hidden select-none z-0 border-y border-slate-100">
       
       {/* Decorative Background Elements */}
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-indigo-500/10 rounded-full blur-[120px] pointer-events-none -translate-y-1/2 translate-x-1/3"></div>
-      <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-amber-500/10 rounded-full blur-[120px] pointer-events-none translate-y-1/2 -translate-x-1/3"></div>
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-amber-100/50 rounded-full blur-[120px] pointer-events-none -translate-y-1/2 translate-x-1/3"></div>
+      <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-indigo-100/30 rounded-full blur-[120px] pointer-events-none translate-y-1/2 -translate-x-1/3"></div>
 
-      <svg className="absolute inset-0 w-full h-full opacity-[0.03] pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <svg className="absolute inset-0 w-full h-full opacity-[0.2] pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
         <pattern id="learning-grid" width="10" height="10" patternUnits="userSpaceOnUse">
-          <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" strokeWidth="0.5" />
+          <path d="M 10 0 L 0 0 0 10" fill="none" stroke="#E59719" strokeWidth="0.1" />
         </pattern>
         <rect width="100" height="100" fill="url(#learning-grid)" />
       </svg>
@@ -50,16 +50,15 @@ export default function LearningProcess() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
-          <div className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 px-4 py-2 rounded-full mb-4">
+          <div className="inline-flex items-center gap-2 bg-amber-100/70 border border-amber-200/50 px-4 py-2 rounded-full mb-4">
             <span className="text-[#E59719] font-bold text-xs sm:text-sm tracking-widest uppercase">
               🚀 How It Works
             </span>
           </div>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
-            Your Journey to <br className="hidden sm:block"/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E59719] to-amber-300">Fluency</span>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#0F172A] tracking-tight leading-tight">
+            Your Journey to <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E59719] to-amber-400">Fluency</span>
           </h2>
-          <p className="text-base sm:text-lg text-slate-400 font-medium max-w-xl mx-auto">
+          <p className="text-base sm:text-lg text-slate-500 font-medium max-w-xl mx-auto">
             Master English and achieve your goals in 4 simple, highly effective steps designed for maximum retention.
           </p>
         </div>
@@ -68,7 +67,7 @@ export default function LearningProcess() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
           
           {/* Connector Line (Desktop only) */}
-          <div className="hidden lg:block absolute top-[40%] left-[10%] right-[10%] h-[2px] bg-gradient-to-r from-transparent via-amber-500/30 to-transparent z-0"></div>
+          <div className="hidden lg:block absolute top-[40%] left-[10%] right-[10%] h-[2px] bg-gradient-to-r from-transparent via-amber-200 to-transparent z-0"></div>
 
           {steps.map((step, index) => (
             <div 
@@ -77,21 +76,21 @@ export default function LearningProcess() {
             >
               
               {/* Massive Background Number */}
-              <div className="absolute top-10 left-1/2 -translate-x-1/2 text-[120px] font-black text-white/[0.02] group-hover:text-amber-500/[0.05] transition-colors duration-500 z-0 pointer-events-none select-none">
+              <div className="absolute top-10 left-1/2 -translate-x-1/2 text-[120px] font-black text-slate-200/50 group-hover:text-amber-200/50 transition-colors duration-500 z-0 pointer-events-none select-none">
                 0{step.id}
               </div>
 
               {/* Card Container */}
-              <div className="relative z-10 bg-white/5 backdrop-blur-xl border border-white/10 p-4 rounded-[2rem] w-full max-w-[300px] shadow-2xl transition-all duration-500 hover:-translate-y-4 hover:border-amber-500/30 hover:bg-white/10 hover:shadow-[0_20px_40px_rgba(229,151,25,0.15)] flex flex-col items-center">
+              <div className="relative z-10 bg-white border border-slate-100 p-4 rounded-[2rem] w-full max-w-[300px] shadow-sm transition-all duration-500 hover:-translate-y-4 hover:border-amber-200 hover:shadow-[0_20px_40px_rgba(229,151,25,0.15)] flex flex-col items-center group-hover:bg-amber-50/10">
                 
                 {/* Step Badge */}
-                <div className="absolute -top-4 bg-gradient-to-r from-[#E59719] to-amber-500 text-white text-xs font-black px-4 py-1.5 rounded-full shadow-lg border-2 border-[#0F172A] z-20">
+                <div className="absolute -top-4 bg-gradient-to-r from-[#E59719] to-amber-500 text-white text-xs font-black px-4 py-1.5 rounded-full shadow-lg border-2 border-white z-20">
                   {step.stepNumber}
                 </div>
 
                 {/* Image */}
-                <div className="w-full h-48 rounded-[1.5rem] overflow-hidden mb-6 relative">
-                  <div className="absolute inset-0 bg-amber-500/20 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-500 z-10"></div>
+                <div className="w-full h-48 rounded-[1.5rem] overflow-hidden mb-6 relative shadow-inner">
+                  <div className="absolute inset-0 bg-amber-500/10 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-500 z-10"></div>
                   <img 
                     src={step.image} 
                     alt={step.title}
@@ -101,10 +100,10 @@ export default function LearningProcess() {
 
                 {/* Content */}
                 <div className="text-center pb-4 px-2">
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#E59719] transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-[#0F172A] mb-3 group-hover:text-[#E59719] transition-colors duration-300">
                     {step.title}
                   </h3>
-                  <p className="text-sm text-slate-400 leading-relaxed group-hover:text-slate-300 transition-colors">
+                  <p className="text-sm text-slate-500 font-medium leading-relaxed group-hover:text-slate-600 transition-colors">
                     {step.description}
                   </p>
                 </div>
@@ -112,7 +111,7 @@ export default function LearningProcess() {
               </div>
 
               {/* Glowing Dot on Connector */}
-              <div className="hidden lg:block absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-[#0F172A] border-2 border-amber-500 z-20 group-hover:bg-[#E59719] group-hover:shadow-[0_0_15px_rgba(229,151,25,0.6)] transition-all duration-300"></div>
+              <div className="hidden lg:block absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-white border-4 border-amber-300 z-20 group-hover:border-[#E59719] group-hover:shadow-[0_0_15px_rgba(229,151,25,0.4)] transition-all duration-300"></div>
 
             </div>
           ))}

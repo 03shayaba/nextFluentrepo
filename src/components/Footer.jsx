@@ -23,7 +23,7 @@ export default function Footer() {
 
             {/* About Paragraph */}
             <p className="text-xs sm:text-sm text-slate-500 leading-relaxed max-w-sm font-normal">
-              NextFluent is your trusted partner in learning English & modern skills. We help learners worldwide build confidence, improve communication skills, and unlock new opportunities.
+              Your Company is a leading platform for online learning, offering a wide range of courses to help you achieve your career goals.
             </p>
 
             {/* Equal sized SVG Vector Social Icons Row matching 2nd image reference */}
@@ -77,72 +77,62 @@ export default function Footer() {
 
           </div>
 
-          {/* Column 2: Quick Links (2 Cols) */}
+          {/* Column 2: Courses */}
           <div className="lg:col-span-2 space-y-4">
             <h4 className="text-base font-bold text-[#111726] relative inline-block">
-              Quick Links
+              Courses
               <span className="block w-6 h-0.5 bg-[#E59719] rounded-full mt-1" />
             </h4>
             <ul className="space-y-2.5 text-xs sm:text-sm font-medium text-slate-600">
-              <li><a href="#" className="hover:text-[#E59719] transition-colors">Home</a></li>
-              <li><a href="#" className="hover:text-[#E59719] transition-colors">Courses</a></li>
-              <li><a href="#" className="hover:text-[#E59719] transition-colors">About Us</a></li>
-              <li><a href="#" className="hover:text-[#E59719] transition-colors">Blog</a></li>
-              <li><a href="#" className="hover:text-[#E59719] transition-colors">Testimonials</a></li>
-              <li><a href="#" className="hover:text-[#E59719] transition-colors">Contact Us</a></li>
+              <li><a href="/courses" className="hover:text-[#E59719] transition-colors">Browse Courses</a></li>
+              <li><a href="/categories" className="hover:text-[#E59719] transition-colors">Course Categories</a></li>
+              <li><a href="#" className="hover:text-[#E59719] transition-colors">Free Classes</a></li>
+              <li><a href="#" className="hover:text-[#E59719] transition-colors">Privacy Policy</a></li>
             </ul>
           </div>
 
-          {/* Column 3: Our Courses (2 Cols) */}
+          {/* Column 3: Company */}
           <div className="lg:col-span-2 space-y-4">
             <h4 className="text-base font-bold text-[#111726] relative inline-block">
-              Our Courses
+              Company
               <span className="block w-6 h-0.5 bg-[#E59719] rounded-full mt-1" />
             </h4>
             <ul className="space-y-2.5 text-xs sm:text-sm font-medium text-slate-600">
-              <li><a href="#" className="hover:text-[#E59719] transition-colors">Grammar</a></li>
-              <li><a href="#" className="hover:text-[#E59719] transition-colors">Speaking</a></li>
-              <li><a href="#" className="hover:text-[#E59719] transition-colors">Vocabulary</a></li>
-              <li><a href="#" className="hover:text-[#E59719] transition-colors">Listening</a></li>
-              <li><a href="#" className="hover:text-[#E59719] transition-colors">IELTS Preparation</a></li>
-              <li><a href="#" className="hover:text-[#E59719] transition-colors">Business English</a></li>
-              <li><a href="#" className="hover:text-[#E59719] transition-colors">Kids English</a></li>
+              <li><a href="/about" className="hover:text-[#E59719] transition-colors">About Us</a></li>
+              <li><a href="#" className="hover:text-[#E59719] transition-colors">Help Center</a></li>
+              <li><a href="#" className="hover:text-[#E59719] transition-colors">FAQ</a></li>
+              <li><a href="#" className="hover:text-[#E59719] transition-colors">Privacy Policy</a></li>
             </ul>
           </div>
 
-          {/* Column 4: Stay in the Loop & App Downloads (4 Cols) */}
-          <div className="lg:col-span-4 space-y-6">
+          {/* Column 4: Contact & App Downloads (4 Cols) */}
+          <div className="lg:col-span-4 space-y-8">
             
-            {/* Soft Amber Card: Stay in the Loop */}
-            <div className="bg-[#FFF8EE] rounded-3xl p-6 border border-amber-100/80 shadow-sm space-y-4 relative overflow-hidden">
-              <div className="flex items-start justify-between">
-                <div className="space-y-1">
-                  <h4 className="text-lg font-bold text-[#111726]">Stay in the Loop</h4>
-                  <p className="text-xs text-slate-500 leading-relaxed">
-                    Get the latest tips, resources, and updates delivered to your inbox.
-                  </p>
-                </div>
-                <span className="text-3xl text-[#E59719]">✈️</span>
-              </div>
-
-              <div className="flex items-center bg-white rounded-2xl p-1.5 border border-amber-200/80 shadow-inner">
-                <input 
-                  type="email"
-                  placeholder="Enter your email address"
-                  className="w-full px-3 py-2 text-xs text-slate-700 bg-transparent outline-none placeholder-slate-400"
-                />
-                <button className="bg-[#E59719] hover:bg-[#d48d12] text-white font-bold text-xs px-5 py-2.5 rounded-xl flex-shrink-0 transition-colors flex items-center gap-1">
-                  <span>Subscribe</span>
-                  <span>→</span>
-                </button>
-              </div>
-              <p className="text-[11px] text-slate-400 italic">No spam. Just valuable learning content.</p>
+            {/* Contact Info */}
+            <div className="space-y-4">
+              <h4 className="text-base font-bold text-[#111726] relative inline-block">
+                Contact
+                <span className="block w-6 h-0.5 bg-[#E59719] rounded-full mt-1" />
+              </h4>
+              <ul className="space-y-3 text-xs sm:text-sm text-slate-600">
+                <li className="flex items-start gap-2">
+                  <span className="mt-0.5">📍</span>
+                  <p>Opposite Punjab National Bank Duderhama, Ganderbal, Jammu and Kashmir, 191201</p>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span>📞</span>
+                  <a href="tel:+917889745674" className="hover:text-[#E59719] transition-colors">+91-7889745674</a>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span>✉️</span>
+                  <a href="mailto:ngecsupport@gmail.com" className="hover:text-[#E59719] transition-colors">ngecsupport@gmail.com</a>
+                </li>
+              </ul>
             </div>
 
             {/* Download Our App */}
             <div className="space-y-3">
-              <h5 className="text-sm font-bold text-[#111726]">Download Our App</h5>
-              <p className="text-xs text-slate-500">Learn anytime, anywhere.</p>
+              <h5 className="text-sm font-bold text-[#111726]">Download LMS Mobile Apps for Trainees</h5>
               
               <div className="flex items-center gap-3">
                 {/* App Store Button */}
