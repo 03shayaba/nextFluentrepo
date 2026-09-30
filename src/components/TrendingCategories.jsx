@@ -139,7 +139,7 @@ const arcIcons = [
 
 export default function TrendingCategories() {
   return (
-    <section className="bg-gradient-to-b from-slate-50/80 via-white to-slate-50/50 py-10 lg:py-12 border-b border-slate-100/80 overflow-hidden select-none relative">
+    <section className="bg-[#111726] py-10 lg:py-12 border-b border-[#1E293B] overflow-hidden select-none relative">
       
       {/* Decorative Ambient Glowing Orbs */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-gradient-to-tr from-amber-400/10 via-amber-200/5 to-transparent rounded-full blur-3xl pointer-events-none z-0"></div>
@@ -172,14 +172,14 @@ export default function TrendingCategories() {
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-14 lg:mb-16 space-y-3 relative z-20">
           <div>
-            <span className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-[#E59719]/10 text-[#E59719] font-bold text-xs sm:text-sm tracking-widest uppercase shadow-sm border border-[#E59719]/20">
+            <span className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-[#E59719]/20 text-[#E59719] font-bold text-xs sm:text-sm tracking-widest uppercase shadow-sm border border-[#E59719]/30">
               <span>⭐</span> TRENDING CATEGORIES
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#0F172A] tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white tracking-tight mb-4">
             Browse Trending <span className="text-[#E59719]">Categories</span>
           </h2>
-          <p className="text-sm sm:text-base text-slate-500 font-medium">
+          <p className="text-sm sm:text-base text-slate-400 font-medium">
             Explore high-demand learning paths designed to build real-world skills
           </p>
         </div>
@@ -192,21 +192,21 @@ export default function TrendingCategories() {
             {leftCategories.map((item) => (
               <div 
                 key={item.id}
-                className="group bg-white rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-xl hover:border-amber-400/50 flex items-center justify-between h-[80px] sm:h-[84px] overflow-hidden transition-all duration-300 transform hover:-translate-y-1 cursor-pointer relative"
+                className="group bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 shadow-lg hover:shadow-xl hover:bg-white/10 hover:border-amber-400/50 flex items-center justify-between h-[80px] sm:h-[84px] transition-all duration-300 transform hover:-translate-y-1 cursor-pointer relative"
               >
-                {/* Left Dark Capsule Icon Container */}
-                <div className="w-16 sm:w-20 h-full bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 group-hover:from-[#E59719] group-hover:to-amber-600 flex items-center justify-center rounded-r-[32px] shrink-0 transition-all duration-300 shadow-md group-hover:shadow-amber-500/30">
-                  <div className="transform group-hover:scale-110 transition-transform duration-300">
+                {/* Left Floating Icon Container */}
+                <div className="w-12 sm:w-14 h-12 sm:h-14 ml-3 sm:ml-4 bg-black/20 group-hover:bg-[#E59719] border border-white/5 flex items-center justify-center rounded-xl shrink-0 transition-all duration-300 shadow-md">
+                  <div className="transform group-hover:scale-110 transition-transform duration-300 text-white">
                     {item.icon}
                   </div>
                 </div>
 
                 {/* Card Title & Course Counter */}
                 <div className="flex-1 px-4 py-2">
-                  <h3 className="text-sm sm:text-base font-bold text-[#0F172A] group-hover:text-[#E59719] transition-colors leading-snug">
+                  <h3 className="text-sm sm:text-base font-bold text-white group-hover:text-[#E59719] transition-colors leading-snug">
                     {item.name}
                   </h3>
-                  <span className="inline-block mt-1 text-[11px] font-semibold text-slate-500 group-hover:text-amber-700 bg-slate-100 group-hover:bg-amber-50 px-2.5 py-0.5 rounded-full transition-colors">
+                  <span className="inline-block mt-1 text-[11px] font-semibold text-slate-400 group-hover:text-amber-300 bg-black/20 group-hover:bg-amber-500/20 px-2.5 py-0.5 rounded-full transition-colors border border-white/5">
                     {item.courses}
                   </span>
                 </div>
@@ -311,7 +311,7 @@ export default function TrendingCategories() {
             {rightCategories.map((item) => (
               <div 
                 key={item.id}
-                className="group bg-white rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-xl hover:border-amber-400/50 flex items-center justify-between h-[80px] sm:h-[84px] overflow-hidden transition-all duration-300 transform hover:-translate-y-1 cursor-pointer relative"
+                className="group bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 shadow-lg hover:shadow-xl hover:bg-white/10 hover:border-amber-400/50 flex items-center justify-between h-[80px] sm:h-[84px] transition-all duration-300 transform hover:-translate-y-1 cursor-pointer relative"
               >
                 {/* Left Arrow Indicator (Pointed Inward) */}
                 <div className="pl-4 text-slate-300 group-hover:text-[#E59719] group-hover:-translate-x-1 transition-all duration-300 order-1">
@@ -322,17 +322,17 @@ export default function TrendingCategories() {
 
                 {/* Card Title & Course Counter (Right Aligned to Face Inward) */}
                 <div className="flex-1 px-4 py-2 text-right order-2">
-                  <h3 className="text-sm sm:text-base font-bold text-[#0F172A] group-hover:text-[#E59719] transition-colors leading-snug">
+                  <h3 className="text-sm sm:text-base font-bold text-white group-hover:text-[#E59719] transition-colors leading-snug">
                     {item.name}
                   </h3>
-                  <span className="inline-block mt-1 text-[11px] font-semibold text-slate-500 group-hover:text-amber-700 bg-slate-100 group-hover:bg-amber-50 px-2.5 py-0.5 rounded-full transition-colors">
+                  <span className="inline-block mt-1 text-[11px] font-semibold text-slate-400 group-hover:text-amber-300 bg-black/20 group-hover:bg-amber-500/20 px-2.5 py-0.5 rounded-full transition-colors border border-white/5">
                     {item.courses}
                   </span>
                 </div>
 
-                {/* Right Dark Capsule Icon Container (Mirrored Capsule) */}
-                <div className="w-16 sm:w-20 h-full bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 group-hover:from-[#E59719] group-hover:to-amber-600 flex items-center justify-center rounded-l-[32px] shrink-0 transition-all duration-300 shadow-md group-hover:shadow-amber-500/30 order-3">
-                  <div className="transform group-hover:scale-110 transition-transform duration-300">
+                {/* Right Floating Icon Container (Mirrored Capsule) */}
+                <div className="w-12 sm:w-14 h-12 sm:h-14 mr-3 sm:mr-4 bg-black/20 group-hover:bg-[#E59719] border border-white/5 flex items-center justify-center rounded-xl shrink-0 transition-all duration-300 shadow-md order-3">
+                  <div className="transform group-hover:scale-110 transition-transform duration-300 text-white">
                     {item.icon}
                   </div>
                 </div>

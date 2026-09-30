@@ -49,7 +49,7 @@ const milestones = [
 
 export default function OurJourney() {
   return (
-    <section className="bg-slate-50/50 py-16 lg:py-24 border-t border-slate-100 select-none relative overflow-hidden">
+    <section className="bg-[#0b101c] py-16 lg:py-24 border-t border-[#1E293B] select-none relative overflow-hidden">
       
       {/* Decorative Background Blobs */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-amber-100/50 rounded-full blur-3xl transform translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
@@ -78,13 +78,13 @@ export default function OurJourney() {
             </svg>
           </div>
 
-          <span className="inline-block bg-amber-100/70 text-[#E59719] font-bold text-xs sm:text-sm px-4 py-1.5 rounded-full tracking-wider uppercase shadow-sm">
+          <span className="inline-flex items-center gap-2 bg-[#E59719]/20 backdrop-blur-md border border-[#E59719]/30 text-[#E59719] font-bold text-xs sm:text-sm px-4 py-1.5 rounded-full tracking-wider uppercase">
             📖 Our Story
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
             The Journey of <span className="text-[#E59719]">NextFluent</span>
           </h2>
-          <p className="text-slate-500 text-base sm:text-lg">
+          <p className="text-slate-400 text-base sm:text-lg">
             From a small idea to a global community. Discover how we've evolved over the years to become a leader in language education.
           </p>
         </div>
@@ -102,36 +102,35 @@ export default function OurJourney() {
                 <div key={milestone.year} className={`relative flex flex-col md:flex-row items-center ${isEven ? 'md:flex-row-reverse' : ''} group cursor-pointer`}>
                   
                   {/* Timeline Node (Icon) */}
-                  <div className="absolute left-10 md:left-1/2 w-14 h-14 bg-white border-4 border-[#E59719] text-[#E59719] group-hover:bg-[#E59719] group-hover:text-white rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(229,151,25,0.3)] transform -translate-x-1/2 z-10 transition-colors duration-300">
+                  <div className="absolute left-10 md:left-1/2 w-14 h-14 bg-[#1E293B] border-4 border-[#E59719] text-[#E59719] group-hover:bg-[#E59719] group-hover:text-white rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(229,151,25,0.3)] transform -translate-x-1/2 z-10 transition-colors duration-300">
                     {milestone.icon}
                   </div>
 
-                  {/* Image space for alternating layout */}
                   <div className={`hidden md:block md:w-1/2 ${isEven ? 'pl-20' : 'pr-20'}`}>
-                    <div className="w-full h-full min-h-[200px] relative rounded-3xl overflow-hidden shadow-sm border-[6px] border-white group-hover:shadow-[0_8px_30px_rgba(229,151,25,0.12)] group-hover:border-amber-50 group-hover:-translate-y-2 transition-all duration-300">
+                    <div className="w-full h-full min-h-[200px] relative rounded-3xl overflow-hidden shadow-sm border-[6px] border-[#111726] group-hover:shadow-xl group-hover:border-slate-800 group-hover:-translate-y-2 transition-all duration-300">
                       <img src={milestone.image} alt={milestone.title} className="w-full h-full object-cover absolute inset-0 group-hover:scale-105 transition-transform duration-500" />
                     </div>
                   </div>
 
                   {/* Content Card */}
                   <div className={`w-full md:w-1/2 pl-24 md:pl-0 ${isEven ? 'md:pr-20 text-left md:text-right' : 'md:pl-20 text-left'}`}>
-                    <div className={`relative bg-white p-8 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 hover:shadow-[0_8px_30px_rgba(229,151,25,0.12)] hover:border-[#E59719]/40 transition-all duration-300 transform group-hover:-translate-y-2`}>
+                    <div className={`relative bg-[#111726] p-8 rounded-3xl shadow-xl border border-slate-700 hover:shadow-2xl hover:border-[#E59719]/40 transition-all duration-300 transform group-hover:-translate-y-2`}>
                       
                       {/* Connecting line to node (desktop only) */}
-                      <div className={`hidden md:block absolute top-1/2 w-12 h-0.5 bg-amber-200 -z-10 ${isEven ? '-right-12' : '-left-12'}`}></div>
+                      <div className={`hidden md:block absolute top-1/2 w-12 h-0.5 bg-amber-500/20 -z-10 ${isEven ? '-right-12' : '-left-12'}`}></div>
 
-                      <span className="text-slate-100 font-black text-6xl md:text-7xl absolute -top-6 -z-10 right-4 group-hover:text-amber-50 transition-colors pointer-events-none">
+                      <span className="text-slate-800 font-black text-6xl md:text-7xl absolute -top-6 -z-10 right-4 group-hover:text-slate-700 transition-colors pointer-events-none">
                         {milestone.year}
                       </span>
                       
-                      <div className="inline-block bg-amber-50 text-[#E59719] font-black text-lg px-4 py-1 rounded-xl mb-4 shadow-sm border border-amber-100">
+                      <div className="inline-block bg-[#E59719]/10 text-[#E59719] font-black text-lg px-4 py-1 rounded-xl mb-4 shadow-sm border border-[#E59719]/20">
                         {milestone.year}
                       </div>
 
-                      <h3 className="text-2xl font-bold text-[#0F172A] mb-3 group-hover:text-[#E59719] transition-colors">
+                      <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[#E59719] transition-colors">
                         {milestone.title}
                       </h3>
-                      <p className="text-slate-500 text-sm leading-relaxed">
+                      <p className="text-slate-400 text-sm leading-relaxed">
                         {milestone.description}
                       </p>
                     </div>

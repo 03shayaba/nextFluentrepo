@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -447,12 +448,16 @@ export default function CourseDetailsPage() {
 
                 {/* Buttons */}
                 <div className="space-y-3 mb-6">
-                  <button className="w-full bg-[#E59719] hover:bg-[#d48d12] text-white font-bold py-3.5 rounded-full transition-colors shadow-md">
-                    Add to cart
-                  </button>
-                  <button className="w-full bg-white border-2 border-slate-200 hover:border-[#E59719] hover:text-[#E59719] text-[#0F172A] font-bold py-3 rounded-full transition-colors">
-                    Buy Now
-                  </button>
+                  <Link href="/login" className="block">
+                    <button className="w-full bg-[#E59719] hover:bg-[#d48d12] text-white font-bold py-3.5 rounded-full transition-colors shadow-md cursor-pointer">
+                      Add to cart
+                    </button>
+                  </Link>
+                  <Link href="/login" className="block">
+                    <button className="w-full bg-white border-2 border-slate-200 hover:border-[#E59719] hover:text-[#E59719] text-[#0F172A] font-bold py-3 rounded-full transition-colors cursor-pointer">
+                      Buy Now
+                    </button>
+                  </Link>
                 </div>
 
                 {/* Guarantee */}

@@ -33,7 +33,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="relative bg-slate-50 py-20 lg:py-32 overflow-hidden select-none z-0 border-y border-slate-100">
+    <section className="relative bg-[#0b101c] py-20 lg:py-32 overflow-hidden select-none z-0 border-y border-[#1E293B]">
       
       {/* Decorative Background Elements */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-amber-100/50 rounded-full blur-[120px] pointer-events-none -translate-y-1/2 translate-x-1/3"></div>
@@ -50,15 +50,15 @@ export default function HowItWorks() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
-          <div className="inline-flex items-center gap-2 bg-amber-100/70 border border-amber-200/50 px-4 py-2 rounded-full mb-4">
+          <div className="inline-flex items-center gap-2 bg-[#E59719]/20 backdrop-blur-md border border-[#E59719]/30 px-4 py-2 rounded-full mb-4">
             <span className="text-[#E59719] font-bold text-xs sm:text-sm tracking-widest uppercase">
               🚀 How It Works
             </span>
           </div>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-[#0F172A] tracking-tight leading-tight">
-            Your Journey to <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E59719] to-amber-400">Fluency</span>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-white tracking-tight leading-tight">
+            Your Journey to <span className="text-[#E59719]">Fluency</span>
           </h2>
-          <p className="text-base sm:text-lg text-slate-500 font-medium max-w-xl mx-auto">
+          <p className="text-base sm:text-lg text-slate-400 font-medium max-w-xl mx-auto">
             Master English and achieve your goals in 4 simple, highly effective steps designed for maximum retention.
           </p>
         </div>
@@ -76,15 +76,15 @@ export default function HowItWorks() {
             >
               
               {/* Massive Background Number */}
-              <div className="absolute top-10 left-1/2 -translate-x-1/2 text-[120px] font-black text-slate-200/50 group-hover:text-amber-200/50 transition-colors duration-500 z-0 pointer-events-none select-none">
+              <div className="absolute top-10 left-1/2 -translate-x-1/2 text-[120px] font-black text-slate-800/30 group-hover:text-amber-500/10 transition-colors duration-500 z-0 pointer-events-none select-none">
                 0{step.id}
               </div>
 
               {/* Card Container */}
-              <div className="relative z-10 bg-white border border-slate-100 p-4 rounded-[2rem] w-full max-w-[300px] shadow-sm transition-all duration-500 hover:-translate-y-4 hover:border-amber-200 hover:shadow-[0_20px_40px_rgba(229,151,25,0.15)] flex flex-col items-center group-hover:bg-amber-50/10">
+              <div className="relative z-10 bg-[#111726] border border-[#1E293B] p-4 rounded-[2rem] w-full max-w-[300px] shadow-sm transition-all duration-500 hover:-translate-y-4 hover:border-[#E59719]/50 hover:shadow-2xl flex flex-col items-center group-hover:bg-[#1E293B]/50">
                 
                 {/* Step Badge */}
-                <div className="absolute -top-4 bg-gradient-to-r from-[#E59719] to-amber-500 text-white text-xs font-black px-4 py-1.5 rounded-full shadow-lg border-2 border-white z-20">
+                <div className="absolute -top-4 bg-gradient-to-r from-[#E59719] to-amber-500 text-white text-xs font-black px-4 py-1.5 rounded-full shadow-lg border-2 border-[#111726] z-20">
                   {step.stepNumber}
                 </div>
 
@@ -100,10 +100,10 @@ export default function HowItWorks() {
 
                 {/* Content */}
                 <div className="text-center pb-4 px-2">
-                  <h3 className="text-xl font-bold text-[#0F172A] mb-3 group-hover:text-[#E59719] transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#E59719] transition-colors duration-300">
                     {step.title}
                   </h3>
-                  <p className="text-sm text-slate-500 font-medium leading-relaxed group-hover:text-slate-600 transition-colors">
+                  <p className="text-sm text-slate-400 font-medium leading-relaxed group-hover:text-slate-300 transition-colors">
                     {step.description}
                   </p>
                 </div>
@@ -111,7 +111,7 @@ export default function HowItWorks() {
               </div>
 
               {/* Glowing Dot on Connector */}
-              <div className="hidden lg:block absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-white border-4 border-amber-300 z-20 group-hover:border-[#E59719] group-hover:shadow-[0_0_15px_rgba(229,151,25,0.4)] transition-all duration-300"></div>
+              <div className="hidden lg:block absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-[#0b101c] border-4 border-slate-700 z-20 group-hover:border-[#E59719] group-hover:shadow-[0_0_15px_rgba(229,151,25,0.4)] transition-all duration-300"></div>
 
             </div>
           ))}

@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 
 const insights = [
   {
@@ -32,7 +33,7 @@ const insights = [
 
 export default function LatestInsights() {
   return (
-    <section className="bg-slate-50/50 pt-8 lg:pt-12 pb-16 lg:pb-20 border-b border-slate-100 overflow-hidden relative">
+    <section className="bg-[#0b101c] pt-8 lg:pt-12 pb-16 lg:pb-20 border-b border-[#1E293B] overflow-hidden relative">
       
       {/* Decorative Background Arc */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-amber-50 rounded-full blur-3xl opacity-50 transform translate-x-1/3 -translate-y-1/2 pointer-events-none"></div>
@@ -43,13 +44,13 @@ export default function LatestInsights() {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-16 gap-6 relative">
           
           <div className="space-y-3">
-            <span className="inline-block bg-amber-100/70 text-[#E59719] font-bold text-xs sm:text-sm px-4 py-1.5 rounded-full tracking-wide uppercase">
+            <span className="inline-flex items-center gap-2 bg-[#E59719]/20 border border-[#E59719]/30 text-[#E59719] font-bold text-xs sm:text-sm px-4 py-1.5 rounded-full tracking-wide uppercase">
               🗞️ Explore News
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
               Our Latest <span className="text-[#E59719]">Insights</span>
             </h2>
-            <p className="text-slate-500 text-sm sm:text-base max-w-lg">
+            <p className="text-slate-400 text-sm sm:text-base max-w-lg">
               Read our latest articles, tips, and tricks to improve your learning journey and stay updated.
             </p>
           </div>
@@ -63,12 +64,14 @@ export default function LatestInsights() {
           </div>
 
           <div>
-            <button className="bg-white border-2 border-slate-100 hover:border-[#E59719] text-slate-700 hover:text-[#E59719] font-bold text-sm px-6 py-3.5 rounded-xl shadow-sm hover:shadow-md flex items-center gap-2 transition-all transform hover:-translate-y-1 cursor-pointer">
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-              </svg>
-              <span>Read All Articles</span>
-            </button>
+            <Link href="/courses">
+              <button className="bg-[#1E293B] border-2 border-slate-700 hover:border-[#E59719] text-slate-300 hover:text-[#E59719] font-bold text-sm px-6 py-3.5 rounded-xl shadow-sm hover:shadow-md flex items-center gap-2 transition-all transform hover:-translate-y-1 cursor-pointer">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                </svg>
+                <span>Read All Articles</span>
+              </button>
+            </Link>
           </div>
         </div>
 
@@ -77,7 +80,7 @@ export default function LatestInsights() {
           {insights.map((item) => (
             <div 
               key={item.id}
-              className="bg-white rounded-3xl p-5 border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(229,151,25,0.12)] hover:border-[#E59719]/30 transition-all duration-300 flex flex-col justify-between space-y-5 group cursor-pointer transform hover:-translate-y-1.5"
+              className="bg-[#111726] rounded-3xl p-5 border border-slate-700 shadow-xl hover:shadow-[0_8px_30px_rgba(229,151,25,0.12)] hover:border-[#E59719]/30 transition-all duration-300 flex flex-col justify-between space-y-5 group cursor-pointer transform hover:-translate-y-1.5"
             >
               {/* Card Image Header */}
               <div className="relative overflow-hidden rounded-2xl aspect-[4/3] bg-slate-100">
@@ -100,7 +103,7 @@ export default function LatestInsights() {
                     <span className="w-5 h-5 rounded-full bg-slate-200 overflow-hidden inline-block border border-slate-100">
                       <img src={item.authorAvatar} alt={item.author} className="w-full h-full object-cover" />
                     </span>
-                    <span>By <strong className="text-slate-600 font-semibold">{item.author}</strong></span>
+                    <span>By <strong className="text-slate-300 font-semibold">{item.author}</strong></span>
                   </div>
 
                   <div className="flex items-center gap-1.5">
@@ -112,7 +115,7 @@ export default function LatestInsights() {
                 </div>
 
                 {/* Article Title */}
-                <h3 className="text-xl font-bold text-[#111726] group-hover:text-[#E59719] transition-colors leading-snug pt-1">
+                <h3 className="text-xl font-bold text-white group-hover:text-[#E59719] transition-colors leading-snug pt-1">
                   {item.title}
                 </h3>
               </div>

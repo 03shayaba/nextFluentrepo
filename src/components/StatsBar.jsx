@@ -46,7 +46,7 @@ const stats = [
 
 export default function StatsBar() {
   return (
-    <section className="bg-white py-12 border-b border-slate-100">
+    <section className="bg-slate-50 py-12 border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {stats.map((item) => (
@@ -62,7 +62,7 @@ export default function StatsBar() {
               </span>
 
               {/* Label */}
-              <span className="mt-1 text-sm sm:text-base font-semibold text-[#171E2E] tracking-wide">
+              <span className="mt-1 text-sm sm:text-base font-semibold text-slate-700 tracking-wide">
                 {item.label}
               </span>
             </div>

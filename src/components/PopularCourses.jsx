@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import { useCart } from '@/context/CartContext';
+import EnrollModal from './EnrollModal';
 
 const filterOptions = [
   { id: 'all', label: 'All Courses', icon: '▦' },
@@ -83,7 +83,14 @@ const popularCoursesData = [
 export default function PopularCourses() {
   const [activeFilter, setActiveFilter] = useState('all');
   const scrollRef = useRef(null);
-  const { addToCart } = useCart();
+  
+  const [isEnrollModalOpen, setIsEnrollModalOpen] = useState(false);
+  const [selectedCourse, setSelectedCourse] = useState(null);
+
+  const handleEnrollClick = (course) => {
+    setSelectedCourse(course);
+    setIsEnrollModalOpen(true);
+  };
 
   const scrollLeft = () => {
     if (scrollRef.current && scrollRef.current.firstElementChild) {
@@ -102,7 +109,7 @@ export default function PopularCourses() {
   };
 
   return (
-    <section className="relative bg-[#FFFDF8] py-10 lg:py-12 overflow-hidden font-sans border-t border-slate-100">
+    <section className="relative bg-[#0b101c] py-10 lg:py-12 overflow-hidden font-sans border-t border-[#1E293B]">
       
       {/* Decorative Background Elements */}
       <div className="absolute top-10 right-20 hidden lg:block transform -rotate-6">
@@ -123,13 +130,13 @@ export default function PopularCourses() {
         
         {/* Header Content */}
         <div className="text-center mb-10 flex flex-col items-center">
-          <div className="text-amber-500 text-sm font-bold px-4 py-1.5 rounded-full inline-flex items-center gap-2 mb-4 uppercase tracking-wider bg-transparent">
+          <div className="inline-flex items-center gap-2 bg-[#E59719]/20 backdrop-blur-md border border-[#E59719]/30 text-[#E59719] font-bold text-xs sm:text-sm px-4 py-1.5 rounded-full tracking-wide mb-4 uppercase">
             ⭐ LEARN & GROW
           </div>
-          <h2 className="text-4xl md:text-5xl font-semibold text-[#0F172A] mb-4">
+          <h2 className="text-4xl md:text-5xl font-semibold text-white mb-4">
             Explore Our <span className="text-[#E59719]">Popular Courses</span>
           </h2>
-          <p className="text-slate-500 text-sm md:text-base max-w-2xl">
+          <p className="text-slate-400 text-sm md:text-base max-w-2xl">
             Choose from expertly designed courses created to build confidence, communication skills, and career-ready English.
           </p>
         </div>
@@ -152,7 +159,7 @@ export default function PopularCourses() {
           <div ref={scrollRef} className="flex overflow-x-auto gap-6 pb-8 pt-4 px-2 snap-x snap-mandatory hide-scrollbar relative" style={{ scrollbarWidth: 'none' }}>
             
             {popularCoursesData.map((course) => (
-              <div key={course.id} className="snap-center shrink-0 w-[85vw] sm:w-[320px] md:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)] bg-white rounded-3xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border border-slate-100/60 overflow-hidden flex flex-col transition-transform hover:-translate-y-1 duration-300">
+              <div key={course.id} className="snap-center shrink-0 w-[85vw] sm:w-[320px] md:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)] bg-white/5 backdrop-blur-xl rounded-3xl shadow-2xl shadow-black/20 border border-white/10 overflow-hidden flex flex-col transition-all hover:-translate-y-2 hover:bg-white/10 hover:border-amber-400/30 duration-300">
                 
                 {/* Image Section */}
                 <div className="relative h-48 w-full p-2">
@@ -175,11 +182,11 @@ export default function PopularCourses() {
                 {/* Content Section */}
                 <div className="p-5 flex flex-col flex-grow">
                   
-                  <h3 className="text-xl font-extrabold text-[#0F172A] mb-2 leading-tight">{course.title}</h3>
-                  <p className="text-slate-500 text-sm mb-4 line-clamp-2 leading-relaxed">{course.description}</p>
+                  <h3 className="text-xl font-extrabold text-white mb-2 leading-tight">{course.title}</h3>
+                  <p className="text-slate-400 text-sm mb-4 line-clamp-2 leading-relaxed">{course.description}</p>
                   
                   {/* Rating & Enrollment */}
-                  <div className="flex items-center gap-3 text-xs font-semibold text-slate-600 mb-4 pb-4 border-b border-slate-100">
+                  <div className="flex items-center gap-3 text-xs font-semibold text-slate-400 mb-4 pb-4 border-b border-slate-700">
                     <div className="flex items-center gap-1">
                       <span className="text-amber-500">⭐</span> {course.rating} <span className="text-slate-400 font-medium">({course.reviews} students)</span>
                     </div>
@@ -190,17 +197,17 @@ export default function PopularCourses() {
                   </div>
 
                   {/* Specs */}
-                  <div className="flex items-center justify-between gap-2 mb-6 text-[11px] font-bold text-slate-600">
-                    <div className="flex items-center gap-1.5 bg-slate-50 px-2.5 py-1.5 rounded-md">
-                      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                  <div className="flex items-center justify-between gap-2 mb-6 text-[11px] font-bold text-slate-300">
+                    <div className="flex items-center gap-1.5 bg-white/10 px-2.5 py-1.5 rounded-md">
+                      <svg className="w-3.5 h-3.5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
                       {course.lessons} Lessons
                     </div>
-                    <div className="flex items-center gap-1.5 bg-slate-50 px-2.5 py-1.5 rounded-md">
-                      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    <div className="flex items-center gap-1.5 bg-white/10 px-2.5 py-1.5 rounded-md">
+                      <svg className="w-3.5 h-3.5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                       {course.hours} Hours
                     </div>
-                    <div className="flex items-center gap-1.5 bg-slate-50 px-2.5 py-1.5 rounded-md">
-                      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                    <div className="flex items-center gap-1.5 bg-white/10 px-2.5 py-1.5 rounded-md">
+                      <svg className="w-3.5 h-3.5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
                       {course.level}
                     </div>
                   </div>
@@ -214,15 +221,15 @@ export default function PopularCourses() {
 
                   {/* Buttons */}
                   <div className="grid grid-cols-2 gap-3">
-                    <button 
-                      onClick={() => addToCart(course)}
-                      className="flex items-center justify-center py-2.5 rounded-xl border border-slate-300 text-slate-700 font-bold text-xs hover:bg-slate-50 transition-colors cursor-pointer"
-                    >
-                      🛒 Add to Cart
-                    </button>
-                    <a href="/course-details" className="flex items-center justify-center gap-1 py-2.5 rounded-xl bg-[#E59719] text-white font-bold text-xs hover:bg-[#D48E12] transition-colors shadow-md shadow-amber-500/20 cursor-pointer">
-                      Enroll Now &rarr;
+                    <a href="/course-details" className="flex items-center justify-center py-2.5 rounded-xl border border-slate-600 text-slate-300 font-bold text-xs hover:bg-slate-700 transition-colors cursor-pointer">
+                      View Details
                     </a>
+                    <button 
+                      onClick={() => handleEnrollClick(course)}
+                      className="flex items-center justify-center gap-1 py-2.5 rounded-xl bg-[#E59719] text-white font-bold text-xs hover:bg-[#D48E12] transition-colors shadow-md shadow-amber-500/20 cursor-pointer"
+                    >
+                      Enroll Now &rarr;
+                    </button>
                   </div>
 
                 </div>
@@ -246,7 +253,7 @@ export default function PopularCourses() {
               </div>
             </div>
             <div className="flex flex-col">
-              <span className="text-slate-600 text-sm font-medium">Join 10,000+ learners<br/>already improving their English</span>
+              <span className="text-slate-300 text-sm font-medium">Join 10,000+ learners<br/>already improving their English</span>
             </div>
           </div>
 
@@ -258,6 +265,12 @@ export default function PopularCourses() {
           
         </div>
       </div>
+      
+      <EnrollModal 
+        isOpen={isEnrollModalOpen} 
+        onClose={() => setIsEnrollModalOpen(false)} 
+        course={selectedCourse} 
+      />
     </section>
   );
 }

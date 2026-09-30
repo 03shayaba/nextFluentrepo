@@ -10,38 +10,39 @@ export default function ContactPage() {
       
       <main>
         {/* Contact Hero Banner */}
-        <section className="relative w-full bg-gradient-to-br from-slate-50 via-white to-amber-50/50 pt-20 pb-32 overflow-hidden">
+        <section className="relative w-full bg-[#0B1120] pt-20 pb-32 overflow-hidden border-b border-white/10 z-0">
           
-          {/* Decorative Background Elements */}
-          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#E59719]/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3"></div>
-          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-amber-200/10 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/4"></div>
+          {/* Dynamic Background Orbs */}
+          <div className="absolute top-[0%] left-[-10%] w-[500px] h-[500px] rounded-full bg-blue-600/20 blur-[120px] pointer-events-none z-[-1]"></div>
+          <div className="absolute bottom-[0%] right-[-10%] w-[600px] h-[600px] rounded-full bg-amber-500/15 blur-[120px] pointer-events-none z-[-1]"></div>
+          <div className="absolute top-[30%] left-[30%] w-[400px] h-[400px] rounded-full bg-emerald-500/10 blur-[100px] pointer-events-none z-[-1]"></div>
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
             
             {/* Breadcrumb */}
-            <div className="flex items-center justify-center text-sm font-medium text-slate-500 gap-2 mb-8">
-              <svg className="w-4 h-4 text-[#E59719]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+            <div className="flex items-center justify-center text-sm font-medium text-slate-300 gap-3 bg-white/5 backdrop-blur-md w-fit mx-auto px-5 py-2.5 rounded-full border border-white/10 shadow-lg shadow-black/20 mb-8">
+              <svg className="w-4 h-4 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
               </svg>
-              <a href="/" className="hover:text-[#0F172A] transition-colors">Home</a>
-              <span className="text-slate-400">/</span>
-              <span className="text-[#0F172A]">Contact</span>
+              <a href="/" className="hover:text-amber-400 transition-colors">Home</a>
+              <span className="text-white/20">/</span>
+              <span className="text-white">Contact</span>
             </div>
 
-            <div className="inline-block bg-[#E59719]/10 border border-[#E59719]/20 text-[#E59719] font-bold text-sm px-4 py-1.5 rounded-full mb-6 shadow-sm relative">
+            <div className="inline-block bg-[#E59719]/20 backdrop-blur-md border border-[#E59719]/30 text-[#E59719] font-bold text-sm px-4 py-1.5 rounded-full mb-6 shadow-sm relative tracking-wider">
               👋 We're here to help
               
               {/* Decorative handwritten text pointing to the badge */}
               <div className="absolute -top-12 -left-32 hidden md:block rotate-[-12deg]">
-                <span className="text-[#E59719] font-medium font-serif italic text-lg whitespace-nowrap">Say hello!</span>
-                <svg className="w-12 h-12 text-[#E59719] mt-1 ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                <span className="text-amber-400 font-light text-2xl whitespace-nowrap drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]" style={{ fontFamily: '"Caveat", "Comic Sans MS", cursive' }}>Say hello!</span>
+                <svg className="w-12 h-12 text-amber-500/80 mt-1 ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                 </svg>
               </div>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0F172A] tracking-tight mb-6 leading-tight relative max-w-4xl mx-auto">
-              Let's Start a <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E59719] to-amber-400">Conversation</span>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-6 leading-tight relative max-w-4xl mx-auto drop-shadow-xl">
+              Let's Start a <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E59719] to-amber-300 drop-shadow-sm">Conversation</span>
               
               {/* Sparkle Icon */}
               <svg className="absolute -top-6 -right-10 w-8 h-8 text-amber-300 hidden sm:block animate-pulse" fill="currentColor" viewBox="0 0 24 24">
@@ -49,7 +50,7 @@ export default function ContactPage() {
               </svg>
             </h1>
             
-            <p className="text-base sm:text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed relative">
+            <p className="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed relative">
               Have questions about our courses, pricing, or your learning journey? Our team of experts is ready to answer all your questions and get you started.
             </p>
           </div>
