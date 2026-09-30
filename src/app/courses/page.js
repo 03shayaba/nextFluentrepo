@@ -6,6 +6,7 @@ import HowItWorks from "@/components/HowItWorks";
 import Testimonials from "@/components/Testimonials";
 import React, { useState, useMemo } from 'react';
 import TransformHero from "@/components/TransformHero";
+import { useCart } from "@/context/CartContext";
 
 const courses = [
   {
@@ -102,6 +103,7 @@ export default function CoursesPage() {
   const [ratingFilter, setRatingFilter] = useState('All');
   const [sortBy, setSortBy] = useState('Latest');
   const [viewMode, setViewMode] = useState('grid');
+  const { addToCart } = useCart();
 
   const filteredCourses = useMemo(() => {
     return courses

@@ -28,7 +28,7 @@ export default function Home() {
         <TrendingCategories />
         <OurAchievements />
         <PopularCourses />
-        <HowItWorks />
+        {/* <HowItWorks /> */}
         <WhyChooseUs />
         <TrendingCourses />
         <Testimonials />

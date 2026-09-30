@@ -187,7 +187,7 @@ export default function Footer() {
           </div>
 
           <div className="flex items-center gap-1 text-slate-400">
-            <span>Designed & developed by <strong className="text-white hover:text-[#E59719] transition-colors">BTPL soft</strong></span>
+            <span>Designed & developed by <a href="https://www.btplsoft.com/" target="_blank" rel="noopener noreferrer"><strong className="text-white hover:text-[#E59719] transition-colors">BTPL soft</strong></a></span>
           </div>
         </div>
 

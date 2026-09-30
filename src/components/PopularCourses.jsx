@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef } from 'react';
+import { useCart } from '@/context/CartContext';
 
 const filterOptions = [
   { id: 'all', label: 'All Courses', icon: '▦' },
@@ -82,6 +83,7 @@ const popularCoursesData = [
 export default function PopularCourses() {
   const [activeFilter, setActiveFilter] = useState('all');
   const scrollRef = useRef(null);
+  const { addToCart } = useCart();
 
   const scrollLeft = () => {
     if (scrollRef.current && scrollRef.current.firstElementChild) {
@@ -212,12 +214,15 @@ export default function PopularCourses() {
 
                   {/* Buttons */}
                   <div className="grid grid-cols-2 gap-3">
-                    <a href="/course-details" className="flex items-center justify-center py-2.5 rounded-xl border border-slate-300 text-slate-600 font-bold text-sm hover:bg-slate-50 transition-colors cursor-pointer">
-                      View Details
-                    </a>
-                    <button className="flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-amber-500 text-white font-bold text-sm hover:bg-amber-600 transition-colors shadow-md shadow-amber-500/20">
-                      Enroll Now &rarr;
+                    <button 
+                      onClick={() => addToCart(course)}
+                      className="flex items-center justify-center py-2.5 rounded-xl border border-slate-300 text-slate-700 font-bold text-xs hover:bg-slate-50 transition-colors cursor-pointer"
+                    >
+                      🛒 Add to Cart
                     </button>
+                    <a href="/course-details" className="flex items-center justify-center gap-1 py-2.5 rounded-xl bg-[#E59719] text-white font-bold text-xs hover:bg-[#D48E12] transition-colors shadow-md shadow-amber-500/20 cursor-pointer">
+                      Enroll Now &rarr;
+                    </a>
                   </div>
 
                 </div>

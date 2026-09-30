@@ -20,6 +20,8 @@ export const metadata = {
   keywords: ["English learning", "NextFluent", "IELTS preparation", "Grammar test", "CEFR assessment"],
 };
 
+import { CartProvider } from "@/context/CartContext";
+
 export default function RootLayout({ children }) {
   return (
     <html
@@ -31,8 +33,10 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className="min-h-full flex flex-col relative bg-white text-slate-900" suppressHydrationWarning>
-        {children}
-        <FloatingContactButtons />
+        <CartProvider>
+          {children}
+          <FloatingContactButtons />
+        </CartProvider>
       </body>
     </html>
   );

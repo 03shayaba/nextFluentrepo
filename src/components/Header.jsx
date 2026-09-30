@@ -1,12 +1,15 @@
-'use client';
+"use client";
 
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
+import { useCart } from '@/context/CartContext';
+import Link from 'next/link';
 
 export default function Header() {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const { cartItems, removeFromCart, cartTotal, isCartOpen, setIsCartOpen } = useCart();
 
   const toggleDropdown = (menu) => {
     setActiveDropdown(activeDropdown === menu ? null : menu);
@@ -83,11 +86,21 @@ export default function Header() {
 
           {/* Right Action Buttons */}
           <div className="hidden md:flex items-center space-x-5">
-            {/* Search Icon */}
-            <button className="text-slate-800 hover:text-[#E59719] transition-colors focus:outline-none">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            
+            {/* Shopping Cart Button */}
+            <button 
+              onClick={() => setIsCartOpen(true)}
+              className="relative p-2 text-slate-700 hover:text-[#E59719] transition-colors focus:outline-none cursor-pointer group"
+              aria-label="Shopping Cart"
+            >
+              <svg className="w-6 h-6 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
               </svg>
+              {cartItems.length > 0 && (
+                <span className="absolute -top-1 -right-1 bg-[#E59719] text-white font-bold text-[10px] w-5 h-5 rounded-full flex items-center justify-center shadow-md animate-bounce">
+                  {cartItems.length}
+                </span>
+              )}
             </button>
 
             {/* Divider */}
@@ -186,7 +199,85 @@ export default function Header() {
           </div>
         )}
       </div>
-    </header>
+      </header>
+
+      {/* Cart Drawer Overlay */}
+      {isCartOpen && (
+        <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex justify-end">
+          <div className="bg-white w-full max-w-md h-full shadow-2xl flex flex-col animate-slide-left">
+            
+            {/* Drawer Header */}
+            <div className="p-6 border-b border-slate-100 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <span className="text-xl">🛍️</span>
+                <h3 className="text-lg font-bold text-slate-900">Your Cart</h3>
+                <span className="bg-amber-100 text-[#E59719] font-bold text-xs px-2.5 py-0.5 rounded-full">
+                  {cartItems.length}
+                </span>
+              </div>
+              <button 
+                onClick={() => setIsCartOpen(false)}
+                className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-900 flex items-center justify-center font-bold text-sm transition-colors cursor-pointer"
+              >
+                ✕
+              </button>
+            </div>
+
+            {/* Cart Items List */}
+            <div className="flex-grow overflow-y-auto p-6 space-y-4">
+              {cartItems.length === 0 ? (
+                <div className="text-center py-16 text-slate-400 space-y-3">
+                  <span className="text-5xl block">🛒</span>
+                  <p className="font-bold text-slate-600">Your cart is empty</p>
+                  <p className="text-xs text-slate-400">Explore our premium courses and start learning today!</p>
+                  <Link 
+                    href="/courses" 
+                    onClick={() => setIsCartOpen(false)}
+                    className="inline-block mt-4 px-6 py-2.5 rounded-xl bg-[#E59719] text-white font-bold text-xs"
+                  >
+                    Browse Courses
+                  </Link>
+                </div>
+              ) : (
+                cartItems.map(item => (
+                  <div key={item.id} className="p-4 rounded-2xl border border-slate-100 bg-slate-50/50 flex items-center gap-4 relative">
+                    <img src={item.image} alt={item.title} className="w-16 h-16 rounded-xl object-cover shrink-0" />
+                    <div className="flex-grow pr-6">
+                      <h4 className="text-sm font-bold text-slate-900 line-clamp-1">{item.title}</h4>
+                      <p className="text-xs text-slate-400 font-medium mb-1">{item.category}</p>
+                      <span className="text-sm font-extrabold text-[#E59719]">{item.currentPrice || item.price}</span>
+                    </div>
+                    <button 
+                      onClick={() => removeFromCart(item.id)}
+                      className="absolute top-3 right-3 text-slate-400 hover:text-red-500 text-sm font-bold p-1 cursor-pointer"
+                    >
+                      ✕
+                    </button>
+                  </div>
+                ))
+              )}
+            </div>
+
+            {/* Cart Footer / Checkout */}
+            {cartItems.length > 0 && (
+              <div className="p-6 border-t border-slate-100 bg-white space-y-4">
+                <div className="flex items-center justify-between text-base font-bold text-slate-900">
+                  <span>Total Amount:</span>
+                  <span className="text-xl text-[#E59719]">₹{cartTotal.toLocaleString()}</span>
+                </div>
+                <Link
+                  href="/course-details"
+                  onClick={() => setIsCartOpen(false)}
+                  className="w-full bg-[#E59719] hover:bg-[#D48E12] text-white font-bold py-3.5 rounded-xl transition-all shadow-md text-center block text-sm cursor-pointer"
+                >
+                  Proceed to Checkout →
+                </Link>
+              </div>
+            )}
+
+          </div>
+        </div>
+      )}
     </>
   );
 }
