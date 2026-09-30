@@ -2,7 +2,7 @@
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import LearningProcess from "@/components/LearningProcess";
+import HowItWorks from "@/components/HowItWorks";
 import Testimonials from "@/components/Testimonials";
 import React, { useState, useMemo } from 'react';
 import TransformHero from "@/components/TransformHero";
@@ -177,7 +177,7 @@ export default function CoursesPage() {
                   🎓 Master Your Skills
                 </div>
                 
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#0F172A] mb-6 tracking-tight leading-[1.1]">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-[#0F172A] mb-6 tracking-tight leading-[1.1]">
                   Browse Our <br className="hidden md:block"/>
                   <span className="text-[#E59719]">Premium Courses</span>
                 </h1>
@@ -444,7 +444,7 @@ export default function CoursesPage() {
         </section>
 
         {/* Working Process Section */}
-        <LearningProcess />
+        <HowItWorks />
 
         {/* Testimonials Section */}
         <Testimonials />

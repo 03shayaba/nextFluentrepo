@@ -99,9 +99,9 @@ export default function Header() {
             </a>
 
             {/* Get Started Button */}
-            <button className="bg-[#E59719] hover:bg-[#D48E12] text-white text-[13.5px] font-bold px-6 py-2.5 rounded-full shadow-md shadow-amber-500/20 transition-all flex items-center gap-1.5">
+            <a href="/signup" className="bg-[#E59719] hover:bg-[#D48E12] text-white text-[13.5px] font-bold px-6 py-2.5 rounded-full shadow-md shadow-amber-500/20 transition-all flex items-center gap-1.5 cursor-pointer">
               Register <span className="font-normal">&rarr;</span>
-            </button>
+            </a>
           </div>
 
           {/* Mobile Hamburger Button */}
@@ -179,9 +179,9 @@ export default function Header() {
               <a href="/login" className="w-full text-center border-2 border-slate-200 text-slate-700 text-sm font-bold py-2.5 rounded-xl hover:bg-slate-50 transition-colors">
                 Sign In
               </a>
-              <button className="w-full bg-[#E59719] text-white text-sm font-bold py-2.5 rounded-xl shadow-md shadow-amber-500/20 hover:bg-[#D48E12] transition-colors">
+              <a href="/signup" className="w-full text-center bg-[#E59719] text-white text-sm font-bold py-2.5 rounded-xl shadow-md shadow-amber-500/20 hover:bg-[#D48E12] transition-colors cursor-pointer">
                 Register
-              </button>
+              </a>
             </div>
           </div>
         )}

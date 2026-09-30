@@ -20,7 +20,7 @@ export default function TransformHero() {
         </div>
 
         {/* Main Heading */}
-        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-semibold text-[#0F172A] tracking-tight leading-tight max-w-3xl mx-auto mb-8 sm:mb-10">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-[#0F172A] tracking-tight leading-tight max-w-3xl mx-auto mb-8 sm:mb-10">
           Transform Future <br className="hidden sm:block" />
           Using Online.
         </h1>
