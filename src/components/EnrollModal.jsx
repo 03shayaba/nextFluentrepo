@@ -62,7 +62,7 @@ export default function EnrollModal({ isOpen, onClose, course }) {
                   type="text" 
                   required
                   placeholder="John Doe"
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#E59719] focus:ring-2 focus:ring-[#E59719]/20 transition-all outline-none"
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#DC2626] focus:ring-2 focus:ring-[#DC2626]/20 transition-all outline-none"
                 />
               </div>
 
@@ -72,7 +72,7 @@ export default function EnrollModal({ isOpen, onClose, course }) {
                   type="email" 
                   required
                   placeholder="john@example.com"
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#E59719] focus:ring-2 focus:ring-[#E59719]/20 transition-all outline-none"
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#DC2626] focus:ring-2 focus:ring-[#DC2626]/20 transition-all outline-none"
                 />
               </div>
 
@@ -82,14 +82,14 @@ export default function EnrollModal({ isOpen, onClose, course }) {
                   type="tel" 
                   required
                   placeholder="+91 98765 43210"
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#E59719] focus:ring-2 focus:ring-[#E59719]/20 transition-all outline-none"
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#DC2626] focus:ring-2 focus:ring-[#DC2626]/20 transition-all outline-none"
                 />
               </div>
 
               {course && (
-                <div className="mt-6 p-4 bg-amber-50 rounded-xl border border-amber-100 flex justify-between items-center">
-                  <span className="text-sm font-bold text-amber-800">Total Price:</span>
-                  <span className="text-lg font-black text-[#E59719]">{course.currentPrice}</span>
+                <div className="mt-6 p-4 bg-red-50 rounded-xl border border-red-100 flex justify-between items-center">
+                  <span className="text-sm font-bold text-red-800">Total Price:</span>
+                  <span className="text-lg font-black text-[#DC2626]">{course.currentPrice}</span>
                 </div>
               )}
 
@@ -97,7 +97,7 @@ export default function EnrollModal({ isOpen, onClose, course }) {
                 type="submit"
                 disabled={isSubmitting}
                 className={`w-full py-4 rounded-xl font-bold text-white transition-all shadow-lg mt-6 ${
-                  isSubmitting ? 'bg-slate-400 cursor-not-allowed' : 'bg-[#E59719] hover:bg-[#D48E12] shadow-[#E59719]/20 cursor-pointer'
+                  isSubmitting ? 'bg-slate-400 cursor-not-allowed' : 'bg-[#DC2626] hover:bg-[#B91C1C] shadow-red-500/20 cursor-pointer'
                 }`}
               >
                 {isSubmitting ? 'Processing...' : 'Confirm Enrollment'}

@@ -6,7 +6,7 @@ const leftCategories = [
     name: "Spoken English",
     courses: "15 Courses",
     icon: (
-      <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+      <svg className="w-5 h-5 text-current" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
         <circle cx="6" cy="6" r="2" />
         <circle cx="18" cy="6" r="2" />
         <circle cx="12" cy="18" r="2" />
@@ -21,7 +21,7 @@ const leftCategories = [
     name: "IELTS Preparation",
     courses: "12 Courses",
     icon: (
-      <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+      <svg className="w-5 h-5 text-current" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
       </svg>
     )
@@ -31,7 +31,7 @@ const leftCategories = [
     name: "Business English",
     courses: "8 Courses",
     icon: (
-      <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+      <svg className="w-5 h-5 text-current" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
       </svg>
     )
@@ -41,7 +41,7 @@ const leftCategories = [
     name: "English Grammar",
     courses: "20 Courses",
     icon: (
-      <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+      <svg className="w-5 h-5 text-current" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
         <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a24.12 24.12 0 017.5 0m-7.5 0l3.75 3.75M3 5.621l3.75 3.75M6.75 9.371a24.12 24.12 0 013.75 0" />
       </svg>
     )
@@ -54,7 +54,7 @@ const rightCategories = [
     name: "Vocabulary Building",
     courses: "14 Courses",
     icon: (
-      <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+      <svg className="w-5 h-5 text-current" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
         <path strokeLinecap="round" strokeLinejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L5.605 15.13a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
       </svg>
     )
@@ -64,7 +64,7 @@ const rightCategories = [
     name: "Interview Prep",
     courses: "10 Courses",
     icon: (
-      <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+      <svg className="w-5 h-5 text-current" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
         <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387M3.75 14.15a2.18 2.18 0 01-.75-1.661V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m4.5 8.006h4.5" />
       </svg>
     )
@@ -74,7 +74,7 @@ const rightCategories = [
     name: "Kids English",
     courses: "6 Courses",
     icon: (
-      <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+      <svg className="w-5 h-5 text-current" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
         <path strokeLinecap="round" strokeLinejoin="round" d="M6.429 9.75L2.25 12l4.179 2.25m0-4.5l5.571 3 5.571-3m-11.142 0L12 7.5l5.571 2.25m0 0L21.75 12l-4.179 2.25m0 0l-5.571 3-5.571-3m11.142 0L12 16.5l-5.571-2.25" />
       </svg>
     )
@@ -84,7 +84,7 @@ const rightCategories = [
     name: "Accent Training",
     courses: "9 Courses",
     icon: (
-      <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+      <svg className="w-5 h-5 text-current" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
         <path strokeLinecap="round" strokeLinejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.834.166l-1.591 1.591M21.75 12h-2.25m-.166 5.834l-1.591-1.591" />
       </svg>
     )
@@ -139,26 +139,12 @@ const arcIcons = [
 
 export default function TrendingCategories() {
   return (
-    <section className="bg-[#111726] py-10 lg:py-12 border-b border-[#1E293B] overflow-hidden select-none relative">
+    <section className="bg-slate-50 py-10 lg:py-12 border-b border-slate-200 overflow-hidden select-none relative">
       
       {/* Decorative Ambient Glowing Orbs */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-gradient-to-tr from-amber-400/10 via-amber-200/5 to-transparent rounded-full blur-3xl pointer-events-none z-0"></div>
 
-      {/* Decorative Text Left */}
-      <div className="absolute top-24 left-10 hidden xl:block transform -rotate-12 z-0">
-        <div className="font-serif italic text-2xl font-bold text-slate-400/80 leading-tight">
-          Find<br/>Your<br/>Path
-        </div>
-        <div className="mt-1 w-12 h-0.5 bg-[#E59719]"></div>
-      </div>
 
-      {/* Decorative Text Right */}
-      <div className="absolute top-28 right-16 hidden xl:block transform rotate-12 z-0">
-        <div className="font-serif italic text-2xl font-bold text-slate-400/80 leading-tight">
-          Discover<br/>New Skills
-        </div>
-        <div className="mt-1 w-12 h-0.5 bg-[#E59719] ml-auto"></div>
-      </div>
 
       {/* Dashed background arc */}
       <div className="absolute top-10 left-1/2 -translate-x-1/2 w-full max-w-4xl h-64 overflow-hidden -z-10 hidden lg:block opacity-40">
@@ -172,14 +158,14 @@ export default function TrendingCategories() {
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-14 lg:mb-16 space-y-3 relative z-20">
           <div>
-            <span className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-[#E59719]/20 text-[#E59719] font-bold text-xs sm:text-sm tracking-widest uppercase shadow-sm border border-[#E59719]/30">
+            <span className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-red-50 text-[#DC2626] font-bold text-xs sm:text-sm tracking-widest uppercase shadow-sm border border-red-200">
               <span>⭐</span> TRENDING CATEGORIES
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white tracking-tight mb-4">
-            Browse Trending <span className="text-[#E59719]">Categories</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 tracking-tight mb-4">
+            Browse Trending <span className="text-[#DC2626]">Categories</span>
           </h2>
-          <p className="text-sm sm:text-base text-slate-400 font-medium">
+          <p className="text-sm sm:text-base text-slate-500 font-medium">
             Explore high-demand learning paths designed to build real-world skills
           </p>
         </div>
@@ -192,27 +178,27 @@ export default function TrendingCategories() {
             {leftCategories.map((item) => (
               <div 
                 key={item.id}
-                className="group bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 shadow-lg hover:shadow-xl hover:bg-white/10 hover:border-amber-400/50 flex items-center justify-between h-[80px] sm:h-[84px] transition-all duration-300 transform hover:-translate-y-1 cursor-pointer relative"
+                className="group bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-[#DC2626]/60 flex items-center justify-between h-[80px] sm:h-[84px] transition-all duration-300 transform hover:-translate-y-1 cursor-pointer relative"
               >
                 {/* Left Floating Icon Container */}
-                <div className="w-12 sm:w-14 h-12 sm:h-14 ml-3 sm:ml-4 bg-black/20 group-hover:bg-[#E59719] border border-white/5 flex items-center justify-center rounded-xl shrink-0 transition-all duration-300 shadow-md">
-                  <div className="transform group-hover:scale-110 transition-transform duration-300 text-white">
+                <div className="w-12 sm:w-14 h-12 sm:h-14 ml-3 sm:ml-4 bg-slate-900 group-hover:bg-slate-800 border border-slate-800 flex items-center justify-center rounded-2xl shrink-0 transition-all duration-300 shadow-sm group-hover:shadow-red-500/20">
+                  <div className="transform group-hover:scale-110 transition-transform duration-300 text-[#EF4444]">
                     {item.icon}
                   </div>
                 </div>
 
                 {/* Card Title & Course Counter */}
                 <div className="flex-1 px-4 py-2">
-                  <h3 className="text-sm sm:text-base font-bold text-white group-hover:text-[#E59719] transition-colors leading-snug">
+                  <h3 className="text-sm sm:text-base font-bold text-slate-800 group-hover:text-[#DC2626] transition-colors leading-snug">
                     {item.name}
                   </h3>
-                  <span className="inline-block mt-1 text-[11px] font-semibold text-slate-400 group-hover:text-amber-300 bg-black/20 group-hover:bg-amber-500/20 px-2.5 py-0.5 rounded-full transition-colors border border-white/5">
+                  <span className="inline-block mt-1 text-[11px] font-semibold text-slate-500 group-hover:text-[#DC2626] bg-slate-100 group-hover:bg-red-50 px-2.5 py-0.5 rounded-full transition-colors border border-slate-200 group-hover:border-red-200">
                     {item.courses}
                   </span>
                 </div>
 
                 {/* Right Arrow Indicator */}
-                <div className="pr-4 text-slate-300 group-hover:text-[#E59719] group-hover:translate-x-1 transition-all duration-300">
+                <div className="pr-4 text-slate-400 group-hover:text-[#DC2626] group-hover:translate-x-1 transition-all duration-300">
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                   </svg>
@@ -221,13 +207,13 @@ export default function TrendingCategories() {
             ))}
           </div>
 
-          {/* Center Column: Perfectly Proportioned 7 Yellow Arc Skill Badges + 3D Vector Character */}
+          {/* Center Column: Perfectly Proportioned 7 Red Arc Skill Badges + 3D Vector Character */}
           <div className="lg:col-span-4 flex flex-col items-center justify-center relative py-4 lg:py-0">
             
-            {/* Background Soft Yellow Radial Aura */}
-            <div className="absolute w-72 h-72 sm:w-80 sm:h-80 bg-amber-400/15 rounded-full blur-3xl z-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+            {/* Background Soft Red Radial Aura */}
+            <div className="absolute w-72 h-72 sm:w-80 sm:h-80 bg-red-500/10 rounded-full blur-3xl z-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
 
-            {/* Arch Container for 7 Yellow Skill Badges with Perfect Equal Arc Spacing */}
+            {/* Arch Container for 7 Red Skill Badges with Perfect Equal Arc Spacing */}
             <div className="relative w-[320px] sm:w-[360px] h-[180px] sm:h-[195px] flex items-center justify-between z-20 mx-auto">
               {arcIcons.map((iconSvg, index) => {
                 const total = 7;
@@ -246,7 +232,7 @@ export default function TrendingCategories() {
                 return (
                   <div
                     key={index}
-                    className="absolute w-11 h-11 sm:w-11.5 sm:h-11.5 bg-gradient-to-br from-amber-400 to-[#E59719] rounded-full flex items-center justify-center shadow-lg shadow-amber-500/25 border-2 border-white transform hover:scale-115 hover:-translate-y-1 transition-all duration-300 cursor-pointer z-20 group"
+                    className="absolute w-11 h-11 sm:w-11.5 sm:h-11.5 bg-gradient-to-br from-red-500 to-[#DC2626] rounded-full flex items-center justify-center shadow-lg shadow-red-500/25 border-2 border-white transform hover:scale-115 hover:-translate-y-1 transition-all duration-300 cursor-pointer z-20 group"
                     style={{ left: `${x}px`, top: `${y}px` }}
                   >
                     <div className="transform group-hover:rotate-12 transition-transform duration-300">
@@ -280,17 +266,17 @@ export default function TrendingCategories() {
                   {/* Body / Suit Jacket */}
                   <path d="M72 195C72 145 90 115 130 115C170 115 188 145 188 195L130 215L72 195Z" fill="#1E293B" />
                   <path d="M110 115L130 155L150 115H110Z" fill="#FFFFFF" />
-                  <path d="M126 115L130 170L134 118H126Z" fill="#E59719" />
+                  <path d="M126 115L130 170L134 118H126Z" fill="#DC2626" />
                   
                   {/* Laptop Screen & Glow */}
                   <rect x="75" y="158" width="110" height="66" rx="8" fill="#334155" />
                   <rect x="80" y="163" width="100" height="54" rx="5" fill="#0F172A" />
                   
                   {/* Laptop Screen Content Visual Accent */}
-                  <rect x="88" y="172" width="45" height="4" rx="2" fill="#E59719" opacity="0.9" />
+                  <rect x="88" y="172" width="45" height="4" rx="2" fill="#DC2626" opacity="0.9" />
                   <rect x="88" y="180" width="70" height="3" rx="1.5" fill="#38BDF8" opacity="0.7" />
                   <rect x="88" y="187" width="55" height="3" rx="1.5" fill="#94A3B8" opacity="0.5" />
-                  <circle cx="160" cy="198" r="8" fill="#E59719" opacity="0.3" />
+                  <circle cx="160" cy="198" r="8" fill="#DC2626" opacity="0.3" />
 
                   {/* Laptop Base Keyboard */}
                   <polygon points="55,224 205,224 190,235 70,235" fill="#94A3B8" />
@@ -311,10 +297,10 @@ export default function TrendingCategories() {
             {rightCategories.map((item) => (
               <div 
                 key={item.id}
-                className="group bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 shadow-lg hover:shadow-xl hover:bg-white/10 hover:border-amber-400/50 flex items-center justify-between h-[80px] sm:h-[84px] transition-all duration-300 transform hover:-translate-y-1 cursor-pointer relative"
+                className="group bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-[#DC2626]/60 flex items-center justify-between h-[80px] sm:h-[84px] transition-all duration-300 transform hover:-translate-y-1 cursor-pointer relative"
               >
                 {/* Left Arrow Indicator (Pointed Inward) */}
-                <div className="pl-4 text-slate-300 group-hover:text-[#E59719] group-hover:-translate-x-1 transition-all duration-300 order-1">
+                <div className="pl-4 text-slate-400 group-hover:text-[#DC2626] group-hover:-translate-x-1 transition-all duration-300 order-1">
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
                   </svg>
@@ -322,17 +308,17 @@ export default function TrendingCategories() {
 
                 {/* Card Title & Course Counter (Right Aligned to Face Inward) */}
                 <div className="flex-1 px-4 py-2 text-right order-2">
-                  <h3 className="text-sm sm:text-base font-bold text-white group-hover:text-[#E59719] transition-colors leading-snug">
+                  <h3 className="text-sm sm:text-base font-bold text-slate-800 group-hover:text-[#DC2626] transition-colors leading-snug">
                     {item.name}
                   </h3>
-                  <span className="inline-block mt-1 text-[11px] font-semibold text-slate-400 group-hover:text-amber-300 bg-black/20 group-hover:bg-amber-500/20 px-2.5 py-0.5 rounded-full transition-colors border border-white/5">
+                  <span className="inline-block mt-1 text-[11px] font-semibold text-slate-500 group-hover:text-[#DC2626] bg-slate-100 group-hover:bg-red-50 px-2.5 py-0.5 rounded-full transition-colors border border-slate-200 group-hover:border-red-200">
                     {item.courses}
                   </span>
                 </div>
 
                 {/* Right Floating Icon Container (Mirrored Capsule) */}
-                <div className="w-12 sm:w-14 h-12 sm:h-14 mr-3 sm:mr-4 bg-black/20 group-hover:bg-[#E59719] border border-white/5 flex items-center justify-center rounded-xl shrink-0 transition-all duration-300 shadow-md order-3">
-                  <div className="transform group-hover:scale-110 transition-transform duration-300 text-white">
+                <div className="w-12 sm:w-14 h-12 sm:h-14 mr-3 sm:mr-4 bg-slate-900 group-hover:bg-slate-800 border border-slate-800 flex items-center justify-center rounded-2xl shrink-0 transition-all duration-300 shadow-sm group-hover:shadow-red-500/20 order-3">
+                  <div className="transform group-hover:scale-110 transition-transform duration-300 text-[#EF4444]">
                     {item.icon}
                   </div>
                 </div>

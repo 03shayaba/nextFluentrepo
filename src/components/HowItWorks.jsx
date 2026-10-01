@@ -4,29 +4,33 @@ const steps = [
   {
     id: 1,
     stepNumber: "STEP 01",
-    title: "Browse & Select",
-    description: "Explore our wide range of English learning & skill courses designed for all levels.",
+    title: "ASSESS",
+    tagline: "Know where you stand",
+    description: "Take our interactive diagnostic assessment to evaluate your grammar, vocabulary, and CEFR level.",
     image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80"
   },
   {
     id: 2,
     stepNumber: "STEP 02",
-    title: "Easy Enrollment",
-    description: "Enroll securely with flexible payment options and instant lifetime access.",
+    title: "LEARN",
+    tagline: "Learn what you need",
+    description: "Enroll in targeted modules tailored specifically to your weak areas and personal learning goals.",
     image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=600&q=80"
   },
   {
     id: 3,
     stepNumber: "STEP 03",
-    title: "Interactive Learning",
-    description: "Attend live classes, practice real-world exercises, and get expert guidance.",
+    title: "PRACTICE",
+    tagline: "Turn Knowledge into Skill",
+    description: "Attend live speaking sessions, practice real-world drills, and build real-time conversational confidence.",
     image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80"
   },
   {
     id: 4,
     stepNumber: "STEP 04",
-    title: "Learn & Succeed",
-    description: "Earn accredited certificates and unlock new career & academic opportunities.",
+    title: "IMPROVE",
+    tagline: "Track Your Progress and Keep Growing",
+    description: "Review detailed performance analytics, earn certificates, and continuously elevate your fluency.",
     image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80"
   }
 ];
@@ -36,12 +40,12 @@ export default function HowItWorks() {
     <section className="relative bg-[#0b101c] py-20 lg:py-32 overflow-hidden select-none z-0 border-y border-[#1E293B]">
       
       {/* Decorative Background Elements */}
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-amber-100/50 rounded-full blur-[120px] pointer-events-none -translate-y-1/2 translate-x-1/3"></div>
-      <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-indigo-100/30 rounded-full blur-[120px] pointer-events-none translate-y-1/2 -translate-x-1/3"></div>
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-red-600/10 rounded-full blur-[120px] pointer-events-none -translate-y-1/2 translate-x-1/3"></div>
+      <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-rose-600/10 rounded-full blur-[120px] pointer-events-none translate-y-1/2 -translate-x-1/3"></div>
 
       <svg className="absolute inset-0 w-full h-full opacity-[0.2] pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
         <pattern id="learning-grid" width="10" height="10" patternUnits="userSpaceOnUse">
-          <path d="M 10 0 L 0 0 0 10" fill="none" stroke="#E59719" strokeWidth="0.1" />
+          <path d="M 10 0 L 0 0 0 10" fill="none" stroke="#DC2626" strokeWidth="0.1" />
         </pattern>
         <rect width="100" height="100" fill="url(#learning-grid)" />
       </svg>
@@ -50,13 +54,13 @@ export default function HowItWorks() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
-          <div className="inline-flex items-center gap-2 bg-[#E59719]/20 backdrop-blur-md border border-[#E59719]/30 px-4 py-2 rounded-full mb-4">
-            <span className="text-[#E59719] font-bold text-xs sm:text-sm tracking-widest uppercase">
+          <div className="inline-flex items-center gap-2 bg-red-500/10 backdrop-blur-md border border-red-500/20 px-4 py-2 rounded-full mb-4">
+            <span className="text-[#EF4444] font-bold text-xs sm:text-sm tracking-widest uppercase">
               🚀 How It Works
             </span>
           </div>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-white tracking-tight leading-tight">
-            Your Journey to <span className="text-[#E59719]">Fluency</span>
+            Your Journey to <span className="text-[#EF4444]">Fluency</span>
           </h2>
           <p className="text-base sm:text-lg text-slate-400 font-medium max-w-xl mx-auto">
             Master English and achieve your goals in 4 simple, highly effective steps designed for maximum retention.
@@ -67,7 +71,7 @@ export default function HowItWorks() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
           
           {/* Connector Line (Desktop only) */}
-          <div className="hidden lg:block absolute top-[40%] left-[10%] right-[10%] h-[2px] bg-gradient-to-r from-transparent via-amber-200 to-transparent z-0"></div>
+          <div className="hidden lg:block absolute top-[40%] left-[10%] right-[10%] h-[2px] bg-gradient-to-r from-transparent via-red-500/40 to-transparent z-0"></div>
 
           {steps.map((step, index) => (
             <div 
@@ -76,21 +80,21 @@ export default function HowItWorks() {
             >
               
               {/* Massive Background Number */}
-              <div className="absolute top-10 left-1/2 -translate-x-1/2 text-[120px] font-black text-slate-800/30 group-hover:text-amber-500/10 transition-colors duration-500 z-0 pointer-events-none select-none">
+              <div className="absolute top-10 left-1/2 -translate-x-1/2 text-[120px] font-black text-slate-800/30 group-hover:text-red-500/15 transition-colors duration-500 z-0 pointer-events-none select-none">
                 0{step.id}
               </div>
 
               {/* Card Container */}
-              <div className="relative z-10 bg-[#111726] border border-[#1E293B] p-4 rounded-[2rem] w-full max-w-[300px] shadow-sm transition-all duration-500 hover:-translate-y-4 hover:border-[#E59719]/50 hover:shadow-2xl flex flex-col items-center group-hover:bg-[#1E293B]/50">
+              <div className="relative z-10 bg-[#111726] border border-[#1E293B] p-4 rounded-[2rem] w-full max-w-[300px] shadow-sm transition-all duration-500 hover:-translate-y-4 hover:border-red-500/50 hover:shadow-2xl flex flex-col items-center group-hover:bg-[#1E293B]/50">
                 
                 {/* Step Badge */}
-                <div className="absolute -top-4 bg-gradient-to-r from-[#E59719] to-amber-500 text-white text-xs font-black px-4 py-1.5 rounded-full shadow-lg border-2 border-[#111726] z-20">
+                <div className="absolute -top-4 bg-gradient-to-r from-[#DC2626] to-rose-600 text-white text-xs font-black px-4 py-1.5 rounded-full shadow-lg border-2 border-[#111726] z-20">
                   {step.stepNumber}
                 </div>
 
                 {/* Image */}
                 <div className="w-full h-48 rounded-[1.5rem] overflow-hidden mb-6 relative shadow-inner">
-                  <div className="absolute inset-0 bg-amber-500/10 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-500 z-10"></div>
+                  <div className="absolute inset-0 bg-red-500/10 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-500 z-10"></div>
                   <img 
                     src={step.image} 
                     alt={step.title}
@@ -100,9 +104,14 @@ export default function HowItWorks() {
 
                 {/* Content */}
                 <div className="text-center pb-4 px-2">
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#E59719] transition-colors duration-300">
+                  <h3 className="text-xl font-black text-white mb-1 group-hover:text-[#EF4444] transition-colors duration-300">
                     {step.title}
                   </h3>
+                  {step.tagline && (
+                    <h4 className="text-xs font-bold text-red-400 mb-2 uppercase tracking-wider">
+                      {step.tagline}
+                    </h4>
+                  )}
                   <p className="text-sm text-slate-400 font-medium leading-relaxed group-hover:text-slate-300 transition-colors">
                     {step.description}
                   </p>
@@ -111,7 +120,7 @@ export default function HowItWorks() {
               </div>
 
               {/* Glowing Dot on Connector */}
-              <div className="hidden lg:block absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-[#0b101c] border-4 border-slate-700 z-20 group-hover:border-[#E59719] group-hover:shadow-[0_0_15px_rgba(229,151,25,0.4)] transition-all duration-300"></div>
+              <div className="hidden lg:block absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-[#0b101c] border-4 border-slate-700 z-20 group-hover:border-[#DC2626] group-hover:shadow-[0_0_15px_rgba(220,38,38,0.5)] transition-all duration-300"></div>
 
             </div>
           ))}

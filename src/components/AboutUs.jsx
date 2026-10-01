@@ -3,10 +3,10 @@ import Link from 'next/link';
 
 export default function AboutUs() {
   return (
-    <section className="bg-[#111726] py-16 lg:py-24 overflow-hidden relative select-none">
+    <section className="bg-[#111726] py-16 lg:py-24 overflow-hidden relative select-none border-b border-[#1E293B]">
       
       {/* Decorative Background Elements */}
-      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-amber-50 rounded-full blur-3xl opacity-50 transform -translate-x-1/2 -translate-y-1/4 pointer-events-none"></div>
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-red-600/10 rounded-full blur-3xl opacity-40 transform -translate-x-1/2 -translate-y-1/4 pointer-events-none"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -16,13 +16,13 @@ export default function AboutUs() {
           <div className="space-y-8">
             
             <div className="space-y-4">
-              <span className="inline-flex items-center gap-2 bg-[#E59719]/20 backdrop-blur-md border border-[#E59719]/30 text-[#E59719] font-bold text-xs sm:text-sm px-4 py-1.5 rounded-full tracking-wider uppercase">
+              <span className="inline-flex items-center gap-2 bg-red-500/10 backdrop-blur-md border border-red-500/20 text-[#EF4444] font-bold text-xs sm:text-sm px-4 py-1.5 rounded-full tracking-wider uppercase">
                 👋 About NextFluent
               </span>
               
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
                 Empowering Learners to <br className="hidden md:block" />
-                Speak with <span className="text-[#E59719]">Confidence.</span>
+                Speak with <span className="text-[#EF4444]">Confidence.</span>
               </h2>
               
               <p className="text-slate-400 text-base sm:text-lg leading-relaxed max-w-lg">
@@ -31,25 +31,25 @@ export default function AboutUs() {
             </div>
 
             {/* Stats Grid (2x2) */}
-            <div className="grid grid-cols-2 gap-6 pt-4 border-t border-slate-700">
+            <div className="grid grid-cols-2 gap-6 pt-4 border-t border-slate-800">
               
               <div className="space-y-1">
-                <h4 className="text-3xl sm:text-4xl font-black text-[#E59719]">10K+</h4>
+                <h4 className="text-3xl sm:text-4xl font-black text-[#EF4444]">10K+</h4>
                 <p className="text-sm font-bold text-slate-300">Happy Students</p>
               </div>
 
               <div className="space-y-1">
-                <h4 className="text-3xl sm:text-4xl font-black text-[#E59719]">50+</h4>
+                <h4 className="text-3xl sm:text-4xl font-black text-[#EF4444]">50+</h4>
                 <p className="text-sm font-bold text-slate-300">Expert Tutors</p>
               </div>
 
               <div className="space-y-1">
-                <h4 className="text-3xl sm:text-4xl font-black text-[#E59719]">4.9</h4>
+                <h4 className="text-3xl sm:text-4xl font-black text-[#EF4444]">4.9</h4>
                 <p className="text-sm font-bold text-slate-300">Average Rating</p>
               </div>
 
               <div className="space-y-1">
-                <h4 className="text-3xl sm:text-4xl font-black text-[#E59719]">100%</h4>
+                <h4 className="text-3xl sm:text-4xl font-black text-[#EF4444]">100%</h4>
                 <p className="text-sm font-bold text-slate-300">Commitment</p>
               </div>
               
@@ -58,7 +58,7 @@ export default function AboutUs() {
             {/* CTA Button */}
             <div className="pt-2">
               <Link href="/contact">
-                <button className="bg-[#E59719] hover:bg-[#d48d12] text-white font-bold text-sm px-8 py-4 rounded-xl shadow-lg transition-all transform hover:-translate-y-1 cursor-pointer">
+                <button className="bg-[#DC2626] hover:bg-[#B91C1C] text-white font-bold text-sm px-8 py-4 rounded-xl shadow-lg shadow-red-500/20 transition-all transform hover:-translate-y-1 cursor-pointer">
                   Discover Our Story
                 </button>
               </Link>
@@ -71,7 +71,7 @@ export default function AboutUs() {
             
             {/* Floating Badge */}
             <div className="absolute top-10 -left-8 z-30 bg-[#1E293B] p-4 rounded-2xl shadow-2xl flex items-center gap-4 animate-bounce-slow border border-slate-700">
-              <div className="w-12 h-12 bg-amber-500/20 rounded-full flex items-center justify-center text-2xl">
+              <div className="w-12 h-12 bg-red-500/20 rounded-full flex items-center justify-center text-2xl">
                 🏆
               </div>
               <div>
@@ -87,7 +87,7 @@ export default function AboutUs() {
                 alt="Students collaborating" 
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-amber-500/10 mix-blend-multiply"></div>
+              <div className="absolute inset-0 bg-red-500/10 mix-blend-multiply"></div>
             </div>
 
             {/* Small Image 1 (Bottom Left) */}
@@ -109,7 +109,7 @@ export default function AboutUs() {
             </div>
 
             {/* Decorative Dots Pattern */}
-            <svg className="absolute -bottom-8 -right-8 w-32 h-32 text-[#E59719] opacity-30 z-0" fill="currentColor" viewBox="0 0 100 100">
+            <svg className="absolute -bottom-8 -right-8 w-32 h-32 text-[#DC2626] opacity-30 z-0" fill="currentColor" viewBox="0 0 100 100">
               <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
                 <circle fill="currentColor" cx="5" cy="5" r="2"></circle>
               </pattern>

@@ -7,91 +7,120 @@ import Testimonials from "@/components/Testimonials";
 import React, { useState, useMemo } from 'react';
 import TransformHero from "@/components/TransformHero";
 import EnrollModal from "@/components/EnrollModal";
+import Newsletter from "@/components/Newsletter";
 
 const courses = [
   {
     id: 1,
     image: "course1.avif",
-    price: "₹1,499",
-    category: "English Learning",
+    price: "₹799",
+    category: "Basic English",
     instructorImage: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop",
     instructorName: "Jill King",
-    title: "Certified English Grammar & Writing Masterclass",
-    students: "240",
-    lessons: "14",
-    hours: "4.5",
-    level: "Intermediate",
+    title: "Basic English Grammar & Vocabulary Foundation",
+    students: "1,240",
+    lessons: "16",
+    hours: "5.5",
+    level: "Beginner",
     rating: 4.8
   },
   {
     id: 2,
     image: "course2.avif",
-    price: "₹799",
-    category: "Vocabulary",
+    price: "₹999",
+    category: "Intermediate English",
     instructorImage: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop",
     instructorName: "Jill King",
-    title: "Essential English Vocabulary for Daily Fluency",
-    students: "180",
-    lessons: "10",
-    hours: "3",
-    level: "Beginner",
-    rating: 4.5
+    title: "Intermediate English Tenses & Sentence Fluency",
+    students: "980",
+    lessons: "20",
+    hours: "7.0",
+    level: "Intermediate",
+    rating: 4.7
   },
   {
     id: 3,
     image: "course3.avif",
     price: "₹1,299",
-    category: "Writing & Essays",
+    category: "Advanced English",
     instructorImage: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop",
     instructorName: "Ana Murphy",
-    title: "Expository & Professional Business Writing",
-    students: "320",
-    lessons: "16",
-    hours: "5",
+    title: "Advanced English Expressions, Idioms & Nuance",
+    students: "820",
+    lessons: "24",
+    hours: "8.5",
     level: "Advanced",
     rating: 4.9
   },
   {
     id: 4,
     image: "course4.avif",
-    price: "₹1,999",
-    category: "Technology",
+    price: "₹1,499",
+    category: "Spoken English",
     instructorImage: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop",
-    instructorName: "John Doe",
-    title: "Complete Web Development Bootcamp 2024",
-    students: "850",
-    lessons: "42",
-    hours: "12",
-    level: "Beginner",
-    rating: 4.7
+    instructorName: "John Miller",
+    title: "Spoken English & Real-Time Conversation Practice",
+    students: "2,450",
+    lessons: "30",
+    hours: "12.0",
+    level: "All Levels",
+    rating: 4.9
   },
   {
     id: 5,
     image: "course5.avif",
-    price: "₹899",
-    category: "Design",
+    price: "₹1,999",
+    category: "IELTS",
     instructorImage: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop",
     instructorName: "Sarah Smith",
-    title: "UI/UX Design Masterclass: From Beginner to Pro",
-    students: "420",
-    lessons: "24",
-    hours: "6.5",
-    level: "Intermediate",
-    rating: 4.6
+    title: "Complete IELTS Academic & General Band 8+ Masterclass",
+    students: "3,120",
+    lessons: "40",
+    hours: "18.0",
+    level: "Advanced",
+    rating: 4.9
   },
   {
     id: 6,
     image: "course6.avif",
     price: "₹1,199",
-    category: "Business",
+    category: "Personality & Communication",
     instructorImage: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop",
     instructorName: "Mike Johnson",
-    title: "Digital Marketing Strategy for Modern Business",
-    students: "560",
-    lessons: "18",
-    hours: "8",
+    title: "Personality Development & Interpersonal Communication",
+    students: "1,560",
+    lessons: "22",
+    hours: "9.0",
     level: "Intermediate",
     rating: 4.8
+  },
+  {
+    id: 7,
+    image: "t1.avif",
+    price: "₹1,299",
+    category: "Public Speaking",
+    instructorImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",
+    instructorName: "Dr. Sarah Khan",
+    title: "Public Speaking & Presentation Masterclass",
+    students: "1,140",
+    lessons: "18",
+    hours: "6.5",
+    level: "All Levels",
+    rating: 4.8
+  },
+  {
+    id: 8,
+    image: "t2.avif",
+    price: "₹1,499",
+    category: "Business English",
+    instructorImage: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop",
+    instructorName: "Elena Rostova",
+    title: "Business English Pro: Corporate Email & Speech",
+    students: "1,890",
+    lessons: "28",
+    hours: "11.0",
+    level: "Intermediate",
+    rating: 4.9
   }
 ];
 
@@ -158,7 +187,7 @@ export default function CoursesPage() {
           
           {/* Dynamic Background Orbs */}
           <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-blue-600/20 blur-[120px] pointer-events-none z-[-1]"></div>
-          <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] rounded-full bg-amber-500/15 blur-[120px] pointer-events-none z-[-1]"></div>
+          <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] rounded-full bg-red-600/15 blur-[120px] pointer-events-none z-[-1]"></div>
           <div className="absolute top-[20%] right-[20%] w-[400px] h-[400px] rounded-full bg-emerald-500/10 blur-[100px] pointer-events-none z-[-1]"></div>
 
           {/* Decorative Grid */}
@@ -177,28 +206,28 @@ export default function CoursesPage() {
                 
                 {/* Handwritten Text & Arrow */}
                 <div className="absolute -top-12 -left-4 lg:-left-12 hidden md:block">
-                  <span className="text-amber-400 font-light text-2xl rotate-[-8deg] inline-block drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]" style={{ fontFamily: '"Caveat", "Comic Sans MS", cursive' }}>
+                  <span className="text-red-400 font-light text-2xl rotate-[-8deg] inline-block drop-shadow-[0_0_8px_rgba(239,68,68,0.5)]" style={{ fontFamily: '"Caveat", "Comic Sans MS", cursive' }}>
                     Find your perfect course!
                   </span>
-                  <svg className="w-16 h-12 text-amber-500/80 transform rotate-12 mt-2 ml-10" viewBox="0 0 100 100" fill="none">
+                  <svg className="w-16 h-12 text-red-500/80 transform rotate-12 mt-2 ml-10" viewBox="0 0 100 100" fill="none">
                     <path d="M10 10 Q 50 80, 90 90 M70 85 L90 90 L85 70" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
 
-                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500/10 to-orange-500/10 backdrop-blur-md border border-amber-500/20 px-4 py-2 rounded-full mb-8 text-amber-400 font-bold text-xs tracking-[0.2em] uppercase shadow-[0_0_15px_rgba(245,158,11,0.15)]">
-                  <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span> Master Your Skills
+                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-red-500/10 to-rose-500/10 backdrop-blur-md border border-red-500/20 px-4 py-2 rounded-full mb-8 text-[#EF4444] font-bold text-xs tracking-[0.2em] uppercase shadow-[0_0_15px_rgba(220,38,38,0.15)]">
+                  <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span> Master Your Skills
                 </div>
                 
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-white mb-6 tracking-tight leading-[1.1] drop-shadow-xl">
                   Browse Our <br className="hidden md:block"/>
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E59719] to-amber-300 drop-shadow-sm">Premium Courses</span>
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#EF4444] to-rose-300 drop-shadow-sm">Premium Courses</span>
                 </h1>
                 
                 <div className="flex items-center text-sm font-medium text-slate-300 gap-3 bg-white/5 backdrop-blur-md w-fit px-5 py-2.5 rounded-full border border-white/10 shadow-lg shadow-black/20">
-                  <svg className="w-4 h-4 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                  <svg className="w-4 h-4 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                   </svg>
-                  <a href="/" className="hover:text-amber-400 cursor-pointer transition-colors">Home</a>
+                  <a href="/" className="hover:text-red-400 cursor-pointer transition-colors">Home</a>
                   <span className="text-white/20">/</span>
                   <span className="text-white">Courses</span>
                 </div>
@@ -208,14 +237,14 @@ export default function CoursesPage() {
               <div className="flex flex-col sm:flex-row gap-4">
                 
                 {/* Stat 1 */}
-                <div className="bg-white/[0.03] backdrop-blur-2xl border border-white/10 shadow-2xl rounded-3xl p-6 min-w-[160px] transform hover:-translate-y-2 transition-all duration-500 hover:bg-white/[0.06] hover:border-amber-400/30 group relative overflow-hidden">
-                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-amber-400/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <div className="absolute -inset-2 bg-gradient-to-r from-amber-400/0 via-amber-400/10 to-amber-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
+                <div className="bg-white/[0.03] backdrop-blur-2xl border border-white/10 shadow-2xl rounded-3xl p-6 min-w-[160px] transform hover:-translate-y-2 transition-all duration-500 hover:bg-white/[0.06] hover:border-red-400/30 group relative overflow-hidden">
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-red-400/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="absolute -inset-2 bg-gradient-to-r from-red-400/0 via-red-400/10 to-red-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
                   <div className="flex items-center gap-3 mb-2 relative z-10">
-                    <div className="w-10 h-10 rounded-full bg-amber-500/20 flex items-center justify-center text-amber-400">
+                    <div className="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center text-red-400">
                       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
                     </div>
-                    <h2 className="text-4xl sm:text-5xl font-black text-white group-hover:text-amber-400 transition-colors drop-shadow-md">9+</h2>
+                    <h2 className="text-4xl sm:text-5xl font-black text-white group-hover:text-red-400 transition-colors drop-shadow-md">9+</h2>
                   </div>
                   <p className="text-sm text-slate-300 font-medium relative z-10 pl-1">Online Courses</p>
                 </div>
@@ -271,7 +300,7 @@ export default function CoursesPage() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search course..."
-                  className="w-full pl-11 pr-4 py-3 bg-white border border-slate-200 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all shadow-sm text-slate-700"
+                  className="w-full pl-11 pr-4 py-3 bg-white border border-slate-200 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 transition-all shadow-sm text-slate-700"
                 />
               </div>
 
@@ -279,7 +308,7 @@ export default function CoursesPage() {
               <div className="flex flex-wrap gap-3 flex-1">
                 {/* Categories */}
                 <div className="relative flex-1 min-w-[130px]">
-                  <select value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)} className="w-full bg-white border border-slate-200 pl-4 pr-10 py-3 rounded-full text-sm text-slate-600 font-medium appearance-none focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 shadow-sm cursor-pointer">
+                  <select value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)} className="w-full bg-white border border-slate-200 pl-4 pr-10 py-3 rounded-full text-sm text-slate-600 font-medium appearance-none focus:outline-none focus:border-red-400 focus:ring-1 focus:ring-red-400 shadow-sm cursor-pointer">
                     <option value="All">All Categories</option>
                     <option value="English Learning">English Learning</option>
                     <option value="Vocabulary">Vocabulary</option>
@@ -295,7 +324,7 @@ export default function CoursesPage() {
 
                 {/* Prices */}
                 <div className="relative flex-1 min-w-[130px]">
-                  <select value={priceFilter} onChange={(e) => setPriceFilter(e.target.value)} className="w-full bg-white border border-slate-200 pl-4 pr-10 py-3 rounded-full text-sm text-slate-600 font-medium appearance-none focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 shadow-sm cursor-pointer">
+                  <select value={priceFilter} onChange={(e) => setPriceFilter(e.target.value)} className="w-full bg-white border border-slate-200 pl-4 pr-10 py-3 rounded-full text-sm text-slate-600 font-medium appearance-none focus:outline-none focus:border-red-400 focus:ring-1 focus:ring-red-400 shadow-sm cursor-pointer">
                     <option value="All">All Prices</option>
                     <option value="Under ₹1000">Under ₹1000</option>
                     <option value="₹1000 - ₹1500">₹1000 - ₹1500</option>
@@ -308,7 +337,7 @@ export default function CoursesPage() {
 
                 {/* Levels */}
                 <div className="relative flex-1 min-w-[130px]">
-                  <select value={levelFilter} onChange={(e) => setLevelFilter(e.target.value)} className="w-full bg-white border border-slate-200 pl-4 pr-10 py-3 rounded-full text-sm text-slate-600 font-medium appearance-none focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 shadow-sm cursor-pointer">
+                  <select value={levelFilter} onChange={(e) => setLevelFilter(e.target.value)} className="w-full bg-white border border-slate-200 pl-4 pr-10 py-3 rounded-full text-sm text-slate-600 font-medium appearance-none focus:outline-none focus:border-red-400 focus:ring-1 focus:ring-red-400 shadow-sm cursor-pointer">
                     <option value="All">All Levels</option>
                     <option value="Beginner">Beginner</option>
                     <option value="Intermediate">Intermediate</option>
@@ -321,7 +350,7 @@ export default function CoursesPage() {
 
                 {/* Rating */}
                 <div className="relative flex-1 min-w-[130px]">
-                  <select value={ratingFilter} onChange={(e) => setRatingFilter(e.target.value)} className="w-full bg-white border border-slate-200 pl-4 pr-10 py-3 rounded-full text-sm text-slate-600 font-medium appearance-none focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 shadow-sm cursor-pointer">
+                  <select value={ratingFilter} onChange={(e) => setRatingFilter(e.target.value)} className="w-full bg-white border border-slate-200 pl-4 pr-10 py-3 rounded-full text-sm text-slate-600 font-medium appearance-none focus:outline-none focus:border-red-400 focus:ring-1 focus:ring-red-400 shadow-sm cursor-pointer">
                     <option value="All">All Ratings</option>
                     <option value="4.5+">4.5 & up</option>
                     <option value="4.8+">4.8 & up</option>
@@ -344,7 +373,7 @@ export default function CoursesPage() {
                 <div className="flex items-center text-sm">
                   <span className="text-slate-500 mr-3">Sort by</span>
                   <div className="relative">
-                    <select value={sortBy} onChange={(e) => setSortBy(e.target.value)} className="appearance-none bg-white border border-slate-200 pl-4 pr-10 py-2 rounded-full text-[#0F172A] font-medium focus:outline-none focus:border-amber-400 shadow-sm transition-colors cursor-pointer">
+                    <select value={sortBy} onChange={(e) => setSortBy(e.target.value)} className="appearance-none bg-white border border-slate-200 pl-4 pr-10 py-2 rounded-full text-[#0F172A] font-medium focus:outline-none focus:border-red-400 shadow-sm transition-colors cursor-pointer">
                       <option value="Latest">Latest</option>
                       <option value="Price: Low to High">Price: Low to High</option>
                       <option value="Price: High to Low">Price: High to Low</option>
@@ -357,7 +386,7 @@ export default function CoursesPage() {
 
                 {/* Grid / List Toggles */}
                 <div className="flex bg-[#f3edfd]/40 rounded-full p-1 border border-purple-100/50">
-                  <button className="p-1.5 bg-white text-purple-600 shadow-sm rounded-full border border-purple-100">
+                  <button className="p-1.5 bg-white text-red-600 shadow-sm rounded-full border border-red-100">
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M4 4h6v6H4V4zm10 0h6v6h-6V4zM4 14h6v6H4v-6zm10 0h6v6h-6v-6z" />
                     </svg>
@@ -376,7 +405,7 @@ export default function CoursesPage() {
               {filteredCourses.length === 0 ? (
                 <div className="col-span-full py-16 text-center text-slate-500">
                   <p className="text-lg">No courses found matching your filters.</p>
-                  <button onClick={() => { setSearchQuery(''); setCategoryFilter('All'); setPriceFilter('All'); setLevelFilter('All'); setRatingFilter('All'); }} className="mt-4 text-[#E59719] font-bold hover:underline">Clear all filters</button>
+                  <button onClick={() => { setSearchQuery(''); setCategoryFilter('All'); setPriceFilter('All'); setLevelFilter('All'); setRatingFilter('All'); }} className="mt-4 text-[#DC2626] font-bold hover:underline">Clear all filters</button>
                 </div>
               ) : (
                 filteredCourses.map(course => {
@@ -410,12 +439,12 @@ export default function CoursesPage() {
                       {/* Content Section */}
                       <div className="p-5 flex flex-col flex-grow">
                         
-                        <h3 className="text-xl font-extrabold text-[#0F172A] mb-4 leading-tight group-hover:text-[#E59719] transition-colors">{course.title}</h3>
+                        <h3 className="text-xl font-extrabold text-[#0F172A] mb-4 leading-tight group-hover:text-[#DC2626] transition-colors">{course.title}</h3>
                         
                         {/* Rating & Enrollment */}
                         <div className="flex flex-wrap items-center gap-3 text-xs font-semibold text-slate-600 mb-4 pb-4 border-b border-slate-100">
                           <div className="flex items-center gap-1">
-                            <span className="text-amber-500">⭐</span> {course.rating} <span className="text-slate-400 font-medium">({course.students} students)</span>
+                            <span className="text-red-500">⭐</span> {course.rating} <span className="text-slate-400 font-medium">({course.students} students)</span>
                           </div>
                           <span className="text-slate-300">|</span>
                           <div className="flex items-center gap-1">
@@ -441,7 +470,7 @@ export default function CoursesPage() {
 
                         {/* Pricing */}
                         <div className="flex items-center gap-3 mb-6 mt-auto">
-                          <span className="text-2xl font-black text-[#E59719]">{course.price}</span>
+                          <span className="text-2xl font-black text-[#DC2626]">{course.price}</span>
                           <span className="text-sm font-semibold text-slate-400 line-through">{originalPrice}</span>
                           <span className="text-[10px] font-black bg-emerald-100 text-emerald-600 px-2 py-1 rounded tracking-wide">{discountPercent}% OFF</span>
                         </div>
@@ -453,7 +482,7 @@ export default function CoursesPage() {
                           </button>
                           <button 
                             onClick={(e) => handleEnrollClick(e, course)}
-                            className="flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-[#E59719] text-white font-bold text-sm hover:bg-amber-600 transition-colors shadow-md shadow-amber-500/20"
+                            className="flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-[#DC2626] text-white font-bold text-sm hover:bg-[#B91C1C] transition-colors shadow-md shadow-red-500/20"
                           >
                             Enroll Now &rarr;
                           </button>
@@ -468,7 +497,7 @@ export default function CoursesPage() {
 
             {/* Pagination / Load More (Optional) */}
             <div className="mt-12 flex justify-center">
-              <button className="bg-white border-2 border-[#E59719] text-[#E59719] hover:bg-[#E59719] hover:text-white font-semibold py-2 px-6 text-sm rounded-full transition-all duration-300 shadow-sm hover:shadow-md">
+              <button className="bg-white border-2 border-[#DC2626] text-[#DC2626] hover:bg-[#DC2626] hover:text-white font-semibold py-2 px-6 text-sm rounded-full transition-all duration-300 shadow-sm hover:shadow-md">
                 Load More Courses
               </button>
             </div>
@@ -482,6 +511,7 @@ export default function CoursesPage() {
         {/* Testimonials Section */}
         <Testimonials />
         <TransformHero />
+        <Newsletter />
 
       </main>
       <Footer />

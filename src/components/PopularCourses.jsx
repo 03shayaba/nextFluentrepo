@@ -5,54 +5,36 @@ import EnrollModal from './EnrollModal';
 
 const filterOptions = [
   { id: 'all', label: 'All Courses', icon: '▦' },
-  { id: 'beginner', label: 'Beginner', icon: '📊' },
-  { id: 'intermediate', label: 'Intermediate', icon: '📈' },
-  { id: 'advanced', label: 'Advanced', icon: '📉' },
-  { id: 'ielts', label: 'IELTS', icon: '📄' },
-  { id: 'business', label: 'Business English', icon: '💼' },
   { id: 'spoken', label: 'Spoken English', icon: '🎙️' },
+  { id: 'ielts', label: 'IELTS', icon: '📄' },
+  { id: 'public-speaking', label: 'Public Speaking', icon: '🎤' },
+  { id: 'advanced', label: 'Advanced English', icon: '🎓' },
 ];
 
 const popularCoursesData = [
   {
     id: 1,
-    title: "English Speaking Mastery",
-    description: "Build fluency, improve pronunciation and speak confidently in real-life situations.",
+    title: "Spoken English Mastery",
+    description: "Build natural fluency, eliminate hesitation, and speak confidently anywhere, anytime.",
     image: "/course5.avif",
     category: "Spoken English",
-    rating: "4.8",
+    rating: "4.9",
     reviews: "2.5K",
     enrolled: "10K+",
-    lessons: "24",
+    lessons: "30",
     hours: "12",
-    level: "Beginner",
+    level: "All Levels",
     currentPrice: "₹799",
     originalPrice: "₹1,499",
     discount: "47% OFF",
   },
   {
     id: 2,
-    title: "English Grammar Foundation",
-    description: "Master essential grammar rules with simple explanations and practical examples.",
-    image: "/course6.avif",
-    category: "Grammar",
-    rating: "4.9",
-    reviews: "1.8K",
-    enrolled: "8K+",
-    lessons: "32",
-    hours: "15",
-    level: "Intermediate",
-    currentPrice: "₹999",
-    originalPrice: "₹1,999",
-    discount: "50% OFF",
-  },
-  {
-    id: 3,
-    title: "IELTS Preparation Course",
-    description: "Comprehensive training for all IELTS modules with expert strategies and practice tests.",
+    title: "IELTS Preparation Masterclass",
+    description: "Comprehensive band 8+ training for Speaking, Listening, Reading & Writing modules.",
     image: "/t1.avif",
     category: "IELTS",
-    rating: "4.7",
+    rating: "4.8",
     reviews: "3.2K",
     enrolled: "12K+",
     lessons: "40",
@@ -63,20 +45,36 @@ const popularCoursesData = [
     discount: "40% OFF",
   },
   {
-    id: 4,
-    title: "Business English Pro",
-    description: "Learn professional communication skills for the modern global workplace.",
-    image: "/t2.avif",
-    category: "Business English",
+    id: 3,
+    title: "Public Speaking & Presentation Skills",
+    description: "Conquer stage fear, structure engaging speeches, and captivate any audience with impact.",
+    image: "/course6.avif",
+    category: "Public Speaking",
     rating: "4.9",
-    reviews: "1.2K",
-    enrolled: "5K+",
-    lessons: "28",
-    hours: "14",
+    reviews: "1.8K",
+    enrolled: "8K+",
+    lessons: "24",
+    hours: "10",
     level: "Intermediate",
     currentPrice: "₹1,199",
-    originalPrice: "₹2,199",
-    discount: "45% OFF",
+    originalPrice: "₹1,999",
+    discount: "40% OFF",
+  },
+  {
+    id: 4,
+    title: "Advanced English & Accent Training",
+    description: "Master complex sentence structures, advanced vocabulary, and native accent nuance.",
+    image: "/t2.avif",
+    category: "Advanced English",
+    rating: "4.9",
+    reviews: "1.6K",
+    enrolled: "6K+",
+    lessons: "28",
+    hours: "14",
+    level: "Advanced",
+    currentPrice: "₹1,299",
+    originalPrice: "₹2,299",
+    discount: "43% OFF",
   }
 ];
 
@@ -111,13 +109,7 @@ export default function PopularCourses() {
   return (
     <section className="relative bg-[#0b101c] py-10 lg:py-12 overflow-hidden font-sans border-t border-[#1E293B]">
       
-      {/* Decorative Background Elements */}
-      <div className="absolute top-10 right-20 hidden lg:block transform -rotate-6">
-        <div className="font-serif italic text-2xl font-bold text-slate-600 leading-tight">
-          Invest<br/>in Your<br/>Better You
-        </div>
-        <div className="mt-1 w-20 h-0.5 bg-amber-400"></div>
-      </div>
+
       
       {/* Dashed curved line decoration */}
       <div className="absolute top-0 left-0 w-64 h-64 opacity-30 pointer-events-none hidden md:block">
@@ -130,11 +122,11 @@ export default function PopularCourses() {
         
         {/* Header Content */}
         <div className="text-center mb-10 flex flex-col items-center">
-          <div className="inline-flex items-center gap-2 bg-[#E59719]/20 backdrop-blur-md border border-[#E59719]/30 text-[#E59719] font-bold text-xs sm:text-sm px-4 py-1.5 rounded-full tracking-wide mb-4 uppercase">
+          <div className="inline-flex items-center gap-2 bg-red-500/15 backdrop-blur-md border border-red-500/30 text-[#EF4444] font-bold text-xs sm:text-sm px-4 py-1.5 rounded-full tracking-wide mb-4 uppercase">
             ⭐ LEARN & GROW
           </div>
           <h2 className="text-4xl md:text-5xl font-semibold text-white mb-4">
-            Explore Our <span className="text-[#E59719]">Popular Courses</span>
+            Explore Our <span className="text-[#EF4444]">Popular Courses</span>
           </h2>
           <p className="text-slate-400 text-sm md:text-base max-w-2xl">
             Choose from expertly designed courses created to build confidence, communication skills, and career-ready English.
@@ -147,11 +139,11 @@ export default function PopularCourses() {
         <div className="relative group">
           
           {/* Nav Arrows */}
-          <button onClick={scrollLeft} className="absolute -left-5 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white rounded-full shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] flex items-center justify-center text-slate-700 hover:text-amber-500 transition-colors focus:outline-none">
+          <button onClick={scrollLeft} className="absolute -left-5 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white rounded-full shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] flex items-center justify-center text-slate-700 hover:text-[#EF4444] transition-colors focus:outline-none cursor-pointer">
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7"/></svg>
           </button>
           
-          <button onClick={scrollRight} className="absolute -right-5 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white rounded-full shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] flex items-center justify-center text-slate-700 hover:text-amber-500 transition-colors focus:outline-none">
+          <button onClick={scrollRight} className="absolute -right-5 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white rounded-full shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] flex items-center justify-center text-slate-700 hover:text-[#EF4444] transition-colors focus:outline-none cursor-pointer">
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"/></svg>
           </button>
 
@@ -159,7 +151,7 @@ export default function PopularCourses() {
           <div ref={scrollRef} className="flex overflow-x-auto gap-6 pb-8 pt-4 px-2 snap-x snap-mandatory hide-scrollbar relative" style={{ scrollbarWidth: 'none' }}>
             
             {popularCoursesData.map((course) => (
-              <div key={course.id} className="snap-center shrink-0 w-[85vw] sm:w-[320px] md:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)] bg-white/5 backdrop-blur-xl rounded-3xl shadow-2xl shadow-black/20 border border-white/10 overflow-hidden flex flex-col transition-all hover:-translate-y-2 hover:bg-white/10 hover:border-amber-400/30 duration-300">
+              <div key={course.id} className="snap-center shrink-0 w-[85vw] sm:w-[320px] md:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)] bg-white/5 backdrop-blur-xl rounded-3xl shadow-2xl shadow-black/20 border border-white/10 overflow-hidden flex flex-col transition-all hover:-translate-y-2 hover:bg-white/10 hover:border-red-500/40 duration-300">
                 
                 {/* Image Section */}
                 <div className="relative h-48 w-full p-2">
@@ -214,7 +206,7 @@ export default function PopularCourses() {
 
                   {/* Pricing */}
                   <div className="flex items-center gap-3 mb-6 mt-auto">
-                    <span className="text-2xl font-black text-amber-500">{course.currentPrice}</span>
+                    <span className="text-2xl font-black text-[#EF4444]">{course.currentPrice}</span>
                     <span className="text-sm font-semibold text-slate-400 line-through">{course.originalPrice}</span>
                     <span className="text-[10px] font-black bg-emerald-100 text-emerald-600 px-2 py-1 rounded tracking-wide">{course.discount}</span>
                   </div>
@@ -226,7 +218,7 @@ export default function PopularCourses() {
                     </a>
                     <button 
                       onClick={() => handleEnrollClick(course)}
-                      className="flex items-center justify-center gap-1 py-2.5 rounded-xl bg-[#E59719] text-white font-bold text-xs hover:bg-[#D48E12] transition-colors shadow-md shadow-amber-500/20 cursor-pointer"
+                      className="flex items-center justify-center gap-1 py-2.5 rounded-xl bg-[#DC2626] text-white font-bold text-xs hover:bg-[#B91C1C] transition-colors shadow-md shadow-red-500/20 cursor-pointer"
                     >
                       Enroll Now &rarr;
                     </button>
@@ -239,31 +231,7 @@ export default function PopularCourses() {
         </div>
 
         {/* Bottom Section */}
-        <div className="mt-8 flex flex-col md:flex-row items-center justify-between px-4">
-          
-          {/* Happy Learners */}
-          <div className="flex items-center gap-4 mb-6 md:mb-0">
-            <div className="flex -space-x-3">
-              <img className="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Student" />
-              <img className="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=100&q=80" alt="Student" />
-              <img className="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80" alt="Student" />
-              <img className="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=100&q=80" alt="Student" />
-              <div className="w-10 h-10 rounded-full border-2 border-white bg-slate-100 flex items-center justify-center text-slate-500 font-bold text-xs shadow-sm z-10">
-                +
-              </div>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-slate-300 text-sm font-medium">Join 10,000+ learners<br/>already improving their English</span>
-            </div>
-          </div>
-
-
-          {/* View All */}
-          <a href="/courses" className="font-bold text-amber-500 text-sm flex items-center gap-1 hover:text-amber-600 transition-colors">
-            View All Courses &rarr;
-          </a>
-          
-        </div>
+       
       </div>
       
       <EnrollModal 

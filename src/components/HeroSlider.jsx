@@ -8,77 +8,112 @@ const slides = [
     tag: "ENGLISH LEARNING",
     title: "EXCEL IN YOUR CAREER & ACADEMICS",
     subtitle: "Crack IELTS, TOEFL, and Spoken English with expert guidance.",
-     bgImage: "https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=1920&q=80"
-    
+    bgImage: "/banner1.webp"
   },
   {
     id: 2,
     tag: "ONLINE COURSES",
     title: "SPOKEN ENGLISH MASTERY",
     subtitle: "Speak fluently and naturally in professional & daily situations.",
-    bgImage: "https://images.unsplash.com/photo-1491841550275-ad7854e35ca6?auto=format&fit=crop&w=1920&q=80"
-   
+    bgImage: "/banner2.webp"
   },
   {
     id: 3,
     tag: "GRAMMAR & WRITING",
     title: "MASTER ESSENTIAL SKILLS",
     subtitle: "Build confidence, improve communication skills, and unlock new opportunities.",
-    bgImage: "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1920&q=80"
+    bgImage: "/banner3.webp"
   },
   {
     id: 4,
     tag: "EXPERT SOLUTIONS",
     title: "LEARN TODAY. BRIGHTER TOMORROW.",
     subtitle: "Interactive lessons and structured pathways tailored to your goals.",
-    bgImage: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=1920&q=80"
+    bgImage: "/banner4.webp"
   }
 ];
 
 export default function HeroSlider() {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(true);
 
-  // Auto slide right-to-left transition every 5 seconds
+  // Extended slides array with clone of first item at the end and last item at beginning for seamless infinite loop
+  const displaySlides = [slides[slides.length - 1], ...slides, slides[0]];
+
+  // Auto slide forward every 5 seconds
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
+      handleNext();
     }, 5000);
     return () => clearInterval(timer);
-  }, []);
+  }, [currentIndex]);
+
+  const handleNext = () => {
+    if (!isTransitioning) return;
+    setCurrentIndex((prev) => prev + 1);
+  };
+
+  const handlePrev = () => {
+    if (!isTransitioning) return;
+    setCurrentIndex((prev) => prev - 1);
+  };
+
+  // Reset track position instantly when reaching clone slides
+  const handleTransitionEnd = () => {
+    if (currentIndex >= slides.length) {
+      setIsTransitioning(false);
+      setCurrentIndex(0);
+    } else if (currentIndex < 0) {
+      setIsTransitioning(false);
+      setCurrentIndex(slides.length - 1);
+    }
+  };
+
+  // Re-enable CSS transition after instant snap
+  useEffect(() => {
+    if (!isTransitioning) {
+      const timeout = setTimeout(() => {
+        setIsTransitioning(true);
+      }, 50);
+      return () => clearTimeout(timeout);
+    }
+  }, [isTransitioning]);
+
+  // Active indicator index (0 to slides.length - 1)
+  const activeDotIndex = (currentIndex % slides.length + slides.length) % slides.length;
 
   return (
     <section className="relative w-full h-[500px] sm:h-[580px] lg:h-[620px] overflow-hidden bg-white text-white select-none">
       
-      {/* Horizontal Carousel Track (Smooth Right-to-Left Sliding) */}
+      {/* Horizontal Carousel Track (Smooth Infinite Right-to-Left Sliding) */}
       <div 
-        className="flex w-full h-full transition-transform duration-700 ease-out"
-        style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+        className={`flex w-full h-full ${isTransitioning ? 'transition-transform duration-700 ease-out' : ''}`}
+        style={{ transform: `translateX(-${(currentIndex + 1) * 100}%)` }}
+        onTransitionEnd={handleTransitionEnd}
       >
-        {slides.map((slide) => (
+        {displaySlides.map((slide, i) => (
           <div
-            key={slide.id}
+            key={`${slide.id}-${i}`}
             className="relative w-full h-full flex-shrink-0"
           >
-            {/* Background Image from public folder (/h2.jpg, /h3.jpg, /h4.jpg, /h5.jpg) */}
+            {/* Background Image */}
             <div 
-              className="absolute inset-0 bg-cover bg-center"
+              className="absolute inset-0 bg-cover bg-center bg-no-repeat"
               style={{ backgroundImage: `url(${slide.bgImage})` }}
             />
 
-            {/* Subtle Gradient Overlay for Clean Legibility */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent"></div>
+            {/* Dark Gradient Overlay for perfect text legibility */}
+            <div className="absolute inset-0 bg-slate-950/70 sm:bg-slate-950/60"></div>
 
             {/* Main Content Area */}
             <div className="relative z-20 max-w-7xl mx-auto h-full px-6 sm:px-10 flex flex-col justify-center">
               
-
-
               {/* Text Content */}
               <div className="max-w-xl space-y-4 pt-6 pl-6 sm:pl-10">
                 
-                {/* Orange Badge */}
+                {/* Red Badge */}
                 <div>
-                  <div className="inline-block bg-[#E59719] text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-4 py-1.5 rounded-full shadow-md">
+                  <div className="inline-block bg-[#DC2626] text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-4 py-1.5 rounded-full shadow-md">
                     {slide.tag}
                   </div>
                 </div>
@@ -93,31 +128,53 @@ export default function HeroSlider() {
                   {slide.subtitle}
                 </p>
 
-                {/* Orange Accent Line */}
-                <div className="w-14 h-1 bg-[#E59719] rounded-full mt-3"></div>
+                {/* Red Accent Line */}
+                <div className="w-14 h-1 bg-[#DC2626] rounded-full mt-3"></div>
               </div>
             </div>
           </div>
         ))}
       </div>
 
+      {/* Prev / Next Slider Navigation Arrow Buttons */}
+      <button 
+        onClick={handlePrev}
+        className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-black/30 hover:bg-black/60 text-white/80 hover:text-white flex items-center justify-center transition-all focus:outline-none backdrop-blur-sm"
+        aria-label="Previous Slide"
+      >
+        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+      <button 
+        onClick={handleNext}
+        className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-black/30 hover:bg-black/60 text-white/80 hover:text-white flex items-center justify-center transition-all focus:outline-none backdrop-blur-sm"
+        aria-label="Next Slide"
+      >
+        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+
       {/* Bottom Center Pagination Indicators */}
-      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-30 flex items-center space-x-2.5 bg-black/25 backdrop-blur-md px-4 py-2 rounded-full border border-white/10">
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-30 flex items-center space-x-3">
         {slides.map((_, index) => (
           <button
             key={index}
-            onClick={() => setCurrentSlide(index)}
-            className={`transition-all duration-300 rounded-full cursor-pointer ${
-              currentSlide === index
-                ? 'w-10 h-2.5 bg-[#E59719]'
-                : 'w-2.5 h-2.5 bg-white/70 hover:bg-white'
+            onClick={() => {
+              setIsTransitioning(true);
+              setCurrentIndex(index);
+            }}
+            className={`transition-all duration-300 rounded-full cursor-pointer focus:outline-none ${
+              activeDotIndex === index
+                ? 'w-9 h-2.5 bg-[#DC2626] shadow-sm'
+                : 'w-2.5 h-2.5 bg-white/40 hover:bg-white/70'
             }`}
             aria-label={`Slide ${index + 1}`}
           />
         ))}
       </div>
-
-
 
     </section>
   );

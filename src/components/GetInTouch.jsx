@@ -37,24 +37,16 @@ export default function GetInTouch() {
           {/* Left Column: Heading, Bullets, Paragraph & 3 Quick Contact Cards */}
           <div className="lg:col-span-6 space-y-6 lg:pr-4 relative">
             
-            {/* Decorative Handwritten Text */}
-            <div 
-              className="absolute -top-6 -left-4 -rotate-6 text-blue-500 font-medium text-lg hidden md:block"
-              style={{ fontFamily: '"Caveat", "Comic Sans MS", cursive' }}
-            >
-              We're here to help!
-            </div>
-
             {/* Contact Us Badge */}
             <div>
-              <span className="inline-block bg-amber-100/70 text-[#E59719] font-bold text-xs sm:text-sm px-4 py-1.5 rounded-full tracking-wider uppercase shadow-sm">
+              <span className="inline-block bg-red-50 text-[#DC2626] border border-red-200/60 font-bold text-xs sm:text-sm px-4 py-1.5 rounded-full tracking-wider uppercase shadow-sm">
                 📞 Contact Us
               </span>
             </div>
 
             {/* Main Headline */}
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight leading-tight">
-              Let's Solve Your Learning & Skill Challenges— <br className="hidden lg:block"/><span className="text-[#E59719]">Start Today!</span>
+              Let's Solve Your Learning & Skill Challenges— <br className="hidden lg:block"/><span className="text-[#DC2626]">Start Today!</span>
             </h2>
 
             {/* 3 Feature Bullets */}
@@ -256,7 +248,7 @@ export default function GetInTouch() {
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  className="w-full bg-[#E59719] hover:bg-[#d48d12] text-white font-bold text-base py-3.5 sm:py-4 rounded-xl shadow-lg shadow-amber-500/25 transition-all cursor-pointer transform hover:-translate-y-0.5 active:translate-y-0 mt-2"
+                  className="w-full bg-[#DC2626] hover:bg-[#B91C1C] text-white font-bold text-base py-3.5 sm:py-4 rounded-xl shadow-lg shadow-red-500/25 transition-all cursor-pointer transform hover:-translate-y-0.5 active:translate-y-0 mt-2"
                 >
                   Send Message
                 </button>

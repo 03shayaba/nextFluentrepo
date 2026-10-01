@@ -19,9 +19,9 @@ export default function Footer() {
             <div className="space-y-2">
               <div className="flex items-center gap-3">
                 <img src="/NextFluentlogo.jpeg" alt="NextFluent Logo" className="h-12 w-auto object-contain rounded-full border border-slate-700/60 shadow-md" />
-                <span className="text-xl font-bold text-white tracking-tight">Next<span className="text-[#E59719]">Fluent</span></span>
+                <span className="text-xl font-bold text-white tracking-tight">Next<span className="text-[#DC2626]">Fluent</span></span>
               </div>
-              <p className="text-xs font-semibold text-[#E59719] tracking-wide">
+              <p className="text-xs font-semibold text-[#DC2626] tracking-wide">
                 Learn Today. Brighter Tomorrow.
               </p>
             </div>
@@ -97,13 +97,13 @@ export default function Footer() {
           <div className="lg:col-span-2 space-y-4">
             <h4 className="text-sm font-bold text-white uppercase tracking-wider relative inline-block">
               Company
-              <span className="block w-6 h-0.5 bg-[#E59719] rounded-full mt-1.5" />
+              <span className="block w-6 h-0.5 bg-[#DC2626] rounded-full mt-1.5" />
             </h4>
             <ul className="space-y-2.5 text-xs sm:text-sm font-medium text-slate-400">
-              <li><Link href="/about" className="hover:text-[#E59719] transition-colors flex items-center gap-1.5 hover:translate-x-1 duration-200"><span>About Us</span></Link></li>
-              <li><Link href="/contact" className="hover:text-[#E59719] transition-colors flex items-center gap-1.5 hover:translate-x-1 duration-200"><span>Contact Us</span></Link></li>
-              <li><Link href="/privacy-policy" className="hover:text-[#E59719] transition-colors flex items-center gap-1.5 hover:translate-x-1 duration-200"><span>Privacy Policy</span></Link></li>
-              <li><Link href="/terms-and-conditions" className="hover:text-[#E59719] transition-colors flex items-center gap-1.5 hover:translate-x-1 duration-200"><span>Terms & Conditions</span></Link></li>
+              <li><Link href="/about" className="hover:text-[#DC2626] transition-colors flex items-center gap-1.5 hover:translate-x-1 duration-200"><span>About Us</span></Link></li>
+              <li><Link href="/contact" className="hover:text-[#DC2626] transition-colors flex items-center gap-1.5 hover:translate-x-1 duration-200"><span>Contact Us</span></Link></li>
+              <li><Link href="/privacy-policy" className="hover:text-[#DC2626] transition-colors flex items-center gap-1.5 hover:translate-x-1 duration-200"><span>Privacy Policy</span></Link></li>
+              <li><Link href="/terms-and-conditions" className="hover:text-[#DC2626] transition-colors flex items-center gap-1.5 hover:translate-x-1 duration-200"><span>Terms & Conditions</span></Link></li>
             </ul>
           </div>
 
@@ -111,21 +111,21 @@ export default function Footer() {
           <div className="lg:col-span-4 space-y-6">
             <h4 className="text-sm font-bold text-white uppercase tracking-wider relative inline-block">
               Support & Contact
-              <span className="block w-6 h-0.5 bg-[#E59719] rounded-full mt-1.5" />
+              <span className="block w-6 h-0.5 bg-[#DC2626] rounded-full mt-1.5" />
             </h4>
             
             <ul className="space-y-3 text-xs sm:text-sm text-slate-400">
               <li className="flex items-start gap-3">
-                <span className="w-8 h-8 rounded-xl bg-slate-900 border border-slate-800 text-[#E59719] flex items-center justify-center shrink-0 mt-0.5 text-sm shadow-sm">📍</span>
+                <span className="w-8 h-8 rounded-xl bg-slate-900 border border-slate-800 text-[#DC2626] flex items-center justify-center shrink-0 mt-0.5 text-sm shadow-sm">📍</span>
                 <p className="leading-relaxed">Opposite Punjab National Bank Duderhama, Ganderbal, Jammu and Kashmir, 191201</p>
               </li>
               <li className="flex items-center gap-3">
-                <span className="w-8 h-8 rounded-xl bg-slate-900 border border-slate-800 text-[#E59719] flex items-center justify-center shrink-0 text-sm shadow-sm">📞</span>
-                <a href="tel:+917889745674" className="hover:text-[#E59719] transition-colors font-medium">+91-7889745674</a>
+                <span className="w-8 h-8 rounded-xl bg-slate-900 border border-slate-800 text-[#DC2626] flex items-center justify-center shrink-0 text-sm shadow-sm">📞</span>
+                <a href="tel:+917889745674" className="hover:text-[#DC2626] transition-colors font-medium">+91-7889745674</a>
               </li>
               <li className="flex items-center gap-3">
-                <span className="w-8 h-8 rounded-xl bg-slate-900 border border-slate-800 text-[#E59719] flex items-center justify-center shrink-0 text-sm shadow-sm">✉️</span>
-                <a href="mailto:ngecsupport@gmail.com" className="hover:text-[#E59719] transition-colors font-medium">ngecsupport@gmail.com</a>
+                <span className="w-8 h-8 rounded-xl bg-slate-900 border border-slate-800 text-[#DC2626] flex items-center justify-center shrink-0 text-sm shadow-sm">✉️</span>
+                <a href="mailto:ngecsupport@gmail.com" className="hover:text-[#DC2626] transition-colors font-medium">ngecsupport@gmail.com</a>
               </li>
             </ul>
 

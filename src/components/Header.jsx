@@ -18,34 +18,34 @@ export default function Header() {
     return pathname?.startsWith(path);
   };
 
-  const activeLinkClass = "text-[#E59719] border-b-2 border-[#E59719]";
-  const inactiveLinkClass = "text-slate-800 hover:text-[#E59719] border-b-2 border-transparent hover:border-[#E59719]";
+  const activeLinkClass = "text-[#DC2626] border-b-2 border-[#DC2626]";
+  const inactiveLinkClass = "text-slate-800 hover:text-[#DC2626] border-b-2 border-transparent hover:border-[#DC2626]";
 
   return (
     <>
       <div className="bg-[#111726] text-white text-xs sm:text-sm font-semibold py-2.5 overflow-hidden flex items-center relative whitespace-nowrap">
         <div className="animate-marquee flex gap-10 min-w-full">
-           <span className="flex items-center gap-2">🚀 Welcome to NextFluent! Enroll now and get <span className="text-[#E59719]">50% off</span> on all Premium Courses!</span>
-           <span className="flex items-center gap-2">⭐ Join <span className="text-[#E59719]">10,000+</span> successful learners today.</span>
-           <span className="flex items-center gap-2">🎓 Special <span className="text-[#E59719]">IELTS Preparation</span> batches starting this week.</span>
+           <span className="flex items-center gap-2">🚀 Welcome to NextFluent! Enroll now and get <span className="text-[#EF4444] font-bold">50% off</span> on all Premium Courses!</span>
+           <span className="flex items-center gap-2">⭐ Join <span className="text-[#E59719] font-bold">10,000+</span> successful learners today.</span>
+           <span className="flex items-center gap-2">🎓 Special <span className="text-[#EF4444] font-bold">IELTS Preparation</span> batches starting this week.</span>
            {/* Duplicate for seamless loop */}
-           <span className="flex items-center gap-2">🚀 Welcome to NextFluent! Enroll now and get <span className="text-[#E59719]">50% off</span> on all Premium Courses!</span>
-           <span className="flex items-center gap-2">⭐ Join <span className="text-[#E59719]">10,000+</span> successful learners today.</span>
-           <span className="flex items-center gap-2">🎓 Special <span className="text-[#E59719]">IELTS Preparation</span> batches starting this week.</span>
+           <span className="flex items-center gap-2">🚀 Welcome to NextFluent! Enroll now and get <span className="text-[#EF4444] font-bold">50% off</span> on all Premium Courses!</span>
+           <span className="flex items-center gap-2">⭐ Join <span className="text-[#E59719] font-bold">10,000+</span> successful learners today.</span>
+           <span className="flex items-center gap-2">🎓 Special <span className="text-[#EF4444] font-bold">IELTS Preparation</span> batches starting this week.</span>
         </div>
 
       </div>
       <header className="sticky w-full top-0 z-50 bg-white shadow-sm border-b border-slate-100 text-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-20 relative">
           
           {/* Logo Section */}
-          <div className="flex items-center gap-3 cursor-pointer">
+          <div className="flex items-center gap-3 cursor-pointer z-10">
             <img src="/NextFluentlogo.jpeg" alt="NextFluent Logo" className="h-10 sm:h-12 w-auto object-contain rounded-full shadow-sm" />
           </div>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center space-x-8 text-[15px] font-semibold">
+          {/* Desktop Navigation Links (Centered) */}
+          <nav className="hidden md:flex items-center space-x-8 text-[15px] font-semibold absolute left-1/2 -translate-x-1/2 z-10">
             <a 
               href="/" 
               className={`transition-colors py-2 ${isActive('/') ? activeLinkClass : inactiveLinkClass}`}
@@ -64,8 +64,8 @@ export default function Header() {
               {activeDropdown === 'courses' && (
                 <div className="absolute left-0 top-full pt-1 w-48 z-50">
                   <div className="bg-white border border-slate-100 rounded-xl shadow-lg py-2 animate-in fade-in slide-in-from-top-2 duration-150">
-                    <a href="/courses" className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-[#E59719]">Browse Courses</a>
-                    <a href="/categories" className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-[#E59719]">Course Category</a>
+                    <a href="/courses" className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-[#DC2626]">Browse Courses</a>
+                    <a href="/categories" className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-[#DC2626]">Course Category</a>
                   </div>
                 </div>
               )}
@@ -83,16 +83,14 @@ export default function Header() {
           </nav>
 
           {/* Right Action Buttons */}
-          <div className="hidden md:flex items-center space-x-5">
-            <div className="w-[1px] h-6 bg-slate-300"></div>
-
+          <div className="hidden md:flex items-center space-x-5 z-10">
             {/* Login Link */}
-            <a href="/login" className="text-[13.5px] font-bold text-slate-800 hover:text-[#E59719] transition-colors cursor-pointer">
+            <a href="/login" className="text-[13.5px] font-bold text-slate-800 hover:text-[#DC2626] transition-colors cursor-pointer">
               Sign In
             </a>
 
             {/* Get Started Button */}
-            <a href="/signup" className="bg-[#E59719] hover:bg-[#D48E12] text-white text-[13.5px] font-bold px-6 py-2.5 rounded-full shadow-md shadow-amber-500/20 transition-all flex items-center gap-1.5 cursor-pointer">
+            <a href="/signup" className="bg-[#DC2626] hover:bg-[#B91C1C] text-white text-[13.5px] font-bold px-6 py-2.5 rounded-full shadow-md shadow-red-500/20 transition-all flex items-center gap-1.5 cursor-pointer">
               Register <span className="font-normal">&rarr;</span>
             </a>
           </div>

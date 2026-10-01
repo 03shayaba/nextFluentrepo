@@ -13,18 +13,18 @@ export default function CertificatesPage() {
         
         {/* Ambient Background */}
         <div className="absolute top-0 inset-x-0 h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.05] pointer-events-none z-0"></div>
-        <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[1200px] h-[800px] bg-gradient-to-b from-amber-500/20 via-orange-400/5 to-transparent blur-[120px] rounded-[100%] pointer-events-none z-0"></div>
+        <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[1200px] h-[800px] bg-gradient-to-b from-red-600/15 via-rose-500/5 to-transparent blur-[120px] rounded-[100%] pointer-events-none z-0"></div>
 
         {/* Hero Section */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 lg:pt-36 pb-20 relative z-10 text-center">
           
-          <div className="inline-flex items-center gap-2 bg-amber-100/80 text-[#E59719] font-bold text-xs sm:text-sm px-4 py-1.5 rounded-full tracking-wider mb-8 uppercase animate-fade-in-up shadow-sm border border-amber-200/50">
+          <div className="inline-flex items-center gap-2 bg-red-100/80 text-[#DC2626] font-bold text-xs sm:text-sm px-4 py-1.5 rounded-full tracking-wider mb-8 uppercase animate-fade-in-up shadow-sm border border-red-200/50">
             <span className="text-base">🎖️</span>
             <span>Verified Credentials</span>
           </div>
 
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#0F172A] tracking-tight mb-6 leading-tight">
-            Certify Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-500 relative inline-block">
+            Certify Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-rose-500 relative inline-block">
               English Mastery
             </span>
           </h1>
@@ -36,12 +36,12 @@ export default function CertificatesPage() {
 
           {/* Visual Cue / Arrow pointing to Certificate */}
           <div className="flex flex-col items-center justify-center relative z-20 mb-[-4rem]">
-            <span className="text-sm font-bold text-[#E59719] uppercase tracking-widest mb-2 font-serif italic">This could be yours</span>
+            <span className="text-sm font-bold text-[#DC2626] uppercase tracking-widest mb-2 font-serif italic">This could be yours</span>
             <div className="relative h-20 flex flex-col items-center justify-center">
-              <div className="w-[2px] h-16 bg-gradient-to-b from-[#E59719]/0 via-[#E59719] to-[#E59719] relative">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-[#E59719] rounded-full animate-ping"></div>
+              <div className="w-[2px] h-16 bg-gradient-to-b from-[#DC2626]/0 via-[#DC2626] to-[#DC2626] relative">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-[#DC2626] rounded-full animate-ping"></div>
               </div>
-              <svg className="w-5 h-5 text-[#E59719] -mt-1 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="w-5 h-5 text-[#DC2626] -mt-1 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
               </svg>
             </div>
@@ -55,7 +55,7 @@ export default function CertificatesPage() {
           <div className="relative group perspective-1000 mx-auto w-full max-w-[750px]">
             
             {/* Outer Glow */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-amber-400 via-yellow-200 to-orange-400 rounded-[10px] opacity-40 blur-xl group-hover:opacity-70 group-hover:blur-2xl transition-all duration-700"></div>
+            <div className="absolute -inset-1 bg-gradient-to-r from-red-500 via-rose-300 to-red-600 rounded-[10px] opacity-40 blur-xl group-hover:opacity-70 group-hover:blur-2xl transition-all duration-700"></div>
             
             {/* Dark Premium Frame */}
             <div className="relative bg-[#1A1A1A] p-3 sm:p-4 rounded-[12px] shadow-2xl transform transition-transform duration-700 hover:rotate-x-2 hover:-translate-y-4">
@@ -74,7 +74,7 @@ export default function CertificatesPage() {
 
                 {/* Background Watermark */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] opacity-[0.03] pointer-events-none">
-                  <svg viewBox="0 0 100 100" fill="currentColor" className="w-full h-full text-amber-900"><path d="M50 0L100 25V75L50 100L0 75V25L50 0Z" /></svg>
+                  <svg viewBox="0 0 100 100" fill="currentColor" className="w-full h-full text-red-900"><path d="M50 0L100 25V75L50 100L0 75V25L50 0Z" /></svg>
                 </div>
 
                 {/* Top Logo / Icon */}
@@ -153,7 +153,7 @@ export default function CertificatesPage() {
         {/* Benefits Section */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-32 relative z-10">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-amber-100/70 text-[#E59719] font-bold text-xs sm:text-sm px-4 py-1.5 rounded-full tracking-wide mb-4 uppercase">
+            <div className="inline-flex items-center gap-2 bg-red-100/70 text-[#DC2626] font-bold text-xs sm:text-sm px-4 py-1.5 rounded-full tracking-wide mb-4 uppercase">
               <span>🌟</span> VALUE & BENEFITS
             </div>
             <h2 className="text-3xl md:text-5xl font-semibold text-slate-900 mb-4 tracking-tight">Why Our Certificates Matter</h2>
@@ -163,14 +163,14 @@ export default function CertificatesPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
             
             {/* Benefit 1 */}
-            <div className="group relative rounded-[2rem] bg-white p-8 sm:p-10 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_50px_-10px_rgba(229,151,25,0.15)] flex flex-col h-full border border-slate-100 overflow-hidden">
+            <div className="group relative rounded-[2rem] bg-white p-8 sm:p-10 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_50px_-10px_rgba(220,38,38,0.15)] flex flex-col h-full border border-slate-100 overflow-hidden">
               {/* Top right gradient glow */}
-              <div className="absolute -top-16 -right-16 w-48 h-48 bg-amber-300/30 rounded-full blur-3xl pointer-events-none group-hover:bg-amber-300/40 transition-colors duration-300"></div>
+              <div className="absolute -top-16 -right-16 w-48 h-48 bg-red-300/30 rounded-full blur-3xl pointer-events-none group-hover:bg-red-300/40 transition-colors duration-300"></div>
               
-              <div className="relative z-10 w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center text-white text-3xl mb-6 shadow-md shadow-amber-500/30">
+              <div className="relative z-10 w-16 h-16 bg-gradient-to-br from-red-500 to-rose-600 rounded-2xl flex items-center justify-center text-white text-3xl mb-6 shadow-md shadow-red-500/30">
                 <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
               </div>
-              <div className="relative z-10 inline-flex items-center gap-1 bg-amber-50 text-amber-600 text-[10px] sm:text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-5 w-max">
+              <div className="relative z-10 inline-flex items-center gap-1 bg-red-50 text-red-600 text-[10px] sm:text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-5 w-max">
                 GLOBAL REACH
               </div>
               <h3 className="relative z-10 text-2xl font-bold text-slate-900 mb-4">Global Recognition</h3>
@@ -221,15 +221,15 @@ export default function CertificatesPage() {
             
             {/* Subtle glow effects */}
             <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10 pointer-events-none"></div>
-            <div className="absolute -top-24 -left-24 w-64 h-64 bg-amber-500/20 blur-3xl rounded-full pointer-events-none"></div>
-            <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-blue-500/20 blur-3xl rounded-full pointer-events-none"></div>
+            <div className="absolute -top-24 -left-24 w-64 h-64 bg-red-600/20 blur-3xl rounded-full pointer-events-none"></div>
+            <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-rose-600/20 blur-3xl rounded-full pointer-events-none"></div>
             
             <div className="text-left md:max-w-2xl relative z-10 mb-8 md:mb-0">
               <h2 className="text-3xl md:text-4xl font-semibold text-white mb-4">Earn your credential today</h2>
               <p className="text-slate-400 text-base md:text-lg">Enroll in a course, master the material, and join thousands of successful graduates who have transformed their careers.</p>
             </div>
             
-            <a href="/courses" className="inline-flex items-center justify-center bg-[#E59719] hover:bg-amber-400 text-[#0F172A] font-bold py-4 px-10 rounded-xl transition-all duration-300 shadow-lg shadow-amber-500/20 gap-3 text-base whitespace-nowrap relative z-10 hover:-translate-y-1">
+            <a href="/courses" className="inline-flex items-center justify-center bg-[#DC2626] hover:bg-[#B91C1C] text-white font-bold py-4 px-10 rounded-xl transition-all duration-300 shadow-lg shadow-red-600/30 gap-3 text-base whitespace-nowrap relative z-10 hover:-translate-y-1">
               Explore Courses <span className="text-xl">→</span>
             </a>
           </div>

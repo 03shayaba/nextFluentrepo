@@ -101,13 +101,13 @@ export default function Testimonials() {
           
           {/* Left Header */}
           <div className="max-w-xl">
-            <div className="inline-flex items-center gap-2 bg-orange-100/60 px-4 py-1.5 rounded-full mb-6">
-              <span className="w-2 h-2 rounded-full bg-[#E59719]"></span>
-              <span className="text-xs font-bold text-[#E59719] tracking-widest uppercase">Learner Success</span>
+            <div className="inline-flex items-center gap-2 bg-red-50 border border-red-200/60 px-4 py-1.5 rounded-full mb-6">
+              <span className="w-2 h-2 rounded-full bg-[#DC2626]"></span>
+              <span className="text-xs font-bold text-[#DC2626] tracking-widest uppercase">Learner Success</span>
             </div>
             <h2 className="text-4xl lg:text-6xl font-semibold text-slate-900 leading-tight mb-4 tracking-tight">
               Real Learners.<br/>
-              <span className="text-[#E59719]">Real Progress.</span>
+              <span className="text-[#DC2626]">Real Progress.</span>
             </h2>
             <p className="text-slate-500 font-medium text-lg leading-relaxed max-w-md">
               Thousands of students around the world are improving their English with NextFluent. Here's what they have to say about their journey.
@@ -116,50 +116,25 @@ export default function Testimonials() {
 
           {/* Right Stats Block */}
           <div className="relative mt-8 lg:mt-0 w-full lg:w-auto">
-            {/* Handwritten Text Left of Stats */}
-            <div 
-              className="absolute -left-32 -top-12 rotate-[-12deg] text-blue-600 font-medium text-xl leading-snug hidden xl:block"
-              style={{ fontFamily: '"Caveat", "Comic Sans MS", cursive' }}
-            >
-              Different<br/>People<br/>Same Goal<br/>Fluency
-              <svg className="w-16 h-4 text-orange-400 mt-1" viewBox="0 0 100 20" fill="none">
-                <path d="M5 15Q50 0 95 15" stroke="currentColor" strokeWidth="2" fill="none"/>
-              </svg>
-            </div>
-
             {/* Stats Box */}
             <div className="bg-white rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 flex items-center gap-8 lg:gap-12 relative z-10">
               <div className="text-center">
-                <div className="flex justify-center mb-2"><Users className="w-6 h-6 text-[#E59719]"/></div>
+                <div className="flex justify-center mb-2"><Users className="w-6 h-6 text-[#DC2626]"/></div>
                 <div className="text-2xl font-black text-slate-900">10,000+</div>
                 <div className="text-xs font-medium text-slate-400">Happy Learners</div>
               </div>
               <div className="w-[1px] h-12 bg-slate-100"></div>
               <div className="text-center">
-                <div className="flex justify-center mb-2"><Star className="w-6 h-6 text-[#E59719] fill-[#E59719]"/></div>
+                <div className="flex justify-center mb-2"><Star className="w-6 h-6 text-[#DC2626] fill-[#DC2626]"/></div>
                 <div className="text-2xl font-black text-slate-900">4.8/5</div>
                 <div className="text-xs font-medium text-slate-400">Average Rating</div>
               </div>
               <div className="w-[1px] h-12 bg-slate-100"></div>
               <div className="text-center">
-                <div className="flex justify-center mb-2"><Globe className="w-6 h-6 text-[#E59719]"/></div>
+                <div className="flex justify-center mb-2"><Globe className="w-6 h-6 text-[#DC2626]"/></div>
                 <div className="text-2xl font-black text-slate-900">50+</div>
                 <div className="text-xs font-medium text-slate-400">Countries</div>
               </div>
-            </div>
-
-            {/* Decorative Orange Splashes */}
-            <div className="absolute -bottom-4 right-10 flex gap-1">
-              <div className="w-2 h-2 rounded-full bg-orange-400"></div>
-              <div className="w-2 h-2 rounded-full bg-orange-400 mt-2"></div>
-            </div>
-            
-            {/* Handwritten Text Right of Stats */}
-            <div 
-              className="absolute -right-8 -bottom-16 rotate-[-8deg] text-slate-700 font-medium text-xl leading-tight hidden xl:block"
-              style={{ fontFamily: '"Caveat", "Comic Sans MS", cursive' }}
-            >
-              "English<br/>changed my<br/>opportunities" ♡
             </div>
           </div>
         </div>
@@ -192,27 +167,19 @@ export default function Testimonials() {
                     key={idx}
                     className={`transition-all duration-500 ease-out relative flex-shrink-0 w-[400px] mx-[10px] pointer-events-auto cursor-pointer ${
                       isCenter 
-                        ? 'scale-105 z-20 opacity-100 shadow-2xl border-[#E59719]/50 hover:border-[#E59719]' 
+                        ? 'scale-105 z-20 opacity-100 shadow-2xl border-[#DC2626]/60 hover:border-[#DC2626]' 
                         : 'scale-90 z-10 opacity-60 shadow-lg border-slate-100'
                     } bg-white rounded-3xl p-6 lg:p-8 border-2`}
                   >
                     
                     {/* Floating Bubble for Center Card */}
-                    {isCenter && (
-                      <div 
-                        className="absolute -top-10 -right-4 bg-orange-50 text-orange-600 font-medium text-sm py-3 px-5 rounded-[2rem] rounded-bl-sm rotate-6 shadow-md border border-orange-100/50 hidden lg:block"
-                        style={{ fontFamily: '"Caveat", "Comic Sans MS", cursive' }}
-                      >
-                        My English<br/>My Confidence<br/>My Growth ♡
-                      </div>
-                    )}
 
                     <div className="flex gap-4 items-start mb-6">
                       <img src={card.image} alt={card.name} className="w-16 h-16 rounded-full object-cover border-2 border-white shadow-sm" />
                       <div>
                         <div className="flex gap-1 mb-1">
                           {[...Array(5)].map((_, i) => (
-                            <Star key={i} className="w-4 h-4 fill-[#E59719] text-[#E59719]" />
+                            <Star key={i} className="w-4 h-4 fill-[#DC2626] text-[#DC2626]" />
                           ))}
                         </div>
                         <h4 className="font-bold text-slate-900 text-lg">{card.name}</h4>

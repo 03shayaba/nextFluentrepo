@@ -34,38 +34,28 @@ const insights = [
 export default function LatestInsights() {
   return (
     <section className="bg-[#0b101c] pt-8 lg:pt-12 pb-16 lg:pb-20 border-b border-[#1E293B] overflow-hidden relative">
-      
-      {/* Decorative Background Arc */}
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-amber-50 rounded-full blur-3xl opacity-50 transform translate-x-1/3 -translate-y-1/2 pointer-events-none"></div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header Row (EXPLORE NEWS | Our Latest Insights | Read All Button) */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-16 gap-6 relative">
           
           <div className="space-y-3">
-            <span className="inline-flex items-center gap-2 bg-[#E59719]/20 border border-[#E59719]/30 text-[#E59719] font-bold text-xs sm:text-sm px-4 py-1.5 rounded-full tracking-wide uppercase">
+            <span className="inline-flex items-center gap-2 bg-red-500/15 border border-red-500/30 text-[#EF4444] font-bold text-xs sm:text-sm px-4 py-1.5 rounded-full tracking-wide uppercase">
               🗞️ Explore News
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
-              Our Latest <span className="text-[#E59719]">Insights</span>
+              Our Latest <span className="text-[#EF4444]">Insights</span>
             </h2>
             <p className="text-slate-400 text-sm sm:text-base max-w-lg">
               Read our latest articles, tips, and tricks to improve your learning journey and stay updated.
             </p>
           </div>
 
-          {/* Decorative Handwritten Text */}
-          <div 
-            className="absolute right-36 top-0 rotate-6 text-blue-500 font-medium text-lg hidden md:block"
-            style={{ fontFamily: '"Caveat", "Comic Sans MS", cursive' }}
-          >
-            Stay Informed! ✍️
-          </div>
+          
 
           <div>
             <Link href="/courses">
-              <button className="bg-[#1E293B] border-2 border-slate-700 hover:border-[#E59719] text-slate-300 hover:text-[#E59719] font-bold text-sm px-6 py-3.5 rounded-xl shadow-sm hover:shadow-md flex items-center gap-2 transition-all transform hover:-translate-y-1 cursor-pointer">
+              <button className="bg-[#1E293B] border-2 border-slate-700 hover:border-[#DC2626] text-slate-300 hover:text-[#EF4444] font-bold text-sm px-6 py-3.5 rounded-xl shadow-sm hover:shadow-md flex items-center gap-2 transition-all transform hover:-translate-y-1 cursor-pointer">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.2">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                 </svg>
@@ -80,7 +70,7 @@ export default function LatestInsights() {
           {insights.map((item) => (
             <div 
               key={item.id}
-              className="bg-[#111726] rounded-3xl p-5 border border-slate-700 shadow-xl hover:shadow-[0_8px_30px_rgba(229,151,25,0.12)] hover:border-[#E59719]/30 transition-all duration-300 flex flex-col justify-between space-y-5 group cursor-pointer transform hover:-translate-y-1.5"
+              className="bg-[#111726] rounded-3xl p-5 border border-slate-700 shadow-xl hover:shadow-[0_8px_30px_rgba(220,38,38,0.15)] hover:border-[#DC2626]/40 transition-all duration-300 flex flex-col justify-between space-y-5 group cursor-pointer transform hover:-translate-y-1.5"
             >
               {/* Card Image Header */}
               <div className="relative overflow-hidden rounded-2xl aspect-[4/3] bg-slate-100">
@@ -94,7 +84,7 @@ export default function LatestInsights() {
 
               {/* Tag & Meta Info */}
               <div className="space-y-3 px-1">
-                <span className="text-white bg-[#E59719] font-bold text-[10px] tracking-wider uppercase px-3 py-1 rounded-full shadow-sm inline-block">
+                <span className="text-white bg-[#DC2626] font-bold text-[10px] tracking-wider uppercase px-3 py-1 rounded-full shadow-sm inline-block">
                   {item.tag}
                 </span>
 
@@ -107,7 +97,7 @@ export default function LatestInsights() {
                   </div>
 
                   <div className="flex items-center gap-1.5">
-                    <svg className="w-3.5 h-3.5 text-[#E59719]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <svg className="w-3.5 h-3.5 text-[#EF4444]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
                     <span>{item.date}</span>
@@ -115,14 +105,14 @@ export default function LatestInsights() {
                 </div>
 
                 {/* Article Title */}
-                <h3 className="text-xl font-bold text-white group-hover:text-[#E59719] transition-colors leading-snug pt-1">
+                <h3 className="text-xl font-bold text-white group-hover:text-[#EF4444] transition-colors leading-snug pt-1">
                   {item.title}
                 </h3>
               </div>
 
               {/* Read More Outline Button */}
               <div className="px-1 pt-2">
-                <div className="inline-flex items-center gap-2 text-[#E59719] font-bold text-sm hover:text-[#d48d12] transition-colors group/btn">
+                <div className="inline-flex items-center gap-2 text-[#EF4444] font-bold text-sm hover:text-[#DC2626] transition-colors group/btn">
                   Read Full Article
                   <svg className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />

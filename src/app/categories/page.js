@@ -3,6 +3,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Testimonials from "@/components/Testimonials";
+import Newsletter from "@/components/Newsletter";
 import React, { useState } from 'react';
 
 const categories = [
@@ -92,12 +93,12 @@ const FaqItem = ({ faq }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div 
-      className={`bg-[#FAFBFD] border rounded-2xl px-6 py-5 sm:px-8 transition-colors cursor-pointer ${isOpen ? 'border-[#E59719]' : 'border-slate-200 hover:border-amber-200'}`}
+      className={`bg-[#FAFBFD] border rounded-2xl px-6 py-5 sm:px-8 transition-colors cursor-pointer ${isOpen ? 'border-[#DC2626]' : 'border-slate-200 hover:border-red-200'}`}
       onClick={() => setIsOpen(!isOpen)}
     >
       <div className="flex items-center justify-between gap-4">
         <h4 className="text-lg font-bold text-[#0F172A] flex items-start sm:items-center gap-3">
-          <span className="text-[#E59719] font-black shrink-0">Q.</span>
+          <span className="text-[#EF4444] font-black shrink-0">Q.</span>
           <span>{faq.q}</span>
         </h4>
         <div className={`transform transition-transform duration-300 shrink-0 ${isOpen ? 'rotate-180' : ''}`}>
@@ -123,12 +124,20 @@ export default function CategoriesPage() {
       <Header />
       <main>
         
-        {/* Categories Hero Banner - Upgraded for more "Jaan" (Minimal Light Version) */}
-        <section className="relative w-full bg-gradient-to-br from-slate-50 via-white to-amber-50/50 pt-20 pb-28 overflow-hidden">
+        {/* Categories Hero Banner - Upgraded Dark Theme Version */}
+        <section className="relative w-full bg-[#0B1120] pt-20 pb-28 overflow-hidden z-0 select-none border-b border-[#1E293B]">
           
           {/* Decorative Background Elements */}
-          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#E59719]/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3"></div>
-          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-amber-200/10 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/4"></div>
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-red-600/15 rounded-full blur-[140px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-rose-600/10 rounded-full blur-[120px] translate-y-1/3 -translate-x-1/4 pointer-events-none"></div>
+
+          {/* Decorative Grid SVG */}
+          <svg className="absolute inset-0 w-full h-full opacity-[0.03] pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <pattern id="categories-hero-grid" width="10" height="10" patternUnits="userSpaceOnUse">
+              <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" strokeWidth="0.5" />
+            </pattern>
+            <rect width="100" height="100" fill="url(#categories-hero-grid)" />
+          </svg>
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
@@ -137,40 +146,40 @@ export default function CategoriesPage() {
               <div className="flex-1 text-center lg:text-left">
                 
                 {/* Breadcrumb */}
-                <div className="flex items-center justify-center lg:justify-start text-sm font-medium text-slate-500 gap-2 mb-8">
-                  <svg className="w-4 h-4 text-[#E59719]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <div className="flex items-center justify-center lg:justify-start text-sm font-medium text-slate-400 gap-2 mb-8">
+                  <svg className="w-4 h-4 text-[#EF4444]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                   </svg>
-                  <a href="/" className="hover:text-[#0F172A] transition-colors">Home</a>
-                  <span className="text-slate-400">/</span>
-                  <span className="text-[#0F172A]">Categories</span>
+                  <a href="/" className="hover:text-white transition-colors">Home</a>
+                  <span className="text-slate-500">/</span>
+                  <span className="text-white">Categories</span>
                 </div>
 
-                <div className="inline-block bg-[#E59719]/10 border border-[#E59719]/20 text-[#E59719] font-bold text-sm px-4 py-1.5 rounded-full mb-6 shadow-sm">
+                <div className="inline-block bg-red-500/10 border border-red-500/20 text-[#EF4444] font-bold text-sm px-4 py-1.5 rounded-full mb-6 shadow-sm">
                   ✨ Find Your Path
                 </div>
 
-                <h1 className="text-4xl sm:text-5xl lg:text-[64px] font-semibold text-[#0F172A] tracking-tight mb-6 leading-[1.1]">
-                  Explore Our <span className="text-[#E59719]">Categories</span>
+                <h1 className="text-4xl sm:text-5xl lg:text-[64px] font-semibold text-white tracking-tight mb-6 leading-[1.1]">
+                  Explore Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#EF4444] to-rose-400">Categories</span>
                 </h1>
                 
-                <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed mb-10">
+                <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed mb-10">
                   Find the perfect curriculum tailored to your specific English learning goals. Whether you want to ace an exam or dominate the boardroom, we have a path for you.
                 </p>
 
                 {/* Quick Stats in Hero */}
-                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-8 border-t border-slate-200 pt-8 mt-8">
+                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-8 border-t border-slate-800 pt-8 mt-8">
                   <div>
-                    <h4 className="text-3xl font-black text-[#0F172A]">8+</h4>
-                    <p className="text-sm text-slate-500 font-medium mt-1">Learning Tracks</p>
+                    <h4 className="text-3xl font-black text-white">8+</h4>
+                    <p className="text-sm text-slate-400 font-medium mt-1">Learning Tracks</p>
                   </div>
                   <div>
-                    <h4 className="text-3xl font-black text-[#0F172A]">150+</h4>
-                    <p className="text-sm text-slate-500 font-medium mt-1">Total Courses</p>
+                    <h4 className="text-3xl font-black text-white">150+</h4>
+                    <p className="text-sm text-slate-400 font-medium mt-1">Total Courses</p>
                   </div>
                   <div>
-                    <h4 className="text-3xl font-black text-[#0F172A]">10k+</h4>
-                    <p className="text-sm text-slate-500 font-medium mt-1">Active Students</p>
+                    <h4 className="text-3xl font-black text-white">10k+</h4>
+                    <p className="text-sm text-slate-400 font-medium mt-1">Active Students</p>
                   </div>
                 </div>
               </div>
@@ -178,23 +187,23 @@ export default function CategoriesPage() {
               {/* Right Image/Visual */}
               <div className="flex-1 w-full max-w-lg lg:max-w-none relative hidden md:block">
                 <div className="relative aspect-square w-full">
-                  <div className="absolute inset-0 bg-gradient-to-tr from-[#E59719] to-amber-300 rounded-[3rem] rotate-3 opacity-20 animate-pulse"></div>
-                  <div className="absolute inset-0 bg-white rounded-[3rem] -rotate-3 overflow-hidden border-8 border-white shadow-2xl">
+                  <div className="absolute inset-0 bg-gradient-to-tr from-red-600 to-rose-400 rounded-[3rem] rotate-3 opacity-30 blur-sm"></div>
+                  <div className="absolute inset-0 bg-[#0F172A] rounded-[3rem] -rotate-3 overflow-hidden border-4 border-slate-700 shadow-2xl">
                     <img 
                       src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80" 
                       alt="Students Learning" 
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-500"
                     />
                   </div>
                   
                   {/* Floating Badge */}
-                  <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-4 animate-bounce border border-slate-100">
-                    <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center shrink-0">
-                      <svg className="w-6 h-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                  <div className="absolute -bottom-6 -left-6 bg-[#0F172A] p-4 rounded-2xl shadow-2xl flex items-center gap-4 animate-bounce border border-slate-700">
+                    <div className="w-12 h-12 bg-red-500/10 rounded-full flex items-center justify-center shrink-0 border border-red-500/20">
+                      <svg className="w-6 h-6 text-[#EF4444]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                     </div>
                     <div>
-                      <p className="text-sm font-bold text-[#0F172A]">Top Rated</p>
-                      <p className="text-xs text-slate-500 font-medium">Excellence</p>
+                      <p className="text-sm font-bold text-white">Top Rated</p>
+                      <p className="text-xs text-slate-400 font-medium">Excellence</p>
                     </div>
                   </div>
                 </div>
@@ -211,11 +220,11 @@ export default function CategoriesPage() {
             <div className="text-center max-w-3xl mx-auto mb-20 relative">
               {/* Decorative Handwritten Text Left */}
               <div 
-                className="absolute -left-12 -top-6 rotate-[-10deg] text-orange-500 font-medium text-lg leading-tight hidden lg:block"
+                className="absolute -left-12 -top-6 rotate-[-10deg] text-red-500 font-medium text-lg leading-tight hidden lg:block"
                 style={{ fontFamily: '"Caveat", "Comic Sans MS", cursive' }}
               >
                 Find your perfect fit!
-                <svg className="w-8 h-8 text-orange-400 absolute -bottom-5 left-10 rotate-[-30deg]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-8 h-8 text-red-400 absolute -bottom-5 left-10 rotate-[-30deg]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </div>
@@ -231,14 +240,14 @@ export default function CategoriesPage() {
                 </svg>
               </div>
 
-              <div className="inline-flex items-center gap-2 bg-amber-100/70 border border-amber-200/50 px-4 py-1.5 rounded-full mb-6">
-                <span className="text-[#E59719] font-bold text-xs sm:text-sm tracking-widest uppercase">
+              <div className="inline-flex items-center gap-2 bg-red-100/70 border border-red-200/50 px-4 py-1.5 rounded-full mb-6">
+                <span className="text-[#EF4444] font-bold text-xs sm:text-sm tracking-widest uppercase">
                   ⭐ Top Categories
                 </span>
               </div>
               
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight mb-5 leading-tight">
-                Choose your <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E59719] to-amber-400">journey</span>
+                Choose your <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#EF4444] to-rose-400">journey</span>
               </h2>
               
               <p className="text-slate-500 text-base sm:text-lg font-medium leading-relaxed max-w-2xl mx-auto">
@@ -251,27 +260,27 @@ export default function CategoriesPage() {
                 <a 
                   key={cat.id} 
                   href="/courses"
-                  className="bg-white rounded-[2rem] border border-slate-100 p-8 shadow-sm hover:shadow-[0_20px_40px_rgb(229,151,25,0.1)] hover:-translate-y-2 hover:border-amber-200 transition-all duration-300 flex flex-col items-center text-center group cursor-pointer relative overflow-hidden"
+                  className="bg-white rounded-[2rem] border border-slate-100 p-8 shadow-sm hover:shadow-[0_20px_40px_rgba(220,38,38,0.1)] hover:-translate-y-2 hover:border-red-200 transition-all duration-300 flex flex-col items-center text-center group cursor-pointer relative overflow-hidden"
                 >
                   {/* Top glowing edge on hover */}
-                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#E59719] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#DC2626] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                   <div className="relative z-10 w-full flex flex-col items-center">
                     
                     {/* Centered Icon with Background Pop */}
-                    <div className="w-20 h-20 rounded-3xl bg-slate-50 text-[#E59719] flex items-center justify-center transition-all duration-500 group-hover:bg-[#E59719] group-hover:text-white group-hover:shadow-[0_10px_25px_rgba(229,151,25,0.4)] group-hover:-translate-y-2 mb-6">
+                    <div className="w-20 h-20 rounded-3xl bg-slate-50 text-[#DC2626] flex items-center justify-center transition-all duration-500 group-hover:bg-[#DC2626] group-hover:text-white group-hover:shadow-[0_10px_25px_rgba(220,38,38,0.4)] group-hover:-translate-y-2 mb-6">
                       <div className="scale-110">
                         {cat.icon}
                       </div>
                     </div>
                     
                     {/* Title */}
-                    <h3 className="text-xl font-bold text-[#0F172A] mb-3 group-hover:text-[#E59719] transition-colors leading-tight">
+                    <h3 className="text-xl font-bold text-[#0F172A] mb-3 group-hover:text-[#DC2626] transition-colors leading-tight">
                       {cat.title}
                     </h3>
 
                     {/* Course Count Badge */}
-                    <div className="bg-slate-50 text-slate-500 font-bold text-[10px] uppercase tracking-widest px-3 py-1 rounded-full border border-slate-100 group-hover:bg-amber-100 group-hover:text-amber-700 group-hover:border-amber-200 transition-colors duration-300 mb-4">
+                    <div className="bg-slate-50 text-slate-500 font-bold text-[10px] uppercase tracking-widest px-3 py-1 rounded-full border border-slate-100 group-hover:bg-red-50 group-hover:text-red-600 group-hover:border-red-200 transition-colors duration-300 mb-4">
                       {cat.courses} Courses
                     </div>
                     
@@ -281,7 +290,7 @@ export default function CategoriesPage() {
                     </p>
                     
                     {/* Static Clean Link */}
-                    <div className="mt-auto flex items-center justify-center gap-2 text-[#E59719] font-bold text-sm bg-amber-50/50 hover:bg-amber-100 px-6 py-2.5 rounded-full transition-colors w-full">
+                    <div className="mt-auto flex items-center justify-center gap-2 text-[#DC2626] font-bold text-sm bg-red-50/50 hover:bg-red-100 px-6 py-2.5 rounded-full transition-colors w-full">
                       <span>Explore Path</span>
                       <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -302,7 +311,7 @@ export default function CategoriesPage() {
         <section className="py-20 bg-white">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <span className="text-[#E59719] font-bold text-sm tracking-widest uppercase mb-3 block">
+              <span className="text-[#EF4444] font-bold text-sm tracking-widest uppercase mb-3 block">
                 Got Questions?
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0F172A] tracking-tight">
@@ -322,6 +331,9 @@ export default function CategoriesPage() {
             </div>
           </div>
         </section>
+
+        {/* Newsletter Section */}
+        <Newsletter />
 
       </main>
       <Footer />

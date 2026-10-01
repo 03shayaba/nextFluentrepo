@@ -74,24 +74,18 @@ export default function WhyChooseUs() {
       <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-blue-100/40 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
       <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#E59719]/10 rounded-full blur-3xl translate-x-1/3 translate-y-1/3 pointer-events-none"></div>
 
-      {/* Floating text top-left */}
-      <div 
-        className="hidden xl:block absolute top-16 left-12 rotate-[-12deg] text-slate-600 font-medium text-xl leading-tight opacity-80"
-        style={{ fontFamily: '"Caveat", "Comic Sans MS", cursive' }}
-      >
-        Fluency<br/>Opens<br/>New Doors
-      </div>
+      
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header Section */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-[#E59719]/10 text-[#E59719] text-sm font-bold tracking-wide uppercase mb-6">
-            <Star className="w-4 h-4 fill-[#E59719]" />
+          <div className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-red-50 text-[#DC2626] border border-red-200/60 text-sm font-bold tracking-wide uppercase mb-6">
+            <Star className="w-4 h-4 fill-[#DC2626]" />
             Why Choose Us
           </div>
           <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 mb-6 tracking-tight">
-            Why Learn With <span className="text-[#E59719]">NextFluent</span>?
+            Why Learn With <span className="text-[#DC2626]">NextFluent</span>?
           </h2>
           <p className="text-lg text-slate-600 leading-relaxed">
             More than just courses — we give you a complete learning experience 
@@ -229,7 +223,7 @@ export default function WhyChooseUs() {
             >
               Same<br/>Learning<br/>Brighter<br/>Future
             </div>
-            <button className="group flex items-center gap-3 bg-[#E59719] hover:bg-[#C98416] text-white font-bold py-4 px-8 rounded-full transition-all duration-300 shadow-[0_8px_20px_-6px_rgba(229,151,25,0.5)] hover:shadow-[0_12px_25px_-6px_rgba(229,151,25,0.6)] hover:-translate-y-0.5">
+            <button className="group flex items-center gap-3 bg-[#DC2626] hover:bg-[#B91C1C] text-white font-bold py-4 px-8 rounded-full transition-all duration-300 shadow-[0_8px_20px_-6px_rgba(220,38,38,0.5)] hover:shadow-[0_12px_25px_-6px_rgba(220,38,38,0.6)] hover:-translate-y-0.5">
               Start Your Journey
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>

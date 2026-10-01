@@ -7,12 +7,12 @@ export default function TransformHero() {
     <section className="relative w-full overflow-hidden bg-[#111726] py-16 lg:py-20 select-none border-b border-[#1E293B]">
 
       {/* Decorative Ambient Glowing Orbs */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-tr from-amber-400/10 via-amber-200/5 to-transparent rounded-full blur-3xl pointer-events-none z-0"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-tr from-red-600/10 via-rose-500/5 to-transparent rounded-full blur-3xl pointer-events-none z-0"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center justify-center">
 
         {/* Small Badge */}
-        <div className="inline-flex items-center gap-2 bg-[#E59719]/20 text-[#E59719] px-4 py-1.5 rounded-full font-bold text-[11px] sm:text-xs tracking-widest uppercase mb-6 sm:mb-8 shadow-sm border border-[#E59719]/30">
+        <div className="inline-flex items-center gap-2 bg-red-500/10 text-[#EF4444] px-4 py-1.5 rounded-full font-bold text-[11px] sm:text-xs tracking-widest uppercase mb-6 sm:mb-8 shadow-sm border border-red-500/20">
           <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
             <path d="M12 3L1 9L4 10.636V17L12 21L20 17V10.636L23 9L12 3ZM12 5.385L19.5 9L12 12.615L4.5 9L12 5.385ZM18 16.03L12 19.03L6 16.03V11.727L12 15L18 11.727V16.03Z" />
           </svg>
@@ -22,12 +22,12 @@ export default function TransformHero() {
         {/* Main Heading */}
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-white tracking-tight leading-tight max-w-3xl mx-auto mb-8 sm:mb-10">
           Transform Future <br className="hidden sm:block" />
-          Using Online.
+          Using <span className="text-[#EF4444]">Online Learning.</span>
         </h1>
 
         {/* Call to Action Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
-          <button className="w-full sm:w-auto bg-[#E59719] hover:bg-amber-600 text-white font-bold py-3.5 px-8 rounded-full shadow-lg shadow-amber-500/30 transition-all duration-300 hover:-translate-y-0.5 flex items-center justify-center gap-2 group">
+          <button className="w-full sm:w-auto bg-[#DC2626] hover:bg-[#B91C1C] text-white font-bold py-3.5 px-8 rounded-full shadow-lg shadow-red-500/30 transition-all duration-300 hover:-translate-y-0.5 flex items-center justify-center gap-2 group cursor-pointer">
             Start learning free
             <svg className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
               <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />

@@ -6,12 +6,12 @@ const FaqItem = ({ faq }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div 
-      className={`bg-[#1E293B] border rounded-2xl px-6 py-5 sm:px-8 transition-colors cursor-pointer ${isOpen ? 'border-[#E59719]' : 'border-slate-700 hover:border-[#E59719]/40'}`}
+      className={`bg-[#1E293B] border rounded-2xl px-6 py-5 sm:px-8 transition-colors cursor-pointer ${isOpen ? 'border-[#DC2626]' : 'border-slate-700 hover:border-[#DC2626]/50'}`}
       onClick={() => setIsOpen(!isOpen)}
     >
       <div className="flex items-center justify-between gap-4">
         <h4 className="text-lg font-bold text-white flex items-start sm:items-center gap-3">
-          <span className="text-[#E59719] font-black shrink-0">Q.</span>
+          <span className="text-[#EF4444] font-black shrink-0">Q.</span>
           <span>{faq.q}</span>
         </h4>
         <div className={`transform transition-transform duration-300 shrink-0 ${isOpen ? 'rotate-180' : ''}`}>

@@ -16,6 +16,7 @@ const Testimonials = dynamic(() => import("@/components/Testimonials"));
 const LatestInsights = dynamic(() => import("@/components/LatestInsights"));
 const GetInTouch = dynamic(() => import("@/components/GetInTouch"));
 const Newsletter = dynamic(() => import("@/components/Newsletter"));
+const AssessmentSection = dynamic(() => import("@/components/AssessmentSection"));
 
 export default function Home() {
   return (
@@ -23,12 +24,10 @@ export default function Home() {
       <Header />
       <main>
         <HeroSlider />
-        <StatsBar />
         <CourseCategories />
+        <AssessmentSection />
         <TrendingCategories />
-        <OurAchievements />
         <PopularCourses />
-        {/* <HowItWorks /> */}
         <WhyChooseUs />
         <TrendingCourses />
         <Testimonials />

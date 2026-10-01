@@ -297,7 +297,7 @@ export default function QuizPage() {
   const getCefrLevel = (score, total) => {
     const pct = (score / total) * 100;
     if (pct >= 80) return { level: "C1 / C2 (Advanced)", color: "text-emerald-700 bg-emerald-50 border-emerald-200", desc: "Excellent command of English! You understand complex tenses and precise vocabulary." };
-    if (pct >= 60) return { level: "B1 / B2 (Intermediate)", color: "text-[#E59719] bg-amber-50 border-amber-200", desc: "Good foundation! You can express yourself clearly in common academic and business settings." };
+    if (pct >= 60) return { level: "B1 / B2 (Intermediate)", color: "text-[#EF4444] bg-red-50 border-red-200", desc: "Good foundation! You can express yourself clearly in common academic and business settings." };
     return { level: "A1 / A2 (Elementary)", color: "text-blue-700 bg-blue-50 border-blue-200", desc: "Solid starting point. Regular practice will help you build stronger confidence!" };
   };
 
@@ -321,10 +321,10 @@ export default function QuizPage() {
       {!activeQuiz && (
         <main className="flex-grow pt-12 lg:pt-20 pb-0 relative overflow-hidden bg-[#0B1120] z-0">
           
-          {/* Dynamic Background Orbs */}
-          <div className="absolute top-[0%] left-[-10%] w-[500px] h-[500px] rounded-full bg-blue-600/20 blur-[120px] pointer-events-none z-[-1]"></div>
-          <div className="absolute bottom-[0%] right-[-10%] w-[600px] h-[600px] rounded-full bg-amber-500/15 blur-[120px] pointer-events-none z-[-1]"></div>
-          <div className="absolute top-[30%] left-[30%] w-[400px] h-[400px] rounded-full bg-emerald-500/10 blur-[100px] pointer-events-none z-[-1]"></div>
+          {/* Dynamic Background Orbs - Red & Black Dark Theme Effect */}
+          <div className="absolute top-[0%] left-[-10%] w-[500px] h-[500px] rounded-full bg-red-600/20 blur-[120px] pointer-events-none z-[-1]"></div>
+          <div className="absolute bottom-[0%] right-[-10%] w-[600px] h-[600px] rounded-full bg-rose-600/20 blur-[120px] pointer-events-none z-[-1]"></div>
+          <div className="absolute top-[30%] left-[30%] w-[400px] h-[400px] rounded-full bg-red-900/15 blur-[100px] pointer-events-none z-[-1]"></div>
           
           {/* Decorative Grid */}
           <svg className="absolute inset-0 w-full h-full opacity-[0.03] pointer-events-none z-[-1]" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -340,17 +340,17 @@ export default function QuizPage() {
             <div className="text-center max-w-3xl mx-auto mb-20 relative">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-md border border-white/10 shadow-lg shadow-black/20 mb-6">
                 <span className="flex h-2.5 w-2.5">
-                  <span className="animate-ping absolute inline-flex h-2.5 w-2.5 rounded-full bg-[#E59719] opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-500"></span>
+                  <span className="animate-ping absolute inline-flex h-2.5 w-2.5 rounded-full bg-[#DC2626] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500"></span>
                 </span>
                 <span className="text-sm font-bold text-white tracking-wide">AI-Powered Assessment</span>
               </div>
               
               <h1 className="text-4xl sm:text-5xl lg:text-[60px] font-semibold text-white tracking-tight mb-6 leading-tight drop-shadow-xl">
                 Discover Your True <br className="hidden sm:block" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E59719] to-amber-300 relative inline-block drop-shadow-sm">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#EF4444] to-rose-300 relative inline-block drop-shadow-sm">
                   English Level
-                  <svg className="absolute -bottom-3 left-0 w-full h-4 text-[#E59719]/40" viewBox="0 0 100 20" preserveAspectRatio="none">
+                  <svg className="absolute -bottom-3 left-0 w-full h-4 text-[#DC2626]/40" viewBox="0 0 100 20" preserveAspectRatio="none">
                     <path d="M0 10 Q50 20 100 10" stroke="currentColor" strokeWidth="8" fill="none" strokeLinecap="round" />
                   </svg>
                 </span>
@@ -371,23 +371,23 @@ export default function QuizPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-24">
               
               {/* Card 1: General Placement */}
-              <div className="group relative bg-white rounded-[2.5rem] p-8 shadow-xl shadow-black/5 border border-slate-100 hover:border-amber-400/50 hover:shadow-2xl hover:shadow-amber-400/10 transition-all duration-500 hover:-translate-y-3 overflow-hidden text-left flex flex-col">
-                <div className="absolute -inset-2 bg-gradient-to-r from-amber-400/0 via-amber-400/5 to-amber-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
+              <div className="group relative bg-white rounded-[2.5rem] p-8 shadow-xl shadow-black/5 border border-slate-100 hover:border-red-400/50 hover:shadow-2xl hover:shadow-red-400/10 transition-all duration-500 hover:-translate-y-3 overflow-hidden text-left flex flex-col">
+                <div className="absolute -inset-2 bg-gradient-to-r from-red-400/0 via-red-400/5 to-red-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
                 
-                <div className="w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-amber-500/30 text-white transform group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 relative z-10">
+                <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-rose-600 rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-red-500/30 text-white transform group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 relative z-10">
                   <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
                 </div>
 
-                <div className="inline-flex bg-amber-50 text-amber-600 font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full mb-4 w-max border border-amber-200 relative z-10">Complete Assessment</div>
+                <div className="inline-flex bg-red-50 text-red-600 font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full mb-4 w-max border border-red-200 relative z-10">Complete Assessment</div>
                 
-                <h3 className="text-2xl font-black text-slate-900 mb-3 group-hover:text-amber-500 transition-colors relative z-10">General Placement</h3>
+                <h3 className="text-2xl font-black text-slate-900 mb-3 group-hover:text-red-600 transition-colors relative z-10">General Placement</h3>
                 <p className="text-slate-600 text-sm leading-relaxed mb-8 flex-grow relative z-10">
                   A comprehensive test checking your grammar, reading, and vocabulary to find your exact CEFR level (A1-C2).
                 </p>
                 
                 <button 
                   onClick={() => startTest('placement')}
-                  className="w-full bg-slate-900 text-white hover:bg-amber-500 font-bold py-4 rounded-2xl transition-all duration-300 shadow-md flex items-center justify-center gap-2 cursor-pointer active:scale-95 relative z-10"
+                  className="w-full bg-slate-900 text-white hover:bg-[#DC2626] font-bold py-4 rounded-2xl transition-all duration-300 shadow-md flex items-center justify-center gap-2 cursor-pointer active:scale-95 relative z-10"
                 >
                   Start Test <span className="text-lg">→</span>
                 </button>
@@ -442,14 +442,14 @@ export default function QuizPage() {
 
             {/* How It Works Section */}
             <div className="bg-white rounded-[3rem] p-10 md:p-16 shadow-lg border border-slate-100 mb-20 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/5 rounded-full blur-[100px] pointer-events-none"></div>
+              <div className="absolute top-0 right-0 w-96 h-96 bg-red-500/5 rounded-full blur-[100px] pointer-events-none"></div>
               <h2 className="text-3xl md:text-4xl font-extrabold text-center text-slate-900 mb-12">How it works</h2>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-10 relative">
-                <div className="hidden md:block absolute top-12 left-1/6 right-1/6 h-0.5 bg-gradient-to-r from-amber-200 via-amber-400 to-amber-200 z-0"></div>
+                <div className="hidden md:block absolute top-12 left-1/6 right-1/6 h-0.5 bg-gradient-to-r from-red-200 via-red-400 to-red-200 z-0"></div>
 
                 <div className="relative z-10 flex flex-col items-center text-center group">
-                  <div className="w-24 h-24 bg-[#1E293B] border-4 border-slate-700 rounded-full flex items-center justify-center text-3xl mb-6 shadow-xl shadow-black/10 group-hover:scale-110 group-hover:border-amber-400 group-hover:bg-slate-800 transition-all duration-300">
+                  <div className="w-24 h-24 bg-[#1E293B] border-4 border-slate-700 rounded-full flex items-center justify-center text-3xl mb-6 shadow-xl shadow-black/10 group-hover:scale-110 group-hover:border-red-500 group-hover:bg-slate-800 transition-all duration-300">
                     📝
                   </div>
                   <h4 className="text-xl font-bold text-slate-800 mb-2">1. Take the Quiz</h4>
@@ -457,7 +457,7 @@ export default function QuizPage() {
                 </div>
 
                 <div className="relative z-10 flex flex-col items-center text-center group">
-                  <div className="w-24 h-24 bg-[#1E293B] border-4 border-slate-700 rounded-full flex items-center justify-center text-3xl mb-6 shadow-xl shadow-black/10 group-hover:scale-110 group-hover:border-amber-400 group-hover:bg-slate-800 transition-all duration-300">
+                  <div className="w-24 h-24 bg-[#1E293B] border-4 border-slate-700 rounded-full flex items-center justify-center text-3xl mb-6 shadow-xl shadow-black/10 group-hover:scale-110 group-hover:border-red-500 group-hover:bg-slate-800 transition-all duration-300">
                     📊
                   </div>
                   <h4 className="text-xl font-bold text-slate-800 mb-2">2. Get Your Score</h4>
@@ -465,7 +465,7 @@ export default function QuizPage() {
                 </div>
 
                 <div className="relative z-10 flex flex-col items-center text-center group">
-                  <div className="w-24 h-24 bg-[#1E293B] border-4 border-slate-700 rounded-full flex items-center justify-center text-3xl mb-6 shadow-xl shadow-black/10 group-hover:scale-110 group-hover:border-amber-400 group-hover:bg-slate-800 transition-all duration-300">
+                  <div className="w-24 h-24 bg-[#1E293B] border-4 border-slate-700 rounded-full flex items-center justify-center text-3xl mb-6 shadow-xl shadow-black/10 group-hover:scale-110 group-hover:border-red-500 group-hover:bg-slate-800 transition-all duration-300">
                     🚀
                   </div>
                   <h4 className="text-xl font-bold text-slate-800 mb-2">3. Start Learning</h4>
@@ -538,7 +538,7 @@ export default function QuizPage() {
                       QUESTION {currentQuestionIndex + 1} OF {quizData[activeQuiz].questions.length}
                     </span>
 
-                    <span className="bg-amber-50 text-[#E59719] border border-amber-200/60 text-[11px] font-bold px-3 py-1 rounded-full flex items-center gap-1.5">
+                    <span className="bg-red-50 text-[#EF4444] border border-red-200/60 text-[11px] font-bold px-3 py-1 rounded-full flex items-center gap-1.5">
                       <span>❓</span> Multiple Choice
                     </span>
                   </div>
@@ -558,14 +558,14 @@ export default function QuizPage() {
                           onClick={() => handleSelectOption(idx)}
                           className={`w-full text-left p-4 sm:p-5 rounded-2xl border transition-all duration-200 flex items-center justify-between cursor-pointer ${
                             isSelected 
-                              ? 'border-[#E59719] ring-2 ring-[#E59719]/30 bg-amber-50/20 text-slate-900 font-semibold' 
+                              ? 'border-[#DC2626] ring-2 ring-[#DC2626]/30 bg-red-50/30 text-slate-900 font-semibold' 
                               : 'border-slate-200/80 hover:border-slate-300 bg-white text-slate-700 hover:bg-slate-50/60'
                           }`}
                         >
                           <span className="flex items-center gap-4">
                             <span className={`w-8 h-8 rounded-xl border text-xs font-bold flex items-center justify-center transition-colors ${
                               isSelected 
-                                ? 'bg-[#E59719] text-white border-[#E59719]' 
+                                ? 'bg-[#DC2626] text-white border-[#DC2626]' 
                                 : 'bg-slate-50 text-slate-400 border-slate-200'
                             }`}>
                               {String.fromCharCode(65 + idx)}
@@ -573,7 +573,7 @@ export default function QuizPage() {
                             <span className="text-sm sm:text-base font-medium">{option}</span>
                           </span>
                           
-                          {isSelected && <span className="text-[#E59719] font-bold text-lg">✓</span>}
+                          {isSelected && <span className="text-[#DC2626] font-bold text-lg">✓</span>}
                         </button>
                       );
                     })}
@@ -600,7 +600,7 @@ export default function QuizPage() {
                     className={`px-6 py-3 rounded-xl text-xs font-bold text-white transition-all shadow-sm ${
                       selectedAnswers[currentQuestionIndex] === undefined 
                         ? 'bg-slate-300 cursor-not-allowed opacity-60' 
-                        : 'bg-slate-900 hover:bg-amber-600 cursor-pointer active:scale-95'
+                        : 'bg-slate-900 hover:bg-red-600 cursor-pointer active:scale-95'
                     }`}
                   >
                     {currentQuestionIndex === quizData[activeQuiz].questions.length - 1 ? 'Submit Test' : 'Next Question →'}
@@ -631,9 +631,9 @@ export default function QuizPage() {
                         onClick={() => setCurrentQuestionIndex(idx)}
                         className={`h-11 rounded-2xl text-xs font-bold transition-all border cursor-pointer ${
                           isCurrent
-                            ? 'border-[#E59719] text-[#E59719] ring-2 ring-[#E59719]/20 bg-amber-50/40'
+                            ? 'border-[#DC2626] text-[#DC2626] ring-2 ring-[#DC2626]/20 bg-red-50/40'
                             : isAnswered
-                            ? 'bg-[#0086F0] text-white border-[#0086F0]'
+                            ? 'bg-[#DC2626] text-white border-[#DC2626]'
                             : 'bg-slate-50 text-slate-400 border-slate-200 hover:bg-slate-100'
                         }`}
                       >
@@ -646,7 +646,7 @@ export default function QuizPage() {
                 {/* Legend Indicators */}
                 <div className="pt-2 space-y-2 text-xs font-medium text-slate-500">
                   <div className="flex items-center gap-2">
-                    <span className="w-3 h-3 rounded-full bg-[#0086F0]"></span>
+                    <span className="w-3 h-3 rounded-full bg-[#DC2626]"></span>
                     <span>Answered</span>
                   </div>
                   <div className="flex items-center gap-2">
@@ -669,7 +669,7 @@ export default function QuizPage() {
           ) : (
             /* Result Screen in Page Mode */
             <div className="max-w-3xl mx-auto bg-white rounded-3xl p-8 sm:p-12 shadow-sm border border-slate-200 text-center my-8">
-              <div className="w-20 h-20 bg-amber-100 text-[#E59719] rounded-full flex items-center justify-center text-4xl mx-auto mb-4 shadow-inner">
+              <div className="w-20 h-20 bg-red-100 text-[#DC2626] rounded-full flex items-center justify-center text-4xl mx-auto mb-4 shadow-inner">
                 🏆
               </div>
               <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-1">
@@ -700,7 +700,7 @@ export default function QuizPage() {
               <div className="mb-6">
                 <button
                   onClick={() => setShowExplanations(!showExplanations)}
-                  className="text-xs font-bold text-[#E59719] hover:underline flex items-center justify-center gap-1.5 mx-auto cursor-pointer"
+                  className="text-xs font-bold text-[#DC2626] hover:underline flex items-center justify-center gap-1.5 mx-auto cursor-pointer"
                 >
                   <span>{showExplanations ? 'Hide Answer Key & Explanations ↑' : 'Review Answers & Explanations ↓'}</span>
                 </button>
@@ -745,7 +745,7 @@ export default function QuizPage() {
                 </button>
                 <Link
                   href="/courses"
-                  className="w-full sm:w-auto px-6 py-3 rounded-xl bg-[#E59719] hover:bg-[#d48d12] font-bold text-white transition-all text-sm shadow-md text-center cursor-pointer"
+                  className="w-full sm:w-auto px-6 py-3 rounded-xl bg-[#DC2626] hover:bg-[#B91C1C] font-bold text-white transition-all text-sm shadow-md text-center cursor-pointer"
                 >
                   Explore Recommended Courses →
                 </Link>
