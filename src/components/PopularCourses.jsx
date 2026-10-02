@@ -151,55 +151,55 @@ export default function PopularCourses() {
           <div ref={scrollRef} className="flex overflow-x-auto gap-6 pb-8 pt-4 px-2 snap-x snap-mandatory hide-scrollbar relative" style={{ scrollbarWidth: 'none' }}>
             
             {popularCoursesData.map((course) => (
-              <div key={course.id} className="snap-center shrink-0 w-[85vw] sm:w-[320px] md:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)] bg-white/5 backdrop-blur-xl rounded-3xl shadow-2xl shadow-black/20 border border-white/10 overflow-hidden flex flex-col transition-all hover:-translate-y-2 hover:bg-white/10 hover:border-red-500/40 duration-300">
+              <div key={course.id} className="group snap-center shrink-0 w-[85vw] sm:w-[320px] md:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)] bg-white/5 backdrop-blur-xl rounded-3xl shadow-2xl shadow-black/20 border border-white/10 overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-2 hover:bg-white/10 hover:border-red-500/40">
                 
                 {/* Image Section */}
-                <div className="relative h-48 w-full p-2">
+                <div className="relative h-52 w-full p-2.5">
                   <div className="w-full h-full rounded-2xl overflow-hidden relative">
-                    <img src={course.image} alt={course.title} className="w-full h-full object-cover" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    <img src={course.image} alt={course.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                   </div>
                   
                   {/* Heart Icon */}
-                  <button className="absolute top-4 right-4 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm text-slate-400 hover:text-red-500 transition-colors">
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                  <button className="absolute top-5 right-5 w-9 h-9 bg-black/40 backdrop-blur-md rounded-full flex items-center justify-center shadow-md text-slate-300 hover:text-red-500 hover:bg-white transition-all duration-200 hover:scale-110 z-10" aria-label="Wishlist">
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.2"><path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
                   </button>
 
                   {/* Category Badge */}
-                  <div className="absolute bottom-4 left-4 bg-slate-800/90 backdrop-blur-sm text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">
+                  <div className="absolute bottom-5 left-5 bg-black/60 backdrop-blur-md text-white text-[11px] font-extrabold tracking-wide px-3.5 py-1.5 rounded-full shadow-lg border border-white/20 z-10">
                     {course.category}
                   </div>
                 </div>
 
                 {/* Content Section */}
-                <div className="p-5 flex flex-col flex-grow">
+                <div className="p-6 flex flex-col flex-grow">
                   
-                  <h3 className="text-xl font-extrabold text-white mb-2 leading-tight">{course.title}</h3>
-                  <p className="text-slate-400 text-sm mb-4 line-clamp-2 leading-relaxed">{course.description}</p>
+                  <h3 className="text-lg font-extrabold text-white mb-2 leading-snug group-hover:text-red-400 transition-colors line-clamp-1">{course.title}</h3>
+                  <p className="text-slate-400 text-xs mb-4 line-clamp-2 leading-relaxed font-normal">{course.description}</p>
                   
                   {/* Rating & Enrollment */}
-                  <div className="flex items-center gap-3 text-xs font-semibold text-slate-400 mb-4 pb-4 border-b border-slate-700">
-                    <div className="flex items-center gap-1">
-                      <span className="text-amber-500">⭐</span> {course.rating} <span className="text-slate-400 font-medium">({course.reviews} students)</span>
+                  <div className="flex items-center gap-2.5 text-xs font-bold text-slate-400 mb-4 pb-4 border-b border-white/10">
+                    <div className="flex items-center gap-1.5 bg-amber-500/10 text-amber-400 px-2.5 py-1 rounded-md">
+                      <span>⭐</span> <span>{course.rating}</span> <span className="text-slate-400 font-semibold text-[11px]">({course.reviews})</span>
                     </div>
-                    <span className="text-slate-300">|</span>
-                    <div className="flex items-center gap-1">
-                      <span>👥</span> {course.enrolled} enrolled
+                    <span className="text-slate-600">•</span>
+                    <div className="flex items-center gap-1.5 text-slate-400 font-medium">
+                      <span className="text-slate-200 font-semibold">👥 {course.enrolled}</span> enrolled
                     </div>
                   </div>
 
                   {/* Specs */}
                   <div className="flex items-center justify-between gap-2 mb-6 text-[11px] font-bold text-slate-300">
-                    <div className="flex items-center gap-1.5 bg-white/10 px-2.5 py-1.5 rounded-md">
-                      <svg className="w-3.5 h-3.5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                    <div className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-xl border border-white/5">
+                      <svg className="w-3.5 h-3.5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
                       {course.lessons} Lessons
                     </div>
-                    <div className="flex items-center gap-1.5 bg-white/10 px-2.5 py-1.5 rounded-md">
-                      <svg className="w-3.5 h-3.5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    <div className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-xl border border-white/5">
+                      <svg className="w-3.5 h-3.5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                       {course.hours} Hours
                     </div>
-                    <div className="flex items-center gap-1.5 bg-white/10 px-2.5 py-1.5 rounded-md">
-                      <svg className="w-3.5 h-3.5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                    <div className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-xl border border-white/5">
+                      <svg className="w-3.5 h-3.5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
                       {course.level}
                     </div>
                   </div>
@@ -207,18 +207,18 @@ export default function PopularCourses() {
                   {/* Pricing */}
                   <div className="flex items-center gap-3 mb-6 mt-auto">
                     <span className="text-2xl font-black text-[#EF4444]">{course.currentPrice}</span>
-                    <span className="text-sm font-semibold text-slate-400 line-through">{course.originalPrice}</span>
-                    <span className="text-[10px] font-black bg-emerald-100 text-emerald-600 px-2 py-1 rounded tracking-wide">{course.discount}</span>
+                    <span className="text-sm font-bold text-slate-400 line-through">{course.originalPrice}</span>
+                    <span className="text-[11px] font-extrabold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2.5 py-1 rounded-lg tracking-wide">{course.discount}</span>
                   </div>
 
                   {/* Buttons */}
                   <div className="grid grid-cols-2 gap-3">
-                    <a href="/course-details" className="flex items-center justify-center py-2.5 rounded-xl border border-slate-600 text-slate-300 font-bold text-xs hover:bg-slate-700 transition-colors cursor-pointer">
+                    <a href="/course-details" className="flex items-center justify-center py-2.5 rounded-2xl border border-white/20 text-slate-200 font-bold text-xs hover:bg-white hover:text-slate-900 transition-all duration-300 cursor-pointer">
                       View Details
                     </a>
                     <button 
                       onClick={() => handleEnrollClick(course)}
-                      className="flex items-center justify-center gap-1 py-2.5 rounded-xl bg-[#DC2626] text-white font-bold text-xs hover:bg-[#B91C1C] transition-colors shadow-md shadow-red-500/20 cursor-pointer"
+                      className="flex items-center justify-center gap-1 py-2.5 rounded-2xl bg-gradient-to-r from-[#DC2626] to-[#EF4444] text-white font-extrabold text-xs hover:from-[#B91C1C] hover:to-[#DC2626] transition-all duration-300 shadow-lg shadow-red-500/25 hover:shadow-red-500/40 hover:scale-[1.02] cursor-pointer"
                     >
                       Enroll Now &rarr;
                     </button>

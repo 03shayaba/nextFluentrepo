@@ -41,7 +41,7 @@ export default function Header() {
           
           {/* Logo Section */}
           <div className="flex items-center gap-3 cursor-pointer z-10">
-            <img src="/NextFluentlogo.jpeg" alt="NextFluent Logo" className="h-10 sm:h-12 w-auto object-contain rounded-full shadow-sm" />
+            <img src="/logo_transparent.png" alt="NextGen English Classes Logo" className="h-12 sm:h-14 w-auto object-contain" />
           </div>
 
           {/* Desktop Navigation Links (Centered) */}

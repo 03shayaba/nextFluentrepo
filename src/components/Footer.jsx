@@ -18,7 +18,7 @@ export default function Footer() {
           <div className="lg:col-span-4 space-y-6">
             <div className="space-y-2">
               <div className="flex items-center gap-3">
-                <img src="/NextFluentlogo.jpeg" alt="NextFluent Logo" className="h-12 w-auto object-contain rounded-full border border-slate-700/60 shadow-md" />
+                <img src="/logo_transparent.png" alt="NextGen English Classes Logo" className="h-14 w-auto object-contain" />
                 <span className="text-xl font-bold text-white tracking-tight">Next<span className="text-[#DC2626]">Fluent</span></span>
               </div>
               <p className="text-xs font-semibold text-[#DC2626] tracking-wide">
