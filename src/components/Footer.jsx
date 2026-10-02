@@ -17,10 +17,10 @@ export default function Footer() {
           {/* Column 1: Brand Info & Social Links (lg:col-span-4) */}
           <div className="lg:col-span-4 space-y-6">
             <div className="space-y-2">
-              <div className="flex items-center gap-3">
-                <img src="/logo_transparent.png" alt="NextGen English Classes Logo" className="h-14 w-auto object-contain" />
+              <Link href="/" className="flex items-center gap-3 cursor-pointer group">
+                <img src="/logo_transparent.png" alt="NextGen English Classes Logo" className="h-14 w-auto object-contain transition-transform group-hover:scale-105" />
                 <span className="text-xl font-bold text-white tracking-tight">Next<span className="text-[#DC2626]">Fluent</span></span>
-              </div>
+              </Link>
               <p className="text-xs font-semibold text-[#DC2626] tracking-wide">
                 Learn Today. Brighter Tomorrow.
               </p>

@@ -18,6 +18,7 @@ const courses = [
     instructorImage: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop",
     instructorName: "Jill King",
     title: "Basic English Grammar & Vocabulary Foundation",
+    description: "Master fundamental English grammar, daily conversation sentence patterns, essential vocabulary, and pronunciation basics.",
     students: "1,240",
     lessons: "16",
     hours: "5.5",
@@ -32,6 +33,7 @@ const courses = [
     instructorImage: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop",
     instructorName: "Jill King",
     title: "Intermediate English Tenses & Sentence Fluency",
+    description: "Master all English tenses, complex sentence structures, and natural speaking patterns for seamless everyday fluency.",
     students: "980",
     lessons: "20",
     hours: "7.0",
@@ -46,6 +48,7 @@ const courses = [
     instructorImage: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop",
     instructorName: "Ana Murphy",
     title: "Advanced English Expressions, Idioms & Nuance",
+    description: "Elevate your vocabulary with native idioms, phrasal verbs, advanced expressions, and subtle conversational nuances.",
     students: "820",
     lessons: "24",
     hours: "8.5",
@@ -60,6 +63,7 @@ const courses = [
     instructorImage: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop",
     instructorName: "John Miller",
     title: "Spoken English & Real-Time Conversation Practice",
+    description: "Practice real-life conversations, accent reduction, active listening, and spontaneous speaking with interactive drills.",
     students: "2,450",
     lessons: "30",
     hours: "12.0",
@@ -74,6 +78,7 @@ const courses = [
     instructorImage: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop",
     instructorName: "Sarah Smith",
     title: "Complete IELTS Academic & General Band 8+ Masterclass",
+    description: "Comprehensive preparation covering Listening, Reading, Writing, and Speaking modules with proven Band 8+ strategies.",
     students: "3,120",
     lessons: "40",
     hours: "18.0",
@@ -88,6 +93,7 @@ const courses = [
     instructorImage: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop",
     instructorName: "Mike Johnson",
     title: "Personality Development & Interpersonal Communication",
+    description: "Develop strong body language, executive presence, active listening skills, and impactful interpersonal communication.",
     students: "1,560",
     lessons: "22",
     hours: "9.0",
@@ -102,6 +108,7 @@ const courses = [
     instructorImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",
     instructorName: "Dr. Sarah Khan",
     title: "Public Speaking & Presentation Masterclass",
+    description: "Overcome stage fear, structure compelling speeches, deliver powerful presentations, and captivate any audience.",
     students: "1,140",
     lessons: "18",
     hours: "6.5",
@@ -116,6 +123,7 @@ const courses = [
     instructorImage: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop",
     instructorName: "Elena Rostova",
     title: "Business English Pro: Corporate Email & Speech",
+    description: "Master professional email writing, high-stakes negotiation skills, corporate terminology, and formal business speech.",
     students: "1,890",
     lessons: "28",
     hours: "11.0",
@@ -416,102 +424,99 @@ export default function CoursesPage() {
                   const discountPercent = Math.round(((originalPriceNum - priceNum) / originalPriceNum) * 100);
 
                   return (
-                    <a href="/course-details" key={course.id} className={`relative bg-slate-950/95 backdrop-blur-2xl rounded-3xl shadow-[0_10px_30px_rgba(0,0,0,0.8)] hover:shadow-[0_20px_45px_rgba(220,38,38,0.25)] border border-red-500/30 hover:border-red-500/70 overflow-hidden flex transition-all duration-500 hover:-translate-y-2 group ${viewMode === 'grid' ? 'flex-col' : 'flex-col sm:flex-row'}`}>
+                    <a href="/course-details" key={course.id} className={`bg-[#0A0710] rounded-3xl shadow-xl shadow-slate-950/10 border border-slate-200/80 overflow-hidden flex flex-col group transition-all duration-300 hover:-translate-y-1.5 ${viewMode === 'grid' ? 'flex-col' : 'flex-col sm:flex-row'}`}>
                       
-                      {/* Glossy Red Sheen Reflection Overlay */}
-                      <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-red-500/15 via-red-950/10 to-transparent pointer-events-none z-10"></div>
-
-                      {/* Edge-to-Edge Image Header */}
-                      <div className={`relative w-full ${viewMode === 'grid' ? 'h-52' : 'h-52 sm:h-auto sm:w-[290px] shrink-0'}`}>
-                        <div className="w-full h-full overflow-hidden relative">
-                          <img src={course.image} alt={course.title} className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 ease-out" />
-                          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+                      {/* Top Header Image Container (Zero gap, dark background matched to eliminate white line on hover) */}
+                      <div className={`relative w-full ${viewMode === 'grid' ? 'h-52' : 'h-52 sm:h-auto sm:w-[290px] shrink-0'} bg-[#0A0710] overflow-hidden`}>
+                        <div className="w-full h-full overflow-hidden relative bg-[#0A0710]">
+                          <img src={course.image} alt={course.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out block select-none transform-gpu" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0710] via-[#0A0710]/40 to-transparent pointer-events-none"></div>
                         </div>
                         
-                        {/* Reddish Glass Category Badge */}
-                        <div className="absolute top-4 left-4 bg-red-950/80 backdrop-blur-xl text-red-100 border border-red-500/40 text-[11px] font-extrabold uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-xl flex items-center gap-1.5 z-20">
-                          <span className="w-2 h-2 rounded-full bg-[#EF4444] animate-pulse shadow-sm shadow-red-500"></span>
+                        {/* Glass Category Badge */}
+                        <div className="absolute top-4 left-4 bg-slate-950/80 backdrop-blur-md text-white border border-white/20 text-[11px] font-extrabold uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 z-20">
+                          <span className="w-2 h-2 rounded-full bg-[#EF4444] animate-pulse"></span>
                           {course.category}
                         </div>
 
                         {/* Heart Icon */}
-                        <button className="absolute top-4 right-4 w-9 h-9 bg-slate-950/80 backdrop-blur-xl border border-red-500/30 rounded-full flex items-center justify-center shadow-xl text-slate-200 hover:text-red-400 hover:bg-red-950/60 hover:scale-110 transition-all duration-200 z-20" onClick={(e) => e.preventDefault()} aria-label="Save to Wishlist">
+                        <button className="absolute top-4 right-4 w-9 h-9 bg-slate-950/80 backdrop-blur-xl border border-white/20 rounded-full flex items-center justify-center shadow-xl text-slate-200 hover:text-red-400 hover:scale-110 transition-all z-20" onClick={(e) => e.preventDefault()} aria-label="Save to Wishlist">
                           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.2"><path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
                         </button>
                       </div>
 
-                      {/* Content Section */}
-                      <div className="p-5 sm:p-6 flex flex-col flex-grow relative z-20 bg-gradient-to-b from-slate-950/60 via-slate-950/80 to-slate-950">
+                      {/* Upper Section: Rich Dark to Blushy Gradient Title Banner */}
+                      <div className="px-5 pt-1.5 pb-4.5 bg-gradient-to-b from-[#0A0710] via-[#210D1A] to-[#3B0E23] relative z-10 -mt-2">
+                        <h3 className="text-base sm:text-lg font-extrabold text-white leading-snug group-hover:text-red-300 transition-colors line-clamp-2">{course.title}</h3>
+                      </div>
+
+                      {/* LOWER SECTION: CLEAN PURE WHITE BACKGROUND */}
+                      <div className="p-5 sm:p-6 flex flex-col flex-grow bg-white text-slate-900 rounded-b-3xl relative z-10 -mt-px shadow-sm">
                         
-                        {/* Title */}
-                        <h3 className="text-base sm:text-lg font-extrabold text-white mb-2 leading-snug group-hover:text-red-400 transition-colors line-clamp-2">{course.title}</h3>
-                        
-                        {/* Short Course Description */}
-                        <p className="text-xs text-slate-300 font-normal leading-relaxed line-clamp-2 mb-3">
-                          {course.description || "Master core concepts, sentence structures, and daily fluency with interactive lessons & practical exercises."}
-                        </p>
+                        {/* Course Description Paragraph */}
+                        <p className="text-slate-800 text-xs sm:text-[13px] font-medium leading-relaxed mb-3.5 line-clamp-2">{course.description}</p>
 
                         {/* Rating & Enrolled Row */}
-                        <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-slate-300 mb-3.5">
-                          <div className="flex items-center gap-1 bg-amber-500/15 text-amber-400 px-2.5 py-0.5 rounded-md border border-amber-500/30 font-bold">
+                        <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-slate-600 mb-3.5">
+                          <div className="flex items-center gap-1 bg-amber-50 text-amber-700 px-2.5 py-0.5 rounded-md border border-amber-200/80 font-bold shadow-sm">
                             <svg className="w-3.5 h-3.5 fill-amber-400 text-amber-400" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                             {course.rating}
                           </div>
-                          <span className="text-slate-400 text-[11px]">({course.students} reviews)</span>
-                          <span className="text-slate-600">•</span>
-                          <span className="text-slate-300 text-[11px] font-medium">👥 <strong className="text-white">{course.students}+</strong> learners</span>
+                          <span className="text-slate-500 font-medium text-[11px]">({course.students} reviews)</span>
+                          <span className="text-slate-300">•</span>
+                          <span className="text-slate-600 text-[11px] font-medium">👥 <strong className="text-slate-900">{course.students}+</strong> learners</span>
                         </div>
 
-                        {/* Reddish Glossy Spec Grid with Icons */}
-                        <div className="grid grid-cols-3 gap-1.5 bg-red-950/30 backdrop-blur-md border border-red-500/20 p-2.5 rounded-2xl mb-4 text-center">
+                        {/* White Spec Grid */}
+                        <div className="grid grid-cols-3 gap-1.5 bg-slate-50 border border-slate-200/80 p-2.5 rounded-2xl mb-4 text-center shadow-xs">
                           <div className="flex flex-col items-center justify-center p-1">
-                            <div className="flex items-center gap-1 text-slate-400 text-[10px] uppercase font-bold mb-0.5">
-                              <svg className="w-3 h-3 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                            <div className="flex items-center gap-1 text-slate-500 text-[10px] uppercase font-bold mb-0.5">
+                              <svg className="w-3 h-3 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
                               <span>Lessons</span>
                             </div>
-                            <span className="text-xs font-extrabold text-white">{course.lessons}</span>
+                            <span className="text-xs font-extrabold text-slate-900">{course.lessons}</span>
                           </div>
-                          <div className="flex flex-col items-center justify-center p-1 border-x border-red-500/20">
-                            <div className="flex items-center gap-1 text-slate-400 text-[10px] uppercase font-bold mb-0.5">
-                              <svg className="w-3 h-3 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                          <div className="flex flex-col items-center justify-center p-1 border-x border-slate-200/70">
+                            <div className="flex items-center gap-1 text-slate-500 text-[10px] uppercase font-bold mb-0.5">
+                              <svg className="w-3 h-3 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                               <span>Duration</span>
                             </div>
-                            <span className="text-xs font-extrabold text-white">{course.hours} Hrs</span>
+                            <span className="text-xs font-extrabold text-slate-900">{course.hours} Hrs</span>
                           </div>
                           <div className="flex flex-col items-center justify-center p-1">
-                            <div className="flex items-center gap-1 text-slate-400 text-[10px] uppercase font-bold mb-0.5">
-                              <svg className="w-3 h-3 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                            <div className="flex items-center gap-1 text-slate-500 text-[10px] uppercase font-bold mb-0.5">
+                              <svg className="w-3 h-3 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
                               <span>Level</span>
                             </div>
-                            <span className="text-xs font-extrabold text-white truncate max-w-full px-1">{course.level}</span>
+                            <span className="text-xs font-extrabold text-slate-900 truncate max-w-full px-1">{course.level}</span>
                           </div>
                         </div>
 
                         {/* Value Add Badges */}
-                        <div className="flex items-center gap-2 text-[10px] font-bold text-slate-400 mb-4">
-                          <span className="text-emerald-400 flex items-center gap-1">
-                            <svg className="w-3 h-3 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/></svg>
+                        <div className="flex items-center gap-2 text-[10px] font-bold text-slate-500 mb-4">
+                          <span className="text-emerald-600 flex items-center gap-1">
+                            <svg className="w-3 h-3 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/></svg>
                             Certificate Included
                           </span>
-                          <span className="text-slate-600">•</span>
-                          <span className="text-slate-300">⚡ Lifetime Access</span>
+                          <span className="text-slate-300">•</span>
+                          <span className="text-slate-600">⚡ Lifetime Access</span>
                         </div>
 
                         {/* Price & Savings Bar */}
                         <div className="flex items-baseline gap-2 mb-5 mt-auto pt-1">
-                          <span className="text-2xl font-black text-red-500 tracking-tight">{course.price}</span>
+                          <span className="text-2xl font-black text-[#DC2626] tracking-tight">{course.price}</span>
                           <span className="text-xs font-bold text-slate-400 line-through">{originalPrice}</span>
-                          <span className="text-[10px] font-black bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded tracking-wider uppercase ml-auto">{discountPercent}% OFF</span>
+                          <span className="text-[10px] font-black bg-emerald-100 text-emerald-700 border border-emerald-200/80 px-2 py-0.5 rounded tracking-wider uppercase ml-auto">{discountPercent}% OFF</span>
                         </div>
 
                         {/* Action Buttons */}
                         <div className="grid grid-cols-2 gap-2.5 mt-auto">
-                          <button className="flex items-center justify-center py-2.5 rounded-xl border border-red-500/30 bg-black/60 backdrop-blur-md text-white font-extrabold text-xs hover:bg-red-600 hover:border-red-600 transition-all duration-300 pointer-events-none">
+                          <button className="flex items-center justify-center py-2.5 rounded-xl border border-slate-300 bg-white text-slate-700 font-extrabold text-xs hover:bg-slate-900 hover:text-white transition-all duration-300 pointer-events-none shadow-sm">
                             View Details
                           </button>
                           <button 
                             onClick={(e) => handleEnrollClick(e, course)}
-                            className="flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-gradient-to-r from-red-600 to-red-500 hover:from-red-700 hover:to-red-600 text-white font-extrabold text-xs shadow-lg shadow-red-600/40 hover:shadow-red-600/60 transition-all duration-300 cursor-pointer"
+                            className="flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-gradient-to-r from-[#DC2626] to-[#EF4444] hover:from-[#B91C1C] hover:to-[#DC2626] text-white font-extrabold text-xs shadow-md shadow-red-500/20 hover:shadow-lg transition-all duration-300 cursor-pointer"
                           >
                             Enroll Now &rarr;
                           </button>

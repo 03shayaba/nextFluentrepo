@@ -40,9 +40,9 @@ export default function Header() {
         <div className="flex items-center justify-between h-20 relative">
           
           {/* Logo Section */}
-          <div className="flex items-center gap-3 cursor-pointer z-10">
+          <Link href="/" className="flex items-center gap-3 cursor-pointer z-10 transition-opacity hover:opacity-90">
             <img src="/logo_transparent.png" alt="NextGen English Classes Logo" className="h-12 sm:h-14 w-auto object-contain" />
-          </div>
+          </Link>
 
           {/* Desktop Navigation Links (Centered) */}
           <nav className="hidden md:flex items-center space-x-8 text-[15px] font-semibold absolute left-1/2 -translate-x-1/2 z-10">
