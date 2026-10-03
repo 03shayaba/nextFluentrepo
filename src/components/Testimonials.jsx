@@ -75,17 +75,11 @@ export default function Testimonials() {
 
 
   const handleNext = () => {
-    if (isAnimating) return;
-    setIsAnimating(true);
     setActiveIndex((prev) => prev + 1);
-    setTimeout(() => setIsAnimating(false), 500);
   };
 
   const handlePrev = () => {
-    if (isAnimating) return;
-    setIsAnimating(true);
     setActiveIndex((prev) => prev - 1);
-    setTimeout(() => setIsAnimating(false), 500);
   };
 
   return (
@@ -115,48 +109,62 @@ export default function Testimonials() {
           </div>
 
           {/* Right Stats Block */}
-          <div className="relative mt-8 lg:mt-0 w-full lg:w-auto">
+          <div className="relative mt-4 lg:mt-0 w-full lg:w-auto">
             {/* Stats Box */}
-            <div className="bg-white rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 flex items-center gap-8 lg:gap-12 relative z-10">
+            <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 flex items-center justify-around sm:justify-center gap-3 sm:gap-8 lg:gap-12 relative z-10">
               <div className="text-center">
-                <div className="flex justify-center mb-2"><Users className="w-6 h-6 text-[#DC2626]"/></div>
-                <div className="text-2xl font-black text-slate-900">10,000+</div>
-                <div className="text-xs font-medium text-slate-400">Happy Learners</div>
+                <div className="flex justify-center mb-1 sm:mb-2"><Users className="w-5 h-5 sm:w-6 sm:h-6 text-[#DC2626]"/></div>
+                <div className="text-lg sm:text-2xl font-black text-slate-900">10,000+</div>
+                <div className="text-[10px] sm:text-xs font-medium text-slate-400">Happy Learners</div>
               </div>
-              <div className="w-[1px] h-12 bg-slate-100"></div>
+              <div className="w-[1px] h-8 sm:h-12 bg-slate-100"></div>
               <div className="text-center">
-                <div className="flex justify-center mb-2"><Star className="w-6 h-6 text-[#DC2626] fill-[#DC2626]"/></div>
-                <div className="text-2xl font-black text-slate-900">4.8/5</div>
-                <div className="text-xs font-medium text-slate-400">Average Rating</div>
+                <div className="flex justify-center mb-1 sm:mb-2"><Star className="w-5 h-5 sm:w-6 sm:h-6 text-[#DC2626] fill-[#DC2626]"/></div>
+                <div className="text-lg sm:text-2xl font-black text-slate-900">4.8/5</div>
+                <div className="text-[10px] sm:text-xs font-medium text-slate-400">Average Rating</div>
               </div>
-              <div className="w-[1px] h-12 bg-slate-100"></div>
+              <div className="w-[1px] h-8 sm:h-12 bg-slate-100"></div>
               <div className="text-center">
-                <div className="flex justify-center mb-2"><Globe className="w-6 h-6 text-[#DC2626]"/></div>
-                <div className="text-2xl font-black text-slate-900">50+</div>
-                <div className="text-xs font-medium text-slate-400">Countries</div>
+                <div className="flex justify-center mb-1 sm:mb-2"><Globe className="w-5 h-5 sm:w-6 sm:h-6 text-[#DC2626]"/></div>
+                <div className="text-lg sm:text-2xl font-black text-slate-900">50+</div>
+                <div className="text-[10px] sm:text-xs font-medium text-slate-400">Countries</div>
               </div>
             </div>
           </div>
         </div>
 
         {/* CAROUSEL SECTION */}
-        <div className="relative flex items-center justify-center min-h-[460px] mb-20 overflow-hidden">
+        <div className="relative flex flex-col items-center justify-center min-h-[460px] mb-8 sm:mb-16 max-w-[1080px] mx-auto px-1 sm:px-10">
           
+          {/* Soft Left & Right Edge Vignette Gradient Overlays */}
+          <div className="absolute top-0 left-0 w-8 sm:w-28 h-full bg-gradient-to-r from-[#FDFCF8] via-[#FDFCF8]/90 to-transparent z-30 pointer-events-none"></div>
+          <div className="absolute top-0 right-0 w-8 sm:w-28 h-full bg-gradient-to-l from-[#FDFCF8] via-[#FDFCF8]/90 to-transparent z-30 pointer-events-none"></div>
+
           {/* Navigation Arrows */}
-          <button onClick={handlePrev} className="absolute left-0 z-30 w-12 h-12 bg-white rounded-full shadow-lg border border-slate-100 flex items-center justify-center text-slate-600 hover:text-[#E59719] transition-colors focus:outline-none ml-2">
+          <button 
+            type="button"
+            onClick={handlePrev} 
+            className="hidden sm:flex absolute -left-4 lg:-left-6 top-1/2 -translate-y-1/2 z-40 w-12 h-12 bg-white rounded-full shadow-lg border border-slate-200/80 items-center justify-center text-slate-700 hover:text-[#DC2626] hover:border-[#DC2626]/40 transition-all focus:outline-none active:scale-95 cursor-pointer hover:shadow-xl"
+            aria-label="Previous Testimonial"
+          >
             <ChevronLeft className="w-6 h-6" />
           </button>
           
-          <button onClick={handleNext} className="absolute right-0 z-30 w-12 h-12 bg-white rounded-full shadow-lg border border-slate-100 flex items-center justify-center text-slate-600 hover:text-[#E59719] transition-colors focus:outline-none mr-2">
+          <button 
+            type="button"
+            onClick={handleNext} 
+            className="hidden sm:flex absolute -right-4 lg:-right-6 top-1/2 -translate-y-1/2 z-40 w-12 h-12 bg-white rounded-full shadow-lg border border-slate-200/80 items-center justify-center text-slate-700 hover:text-[#DC2626] hover:border-[#DC2626]/40 transition-all focus:outline-none active:scale-95 cursor-pointer hover:shadow-xl"
+            aria-label="Next Testimonial"
+          >
             <ChevronRight className="w-6 h-6" />
           </button>
 
-          {/* Cards Track */}
-          <div className="w-full absolute top-0 left-0 h-full overflow-hidden pointer-events-none">
+          {/* Cards Track Container */}
+          <div className="w-full relative h-[430px] sm:h-[460px] overflow-hidden [--card-step:284px] sm:[--card-step:340px]">
             <div 
-              className="absolute top-0 left-1/2 h-full flex items-center transition-transform duration-500 ease-in-out"
+              className="absolute top-0 left-1/2 h-full flex items-center transition-transform duration-500 ease-out"
               style={{ 
-                transform: `translateX(calc(-${activeIndex * 420 + 210}px))` 
+                transform: `translateX(calc(-${activeIndex} * var(--card-step) - (var(--card-step) / 2)))`,
               }}
             >
               {extendedTestimonials.map((card, idx) => {
@@ -165,58 +173,67 @@ export default function Testimonials() {
                 return (
                   <div 
                     key={idx}
-                    className={`transition-all duration-500 ease-out relative flex-shrink-0 w-[400px] mx-[10px] pointer-events-auto cursor-pointer ${
+                    onClick={() => setActiveIndex(idx)}
+                    className={`transition-all duration-500 ease-out relative flex-shrink-0 w-[268px] sm:w-[316px] mx-[8px] sm:mx-[12px] cursor-pointer ${
                       isCenter 
-                        ? 'scale-105 z-20 opacity-100 shadow-2xl border-[#DC2626]/60 hover:border-[#DC2626]' 
-                        : 'scale-90 z-10 opacity-60 shadow-lg border-slate-100'
-                    } bg-white rounded-3xl p-6 lg:p-8 border-2`}
+                        ? 'scale-100 z-20 opacity-100 shadow-[0_20px_40px_rgba(0,0,0,0.08)] border-2 border-[#DC2626]' 
+                        : 'scale-95 z-10 opacity-40 blur-[0.3px] border border-slate-200/60 shadow-sm hover:opacity-70'
+                    } bg-white rounded-3xl p-5 sm:p-7 flex flex-col justify-between h-[410px] select-none`}
                   >
                     
-                    {/* Floating Bubble for Center Card */}
-
-                    <div className="flex gap-4 items-start mb-6">
-                      <img src={card.image} alt={card.name} className="w-16 h-16 rounded-full object-cover border-2 border-white shadow-sm" />
-                      <div>
-                        <div className="flex gap-1 mb-1">
-                          {[...Array(5)].map((_, i) => (
-                            <Star key={i} className="w-4 h-4 fill-[#DC2626] text-[#DC2626]" />
-                          ))}
+                    <div>
+                      {/* User Avatar & Stars */}
+                      <div className="flex gap-4 items-center mb-5">
+                        <img 
+                          src={card.image} 
+                          alt={card.name} 
+                          className="w-14 h-14 rounded-full object-cover border-2 border-slate-100 shadow-sm shrink-0" 
+                        />
+                        <div>
+                          <div className="flex gap-1 mb-1">
+                            {[...Array(5)].map((_, i) => (
+                              <Star key={i} className="w-4 h-4 fill-[#DC2626] text-[#DC2626]" />
+                            ))}
+                          </div>
+                          <h3 className="font-bold text-slate-900 text-lg leading-tight">{card.name}</h3>
+                          <p className="text-xs text-slate-500 font-medium mt-0.5">{card.role}</p>
                         </div>
-                        <h4 className="font-bold text-slate-900 text-lg">{card.name}</h4>
-                        <p className="text-xs text-slate-500 font-medium">{card.role}</p>
                       </div>
+
+                      {/* Quote Text */}
+                      <p className="text-slate-600 font-medium text-sm leading-relaxed mb-4 relative min-h-[72px]">
+                        <span className="text-3xl text-slate-200 font-serif leading-none select-none">“</span>
+                        {card.quote}
+                        <span className="text-3xl text-slate-200 font-serif leading-none select-none">”</span>
+                      </p>
                     </div>
 
-                    <p className="text-slate-600 font-medium leading-relaxed mb-8 relative">
-                      <span className="text-4xl text-slate-200 absolute -top-4 -left-2 font-serif">"</span>
-                      <span className="relative z-10">{card.quote}</span>
-                      <span className="text-4xl text-slate-200 absolute -bottom-6 -right-2 font-serif">"</span>
-                    </p>
-
-                    {/* Before & After Tracker */}
-                    <div className="flex items-center justify-between mt-auto">
+                    {/* Before & After Level Tracker */}
+                    <div className="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
                       
                       {/* Level Track */}
-                      <div className="flex items-center gap-2 flex-1">
+                      <div className="flex items-center gap-2 flex-1 min-w-0">
                         <div>
-                          <div className="font-bold text-slate-900">{card.beforeLevel}</div>
-                          <div className="text-[10px] text-slate-400 font-bold uppercase">Before</div>
+                          <div className="font-bold text-slate-900 text-sm">{card.beforeLevel}</div>
+                          <div className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">BEFORE</div>
                         </div>
                         
                         {/* Dotted Arrow */}
-                        <div className={`flex-1 flex items-center ${card.themeColor}`}>
-                          <div className="h-[2px] flex-1 bg-current opacity-40 mx-1" style={{ backgroundImage: 'linear-gradient(to right, currentColor 50%, transparent 50%)', backgroundSize: '8px 2px', backgroundRepeat: 'repeat-x', backgroundColor: 'transparent' }}></div>
-                          <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        <div className={`flex-1 flex items-center justify-center ${card.themeColor} px-1`}>
+                          <div className="h-[2px] w-full border-b-2 border-dashed border-current opacity-40"></div>
+                          <svg className="w-4 h-4 fill-current shrink-0 -ml-1" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"/>
+                          </svg>
                         </div>
 
                         <div className="text-right">
-                          <div className="font-bold text-slate-900">{card.afterLevel}</div>
-                          <div className="text-[10px] text-slate-400 font-bold uppercase">After</div>
+                          <div className="font-bold text-slate-900 text-sm">{card.afterLevel}</div>
+                          <div className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">AFTER</div>
                         </div>
                       </div>
 
                       {/* Result Bubble */}
-                      <div className={`${card.bgTheme} ${card.themeColor} text-[11px] font-medium px-4 py-2 rounded-2xl rounded-bl-sm ml-4 max-w-[140px] leading-tight`}>
+                      <div className={`${card.bgTheme} ${card.themeColor} text-[11px] font-semibold px-3 py-1.5 rounded-xl ml-3 max-w-[130px] leading-tight text-center shrink-0`}>
                         {card.outcome}
                       </div>
 
@@ -227,13 +244,53 @@ export default function Testimonials() {
             </div>
           </div>
 
-          {/* Dots Indicator */}
-          <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 flex gap-2">
+          {/* Navigation Controls Row for Mobile */}
+          <div className="flex sm:hidden items-center justify-center gap-4 mt-4 z-40 relative">
+            <button 
+              type="button"
+              onClick={handlePrev} 
+              className="w-10 h-10 bg-white rounded-full shadow-md border border-slate-200 flex items-center justify-center text-slate-700 hover:text-[#DC2626] active:scale-95 cursor-pointer"
+              aria-label="Previous Testimonial"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+
+            {/* Dots Indicator */}
+            <div className="flex items-center gap-1.5 px-2">
+              {testimonials.map((_, i) => (
+                <button 
+                  key={i} 
+                  type="button"
+                  onClick={() => setActiveIndex(testimonials.length * 20 + i)}
+                  className={`h-2.5 rounded-full transition-all cursor-pointer ${
+                    (activeIndex % testimonials.length) === i ? 'bg-[#DC2626] w-6' : 'bg-slate-300 w-2'
+                  }`}
+                  aria-label={`Go to slide ${i + 1}`}
+                ></button>
+              ))}
+            </div>
+
+            <button 
+              type="button"
+              onClick={handleNext} 
+              className="w-10 h-10 bg-white rounded-full shadow-md border border-slate-200 flex items-center justify-center text-slate-700 hover:text-[#DC2626] active:scale-95 cursor-pointer"
+              aria-label="Next Testimonial"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
+
+          {/* Dots Indicator for Desktop */}
+          <div className="hidden sm:flex justify-center items-center gap-2 mt-6 z-30">
             {testimonials.map((_, i) => (
               <button 
                 key={i} 
-                onClick={() => setActiveIndex(i)}
-                className={`w-2.5 h-2.5 rounded-full transition-all ${activeIndex === i ? 'bg-[#E59719] w-6' : 'bg-slate-300'}`}
+                type="button"
+                onClick={() => setActiveIndex(testimonials.length * 20 + i)}
+                className={`h-2.5 rounded-full transition-all cursor-pointer ${
+                  (activeIndex % testimonials.length) === i ? 'bg-[#DC2626] w-7' : 'bg-slate-300 w-2.5'
+                }`}
+                aria-label={`Go to slide ${i + 1}`}
               ></button>
             ))}
           </div>

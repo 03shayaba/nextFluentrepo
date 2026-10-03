@@ -1,4 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
+
+
+.font-serif-title {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-signature {
+  font-family: 'Alex Brush', cursive;
+}
+
 
 :root {
   --background: #ffffff;
@@ -57,3 +68,52 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* Print Styles - Certificate Only */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .no-print, header, footer, nav, button, [class*="fixed"], [class*="Floating"] {
+    display: none !important;
+  }
+
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .print-cert-container {
+    padding: 16px !important;
+    margin: 0 auto !important;
+    background-color: #351D22 !important;
+    border-radius: 24px !important;
+    border: 1px solid #4A2A31 !important;
+    box-shadow: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .print-cert-card {
+    background-color: #ffffff !important;
+    border-radius: 18px !important;
+    border: 1px solid #FFF0F2 !important;
+    padding: 24px 32px !important;
+    box-shadow: none !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  @page {
+    size: landscape;
+    margin: 1cm;
+  }
+}
+
+

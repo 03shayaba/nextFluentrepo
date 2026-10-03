@@ -161,21 +161,23 @@ export default function CourseCategories() {
         </div>
 
         {/* Carousel Container */}
-        <div className="relative group px-8 md:px-20">
+        <div className="relative group px-1 sm:px-8 md:px-20">
           
-          {/* Nav Arrows */}
+          {/* Nav Arrows (Visible on Mobile & Desktop) */}
           <button 
             onClick={scrollLeft}
-            className="absolute -left-2 md:left-2 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-slate-600 hover:text-[#DC2626] transition-colors focus:outline-none"
+            className="absolute left-0 sm:left-2 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 bg-white/90 backdrop-blur-md rounded-full shadow-md sm:shadow-lg flex items-center justify-center text-slate-700 hover:text-[#DC2626] transition-all focus:outline-none border border-slate-200/80 active:scale-95"
+            aria-label="Previous Course"
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7"/></svg>
+            <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7"/></svg>
           </button>
           
           <button 
             onClick={scrollRight}
-            className="absolute -right-2 md:right-2 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-slate-600 hover:text-[#DC2626] transition-colors focus:outline-none"
+            className="absolute right-0 sm:right-2 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 bg-white/90 backdrop-blur-md rounded-full shadow-md sm:shadow-lg flex items-center justify-center text-slate-700 hover:text-[#DC2626] transition-all focus:outline-none border border-slate-200/80 active:scale-95"
+            aria-label="Next Course"
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"/></svg>
+            <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"/></svg>
           </button>
 
           {/* Scrollable Area */}

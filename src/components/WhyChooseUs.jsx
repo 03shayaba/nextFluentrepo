@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import Link from 'next/link';
 import { 
   Star, 
   Users, 
@@ -93,40 +94,37 @@ export default function WhyChooseUs() {
           </p>
         </div>
 
-        {}
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-4 xl:gap-8 relative">
+        {/* Features Container for Mobile, Tablet & Desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-4 lg:gap-6 items-center relative">
           
           {/* Left Features Column */}
-          <div className="w-full lg:w-[32%] flex flex-col gap-5">
+          <div className="flex flex-col gap-4 md:gap-5 order-2 md:order-1">
             {featuresLeft.map((feature) => (
               <div 
                 key={feature.id} 
-                className={`${feature.theme} rounded-[2rem] p-4 pr-6 flex items-start sm:items-center gap-4 transition-transform hover:-translate-y-1 hover:shadow-md duration-300`}
+                className={`${feature.theme} rounded-2xl md:rounded-[2rem] p-4 md:p-4 lg:p-5 flex items-start sm:items-center gap-3.5 transition-transform hover:-translate-y-1 hover:shadow-md duration-300`}
               >
-                <div className="bg-white/80 rounded-full p-4 shadow-sm shrink-0">
-                  <feature.icon className={`w-6 h-6 ${feature.iconColor}`} />
+                <div className="bg-white/90 rounded-2xl md:rounded-full p-3 md:p-3.5 lg:p-4 shadow-sm shrink-0">
+                  <feature.icon className={`w-5 h-5 md:w-5 md:h-5 lg:w-6 lg:h-6 ${feature.iconColor}`} />
                 </div>
                 <div>
-                  <h3 className="font-bold text-slate-900 mb-1">{feature.title}</h3>
-                  <p className="text-sm text-slate-600 leading-snug">{feature.description}</p>
+                  <h3 className="font-extrabold text-slate-900 text-sm md:text-sm lg:text-base mb-0.5">{feature.title}</h3>
+                  <p className="text-xs md:text-xs lg:text-sm text-slate-600 leading-snug font-medium">{feature.description}</p>
                 </div>
               </div>
             ))}
           </div>
 
           {/* Center Image Area */}
-          <div className="w-full lg:w-[36%] relative flex flex-col items-center justify-center mt-10 lg:mt-0">
+          <div className="relative flex flex-col items-center justify-center my-4 md:my-0 order-1 md:order-2">
             
             {/* Paper Airplane Decorative */}
             <div className="absolute -top-12 -right-8 text-[#E59719] rotate-12 opacity-80 animate-pulse hidden md:block">
-              <Send className="w-10 h-10" />
-              <svg className="absolute top-8 right-6 w-16 h-16 text-[#E59719]/60" fill="none" viewBox="0 0 100 100">
-                <path stroke="currentColor" strokeWidth="2" strokeDasharray="6,6" d="M10,90 Q40,50 90,10" />
-              </svg>
+              <Send className="w-8 h-8 lg:w-10 lg:h-10" />
             </div>
 
             {/* Dotted Arc with Text */}
-            <div className="absolute -top-16 lg:-top-24 w-full h-[200px] pointer-events-none z-0 hidden md:block">
+            <div className="absolute -top-16 md:-top-20 lg:-top-24 w-full h-[200px] pointer-events-none z-0 hidden md:block">
               <svg viewBox="0 0 400 200" className="w-full h-full overflow-visible">
                 <path 
                   id="text-curve" 
@@ -138,7 +136,7 @@ export default function WhyChooseUs() {
                   strokeLinecap="round"
                   className="opacity-40"
                 />
-                <text className="text-[14px] font-medium fill-slate-500 uppercase tracking-widest">
+                <text className="text-[12px] lg:text-[14px] font-medium fill-slate-500 uppercase tracking-widest">
                   <textPath href="#text-curve" startOffset="50%" textAnchor="middle">
                     Learn · Practice · Grow · Belong
                   </textPath>
@@ -147,41 +145,41 @@ export default function WhyChooseUs() {
             </div>
 
             {/* Main Center Image */}
-            <div className="relative z-10 w-full max-w-[320px] mx-auto rounded-t-[8rem] rounded-b-3xl overflow-hidden shadow-2xl border-[6px] border-white/50">
+            <div className="relative z-10 w-full max-w-[240px] md:max-w-[260px] lg:max-w-[300px] mx-auto rounded-t-[6rem] md:rounded-t-[7rem] lg:rounded-t-[8rem] rounded-b-3xl overflow-hidden shadow-xl border-[5px] border-white/80">
               <img 
                 src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
                 alt="Student learning on laptop" 
-                className="w-full h-[350px] object-cover"
+                className="w-full h-[260px] md:h-[290px] lg:h-[340px] object-cover"
               />
               {/* Laptop mock overlay text */}
               <div 
-                className="absolute bottom-6 left-1/2 -translate-x-1/2 text-center text-white/90 leading-tight drop-shadow-md"
+                className="absolute bottom-5 left-1/2 -translate-x-1/2 text-center text-white/90 leading-tight drop-shadow-md"
                 style={{ fontFamily: '"Caveat", "Comic Sans MS", cursive' }}
               >
-                <span className="text-xl">Better<br/>English<br/>Brighter You</span>
-                <div className="text-xs mt-1 opacity-80">♡</div>
+                <span className="text-lg md:text-xl">Better<br/>English<br/>Brighter You</span>
+                <div className="text-xs mt-0.5 opacity-80">♡</div>
               </div>
             </div>
             
             {/* Small decorative heart/flower absolute positioned */}
-            <div className="absolute bottom-1/4 -right-4 w-6 h-6 bg-[#E59719] rounded-full flex items-center justify-center text-white text-xs shadow-lg hidden lg:flex">
+            <div className="absolute bottom-1/4 -right-4 w-6 h-6 bg-[#E59719] rounded-full flex items-center justify-center text-white text-xs shadow-lg hidden md:flex">
               ★
             </div>
           </div>
 
           {/* Right Features Column */}
-          <div className="w-full lg:w-[32%] flex flex-col gap-5">
+          <div className="flex flex-col gap-4 md:gap-5 order-3">
             {featuresRight.map((feature) => (
               <div 
                 key={feature.id} 
-                className={`${feature.theme} rounded-[2rem] p-4 pr-6 flex items-start sm:items-center gap-4 transition-transform hover:-translate-y-1 hover:shadow-md duration-300`}
+                className={`${feature.theme} rounded-2xl md:rounded-[2rem] p-4 md:p-4 lg:p-5 flex items-start sm:items-center gap-3.5 transition-transform hover:-translate-y-1 hover:shadow-md duration-300`}
               >
-                <div className="bg-white/80 rounded-full p-4 shadow-sm shrink-0">
-                  <feature.icon className={`w-6 h-6 ${feature.iconColor}`} />
+                <div className="bg-white/90 rounded-2xl md:rounded-full p-3 md:p-3.5 lg:p-4 shadow-sm shrink-0">
+                  <feature.icon className={`w-5 h-5 md:w-5 md:h-5 lg:w-6 lg:h-6 ${feature.iconColor}`} />
                 </div>
                 <div>
-                  <h3 className="font-bold text-slate-900 mb-1">{feature.title}</h3>
-                  <p className="text-sm text-slate-600 leading-snug">{feature.description}</p>
+                  <h3 className="font-extrabold text-slate-900 text-sm md:text-sm lg:text-base mb-0.5">{feature.title}</h3>
+                  <p className="text-xs md:text-xs lg:text-sm text-slate-600 leading-snug font-medium">{feature.description}</p>
                 </div>
               </div>
             ))}
@@ -191,42 +189,44 @@ export default function WhyChooseUs() {
 
         {}
         {/* Bottom Area: Stats, Books, CTA */}
-        <div className="mt-16 flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-4 bg-white/40 backdrop-blur-sm p-6 rounded-3xl border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
+        <div className="mt-12 sm:mt-16 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4 bg-white p-6 md:p-8 rounded-3xl border border-slate-200/80 shadow-lg shadow-slate-200/50 relative overflow-hidden">
           
           {/* Bottom Left: Learners Stat */}
-          <div className="flex items-center gap-4 bg-white px-5 py-3 rounded-full shadow-sm">
-            <div className="flex -space-x-3">
-              <img className="w-10 h-10 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80" alt="Learner" />
-              <img className="w-10 h-10 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&q=80" alt="Learner" />
-              <img className="w-10 h-10 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Learner" />
+          <div className="flex items-center gap-3 sm:gap-4 bg-slate-50 border border-slate-100 px-5 py-3 rounded-full shadow-xs shrink-0">
+            <div className="flex -space-x-3 shrink-0">
+              <img className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80" alt="Learner" />
+              <img className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&q=80" alt="Learner" />
+              <img className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Learner" />
             </div>
             <div>
-              <div className="font-extrabold text-slate-900 leading-none">10,000+</div>
-              <div className="text-xs font-medium text-slate-500 mt-1">Happy Learners</div>
+              <div className="font-extrabold text-slate-900 text-sm sm:text-base leading-none">10,000+</div>
+              <div className="text-[11px] sm:text-xs font-medium text-slate-500 mt-1">Happy Learners</div>
             </div>
-            <div className="text-[#E59719] ml-2 animate-bounce">✨</div>
+            <div className="text-[#E59719] ml-1 sm:ml-2 animate-bounce text-xs sm:text-base">✨</div>
           </div>
 
           {/* Bottom Center: Stacked Books Concept */}
-          <div className="flex flex-col items-center justify-center -space-y-1 hover:scale-105 transition-transform cursor-default">
-            <div className="bg-slate-700 text-white text-xs font-bold py-1.5 px-10 rounded-t-sm shadow-md border-b border-slate-600/50 z-40 transform perspective-[500px] rotateX-12">Learn</div>
-            <div className="bg-slate-600 text-white text-xs font-bold py-1.5 px-11 shadow-md border-b border-slate-500/50 z-30">Practice</div>
-            <div className="bg-slate-500 text-white text-xs font-bold py-1.5 px-12 shadow-md border-b border-slate-400/50 z-20">Improve</div>
-            <div className="bg-slate-800 text-white text-xs font-bold py-1.5 px-14 rounded-b-sm shadow-xl z-10">Succeed</div>
+          <div className="hidden lg:flex flex-col items-center justify-center -space-y-1 hover:scale-105 transition-transform cursor-default shrink-0">
+            <div className="bg-slate-700 text-white text-xs font-bold py-1.5 px-9 rounded-t-sm shadow-md border-b border-slate-600/50 z-40 transform perspective-[500px] rotateX-12">Learn</div>
+            <div className="bg-slate-600 text-white text-xs font-bold py-1.5 px-10 shadow-md border-b border-slate-500/50 z-30">Practice</div>
+            <div className="bg-slate-500 text-white text-xs font-bold py-1.5 px-11 shadow-md border-b border-slate-400/50 z-20">Improve</div>
+            <div className="bg-slate-800 text-white text-xs font-bold py-1.5 px-12 rounded-b-sm shadow-xl z-10">Succeed</div>
           </div>
 
           {/* Bottom Right: CTA Button & Handwritten Text */}
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-4 sm:gap-6 shrink-0">
             <div 
-              className="hidden sm:block text-slate-600 text-lg leading-tight rotate-[-5deg]"
+              className="hidden sm:block text-slate-600 text-base lg:text-lg leading-tight rotate-[-5deg]"
               style={{ fontFamily: '"Caveat", "Comic Sans MS", cursive' }}
             >
-              Same<br/>Learning<br/>Brighter<br/>Future
+              Smart<br/>Learning<br/>Brighter<br/>Future
             </div>
-            <button className="group flex items-center gap-3 bg-[#DC2626] hover:bg-[#B91C1C] text-white font-bold py-4 px-8 rounded-full transition-all duration-300 shadow-[0_8px_20px_-6px_rgba(220,38,38,0.5)] hover:shadow-[0_12px_25px_-6px_rgba(220,38,38,0.6)] hover:-translate-y-0.5">
-              Start Your Journey
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
+            <Link href="/courses">
+              <button className="group flex items-center gap-2.5 sm:gap-3 bg-[#DC2626] hover:bg-[#B91C1C] text-white font-bold py-3.5 px-6 sm:px-8 text-sm sm:text-base rounded-full transition-all duration-300 shadow-[0_8px_20px_-6px_rgba(220,38,38,0.5)] hover:shadow-[0_12px_25px_-6px_rgba(220,38,38,0.6)] hover:-translate-y-0.5 cursor-pointer">
+                <span>Start Your Journey</span>
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+              </button>
+            </Link>
           </div>
 
         </div>

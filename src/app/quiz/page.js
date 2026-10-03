@@ -7,6 +7,8 @@ import Link from 'next/link';
 import ExamFeatures from "@/components/ExamFeatures";
 import FAQ from "@/components/FAQ";
 
+import { useSearchParams, useRouter } from 'next/navigation';
+
 const quizFaqs = [
   { q: "Is the English assessment quiz completely free?", a: "Yes! Our language assessment quiz is 100% free and takes less than 10 minutes to complete." },
   { q: "Do I get a certificate after taking the quiz?", a: "The quiz is an assessment tool, not a certified course. However, it will pinpoint your weaknesses and recommend the exact courses you need to earn your accredited certificate." },
@@ -220,6 +222,10 @@ const quizData = {
 };
 
 export default function QuizPage() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const quizTypeFromUrl = searchParams ? searchParams.get('type') : null;
+
   const [activeQuiz, setActiveQuiz] = useState(null); // 'placement' | 'grammar' | 'vocabulary' | null
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState({});
@@ -227,6 +233,20 @@ export default function QuizPage() {
   const QUESTION_TIME_LIMIT = 60; // 1 minute per question
   const [questionTimeLeft, setQuestionTimeLeft] = useState(QUESTION_TIME_LIMIT);
   const [showExplanations, setShowExplanations] = useState(false);
+
+  // Sync state with URL parameter ?type=xxx
+  useEffect(() => {
+    if (quizTypeFromUrl && quizData[quizTypeFromUrl]) {
+      setActiveQuiz(quizTypeFromUrl);
+      setCurrentQuestionIndex(0);
+      setSelectedAnswers({});
+      setIsCompleted(false);
+      setShowExplanations(false);
+      setQuestionTimeLeft(QUESTION_TIME_LIMIT);
+    } else {
+      setActiveQuiz(null);
+    }
+  }, [quizTypeFromUrl]);
 
   // Per-Question 1-Minute Countdown Timer Effect
   useEffect(() => {
@@ -250,12 +270,7 @@ export default function QuizPage() {
   }, [activeQuiz, isCompleted, questionTimeLeft, currentQuestionIndex]);
 
   const startTest = (quizKey) => {
-    setActiveQuiz(quizKey);
-    setCurrentQuestionIndex(0);
-    setSelectedAnswers({});
-    setIsCompleted(false);
-    setShowExplanations(false);
-    setQuestionTimeLeft(QUESTION_TIME_LIMIT);
+    router.push(`/quiz?type=${quizKey}`);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -302,8 +317,7 @@ export default function QuizPage() {
   };
 
   const closeQuiz = () => {
-    setActiveQuiz(null);
-    setIsCompleted(false);
+    router.push('/quiz');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 

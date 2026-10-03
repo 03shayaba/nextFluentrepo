@@ -18,7 +18,7 @@ export default function Newsletter() {
   return (
     <section className="bg-slate-50 py-16 lg:py-20 select-none relative overflow-hidden border-t border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="relative bg-gradient-to-br from-[#0F172A] via-[#1E1118] to-[#0F172A] rounded-[2.5rem] p-8 sm:p-12 md:p-14 shadow-2xl shadow-red-950/20 border border-red-500/30 overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
+        <div className="relative bg-gradient-to-br from-[#0F172A] via-[#1E1118] to-[#0F172A] rounded-[2.5rem] p-6 sm:p-10 lg:p-14 shadow-2xl shadow-red-950/20 border border-red-500/30 overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
 
           {/* Decorative Red Background Glows */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-red-600 rounded-full filter blur-[100px] opacity-30 transform translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
@@ -33,7 +33,7 @@ export default function Newsletter() {
           </svg>
 
           {/* Left Text Box */}
-          <div className="relative z-10 space-y-4 text-center md:text-left flex-1 max-w-xl">
+          <div className="relative z-10 space-y-4 text-center lg:text-left flex-1 max-w-xl">
             <span className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/30 text-[#EF4444] font-bold text-xs px-4 py-1.5 rounded-full tracking-widest uppercase shadow-sm">
               <span>🚀</span> Stay Updated
             </span>
@@ -46,7 +46,7 @@ export default function Newsletter() {
           </div>
 
           {/* Right Input Form */}
-          <div className="relative z-10 w-full md:w-auto flex-1 max-w-lg">
+          <div className="relative z-10 w-full lg:w-auto flex-1 max-w-lg">
             {subscribed ? (
               <div className="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-bold text-sm p-5 rounded-2xl text-center flex flex-col items-center gap-2 shadow-lg backdrop-blur-md">
                 <span className="text-4xl animate-bounce">🎉</span>
@@ -76,7 +76,7 @@ export default function Newsletter() {
               </form>
             )}
 
-            <p className="text-slate-400 text-[11px] text-center md:text-left mt-3 pl-1 flex items-center justify-center md:justify-start gap-1.5">
+            <p className="text-slate-400 text-[11px] text-center lg:text-left mt-3 pl-1 flex items-center justify-center lg:justify-start gap-1.5">
               <span className="text-[#EF4444]">🔒</span> We respect your privacy. No spam, ever.
             </p>
           </div>

@@ -32,13 +32,7 @@ export default function ContactPage() {
             <div className="inline-block bg-red-500/10 backdrop-blur-md border border-red-500/20 text-[#EF4444] font-bold text-sm px-4 py-1.5 rounded-full mb-6 shadow-sm relative tracking-wider">
               👋 We're here to help
               
-              {/* Decorative handwritten text pointing to the badge */}
-              <div className="absolute -top-12 -left-32 hidden md:block rotate-[-12deg]">
-                <span className="text-red-400 font-light text-2xl whitespace-nowrap drop-shadow-[0_0_8px_rgba(239,68,68,0.5)]" style={{ fontFamily: '"Caveat", "Comic Sans MS", cursive' }}>Say hello!</span>
-                <svg className="w-12 h-12 text-red-500/80 mt-1 ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                </svg>
-              </div>
+             
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-6 leading-tight relative max-w-4xl mx-auto drop-shadow-xl">

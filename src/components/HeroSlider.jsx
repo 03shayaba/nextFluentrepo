@@ -8,28 +8,32 @@ const slides = [
     tag: "ENGLISH LEARNING",
     title: "EXCEL IN YOUR CAREER & ACADEMICS",
     subtitle: "Crack IELTS, TOEFL, and Spoken English with expert guidance.",
-    bgImage: "/banner1.webp"
+    bgImage: "/banner.png",
+    bgMobile: "bg-[position:80%_center]"
   },
   {
     id: 2,
     tag: "ONLINE COURSES",
     title: "SPOKEN ENGLISH MASTERY",
     subtitle: "Speak fluently and naturally in professional & daily situations.",
-    bgImage: "/banner2.webp"
+    bgImage: "/banner2.webp",
+    bgMobile: "bg-[position:85%_center]"
   },
   {
     id: 3,
     tag: "GRAMMAR & WRITING",
     title: "MASTER ESSENTIAL SKILLS",
     subtitle: "Build confidence, improve communication skills, and unlock new opportunities.",
-    bgImage: "/banner3.webp"
+    bgImage: "/banner3.webp",
+    bgMobile: "bg-[position:85%_center]"
   },
   {
     id: 4,
     tag: "EXPERT SOLUTIONS",
     title: "LEARN TODAY. BRIGHTER TOMORROW.",
     subtitle: "Interactive lessons and structured pathways tailored to your goals.",
-    bgImage: "/banner4.webp"
+    bgImage: "/banner4.webp",
+    bgMobile: "bg-[position:85%_center]"
   }
 ];
 
@@ -84,9 +88,9 @@ export default function HeroSlider() {
 
   return (
     <section className="relative w-full h-[500px] sm:h-[580px] lg:h-[620px] overflow-hidden bg-white text-white select-none">
-      
+
       {/* Horizontal Carousel Track (Smooth Infinite Right-to-Left Sliding) */}
-      <div 
+      <div
         className={`flex w-full h-full ${isTransitioning ? 'transition-transform duration-700 ease-out' : ''}`}
         style={{ transform: `translateX(-${(currentIndex + 1) * 100}%)` }}
         onTransitionEnd={handleTransitionEnd}
@@ -96,40 +100,40 @@ export default function HeroSlider() {
             key={`${slide.id}-${i}`}
             className="relative w-full h-full flex-shrink-0"
           >
-            {/* Background Image */}
-            <div 
-              className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            {/* Background Image (Per-slide mobile focus positioning) */}
+            <div
+              className={`absolute inset-0 bg-cover ${slide.bgMobile || 'bg-[position:85%_center]'} sm:bg-center bg-no-repeat transition-all duration-500`}
               style={{ backgroundImage: `url(${slide.bgImage})` }}
             />
 
-            {/* Dark Gradient Overlay for perfect text legibility */}
-            <div className="absolute inset-0 bg-slate-950/70 sm:bg-slate-950/60"></div>
+            {/* Subtle Gradient Overlay: Dark on left for crisp text contrast, clear on right for instructor face visibility */}
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/40 to-transparent sm:from-slate-950/85 sm:via-slate-950/35 sm:to-transparent"></div>
 
             {/* Main Content Area */}
-            <div className="relative z-20 max-w-7xl mx-auto h-full px-6 sm:px-10 flex flex-col justify-center">
-              
-              {/* Text Content */}
-              <div className="max-w-xl space-y-4 pt-6 pl-6 sm:pl-10">
-                
+            <div className="relative z-20 max-w-7xl mx-auto h-full px-6 sm:px-12 md:px-16 lg:px-20 flex flex-col items-center sm:items-start text-center sm:text-left justify-center">
+
+              {/* Text Content with Spacious Padding */}
+              <div className="max-w-xl space-y-3 sm:space-y-4 pt-2 sm:pt-4 px-2 sm:px-6 flex flex-col items-center sm:items-start">
+
                 {/* Red Badge */}
                 <div>
-                  <div className="inline-block bg-[#DC2626] text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-4 py-1.5 rounded-full shadow-md">
+                  <div className="inline-block bg-[#DC2626] text-white text-[10px] sm:text-xs md:text-sm font-bold uppercase tracking-wider px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full shadow-md">
                     {slide.tag}
                   </div>
                 </div>
 
                 {/* Main Slide Title */}
-                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-tight text-white leading-tight drop-shadow-md">
+                <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-tight text-white leading-snug sm:leading-tight drop-shadow-lg">
                   {slide.title}
                 </h1>
 
                 {/* Subtitle */}
-                <p className="text-white/95 text-base sm:text-lg lg:text-xl font-medium drop-shadow">
+                <p className="text-slate-100 text-xs sm:text-base lg:text-lg font-medium drop-shadow-md leading-relaxed max-w-md">
                   {slide.subtitle}
                 </p>
 
                 {/* Red Accent Line */}
-                <div className="w-14 h-1 bg-[#DC2626] rounded-full mt-3"></div>
+                <div className="w-12 sm:w-16 h-1 bg-[#DC2626] rounded-full mt-2 sm:mt-3 shadow-sm"></div>
               </div>
             </div>
           </div>
@@ -137,22 +141,22 @@ export default function HeroSlider() {
       </div>
 
       {/* Prev / Next Slider Navigation Arrow Buttons */}
-      <button 
+      <button
         onClick={handlePrev}
-        className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-black/30 hover:bg-black/60 text-white/80 hover:text-white flex items-center justify-center transition-all focus:outline-none backdrop-blur-sm"
+        className="absolute left-2 sm:left-8 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-black/30 hover:bg-black/60 text-white/80 hover:text-white flex items-center justify-center transition-all focus:outline-none backdrop-blur-sm"
         aria-label="Previous Slide"
       >
-        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+        <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
           <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
         </svg>
       </button>
 
-      <button 
+      <button
         onClick={handleNext}
-        className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-black/30 hover:bg-black/60 text-white/80 hover:text-white flex items-center justify-center transition-all focus:outline-none backdrop-blur-sm"
+        className="absolute right-2 sm:right-8 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-black/30 hover:bg-black/60 text-white/80 hover:text-white flex items-center justify-center transition-all focus:outline-none backdrop-blur-sm"
         aria-label="Next Slide"
       >
-        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+        <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
         </svg>
       </button>
@@ -166,11 +170,10 @@ export default function HeroSlider() {
               setIsTransitioning(true);
               setCurrentIndex(index);
             }}
-            className={`transition-all duration-300 rounded-full cursor-pointer focus:outline-none ${
-              activeDotIndex === index
-                ? 'w-9 h-2.5 bg-[#DC2626] shadow-sm'
-                : 'w-2.5 h-2.5 bg-white/40 hover:bg-white/70'
-            }`}
+            className={`transition-all duration-300 rounded-full cursor-pointer focus:outline-none ${activeDotIndex === index
+              ? 'w-9 h-2.5 bg-[#DC2626] shadow-sm'
+              : 'w-2.5 h-2.5 bg-white/40 hover:bg-white/70'
+              }`}
             aria-label={`Slide ${index + 1}`}
           />
         ))}

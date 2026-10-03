@@ -24,31 +24,31 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4 py-8 select-none">
-      <div className="max-w-3xl w-full bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col md:flex-row border border-slate-100">
+    <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4 sm:p-6 lg:p-8 select-none">
+      <div className="max-w-4xl w-full bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row border border-slate-100">
         
         {/* Left Side - Visual/Branding */}
-        <div className="md:w-1/2 bg-gradient-to-br from-[#0F172A] via-[#1E1118] to-[#0F172A] p-8 text-white flex flex-col justify-between relative overflow-hidden">
+        <div className="md:w-5/12 bg-gradient-to-br from-[#0F172A] via-[#1E1118] to-[#0F172A] p-6 sm:p-8 md:p-10 text-white flex flex-col justify-between relative overflow-hidden shrink-0">
           {/* Decorative Red Background Glows */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-red-600 rounded-full filter blur-3xl opacity-30 translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-rose-600 rounded-full filter blur-3xl opacity-20 -translate-x-1/2 translate-y-1/2 pointer-events-none"></div>
           
           <div className="relative z-10">
-            <Link href="/" className="inline-block mb-6">
-              <h2 className="text-2xl font-black text-white tracking-tight">
+            <Link href="/" className="inline-block mb-4 sm:mb-6">
+              <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
                 Next<span className="text-[#EF4444]">Fluent</span>
               </h2>
             </Link>
             
-            <h1 className="text-3xl font-bold mb-3 leading-tight">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 leading-tight">
               Welcome back to your learning journey!
             </h1>
-            <p className="text-slate-300 text-sm leading-relaxed">
+            <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
               Log in to continue mastering English, taking AI assessments, and earning accredited certificates.
             </p>
           </div>
           
-          <div className="relative z-10 mt-6">
+          <div className="relative z-10 mt-6 sm:mt-8 pt-4 border-t border-white/10">
             <div className="flex items-center gap-3">
               <div className="flex -space-x-2">
                 {[1, 2, 3].map((i) => (
@@ -61,7 +61,7 @@ export default function LoginPage() {
         </div>
 
         {/* Right Side - Form */}
-        <div className="md:w-1/2 p-6 sm:p-8 flex flex-col justify-center">
+        <div className="md:w-7/12 p-6 sm:p-8 md:p-10 flex flex-col justify-center">
           <div className="text-center md:text-left mb-5">
             <h2 className="text-2xl font-extrabold text-slate-900 mb-1">Log In</h2>
             <p className="text-slate-500 text-xs">Please enter your credentials to access your account.</p>

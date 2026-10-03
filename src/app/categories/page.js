@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Testimonials from "@/components/Testimonials";
 import Newsletter from "@/components/Newsletter";
+import FAQ from "@/components/FAQ";
 import React, { useState } from 'react';
 
 const categories = [
@@ -89,35 +90,6 @@ const categories = [
   }
 ];
 
-const FaqItem = ({ faq }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  return (
-    <div 
-      className={`bg-[#FAFBFD] border rounded-2xl px-6 py-5 sm:px-8 transition-colors cursor-pointer ${isOpen ? 'border-[#DC2626]' : 'border-slate-200 hover:border-red-200'}`}
-      onClick={() => setIsOpen(!isOpen)}
-    >
-      <div className="flex items-center justify-between gap-4">
-        <h4 className="text-lg font-bold text-[#0F172A] flex items-start sm:items-center gap-3">
-          <span className="text-[#EF4444] font-black shrink-0">Q.</span>
-          <span>{faq.q}</span>
-        </h4>
-        <div className={`transform transition-transform duration-300 shrink-0 ${isOpen ? 'rotate-180' : ''}`}>
-          <svg className="w-5 h-5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-          </svg>
-        </div>
-      </div>
-      <div className={`grid transition-all duration-300 ease-in-out ${isOpen ? 'grid-rows-[1fr] mt-4 opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
-        <div className="overflow-hidden">
-          <p className="text-slate-600 leading-relaxed ml-0 sm:ml-7 pt-1">
-            {faq.a}
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-};
-
 export default function CategoriesPage() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans">
@@ -125,7 +97,7 @@ export default function CategoriesPage() {
       <main>
         
         {/* Categories Hero Banner - Upgraded Dark Theme Version */}
-        <section className="relative w-full bg-[#0B1120] pt-20 pb-28 overflow-hidden z-0 select-none border-b border-[#1E293B]">
+        <section className="relative w-full bg-[#0B1120] pt-12 sm:pt-20 pb-20 sm:pb-28 overflow-hidden z-0 select-none border-b border-[#1E293B]">
           
           {/* Decorative Background Elements */}
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-red-600/15 rounded-full blur-[140px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
@@ -140,14 +112,14 @@ export default function CategoriesPage() {
           </svg>
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+            <div className="flex flex-col lg:flex-row items-center gap-8 sm:gap-12 lg:gap-20">
               
               {/* Left Content */}
               <div className="flex-1 text-center lg:text-left">
                 
                 {/* Breadcrumb */}
-                <div className="flex items-center justify-center lg:justify-start text-sm font-medium text-slate-400 gap-2 mb-8">
-                  <svg className="w-4 h-4 text-[#EF4444]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <div className="flex items-center justify-center lg:justify-start text-xs sm:text-sm font-medium text-slate-400 gap-1.5 sm:gap-2 mb-5 sm:mb-8">
+                  <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#EF4444]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                   </svg>
                   <a href="/" className="hover:text-white transition-colors">Home</a>
@@ -155,31 +127,31 @@ export default function CategoriesPage() {
                   <span className="text-white">Categories</span>
                 </div>
 
-                <div className="inline-block bg-red-500/10 border border-red-500/20 text-[#EF4444] font-bold text-sm px-4 py-1.5 rounded-full mb-6 shadow-sm">
+                <div className="inline-block bg-red-500/10 border border-red-500/20 text-[#EF4444] font-bold text-xs sm:text-sm px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full mb-4 sm:mb-6 shadow-sm">
                   ✨ Find Your Path
                 </div>
 
-                <h1 className="text-4xl sm:text-5xl lg:text-[64px] font-semibold text-white tracking-tight mb-6 leading-[1.1]">
+                <h1 className="text-3xl sm:text-5xl lg:text-[64px] font-extrabold text-white tracking-tight mb-4 sm:mb-6 leading-tight sm:leading-[1.1]">
                   Explore Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#EF4444] to-rose-400">Categories</span>
                 </h1>
                 
-                <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed mb-10">
+                <p className="text-xs sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed mb-6 sm:mb-10 font-normal">
                   Find the perfect curriculum tailored to your specific English learning goals. Whether you want to ace an exam or dominate the boardroom, we have a path for you.
                 </p>
 
                 {/* Quick Stats in Hero */}
-                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-8 border-t border-slate-800 pt-8 mt-8">
-                  <div>
-                    <h4 className="text-3xl font-black text-white">8+</h4>
-                    <p className="text-sm text-slate-400 font-medium mt-1">Learning Tracks</p>
+                <div className="grid grid-cols-3 gap-2 sm:gap-8 border-t border-slate-800/80 pt-6 sm:pt-8 mt-6 sm:mt-8 text-center sm:text-left">
+                  <div className="p-2 sm:p-0 bg-slate-900/40 sm:bg-transparent rounded-xl sm:rounded-none border border-slate-800/50 sm:border-none">
+                    <h4 className="text-xl sm:text-3xl font-black text-white">8+</h4>
+                    <p className="text-[10px] sm:text-sm text-slate-400 font-medium mt-0.5 sm:mt-1">Learning Tracks</p>
                   </div>
-                  <div>
-                    <h4 className="text-3xl font-black text-white">150+</h4>
-                    <p className="text-sm text-slate-400 font-medium mt-1">Total Courses</p>
+                  <div className="p-2 sm:p-0 bg-slate-900/40 sm:bg-transparent rounded-xl sm:rounded-none border border-slate-800/50 sm:border-none">
+                    <h4 className="text-xl sm:text-3xl font-black text-white">150+</h4>
+                    <p className="text-[10px] sm:text-sm text-slate-400 font-medium mt-0.5 sm:mt-1">Total Courses</p>
                   </div>
-                  <div>
-                    <h4 className="text-3xl font-black text-white">10k+</h4>
-                    <p className="text-sm text-slate-400 font-medium mt-1">Active Students</p>
+                  <div className="p-2 sm:p-0 bg-slate-900/40 sm:bg-transparent rounded-xl sm:rounded-none border border-slate-800/50 sm:border-none">
+                    <h4 className="text-xl sm:text-3xl font-black text-white">10k+</h4>
+                    <p className="text-[10px] sm:text-sm text-slate-400 font-medium mt-0.5 sm:mt-1">Active Students</p>
                   </div>
                 </div>
               </div>
@@ -218,27 +190,9 @@ export default function CategoriesPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <div className="text-center max-w-3xl mx-auto mb-20 relative">
-              {/* Decorative Handwritten Text Left */}
-              <div 
-                className="absolute -left-12 -top-6 rotate-[-10deg] text-red-500 font-medium text-lg leading-tight hidden lg:block"
-                style={{ fontFamily: '"Caveat", "Comic Sans MS", cursive' }}
-              >
-                Find your perfect fit!
-                <svg className="w-8 h-8 text-red-400 absolute -bottom-5 left-10 rotate-[-30deg]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </div>
+              
 
-              {/* Decorative Handwritten Text Right */}
-              <div 
-                className="absolute -right-12 top-0 rotate-[8deg] text-blue-500 font-medium text-lg leading-tight hidden lg:block"
-                style={{ fontFamily: '"Caveat", "Comic Sans MS", cursive' }}
-              >
-                Start Learning
-                <svg className="w-10 h-6 text-blue-400 mt-1 ml-2" viewBox="0 0 100 20" fill="none">
-                  <path d="M5 15Q50 0 95 15" stroke="currentColor" strokeWidth="2" fill="none"/>
-                </svg>
-              </div>
+
 
               <div className="inline-flex items-center gap-2 bg-red-100/70 border border-red-200/50 px-4 py-1.5 rounded-full mb-6">
                 <span className="text-[#EF4444] font-bold text-xs sm:text-sm tracking-widest uppercase">
@@ -255,7 +209,7 @@ export default function CategoriesPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
               {categories.map((cat, i) => (
                 <a 
                   key={cat.id} 
@@ -307,30 +261,13 @@ export default function CategoriesPage() {
         {/* Testimonials Section */}
         <Testimonials />
 
-        {/* FAQs Section */}
-        <section className="py-20 bg-white">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <span className="text-[#EF4444] font-bold text-sm tracking-widest uppercase mb-3 block">
-                Got Questions?
-              </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0F172A] tracking-tight">
-                Frequently Asked Questions
-              </h2>
-            </div>
-
-            <div className="space-y-4">
-              {[
-                { q: "How do I choose the right category?", a: "If you're looking to improve workplace communication, Business English is ideal. If you're preparing for an exam, check out IELTS Preparation. For general speaking confidence, Spoken English & Fluency is our most popular choice." },
-                { q: "Can I switch categories later?", a: "Yes! You can enroll in courses across multiple categories at any time. Your progress is saved independently for each course." },
-                { q: "Are the courses live or pre-recorded?", a: "We offer a mix of both. Most foundational grammar and vocabulary courses are self-paced, while our Fluency and Public Speaking courses feature interactive live sessions." },
-                { q: "Do I get a certificate?", a: "Absolutely. Upon successful completion of any course within these categories, you will receive an accredited certificate that you can add to your resume." }
-              ].map((faq, idx) => (
-                <FaqItem key={idx} faq={faq} />
-              ))}
-            </div>
-          </div>
-        </section>
+        {/* FAQs Section - Using Shared Dark Theme Component */}
+        <FAQ faqs={[
+          { q: "How do I choose the right category?", a: "If you're looking to improve workplace communication, Business English is ideal. If you're preparing for an exam, check out IELTS Preparation. For general speaking confidence, Spoken English & Fluency is our most popular choice." },
+          { q: "Can I switch categories later?", a: "Yes! You can enroll in courses across multiple categories at any time. Your progress is saved independently for each course." },
+          { q: "Are the courses live or pre-recorded?", a: "We offer a mix of both. Most foundational grammar and vocabulary courses are self-paced, while our Fluency and Public Speaking courses feature interactive live sessions." },
+          { q: "Do I get a certificate?", a: "Absolutely. Upon successful completion of any course within these categories, you will receive an accredited certificate that you can add to your resume." }
+        ]} subtitle="Got Questions?" />
 
         {/* Newsletter Section */}
         <Newsletter />

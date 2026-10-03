@@ -91,18 +91,16 @@ export default function PopularCourses() {
   };
 
   const scrollLeft = () => {
-    if (scrollRef.current && scrollRef.current.firstElementChild) {
-      const cardWidth = scrollRef.current.firstElementChild.offsetWidth;
-      const gap = 24; // gap-6
-      scrollRef.current.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
+    if (scrollRef.current) {
+      const containerWidth = scrollRef.current.clientWidth;
+      scrollRef.current.scrollBy({ left: -containerWidth, behavior: 'smooth' });
     }
   };
 
   const scrollRight = () => {
-    if (scrollRef.current && scrollRef.current.firstElementChild) {
-      const cardWidth = scrollRef.current.firstElementChild.offsetWidth;
-      const gap = 24;
-      scrollRef.current.scrollBy({ left: (cardWidth + gap), behavior: 'smooth' });
+    if (scrollRef.current) {
+      const containerWidth = scrollRef.current.clientWidth;
+      scrollRef.current.scrollBy({ left: containerWidth, behavior: 'smooth' });
     }
   };
 
@@ -139,11 +137,11 @@ export default function PopularCourses() {
         <div className="relative group">
           
           {/* Nav Arrows */}
-          <button onClick={scrollLeft} className="absolute -left-5 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white rounded-full shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] flex items-center justify-center text-slate-700 hover:text-[#EF4444] transition-colors focus:outline-none cursor-pointer">
+          <button onClick={scrollLeft} className="hidden md:flex absolute -left-5 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white rounded-full shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] items-center justify-center text-slate-700 hover:text-[#EF4444] transition-colors focus:outline-none cursor-pointer">
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7"/></svg>
           </button>
           
-          <button onClick={scrollRight} className="absolute -right-5 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white rounded-full shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] flex items-center justify-center text-slate-700 hover:text-[#EF4444] transition-colors focus:outline-none cursor-pointer">
+          <button onClick={scrollRight} className="hidden md:flex absolute -right-5 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white rounded-full shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] items-center justify-center text-slate-700 hover:text-[#EF4444] transition-colors focus:outline-none cursor-pointer">
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"/></svg>
           </button>
 
@@ -151,7 +149,7 @@ export default function PopularCourses() {
           <div ref={scrollRef} className="flex overflow-x-auto gap-6 pb-8 pt-4 px-2 snap-x snap-mandatory hide-scrollbar relative" style={{ scrollbarWidth: 'none' }}>
             
             {popularCoursesData.map((course) => (
-              <div key={course.id} className="group snap-center shrink-0 w-[85vw] sm:w-[320px] md:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)] bg-white/5 backdrop-blur-xl rounded-3xl shadow-2xl shadow-black/20 border border-white/10 overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-2 hover:bg-white/10 hover:border-red-500/40">
+              <div key={course.id} className="group snap-start shrink-0 w-[85vw] sm:w-[320px] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] bg-white/5 backdrop-blur-xl rounded-3xl shadow-2xl shadow-black/20 border border-white/10 overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-2 hover:bg-white/10 hover:border-red-500/40">
                 
                 {/* Image Section */}
                 <div className="relative h-52 w-full p-2.5">

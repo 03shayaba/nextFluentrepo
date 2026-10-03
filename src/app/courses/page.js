@@ -191,7 +191,7 @@ export default function CoursesPage() {
       <Header />
       <main>
         {/* Top Hero Section */}
-        <section className="relative bg-[#0B1120] pt-20 pb-16 sm:pt-28 sm:pb-24 border-b border-white/10 overflow-hidden z-0">
+        <section className="relative bg-[#0B1120] pt-12 pb-12 sm:pt-24 sm:pb-20 border-b border-white/10 overflow-hidden z-0 select-none">
           
           {/* Dynamic Background Orbs */}
           <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-blue-600/20 blur-[120px] pointer-events-none z-[-1]"></div>
@@ -207,80 +207,82 @@ export default function CoursesPage() {
           </svg>
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
+            <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 lg:gap-12">
               
-              {/* Left Side */}
+              {/* Left Side Header */}
               <div className="relative max-w-2xl">
                 
                 {/* Handwritten Text & Arrow */}
-                <div className="absolute -top-12 -left-4 lg:-left-12 hidden md:block">
-                  <span className="text-red-400 font-light text-2xl rotate-[-8deg] inline-block drop-shadow-[0_0_8px_rgba(239,68,68,0.5)]" style={{ fontFamily: '"Caveat", "Comic Sans MS", cursive' }}>
-                    Find your perfect course!
-                  </span>
-                  <svg className="w-16 h-12 text-red-500/80 transform rotate-12 mt-2 ml-10" viewBox="0 0 100 100" fill="none">
-                    <path d="M10 10 Q 50 80, 90 90 M70 85 L90 90 L85 70" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
+                
 
-                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-red-500/10 to-rose-500/10 backdrop-blur-md border border-red-500/20 px-4 py-2 rounded-full mb-8 text-[#EF4444] font-bold text-xs tracking-[0.2em] uppercase shadow-[0_0_15px_rgba(220,38,38,0.15)]">
+                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-red-500/15 to-rose-500/15 backdrop-blur-md border border-red-500/30 px-3.5 py-1.5 rounded-full mb-4 sm:mb-6 text-[#EF4444] font-bold text-xs tracking-[0.15em] uppercase shadow-[0_0_15px_rgba(220,38,38,0.15)]">
                   <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span> Master Your Skills
                 </div>
                 
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-white mb-6 tracking-tight leading-[1.1] drop-shadow-xl">
-                  Browse Our <br className="hidden md:block"/>
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#EF4444] to-rose-300 drop-shadow-sm">Premium Courses</span>
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 tracking-tight leading-[1.15] drop-shadow-xl">
+                  Browse Our <br className="hidden sm:block"/>
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#EF4444] via-rose-400 to-amber-300 drop-shadow-sm">Premium Courses</span>
                 </h1>
                 
-                <div className="flex items-center text-sm font-medium text-slate-300 gap-3 bg-white/5 backdrop-blur-md w-fit px-5 py-2.5 rounded-full border border-white/10 shadow-lg shadow-black/20">
-                  <svg className="w-4 h-4 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                <div className="inline-flex items-center text-xs sm:text-sm font-medium text-slate-300 gap-2.5 bg-white/5 backdrop-blur-md px-4 py-2 sm:px-5 sm:py-2.5 rounded-full border border-white/10 shadow-lg shadow-black/20">
+                  <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                   </svg>
                   <a href="/" className="hover:text-red-400 cursor-pointer transition-colors">Home</a>
-                  <span className="text-white/20">/</span>
-                  <span className="text-white">Courses</span>
+                  <span className="text-white/30">/</span>
+                  <span className="text-white font-semibold">Courses</span>
                 </div>
               </div>
               
-              {/* Right Side Stats */}
-              <div className="flex flex-col sm:flex-row gap-4">
+              {/* Right Side Stats Grid (3 Side-by-Side Compact Cards on Mobile & Responsive Desktop) */}
+              <div className="grid grid-cols-3 gap-2.5 sm:gap-4 w-full lg:w-auto mt-2 lg:mt-0">
                 
                 {/* Stat 1 */}
-                <div className="bg-white/[0.03] backdrop-blur-2xl border border-white/10 shadow-2xl rounded-3xl p-6 min-w-[160px] transform hover:-translate-y-2 transition-all duration-500 hover:bg-white/[0.06] hover:border-red-400/30 group relative overflow-hidden">
-                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-red-400/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <div className="absolute -inset-2 bg-gradient-to-r from-red-400/0 via-red-400/10 to-red-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
-                  <div className="flex items-center gap-3 mb-2 relative z-10">
-                    <div className="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center text-red-400">
-                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
-                    </div>
-                    <h2 className="text-4xl sm:text-5xl font-black text-white group-hover:text-red-400 transition-colors drop-shadow-md">9+</h2>
+                <div className="bg-white/[0.04] backdrop-blur-2xl border border-white/10 shadow-xl rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 lg:p-6 text-center sm:text-left transform hover:-translate-y-1.5 transition-all duration-300 hover:bg-white/[0.08] hover:border-red-500/40 group relative overflow-hidden flex flex-col justify-between">
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-red-500/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  
+                  <div className="w-7 h-7 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-red-500/20 flex items-center justify-center text-red-400 mx-auto sm:mx-0 mb-2 sm:mb-3">
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
                   </div>
-                  <p className="text-sm text-slate-300 font-medium relative z-10 pl-1">Online Courses</p>
+                  
+                  <div>
+                    <h2 className="text-xl sm:text-4xl lg:text-5xl font-extrabold text-white group-hover:text-red-400 transition-colors drop-shadow-md leading-tight">9+</h2>
+                    <p className="text-[10px] sm:text-xs lg:text-sm text-slate-300 font-medium mt-0.5 sm:mt-1 leading-tight">Online Courses</p>
+                  </div>
                 </div>
 
                 {/* Stat 2 */}
-                <div className="bg-white/[0.03] backdrop-blur-2xl border border-white/10 shadow-2xl rounded-3xl p-6 min-w-[160px] transform hover:-translate-y-2 transition-all duration-500 hover:bg-white/[0.06] hover:border-blue-400/30 group relative overflow-hidden">
-                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-400/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <div className="absolute -inset-2 bg-gradient-to-r from-blue-400/0 via-blue-400/10 to-blue-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
-                  <div className="flex items-center gap-3 mb-2 relative z-10">
-                    <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400">
-                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
-                    </div>
-                    <h2 className="text-4xl sm:text-5xl font-black text-white group-hover:text-blue-400 transition-colors drop-shadow-md">6+</h2>
+                <div className="bg-white/[0.04] backdrop-blur-2xl border border-white/10 shadow-xl rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 lg:p-6 text-center sm:text-left transform hover:-translate-y-1.5 transition-all duration-300 hover:bg-white/[0.08] hover:border-blue-500/40 group relative overflow-hidden flex flex-col justify-between">
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-500/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  
+                  <div className="w-7 h-7 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-blue-500/20 flex items-center justify-center text-blue-400 mx-auto sm:mx-0 mb-2 sm:mb-3">
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
                   </div>
-                  <p className="text-sm text-slate-300 font-medium relative z-10 pl-1">Expert Mentors</p>
+                  
+                  <div>
+                    <h2 className="text-xl sm:text-4xl lg:text-5xl font-extrabold text-white group-hover:text-blue-400 transition-colors drop-shadow-md leading-tight">6+</h2>
+                    <p className="text-[10px] sm:text-xs lg:text-sm text-slate-300 font-medium mt-0.5 sm:mt-1 leading-tight">Expert Mentors</p>
+                  </div>
                 </div>
 
                 {/* Stat 3 */}
-                <div className="bg-white/[0.03] backdrop-blur-2xl border border-white/10 shadow-2xl rounded-3xl p-6 min-w-[160px] transform hover:-translate-y-2 transition-all duration-500 hover:bg-white/[0.06] hover:border-emerald-400/30 group relative overflow-hidden">
-                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-emerald-400/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <div className="absolute -inset-2 bg-gradient-to-r from-emerald-400/0 via-emerald-400/10 to-emerald-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
-                  <div className="flex items-center gap-3 mb-2 relative z-10">
-                    <div className="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400">
-                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
-                    </div>
-                    <h2 className="text-4xl sm:text-5xl font-black text-white group-hover:text-emerald-400 transition-colors drop-shadow-md">10k+</h2>
+                <div className="bg-white/[0.04] backdrop-blur-2xl border border-white/10 shadow-xl rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 lg:p-6 text-center sm:text-left transform hover:-translate-y-1.5 transition-all duration-300 hover:bg-white/[0.08] hover:border-emerald-500/40 group relative overflow-hidden flex flex-col justify-between">
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-emerald-500/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  
+                  <div className="w-7 h-7 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-emerald-500/20 flex items-center justify-center text-emerald-400 mx-auto sm:mx-0 mb-2 sm:mb-3">
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                    </svg>
                   </div>
-                  <p className="text-sm text-slate-300 font-medium relative z-10 pl-1">Active Learners</p>
+                  
+                  <div>
+                    <h2 className="text-xl sm:text-4xl lg:text-5xl font-extrabold text-white group-hover:text-emerald-400 transition-colors drop-shadow-md leading-tight">10k+</h2>
+                    <p className="text-[10px] sm:text-xs lg:text-sm text-slate-300 font-medium mt-0.5 sm:mt-1 leading-tight">Active Learners</p>
+                  </div>
                 </div>
 
               </div>
@@ -294,12 +296,12 @@ export default function CoursesPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
             {/* Filters Bar */}
-            <div className="flex flex-col lg:flex-row gap-4 mb-8">
+            <div className="flex flex-col lg:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8">
 
               {/* Search */}
-              <div className="relative flex-1 max-w-sm">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <svg className="w-5 h-5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+              <div className="relative flex-1">
+                <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+                  <svg className="w-4.5 h-4.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                   </svg>
                 </div>
@@ -308,99 +310,100 @@ export default function CoursesPage() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search course..."
-                  className="w-full pl-11 pr-4 py-3 bg-white border border-slate-200 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 transition-all shadow-sm text-slate-700"
+                  className="w-full pl-10 pr-4 py-2.5 sm:py-3 bg-white border border-slate-200 rounded-2xl sm:rounded-full text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 transition-all shadow-xs text-slate-700 font-medium"
                 />
               </div>
 
-              {/* Dropdowns */}
-              <div className="flex flex-wrap gap-3 flex-1">
+              {/* Dropdowns Grid (2 Columns on Mobile, 4 Columns on Desktop) */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 flex-[2]">
                 {/* Categories */}
-                <div className="relative flex-1 min-w-[130px]">
-                  <select value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)} className="w-full bg-white border border-slate-200 pl-4 pr-10 py-3 rounded-full text-sm text-slate-600 font-medium appearance-none focus:outline-none focus:border-red-400 focus:ring-1 focus:ring-red-400 shadow-sm cursor-pointer">
+                <div className="relative">
+                  <select value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)} className="w-full bg-white border border-slate-200 pl-3.5 pr-8 py-2.5 sm:py-3 rounded-2xl sm:rounded-full text-xs sm:text-sm text-slate-700 font-semibold appearance-none focus:outline-none focus:border-red-400 focus:ring-1 focus:ring-red-400 shadow-xs cursor-pointer truncate">
                     <option value="All">All Categories</option>
-                    <option value="English Learning">English Learning</option>
-                    <option value="Vocabulary">Vocabulary</option>
-                    <option value="Writing & Essays">Writing & Essays</option>
-                    <option value="Technology">Technology</option>
-                    <option value="Design">Design</option>
-                    <option value="Business">Business</option>
+                    <option value="Basic English">Basic English</option>
+                    <option value="Intermediate English">Intermediate English</option>
+                    <option value="Advanced English">Advanced English</option>
+                    <option value="Spoken English">Spoken English</option>
+                    <option value="IELTS">IELTS</option>
+                    <option value="Business English">Business English</option>
+                    <option value="Public Speaking">Public Speaking</option>
                   </select>
-                  <div className="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none">
-                    <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                  <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                    <svg className="w-3.5 h-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
                   </div>
                 </div>
 
                 {/* Prices */}
-                <div className="relative flex-1 min-w-[130px]">
-                  <select value={priceFilter} onChange={(e) => setPriceFilter(e.target.value)} className="w-full bg-white border border-slate-200 pl-4 pr-10 py-3 rounded-full text-sm text-slate-600 font-medium appearance-none focus:outline-none focus:border-red-400 focus:ring-1 focus:ring-red-400 shadow-sm cursor-pointer">
+                <div className="relative">
+                  <select value={priceFilter} onChange={(e) => setPriceFilter(e.target.value)} className="w-full bg-white border border-slate-200 pl-3.5 pr-8 py-2.5 sm:py-3 rounded-2xl sm:rounded-full text-xs sm:text-sm text-slate-700 font-semibold appearance-none focus:outline-none focus:border-red-400 focus:ring-1 focus:ring-red-400 shadow-xs cursor-pointer truncate">
                     <option value="All">All Prices</option>
                     <option value="Under ₹1000">Under ₹1000</option>
                     <option value="₹1000 - ₹1500">₹1000 - ₹1500</option>
                     <option value="Above ₹1500">Above ₹1500</option>
                   </select>
-                  <div className="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none">
-                    <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                  <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                    <svg className="w-3.5 h-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
                   </div>
                 </div>
 
                 {/* Levels */}
-                <div className="relative flex-1 min-w-[130px]">
-                  <select value={levelFilter} onChange={(e) => setLevelFilter(e.target.value)} className="w-full bg-white border border-slate-200 pl-4 pr-10 py-3 rounded-full text-sm text-slate-600 font-medium appearance-none focus:outline-none focus:border-red-400 focus:ring-1 focus:ring-red-400 shadow-sm cursor-pointer">
+                <div className="relative">
+                  <select value={levelFilter} onChange={(e) => setLevelFilter(e.target.value)} className="w-full bg-white border border-slate-200 pl-3.5 pr-8 py-2.5 sm:py-3 rounded-2xl sm:rounded-full text-xs sm:text-sm text-slate-700 font-semibold appearance-none focus:outline-none focus:border-red-400 focus:ring-1 focus:ring-red-400 shadow-xs cursor-pointer truncate">
                     <option value="All">All Levels</option>
                     <option value="Beginner">Beginner</option>
                     <option value="Intermediate">Intermediate</option>
                     <option value="Advanced">Advanced</option>
                   </select>
-                  <div className="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none">
-                    <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                  <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                    <svg className="w-3.5 h-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
                   </div>
                 </div>
 
                 {/* Rating */}
-                <div className="relative flex-1 min-w-[130px]">
-                  <select value={ratingFilter} onChange={(e) => setRatingFilter(e.target.value)} className="w-full bg-white border border-slate-200 pl-4 pr-10 py-3 rounded-full text-sm text-slate-600 font-medium appearance-none focus:outline-none focus:border-red-400 focus:ring-1 focus:ring-red-400 shadow-sm cursor-pointer">
+                <div className="relative">
+                  <select value={ratingFilter} onChange={(e) => setRatingFilter(e.target.value)} className="w-full bg-white border border-slate-200 pl-3.5 pr-8 py-2.5 sm:py-3 rounded-2xl sm:rounded-full text-xs sm:text-sm text-slate-700 font-semibold appearance-none focus:outline-none focus:border-red-400 focus:ring-1 focus:ring-red-400 shadow-xs cursor-pointer truncate">
                     <option value="All">All Ratings</option>
                     <option value="4.5+">4.5 & up</option>
                     <option value="4.8+">4.8 & up</option>
                   </select>
-                  <div className="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none">
-                    <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                  <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                    <svg className="w-3.5 h-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
                   </div>
                 </div>
               </div>
 
             </div>
 
-            {/* Sort & View Options */}
-            <div className="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4 border-b border-slate-200 pb-6">
-              <p className="text-sm text-slate-500 font-medium">
-                Showing <span className="font-bold text-[#0F172A]">{filteredCourses.length > 0 ? 1 : 0}-{filteredCourses.length}</span> of <span className="font-bold text-[#0F172A]">{courses.length}</span> courses
+            {/* Sort & View Options Header Bar */}
+            <div className="flex items-center justify-between mb-6 sm:mb-8 pb-4 border-b border-slate-200/80 gap-2">
+              <p className="text-xs sm:text-sm text-slate-500 font-medium">
+                Showing <span className="font-bold text-[#0F172A]">{filteredCourses.length > 0 ? `1-${filteredCourses.length}` : 0}</span> of <span className="font-bold text-[#0F172A]">{courses.length}</span>
               </p>
 
-              <div className="flex items-center gap-4">
-                <div className="flex items-center text-sm">
-                  <span className="text-slate-500 mr-3">Sort by</span>
+              <div className="flex items-center gap-2 sm:gap-4">
+                <div className="flex items-center text-xs sm:text-sm">
+                  <span className="text-slate-500 mr-2 hidden sm:inline">Sort by</span>
                   <div className="relative">
-                    <select value={sortBy} onChange={(e) => setSortBy(e.target.value)} className="appearance-none bg-white border border-slate-200 pl-4 pr-10 py-2 rounded-full text-[#0F172A] font-medium focus:outline-none focus:border-red-400 shadow-sm transition-colors cursor-pointer">
+                    <select value={sortBy} onChange={(e) => setSortBy(e.target.value)} className="appearance-none bg-white border border-slate-200 pl-3 pr-8 py-1.5 sm:py-2 rounded-xl sm:rounded-full text-xs sm:text-sm text-[#0F172A] font-bold focus:outline-none focus:border-red-400 shadow-xs transition-colors cursor-pointer">
                       <option value="Latest">Latest</option>
                       <option value="Price: Low to High">Price: Low to High</option>
                       <option value="Price: High to Low">Price: High to Low</option>
                     </select>
-                    <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                      <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                    <div className="absolute inset-y-0 right-0 flex items-center pr-2.5 pointer-events-none">
+                      <svg className="w-3.5 h-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
                     </div>
                   </div>
                 </div>
 
-                {/* Grid / List Toggles */}
-                <div className="flex bg-[#f3edfd]/40 rounded-full p-1 border border-purple-100/50">
-                  <button className="p-1.5 bg-white text-red-600 shadow-sm rounded-full border border-red-100">
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                {/* Grid / List Toggles - Hidden on mobile screens */}
+                <div className="hidden sm:flex bg-slate-200/60 rounded-full p-0.5 border border-slate-200">
+                  <button onClick={() => setViewMode('grid')} className={`p-1.5 rounded-full transition-colors ${viewMode === 'grid' ? 'bg-white text-red-600 shadow-xs font-bold' : 'text-slate-500 hover:text-slate-800'}`} aria-label="Grid View">
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M4 4h6v6H4V4zm10 0h6v6h-6V4zM4 14h6v6H4v-6zm10 0h6v6h-6v-6z" />
                     </svg>
                   </button>
-                  <button className="p-1.5 text-slate-400 hover:text-slate-600 transition-colors rounded-full">
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <button onClick={() => setViewMode('list')} className={`p-1.5 rounded-full transition-colors ${viewMode === 'list' ? 'bg-white text-red-600 shadow-xs font-bold' : 'text-slate-500 hover:text-slate-800'}`} aria-label="List View">
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" />
                     </svg>
                   </button>
@@ -423,14 +426,123 @@ export default function CoursesPage() {
                   const originalPrice = `₹${originalPriceNum.toLocaleString()}`;
                   const discountPercent = Math.round(((originalPriceNum - priceNum) / originalPriceNum) * 100);
 
+                  if (viewMode === 'list') {
+                    return (
+                      <a 
+                        href="/course-details" 
+                        key={course.id} 
+                        className="bg-white rounded-2xl shadow-sm hover:shadow-xl border border-slate-200/80 overflow-hidden flex flex-row items-stretch group transition-all duration-300 hover:-translate-y-1 hover:border-red-200"
+                      >
+                        {/* List Image Left Column */}
+                        <div className="relative w-28 min-h-[140px] sm:w-[240px] md:w-[280px] shrink-0 overflow-hidden bg-slate-900 flex items-center justify-center">
+                          <img 
+                            src={course.image} 
+                            alt={course.title} 
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" 
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                          
+                          {/* Category Badge */}
+                          <div className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-slate-950/85 backdrop-blur-md text-white border border-white/20 text-[9px] sm:text-[11px] font-extrabold uppercase tracking-wider px-2 py-0.5 sm:px-3 sm:py-1 rounded-full shadow-md flex items-center gap-1 z-10">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#EF4444] animate-pulse"></span>
+                            <span className="truncate max-w-[80px] sm:max-w-none">{course.category}</span>
+                          </div>
+
+                          {/* Heart Icon */}
+                          <button 
+                            className="absolute top-2 right-2 sm:top-3 sm:right-3 w-6.5 h-6.5 sm:w-8 sm:h-8 bg-slate-950/80 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center shadow-lg text-slate-200 hover:text-red-400 transition-all z-10" 
+                            onClick={(e) => e.preventDefault()} 
+                            aria-label="Save to Wishlist"
+                          >
+                            <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.2"><path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                          </button>
+                        </div>
+
+                        {/* List Content Right Column */}
+                        <div className="p-3 sm:p-5 flex flex-col flex-grow justify-between bg-white text-slate-900 min-w-0">
+                          <div>
+                            {/* Title */}
+                            <h3 className="text-xs sm:text-lg font-extrabold text-slate-900 leading-snug group-hover:text-[#DC2626] transition-colors mb-1 sm:mb-2 line-clamp-2">
+                              {course.title}
+                            </h3>
+
+                            {/* Description - hidden on mobile screens to keep list row compact */}
+                            <p className="hidden sm:block text-slate-600 text-xs sm:text-sm font-medium leading-relaxed mb-3 line-clamp-2">
+                              {course.description}
+                            </p>
+
+                            {/* Rating & Enrolled Row */}
+                            <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs font-semibold text-slate-600 mb-2 sm:mb-3">
+                              <div className="flex items-center gap-1 bg-amber-50 text-amber-700 px-1.5 py-0.5 sm:px-2.5 sm:py-0.5 rounded border border-amber-200/80 font-bold">
+                                <svg className="w-3 h-3 fill-amber-400 text-amber-400" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                {course.rating}
+                              </div>
+                              <span className="hidden xs:inline text-slate-500 font-medium text-[10px] sm:text-[11px]">({course.students})</span>
+                              <span className="hidden xs:inline text-slate-300">•</span>
+                              <span className="text-slate-600 text-[10px] sm:text-[11px] font-medium">👥 <strong className="text-slate-900">{course.students}+</strong></span>
+                            </div>
+
+                            {/* Specs Grid */}
+                            <div className="grid grid-cols-3 gap-1 sm:gap-2 bg-slate-50 border border-slate-200/80 p-1.5 sm:p-2.5 rounded-xl sm:rounded-2xl mb-2 sm:mb-4 text-center max-w-md">
+                              <div className="flex flex-col items-center justify-center p-0.5">
+                                <div className="flex items-center gap-1 text-slate-500 text-[9px] sm:text-[10px] uppercase font-bold mb-0.5">
+                                  <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                                  <span className="hidden sm:inline">Lessons</span>
+                                </div>
+                                <span className="text-[10px] sm:text-xs font-extrabold text-slate-900">{course.lessons} <span className="sm:hidden text-[9px]">L</span></span>
+                              </div>
+                              <div className="flex flex-col items-center justify-center p-0.5 border-x border-slate-200/70">
+                                <div className="flex items-center gap-1 text-slate-500 text-[9px] sm:text-[10px] uppercase font-bold mb-0.5">
+                                  <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                  <span className="hidden sm:inline">Duration</span>
+                                </div>
+                                <span className="text-[10px] sm:text-xs font-extrabold text-slate-900">{course.hours} H</span>
+                              </div>
+                              <div className="flex flex-col items-center justify-center p-0.5">
+                                <div className="flex items-center gap-1 text-slate-500 text-[9px] sm:text-[10px] uppercase font-bold mb-0.5">
+                                  <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                                  <span className="hidden sm:inline">Level</span>
+                                </div>
+                                <span className="text-[10px] sm:text-xs font-extrabold text-slate-900 truncate max-w-full px-1">{course.level}</span>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Pricing & Buttons Row */}
+                          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4 pt-2 sm:pt-3 border-t border-slate-100">
+                            <div className="flex items-baseline gap-1.5 sm:gap-2">
+                              <span className="text-base sm:text-2xl font-black text-[#DC2626] tracking-tight">{course.price}</span>
+                              <span className="text-[10px] sm:text-xs font-bold text-slate-400 line-through">{originalPrice}</span>
+                              <span className="text-[9px] sm:text-[10px] font-black bg-emerald-100 text-emerald-700 border border-emerald-200/80 px-1.5 py-0.5 rounded uppercase">{discountPercent}% OFF</span>
+                            </div>
+
+                            <div className="flex items-center gap-1.5 sm:gap-2.5">
+                              <button className="hidden sm:block flex-1 sm:flex-none px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-700 font-extrabold text-xs hover:bg-slate-900 hover:text-white transition-all shadow-xs">
+                                Details
+                              </button>
+                                <button 
+                                  onClick={(e) => handleEnrollClick(e, course)}
+                                  className="w-full sm:w-auto px-3 py-1.5 sm:px-5 sm:py-2.5 rounded-lg sm:rounded-xl bg-gradient-to-r from-[#DC2626] to-[#EF4444] hover:from-[#B91C1C] hover:to-[#DC2626] text-white font-extrabold text-xs shadow-sm shadow-red-500/20 hover:shadow-lg transition-all cursor-pointer text-center"
+                                >
+                                  Enroll Now &rarr;
+                                </button>
+                              </div>
+                            </div>
+
+                          </div>
+                        </a>
+                      );
+                    }
+
+                  // Default Grid Mode Rendering
                   return (
-                    <a href="/course-details" key={course.id} className={`bg-[#0A0710] rounded-3xl shadow-xl shadow-slate-950/10 border border-slate-200/80 overflow-hidden flex flex-col group transition-all duration-300 hover:-translate-y-1.5 ${viewMode === 'grid' ? 'flex-col' : 'flex-col sm:flex-row'}`}>
+                    <a href="/course-details" key={course.id} className="bg-white rounded-2xl shadow-md hover:shadow-xl border border-slate-200/90 overflow-hidden flex flex-col group transition-all duration-300 hover:-translate-y-1.5 hover:border-red-200">
                       
-                      {/* Top Header Image Container (Zero gap, dark background matched to eliminate white line on hover) */}
-                      <div className={`relative w-full ${viewMode === 'grid' ? 'h-52' : 'h-52 sm:h-auto sm:w-[290px] shrink-0'} bg-[#0A0710] overflow-hidden`}>
+                      {/* Top Header Image & Dark Gradient Title Container */}
+                      <div className="relative w-full h-64 bg-[#0A0710] overflow-hidden">
                         <div className="w-full h-full overflow-hidden relative bg-[#0A0710]">
                           <img src={course.image} alt={course.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out block select-none transform-gpu" />
-                          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0710] via-[#0A0710]/40 to-transparent pointer-events-none"></div>
+                          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0710] via-[#0A0710]/60 to-transparent pointer-events-none"></div>
                         </div>
                         
                         {/* Glass Category Badge */}
@@ -443,15 +555,15 @@ export default function CoursesPage() {
                         <button className="absolute top-4 right-4 w-9 h-9 bg-slate-950/80 backdrop-blur-xl border border-white/20 rounded-full flex items-center justify-center shadow-xl text-slate-200 hover:text-red-400 hover:scale-110 transition-all z-20" onClick={(e) => e.preventDefault()} aria-label="Save to Wishlist">
                           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.2"><path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
                         </button>
-                      </div>
 
-                      {/* Upper Section: Rich Dark to Blushy Gradient Title Banner */}
-                      <div className="px-5 pt-1.5 pb-4.5 bg-gradient-to-b from-[#0A0710] via-[#210D1A] to-[#3B0E23] relative z-10 -mt-2">
-                        <h3 className="text-base sm:text-lg font-extrabold text-white leading-snug group-hover:text-red-300 transition-colors line-clamp-2">{course.title}</h3>
+                        {/* Title overlayed over bottom of dark image gradient */}
+                        <div className="absolute bottom-0 left-0 right-0 p-5 pt-10 bg-gradient-to-t from-[#0A0710] via-[#0A0710]/90 to-transparent z-10">
+                          <h3 className="text-base sm:text-lg font-extrabold text-white leading-snug group-hover:text-red-300 transition-colors line-clamp-2">{course.title}</h3>
+                        </div>
                       </div>
 
                       {/* LOWER SECTION: CLEAN PURE WHITE BACKGROUND */}
-                      <div className="p-5 sm:p-6 flex flex-col flex-grow bg-white text-slate-900 rounded-b-3xl relative z-10 -mt-px shadow-sm">
+                      <div className="p-5 sm:p-6 flex flex-col flex-grow bg-white text-slate-900">
                         
                         {/* Course Description Paragraph */}
                         <p className="text-slate-800 text-xs sm:text-[13px] font-medium leading-relaxed mb-3.5 line-clamp-2">{course.description}</p>
