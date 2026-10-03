@@ -134,7 +134,7 @@ export default function Testimonials() {
         </div>
 
         {/* CAROUSEL SECTION */}
-        <div className="relative flex flex-col items-center justify-center min-h-[460px] mb-8 sm:mb-16 max-w-[1080px] mx-auto px-1 sm:px-10">
+        <div className="relative flex flex-col items-center justify-center min-h-[460px] mb-8 sm:mb-16 max-w-[1080px] mx-auto px-1 sm:px-12 md:px-14">
           
           {/* Soft Left & Right Edge Vignette Gradient Overlays */}
           <div className="absolute top-0 left-0 w-8 sm:w-28 h-full bg-gradient-to-r from-[#FDFCF8] via-[#FDFCF8]/90 to-transparent z-30 pointer-events-none"></div>
@@ -144,19 +144,19 @@ export default function Testimonials() {
           <button 
             type="button"
             onClick={handlePrev} 
-            className="hidden sm:flex absolute -left-4 lg:-left-6 top-1/2 -translate-y-1/2 z-40 w-12 h-12 bg-white rounded-full shadow-lg border border-slate-200/80 items-center justify-center text-slate-700 hover:text-[#DC2626] hover:border-[#DC2626]/40 transition-all focus:outline-none active:scale-95 cursor-pointer hover:shadow-xl"
+            className="hidden sm:flex absolute -left-2 sm:-left-4 md:-left-6 lg:-left-8 top-1/2 -translate-y-1/2 z-40 w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full shadow-xl border border-slate-200/80 items-center justify-center text-slate-700 hover:text-[#DC2626] hover:border-[#DC2626]/40 transition-all focus:outline-none active:scale-95 cursor-pointer hover:shadow-2xl"
             aria-label="Previous Testimonial"
           >
-            <ChevronLeft className="w-6 h-6" />
+            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
           
           <button 
             type="button"
             onClick={handleNext} 
-            className="hidden sm:flex absolute -right-4 lg:-right-6 top-1/2 -translate-y-1/2 z-40 w-12 h-12 bg-white rounded-full shadow-lg border border-slate-200/80 items-center justify-center text-slate-700 hover:text-[#DC2626] hover:border-[#DC2626]/40 transition-all focus:outline-none active:scale-95 cursor-pointer hover:shadow-xl"
+            className="hidden sm:flex absolute -right-2 sm:-right-4 md:-right-6 lg:-right-8 top-1/2 -translate-y-1/2 z-40 w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full shadow-xl border border-slate-200/80 items-center justify-center text-slate-700 hover:text-[#DC2626] hover:border-[#DC2626]/40 transition-all focus:outline-none active:scale-95 cursor-pointer hover:shadow-2xl"
             aria-label="Next Testimonial"
           >
-            <ChevronRight className="w-6 h-6" />
+            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
 
           {/* Cards Track Container */}

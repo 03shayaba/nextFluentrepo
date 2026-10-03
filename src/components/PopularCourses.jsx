@@ -134,25 +134,34 @@ export default function PopularCourses() {
 
 
         {/* Carousel Container */}
-        <div className="relative group">
+        <div className="relative group px-0 sm:px-10 md:px-14 lg:px-16">
           
-          {/* Nav Arrows */}
-          <button onClick={scrollLeft} className="hidden md:flex absolute -left-5 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white rounded-full shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] items-center justify-center text-slate-700 hover:text-[#EF4444] transition-colors focus:outline-none cursor-pointer">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7"/></svg>
+          {/* Nav Arrows (Visible on Tablets & Desktop - hidden on mobile to avoid text overlap) */}
+          <button 
+            onClick={scrollLeft} 
+            className="hidden sm:flex absolute -left-2 sm:-left-4 md:-left-6 lg:-left-8 top-1/2 -translate-y-1/2 z-40 w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 bg-white rounded-full shadow-xl border border-slate-200/80 items-center justify-center text-slate-700 hover:text-[#EF4444] transition-all focus:outline-none cursor-pointer hover:scale-105 active:scale-95"
+            aria-label="Previous Course"
+          >
+            <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7"/></svg>
           </button>
           
-          <button onClick={scrollRight} className="hidden md:flex absolute -right-5 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white rounded-full shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] items-center justify-center text-slate-700 hover:text-[#EF4444] transition-colors focus:outline-none cursor-pointer">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"/></svg>
+          <button 
+            onClick={scrollRight} 
+            className="hidden sm:flex absolute -right-2 sm:-right-4 md:-right-6 lg:-right-8 top-1/2 -translate-y-1/2 z-40 w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 bg-white rounded-full shadow-xl border border-slate-200/80 items-center justify-center text-slate-700 hover:text-[#EF4444] transition-all focus:outline-none cursor-pointer hover:scale-105 active:scale-95"
+            aria-label="Next Course"
+          >
+            <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"/></svg>
           </button>
 
           {/* Scrollable Area */}
-          <div ref={scrollRef} className="flex overflow-x-auto gap-6 pb-8 pt-4 px-2 snap-x snap-mandatory hide-scrollbar relative" style={{ scrollbarWidth: 'none' }}>
+          <div ref={scrollRef} className="flex overflow-x-auto gap-0 sm:gap-6 pb-6 sm:pb-8 pt-4 px-0 sm:px-2 snap-x snap-mandatory hide-scrollbar relative" style={{ scrollbarWidth: 'none' }}>
             
             {popularCoursesData.map((course) => (
-              <div key={course.id} className="group snap-start shrink-0 w-[85vw] sm:w-[320px] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] bg-white/5 backdrop-blur-xl rounded-3xl shadow-2xl shadow-black/20 border border-white/10 overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-2 hover:bg-white/10 hover:border-red-500/40">
+              <div key={course.id} className="snap-start shrink-0 w-full sm:w-[320px] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] px-2 sm:px-0">
+                <div className="group h-full bg-white/5 backdrop-blur-xl rounded-3xl shadow-2xl shadow-black/20 border border-white/10 overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-2 hover:bg-white/10 hover:border-red-500/40">
                 
                 {/* Image Section */}
-                <div className="relative h-52 w-full p-2.5">
+                <div className="relative h-48 sm:h-52 w-full p-2.5">
                   <div className="w-full h-full rounded-2xl overflow-hidden relative">
                     <img src={course.image} alt={course.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
@@ -170,48 +179,48 @@ export default function PopularCourses() {
                 </div>
 
                 {/* Content Section */}
-                <div className="p-6 flex flex-col flex-grow">
+                <div className="p-5 sm:p-6 flex flex-col flex-grow">
                   
-                  <h3 className="text-lg font-extrabold text-white mb-2 leading-snug group-hover:text-red-400 transition-colors line-clamp-1">{course.title}</h3>
+                  <h3 className="text-base sm:text-lg font-extrabold text-white mb-2 leading-snug group-hover:text-red-400 transition-colors line-clamp-1">{course.title}</h3>
                   <p className="text-slate-400 text-xs mb-4 line-clamp-2 leading-relaxed font-normal">{course.description}</p>
                   
                   {/* Rating & Enrollment */}
-                  <div className="flex items-center gap-2.5 text-xs font-bold text-slate-400 mb-4 pb-4 border-b border-white/10">
+                  <div className="flex flex-wrap items-center gap-2 text-xs font-bold text-slate-400 mb-4 pb-4 border-b border-white/10">
                     <div className="flex items-center gap-1.5 bg-amber-500/10 text-amber-400 px-2.5 py-1 rounded-md">
                       <span>⭐</span> <span>{course.rating}</span> <span className="text-slate-400 font-semibold text-[11px]">({course.reviews})</span>
                     </div>
-                    <span className="text-slate-600">•</span>
-                    <div className="flex items-center gap-1.5 text-slate-400 font-medium">
+                    <span className="text-slate-600 hidden sm:inline">•</span>
+                    <div className="flex items-center gap-1.5 text-slate-400 font-medium text-[11px] sm:text-xs">
                       <span className="text-slate-200 font-semibold">👥 {course.enrolled}</span> enrolled
                     </div>
                   </div>
 
-                  {/* Specs */}
-                  <div className="flex items-center justify-between gap-2 mb-6 text-[11px] font-bold text-slate-300">
-                    <div className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-xl border border-white/5">
-                      <svg className="w-3.5 h-3.5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
-                      {course.lessons} Lessons
+                  {/* Specs Pill Grid */}
+                  <div className="grid grid-cols-3 gap-1.5 sm:gap-2 mb-5 text-[10px] sm:text-[11px] font-bold text-slate-300">
+                    <div className="flex items-center justify-center gap-1 bg-white/10 px-1.5 sm:px-2.5 py-1.5 rounded-xl border border-white/5 truncate">
+                      <svg className="w-3 h-3 text-red-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                      <span className="truncate">{course.lessons} Lsn</span>
                     </div>
-                    <div className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-xl border border-white/5">
-                      <svg className="w-3.5 h-3.5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                      {course.hours} Hours
+                    <div className="flex items-center justify-center gap-1 bg-white/10 px-1.5 sm:px-2.5 py-1.5 rounded-xl border border-white/5 truncate">
+                      <svg className="w-3 h-3 text-amber-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                      <span className="truncate">{course.hours} Hrs</span>
                     </div>
-                    <div className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-xl border border-white/5">
-                      <svg className="w-3.5 h-3.5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-                      {course.level}
+                    <div className="flex items-center justify-center gap-1 bg-white/10 px-1.5 sm:px-2.5 py-1.5 rounded-xl border border-white/5 truncate">
+                      <svg className="w-3 h-3 text-blue-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                      <span className="truncate">{course.level}</span>
                     </div>
                   </div>
 
                   {/* Pricing */}
-                  <div className="flex items-center gap-3 mb-6 mt-auto">
-                    <span className="text-2xl font-black text-[#EF4444]">{course.currentPrice}</span>
-                    <span className="text-sm font-bold text-slate-400 line-through">{course.originalPrice}</span>
-                    <span className="text-[11px] font-extrabold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2.5 py-1 rounded-lg tracking-wide">{course.discount}</span>
+                  <div className="flex items-center gap-2.5 mb-5 mt-auto">
+                    <span className="text-xl sm:text-2xl font-black text-[#EF4444]">{course.currentPrice}</span>
+                    <span className="text-xs sm:text-sm font-bold text-slate-400 line-through">{course.originalPrice}</span>
+                    <span className="text-[10px] sm:text-[11px] font-extrabold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-lg tracking-wide">{course.discount}</span>
                   </div>
 
                   {/* Buttons */}
-                  <div className="grid grid-cols-2 gap-3">
-                    <a href="/course-details" className="flex items-center justify-center py-2.5 rounded-2xl border border-white/20 text-slate-200 font-bold text-xs hover:bg-white hover:text-slate-900 transition-all duration-300 cursor-pointer">
+                  <div className="grid grid-cols-2 gap-2 sm:gap-3">
+                    <a href="/course-details" className="flex items-center justify-center py-2.5 rounded-2xl border border-white/20 text-slate-200 font-bold text-xs hover:bg-white hover:text-slate-900 transition-all duration-300 cursor-pointer text-center">
                       View Details
                     </a>
                     <button 
@@ -224,7 +233,29 @@ export default function PopularCourses() {
 
                 </div>
               </div>
-            ))}
+            </div>
+          ))}
+          </div>
+
+          {/* Navigation Controls Row for Mobile */}
+          <div className="flex sm:hidden items-center justify-center gap-4 mt-2 z-30 relative">
+            <button 
+              type="button"
+              onClick={scrollLeft} 
+              className="w-10 h-10 bg-white/10 backdrop-blur-md rounded-full border border-white/20 flex items-center justify-center text-white hover:text-[#EF4444] active:scale-95 cursor-pointer shadow-md"
+              aria-label="Previous Course"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7"/></svg>
+            </button>
+            <span className="text-xs text-slate-400 font-medium">Swipe to explore</span>
+            <button 
+              type="button"
+              onClick={scrollRight} 
+              className="w-10 h-10 bg-white/10 backdrop-blur-md rounded-full border border-white/20 flex items-center justify-center text-white hover:text-[#EF4444] active:scale-95 cursor-pointer shadow-md"
+              aria-label="Next Course"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"/></svg>
+            </button>
           </div>
         </div>
 

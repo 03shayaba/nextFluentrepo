@@ -193,7 +193,15 @@ export default function Footer() {
             <span>A More Confident You</span>
           </p>
           <p className="text-slate-400 text-xs">
-            Designed & developed by <strong className="text-white font-bold">BTPL soft</strong>
+            Designed & developed by{' '}
+            <a 
+              href="https://www.btplsoft.com/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-white hover:text-[#DC2626] font-bold transition-colors underline decoration-slate-600 hover:decoration-[#DC2626]"
+            >
+              BTPL soft
+            </a>
           </p>
         </div>
 

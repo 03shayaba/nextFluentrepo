@@ -184,7 +184,7 @@ export default function CourseCategories() {
           <div 
             ref={scrollRef}
             onScroll={handleScroll}
-            className="flex overflow-x-auto gap-4 md:gap-6 py-12 px-2 snap-x snap-mandatory hide-scrollbar relative"
+            className="flex overflow-x-auto gap-0 sm:gap-4 md:gap-6 py-12 px-0 sm:px-2 snap-x snap-mandatory hide-scrollbar relative"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             
@@ -193,7 +193,7 @@ export default function CourseCategories() {
               return (
                 <div 
                   key={index}
-                  className={`card-item snap-center shrink-0 w-[80vw] sm:w-[240px] md:w-[calc((100%-48px)/3)] xl:w-[calc((100%-96px)/5)] group relative transition-all duration-300 ${isActive ? 'scale-105 z-10' : 'scale-100 opacity-90'}`}
+                  className={`card-item snap-center shrink-0 w-full sm:w-[240px] md:w-[calc((100%-48px)/3)] xl:w-[calc((100%-96px)/5)] px-3 sm:px-0 group relative transition-all duration-300 ${isActive ? 'scale-105 z-10' : 'scale-100 opacity-90'}`}
                 >
                   <div className={`h-full bg-white rounded-[1.5rem] p-6 flex flex-col items-center text-center transition-all duration-300 border ${isActive ? 'border-[#DC2626] shadow-xl shadow-red-500/10 -translate-y-1.5' : 'border-slate-200/80 shadow-sm'}`}>
                     

@@ -10,10 +10,10 @@ import FAQ from "@/components/FAQ";
 import { useSearchParams, useRouter } from 'next/navigation';
 
 const quizFaqs = [
-  { q: "Is the English assessment quiz completely free?", a: "Yes! Our language assessment quiz is 100% free and takes less than 10 minutes to complete." },
-  { q: "Do I get a certificate after taking the quiz?", a: "The quiz is an assessment tool, not a certified course. However, it will pinpoint your weaknesses and recommend the exact courses you need to earn your accredited certificate." },
-  { q: "Can I retake the quiz later?", a: "Absolutely. We encourage learners to retake the quiz every few weeks to track their progress and see how their English skills are improving over time." },
-  { q: "How accurate are the quiz results?", a: "Our questions are carefully curated by English language experts to align with CEFR (Common European Framework of Reference for Languages) guidelines, giving you a highly accurate estimate of your current fluency level." }
+  { q: "How do I choose the right category?", a: "If you're looking to improve workplace communication, Business English is ideal. If you're preparing for an exam, check out IELTS Preparation. For general speaking confidence, Spoken English & Fluency is our most popular choice." },
+  { q: "Can I switch categories later?", a: "Yes! You can enroll in courses across multiple categories at any time. Your progress is saved independently for each course." },
+  { q: "Are the courses live or pre-recorded?", a: "We offer a mix of both. Most foundational grammar and vocabulary courses are self-paced, while our Fluency and Public Speaking courses feature interactive live sessions." },
+  { q: "Do I get a certificate?", a: "Absolutely. Upon successful completion of any course within these categories, you will receive an accredited certificate that you can add to your resume." }
 ];
 
 // Quiz Question Banks with Explanations
@@ -491,8 +491,8 @@ function QuizContent() {
           </div>
           <ExamFeatures />
           <FAQ 
-            title="Quiz FAQs" 
-            subtitle="Everything you need to know about our free English assessment." 
+            title="Frequently Asked Questions" 
+            subtitle="Got Questions?" 
             faqs={quizFaqs} 
           />
         </main>
