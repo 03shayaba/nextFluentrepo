@@ -221,7 +221,7 @@ const quizData = {
   }
 };
 
-export default function QuizPage() {
+function QuizContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const quizTypeFromUrl = searchParams ? searchParams.get('type') : null;
@@ -772,5 +772,20 @@ export default function QuizPage() {
 
       <Footer />
     </div>
+  );
+}
+
+export default function QuizPage() {
+  return (
+    <React.Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center bg-slate-50">
+        <div className="text-center">
+          <div className="w-10 h-10 border-4 border-[#DC2626] border-t-transparent rounded-full animate-spin mx-auto mb-3"></div>
+          <span className="text-xs font-semibold text-slate-500">Loading Quiz...</span>
+        </div>
+      </div>
+    }>
+      <QuizContent />
+    </React.Suspense>
   );
 }
