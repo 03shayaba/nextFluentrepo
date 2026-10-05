@@ -161,7 +161,7 @@ export default function CourseCategories() {
         </div>
 
         {/* Carousel Container */}
-        <div className="relative group px-1 sm:px-8 md:px-20">
+        <div className="relative group px-10 sm:px-12 md:px-20">
           
           {/* Nav Arrows (Visible on Mobile & Desktop) */}
           <button 
