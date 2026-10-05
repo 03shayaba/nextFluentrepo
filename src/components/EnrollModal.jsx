@@ -103,7 +103,7 @@ export default function EnrollModal({ isOpen, onClose, course }) {
               {course && (
                 <div className="mt-6 p-4 bg-red-50 rounded-xl border border-red-100 flex justify-between items-center">
                   <span className="text-sm font-bold text-red-800">Total Price:</span>
-                  <span className="text-lg font-black text-[#DC2626]">{course.currentPrice}</span>
+                  <span className="text-lg font-black text-[#DC2626]">{course.currentPrice || course.price}</span>
                 </div>
               )}
 

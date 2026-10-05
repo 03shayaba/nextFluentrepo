@@ -4,11 +4,13 @@ import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useWishlist } from '@/context/WishlistContext';
 
 export default function Header() {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const { wishlistCount } = useWishlist();
 
   const toggleDropdown = (menu) => {
     setActiveDropdown(activeDropdown === menu ? null : menu);
@@ -89,6 +91,19 @@ export default function Header() {
 
             {/* Right Action Buttons */}
             <div className="hidden lg:flex items-center space-x-3 xl:space-x-5">
+              
+              <Link href="/wishlist" className={`relative transition-colors p-1.5 ${isActive('/wishlist') ? 'text-[#DC2626]' : 'text-slate-600 hover:text-[#DC2626]'}`} aria-label="Wishlist">
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+                {wishlistCount > 0 && (
+                  <span className="absolute -top-1 -right-1 w-4 h-4 bg-[#DC2626] text-white text-[9px] font-bold flex items-center justify-center rounded-full border border-white">
+                    {wishlistCount}
+                  </span>
+                )}
+              </Link>
+              <div className="w-px h-5 bg-slate-200"></div>
+
               <Link href="/login" className="text-[13.5px] font-bold text-slate-800 hover:text-[#DC2626] transition-colors cursor-pointer whitespace-nowrap">
                 Sign In
               </Link>
@@ -178,6 +193,15 @@ export default function Header() {
               </Link>
 
               <div className="pt-4 border-t border-slate-100 flex flex-col gap-2.5 mt-2 pb-2">
+                <Link href="/wishlist" onClick={closeMobileMenu} className={`flex items-center justify-between px-4 py-2.5 rounded-xl font-bold transition-colors ${isActive('/wishlist') ? 'bg-rose-50 text-[#DC2626]' : 'text-slate-700 hover:bg-slate-50 hover:text-[#DC2626]'}`}>
+                  <div className="flex items-center gap-2">
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+                    My Wishlist
+                  </div>
+                  {wishlistCount > 0 && (
+                    <span className="bg-[#DC2626] text-white text-xs px-2 py-0.5 rounded-full">{wishlistCount}</span>
+                  )}
+                </Link>
                 <Link href="/login" onClick={closeMobileMenu} className="w-full text-center border-2 border-slate-200 text-slate-700 text-sm font-bold py-2.5 rounded-xl hover:bg-slate-50 transition-colors">
                   Sign In
                 </Link>

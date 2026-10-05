@@ -34,7 +34,11 @@ const insights = [
 
 export default function LatestInsights() {
   return (
-    <section className="bg-[#0b101c] pt-8 lg:pt-12 pb-16 lg:pb-20 border-b border-[#1E293B] overflow-hidden relative">
+    <section className="relative pt-16 lg:pt-24 pb-16 lg:pb-24 bg-slate-50 border-b border-slate-200">
+      
+      {/* Dark background top half */}
+      <div className="absolute top-0 left-0 w-full h-[320px] lg:h-[380px] bg-[#0b101c]"></div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header Row (EXPLORE NEWS | Our Latest Insights | Read All Button) */}
@@ -52,24 +56,23 @@ export default function LatestInsights() {
             </p>
           </div>
 
-          
-
           <div>
-            <div className="bg-[#1E293B] border border-slate-700 text-slate-300 font-bold text-sm px-5 py-3 rounded-xl flex items-center gap-2 shadow-xs select-none">
+            <Link href="/blogs" className="bg-[#1E293B] hover:bg-slate-700 transition-colors border border-slate-700 text-slate-300 font-bold text-sm px-5 py-3 rounded-xl flex items-center gap-2 shadow-xs select-none">
               <svg className="w-4 h-4 text-[#EF4444]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.2">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
               </svg>
-              <span>Featured Articles</span>
-            </div>
+              <span>Featured Articles &rarr;</span>
+            </Link>
           </div>
         </div>
 
         {/* 3 Insight Cards Grid (2 cards on Tablet, 3 cards on Desktop) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-8">
           {insights.map((item, index) => (
-            <div 
+            <Link 
+              href={`/blogs/${item.id}`}
               key={item.id}
-              className={`bg-[#111726] rounded-3xl p-4 sm:p-5 border border-slate-700 shadow-xl hover:shadow-[0_8px_30px_rgba(220,38,38,0.15)] hover:border-[#DC2626]/40 transition-all duration-300 flex flex-col justify-between space-y-4 sm:space-y-5 group cursor-pointer transform hover:-translate-y-1.5 ${
+              className={`bg-white rounded-3xl p-4 sm:p-5 border border-slate-200 shadow-lg hover:shadow-2xl hover:border-red-200 transition-all duration-300 flex flex-col justify-between space-y-4 sm:space-y-5 group cursor-pointer transform hover:-translate-y-1.5 ${
                 index === 2 ? 'hidden lg:flex' : 'flex'
               }`}
             >
@@ -91,12 +94,12 @@ export default function LatestInsights() {
                   {item.tag}
                 </span>
 
-                <div className="flex flex-wrap items-center gap-4 text-xs font-medium text-slate-400">
+                <div className="flex flex-wrap items-center gap-4 text-xs font-medium text-slate-500">
                   <div className="flex items-center gap-1.5">
                     <span className="w-5 h-5 rounded-full bg-slate-200 overflow-hidden inline-block border border-slate-100 shrink-0">
                       <Image src={item.authorAvatar} alt={item.author} width={20} height={20} className="w-full h-full object-cover" />
                     </span>
-                    <span>By <strong className="text-slate-300 font-semibold">{item.author}</strong></span>
+                    <span>By <strong className="text-slate-900 font-bold">{item.author}</strong></span>
                   </div>
 
                   <div className="flex items-center gap-1.5">
@@ -108,7 +111,7 @@ export default function LatestInsights() {
                 </div>
 
                 {/* Article Title */}
-                <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white group-hover:text-[#EF4444] transition-colors leading-snug pt-1">
+                <h3 className="text-base sm:text-lg lg:text-xl font-bold text-slate-900 group-hover:text-[#EF4444] transition-colors leading-snug pt-1">
                   {item.title}
                 </h3>
               </div>
@@ -116,11 +119,11 @@ export default function LatestInsights() {
               {/* Card Footer Tag */}
               <div className="px-1 pt-2">
                 <div className="inline-flex items-center gap-2 text-[#EF4444] font-bold text-sm">
-                  <span>Featured Insight</span>
+                  <span>Read Article &rarr;</span>
                 </div>
               </div>
 
-            </div>
+            </Link>
           ))}
         </div>
 

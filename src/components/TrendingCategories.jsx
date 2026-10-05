@@ -1,329 +1,279 @@
 'use client';
 
-const leftCategories = [
-  {
-    id: 1,
-    name: "Spoken English",
-    courses: "15 Courses",
-    icon: (
-      <svg className="w-5 h-5 text-current" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-        <circle cx="6" cy="6" r="2" />
-        <circle cx="18" cy="6" r="2" />
-        <circle cx="12" cy="18" r="2" />
-        <line x1="6" y1="6" x2="18" y2="6" strokeWidth="2" />
-        <line x1="6" y1="6" x2="12" y2="18" strokeWidth="2" />
-        <line x1="18" y1="6" x2="12" y2="18" strokeWidth="2" />
-      </svg>
-    )
-  },
-  {
-    id: 2,
-    name: "IELTS Preparation",
-    courses: "12 Courses",
-    icon: (
-      <svg className="w-5 h-5 text-current" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-      </svg>
-    )
-  },
-  {
-    id: 3,
-    name: "Business English",
-    courses: "8 Courses",
-    icon: (
-      <svg className="w-5 h-5 text-current" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-      </svg>
-    )
-  },
-  {
-    id: 4,
-    name: "English Grammar",
-    courses: "20 Courses",
-    icon: (
-      <svg className="w-5 h-5 text-current" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a24.12 24.12 0 017.5 0m-7.5 0l3.75 3.75M3 5.621l3.75 3.75M6.75 9.371a24.12 24.12 0 013.75 0" />
-      </svg>
-    )
-  }
-];
-
-const rightCategories = [
-  {
-    id: 5,
-    name: "Vocabulary Building",
-    courses: "14 Courses",
-    icon: (
-      <svg className="w-5 h-5 text-current" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L5.605 15.13a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-      </svg>
-    )
-  },
-  {
-    id: 6,
-    name: "Interview Prep",
-    courses: "10 Courses",
-    icon: (
-      <svg className="w-5 h-5 text-current" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387M3.75 14.15a2.18 2.18 0 01-.75-1.661V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m4.5 8.006h4.5" />
-      </svg>
-    )
-  },
-  {
-    id: 7,
-    name: "Kids English",
-    courses: "6 Courses",
-    icon: (
-      <svg className="w-5 h-5 text-current" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M6.429 9.75L2.25 12l4.179 2.25m0-4.5l5.571 3 5.571-3m-11.142 0L12 7.5l5.571 2.25m0 0L21.75 12l-4.179 2.25m0 0l-5.571 3-5.571-3m11.142 0L12 16.5l-5.571-2.25" />
-      </svg>
-    )
-  },
-  {
-    id: 8,
-    name: "Accent Training",
-    courses: "9 Courses",
-    icon: (
-      <svg className="w-5 h-5 text-current" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.834.166l-1.591 1.591M21.75 12h-2.25m-.166 5.834l-1.591-1.591" />
-      </svg>
-    )
-  }
-];
-
-const arcIcons = [
-  // 1. Coffee Cup
-  (
-    <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M18.5 8.25h1.875a1.875 1.875 0 010 3.75H18.5m-15-3.75h15v9a3.75 3.75 0 01-3.75 3.75h-7.5A3.75 3.75 0 013.5 17.25v-9zM8.25 3v2.25M12 3v2.25M15.75 3v2.25" />
-    </svg>
-  ),
-  // 2. Chat Bubble
-  (
-    <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
-    </svg>
-  ),
-  // 3. Gear Cog
-  (
-    <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-    </svg>
-  ),
-  // 4. Document Page
-  (
-    <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
-    </svg>
-  ),
-  // 5. Envelope
-  (
-    <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-    </svg>
-  ),
-  // 6. Alarm Clock
-  (
-    <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-    </svg>
-  ),
-  // 7. Lightbulb
-  (
-    <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />
-    </svg>
-  )
-];
+import Link from 'next/link';
 
 export default function TrendingCategories() {
   return (
-    <section className="bg-slate-50 py-10 lg:py-12 border-b border-slate-200 overflow-hidden select-none relative">
-      
-      {/* Decorative Ambient Glowing Orbs */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-gradient-to-tr from-amber-400/10 via-amber-200/5 to-transparent rounded-full blur-3xl pointer-events-none z-0"></div>
-
-
-
-      {/* Dashed background arc */}
-      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-full max-w-4xl h-64 overflow-hidden -z-10 hidden lg:block opacity-40">
-        <svg viewBox="0 0 800 200" className="w-full h-full">
-          <path d="M 0 200 Q 400 -50 800 200" fill="none" stroke="#E59719" strokeWidth="2" strokeDasharray="6 8" />
-        </svg>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section className="py-16 lg:py-24 bg-slate-50 font-sans border-b border-slate-200">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-14 lg:mb-16 space-y-3 relative z-20">
-          <div>
-            <span className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-red-50 text-[#DC2626] font-bold text-xs sm:text-sm tracking-widest uppercase shadow-sm border border-red-200">
-              <span>⭐</span> TRENDING CATEGORIES
-            </span>
+        {/* Header */}
+        <div className="text-center mb-12">
+          {/* Tag */}
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 border border-red-100 text-[#DC2626] text-xs font-bold uppercase tracking-wider mb-4 shadow-sm">
+            <span className="text-amber-500">⭐</span> TRENDING CATEGORIES
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4 tracking-tight">
             Browse Trending <span className="text-[#DC2626]">Categories</span>
           </h2>
-          <p className="text-sm sm:text-base text-slate-500 font-medium">
+          <p className="text-slate-600 text-sm sm:text-base font-medium max-w-2xl mx-auto">
             Explore high-demand learning paths designed to build real-world skills
           </p>
         </div>
 
-        {/* Main 3-Column Layout with Balanced Heights & Mirrored Horizontal Alignment */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 items-center">
+        {/* Top Featured 2 Cards */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
           
-          {/* Left Category Cards Grid */}
-          <div className="lg:col-span-4 grid grid-cols-1 gap-4 sm:gap-4.5">
-            {leftCategories.map((item) => (
-              <div 
-                key={item.id}
-                className="group bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-[#DC2626]/60 flex items-center justify-between h-[80px] sm:h-[84px] transition-all duration-300 transform hover:-translate-y-1 cursor-pointer relative"
-              >
-                {/* Left Floating Icon Container */}
-                <div className="w-12 sm:w-14 h-12 sm:h-14 ml-3 sm:ml-4 bg-slate-900 group-hover:bg-slate-800 border border-slate-800 flex items-center justify-center rounded-2xl shrink-0 transition-all duration-300 shadow-sm group-hover:shadow-red-500/20">
-                  <div className="transform group-hover:scale-110 transition-transform duration-300 text-[#EF4444]">
-                    {item.icon}
-                  </div>
-                </div>
-
-                {/* Card Title & Course Counter */}
-                <div className="flex-1 px-4 py-2">
-                  <h3 className="text-sm sm:text-base font-bold text-slate-800 group-hover:text-[#DC2626] transition-colors leading-snug">
-                    {item.name}
-                  </h3>
-                  <span className="inline-block mt-1 text-[11px] font-semibold text-slate-500 group-hover:text-[#DC2626] bg-slate-100 group-hover:bg-red-50 px-2.5 py-0.5 rounded-full transition-colors border border-slate-200 group-hover:border-red-200">
-                    {item.courses}
-                  </span>
-                </div>
-
-                {/* Right Arrow Indicator */}
-                <div className="pr-4 text-slate-400 group-hover:text-[#DC2626] group-hover:translate-x-1 transition-all duration-300">
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
+          {/* Spoken English Card */}
+          <div className="bg-white rounded-[2rem] p-6 sm:p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200/80 relative overflow-hidden flex flex-col h-full group">
+            <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
+              <div className="flex items-center gap-4">
+                 <div className="w-14 h-14 bg-slate-900 rounded-2xl flex items-center justify-center text-rose-500 shadow-md relative group-hover:scale-105 transition-transform">
+                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 14a3 3 0 003-3V6a3 3 0 00-6 0v5a3 3 0 003 3zm5-3a5 5 0 01-10 0H5a7 7 0 0014 0h-2z"/><path d="M11 18v3h2v-3h-2z"/></svg>
+                   <div className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-emerald-400 rounded-full border-2 border-white"></div>
+                 </div>
+                 <div>
+                   <div className="flex items-center gap-2 mb-1">
+                     <span className="bg-rose-50 text-rose-600 text-[10px] sm:text-xs font-bold px-2 py-0.5 rounded-full flex items-center gap-1 border border-rose-100">🔥 Most Popular</span>
+                     <span className="bg-slate-100 text-slate-600 text-[10px] sm:text-xs font-bold px-2 py-0.5 rounded-full border border-slate-200">15 Courses</span>
+                   </div>
+                   <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">Spoken English</h3>
+                 </div>
               </div>
-            ))}
-          </div>
-
-          {/* Center Column: Perfectly Proportioned 7 Red Arc Skill Badges + 3D Vector Character */}
-          <div className="lg:col-span-4 flex flex-col items-center justify-center relative py-4 lg:py-0">
+              <div className="hidden sm:flex bg-slate-900 text-white text-[11px] font-bold px-3 py-1.5 rounded-full items-center gap-2 shadow-sm">
+                 <div className="flex gap-[3px] items-end h-3">
+                   <div className="w-1 bg-rose-500 h-2 rounded-full"></div>
+                   <div className="w-1 bg-amber-500 h-3 rounded-full"></div>
+                   <div className="w-1 bg-emerald-500 h-1.5 rounded-full"></div>
+                 </div>
+                 Live Speaking Labs
+              </div>
+            </div>
             
-            {/* Background Soft Red Radial Aura */}
-            <div className="absolute w-72 h-72 sm:w-80 sm:h-80 bg-red-500/10 rounded-full blur-3xl z-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+            <p className="text-slate-600 text-sm sm:text-[15px] mb-6 max-w-[420px] font-medium leading-relaxed">
+              Daily fluency, real-life conversations & public speaking confidence. Practice 1-on-1 with certified coaches and interactive AI pronunciation feedback.
+            </p>
 
-            {/* Arch Container for 7 Red Skill Badges with Perfect Equal Arc Spacing */}
-            <div className="relative w-[320px] sm:w-[360px] h-[180px] sm:h-[195px] flex items-center justify-between z-20 mx-auto">
-              {arcIcons.map((iconSvg, index) => {
-                const total = 7;
-                // Evenly distributed angles from 12 deg to 168 deg for a smooth, uniform semi-circle curve
-                const angleDeg = 12 + (index / (total - 1)) * 156;
-                const angleRad = (angleDeg * Math.PI) / 180;
-                
-                const centerX = 180;
-                const centerY = 172;
-                const radiusX = 146;
-                const radiusY = 120;
-                
-                const x = centerX - Math.cos(angleRad) * radiusX - 22; // 22px is half badge width
-                const y = centerY - Math.sin(angleRad) * radiusY - 22; // 22px is half badge height
-
-                return (
-                  <div
-                    key={index}
-                    className="absolute w-11 h-11 sm:w-11.5 sm:h-11.5 bg-gradient-to-br from-red-500 to-[#DC2626] rounded-full flex items-center justify-center shadow-lg shadow-red-500/25 border-2 border-white transform hover:scale-115 hover:-translate-y-1 transition-all duration-300 cursor-pointer z-20 group"
-                    style={{ left: `${x}px`, top: `${y}px` }}
-                  >
-                    <div className="transform group-hover:rotate-12 transition-transform duration-300">
-                      {iconSvg}
-                    </div>
-                  </div>
-                );
-              })}
+            <div className="flex flex-wrap gap-2 mb-8">
+              <span className="text-xs font-bold text-slate-600 border border-slate-200 px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm bg-white"><span className="text-rose-500 text-sm">👩‍🏫</span> 1-on-1 Live Practice</span>
+              <span className="text-xs font-bold text-slate-600 border border-slate-200 px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm bg-white"><span className="text-amber-500 text-sm">✨</span> AI Speech Coach</span>
+              <span className="text-xs font-bold text-slate-600 border border-slate-200 px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm bg-white"><span className="text-blue-500 text-sm">🌍</span> Real-World Scenarios</span>
             </div>
 
-            {/* Clean Vector Character Sitting Cross-Legged with Laptop */}
-            <div className="relative z-10 -mt-12 sm:-mt-14 flex justify-center items-center w-full">
-              <div className="w-52 h-56 sm:w-64 sm:h-72 relative flex flex-col items-center justify-center">
-                <svg className="w-full h-full filter drop-shadow-xl" viewBox="0 0 260 280" fill="none">
-                  {/* Soft Radial Base Shadow */}
-                  <ellipse cx="130" cy="248" rx="85" ry="12" fill="#CBD5E1" opacity="0.6" />
-                  <ellipse cx="130" cy="248" rx="55" ry="8" fill="#94A3B8" opacity="0.4" />
+            <div className="mt-auto flex flex-col sm:flex-row sm:items-center justify-between pt-6 border-t border-slate-100 gap-4">
+               <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+                 <div className="flex -space-x-2">
+                   <div className="w-8 h-8 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center text-xs font-bold border-2 border-white shadow-sm">A</div>
+                   <div className="w-8 h-8 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center text-xs font-bold border-2 border-white shadow-sm">R</div>
+                   <div className="w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs font-bold border-2 border-white shadow-sm">S</div>
+                   <div className="w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">+12k</div>
+                 </div>
+                 <div>
+                   <div className="flex flex-wrap items-center gap-1">
+                     <span className="text-amber-400 text-sm">★</span>
+                     <span className="font-bold text-slate-900 text-[13px]">4.9</span>
+                     <span className="text-slate-500 text-[11px] font-medium">(12.4k active learners)</span>
+                   </div>
+                   <div className="text-[11px] text-slate-500 font-medium">Beginner to Advanced • Certificate</div>
+                 </div>
+               </div>
+               <Link href="/courses" className="bg-slate-900 hover:bg-slate-800 text-white text-[13px] font-bold px-5 py-2.5 rounded-xl transition-colors flex items-center justify-center gap-1.5 shrink-0 shadow-md w-full sm:w-auto">
+                 Explore 15 Courses <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+               </Link>
+            </div>
+          </div>
 
-                  {/* Character Head & Skin */}
-                  <path d="M130 35C108 35 92 52 92 72C92 90 106 106 130 106C154 106 168 90 168 72C168 52 152 35 130 35Z" fill="#5A3825" />
-                  <ellipse cx="130" cy="76" rx="30" ry="34" fill="#F4C29F" />
-                  
-                  {/* Hair Style */}
-                  <path d="M100 60C105 45 125 40 135 48C145 42 160 52 160 62C155 60 148 65 145 70C135 62 120 64 115 70C110 65 102 62 100 60Z" fill="#3D2314" />
+          {/* IELTS Prep Card */}
+          <div className="bg-[#1e293b] rounded-[2rem] p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-300 relative overflow-hidden flex flex-col h-full text-white group">
+            <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-gradient-to-br from-rose-500/15 to-indigo-500/15 rounded-full blur-[80px] pointer-events-none translate-x-1/3 -translate-y-1/3"></div>
+            
+            <div className="flex flex-wrap items-start justify-between gap-4 mb-4 relative z-10">
+              <div className="flex items-center gap-4">
+                 <div className="w-14 h-14 bg-white/10 border border-white/10 rounded-2xl flex items-center justify-center text-rose-400 shadow-sm backdrop-blur-sm group-hover:scale-105 transition-transform">
+                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+                 </div>
+                 <div>
+                   <div className="flex items-center gap-2 mb-1">
+                     <span className="bg-rose-500/20 text-rose-300 text-[10px] sm:text-xs font-bold px-2 py-0.5 rounded-full flex items-center gap-1 border border-rose-500/30">🎯 High Demand</span>
+                     <span className="bg-white/10 text-slate-300 text-[10px] sm:text-xs font-bold px-2 py-0.5 rounded-full border border-white/10">12 Courses</span>
+                   </div>
+                   <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">IELTS Preparation</h3>
+                 </div>
+              </div>
+            </div>
+            
+            <p className="text-slate-300/90 text-sm sm:text-[15px] mb-8 max-w-[420px] font-medium leading-relaxed relative z-10">
+              Band 8+ strategies, full-length speaking mock tests & academic writing mastery with former IELTS examiners.
+            </p>
 
-                  {/* Eyes & Smile */}
-                  <circle cx="118" cy="74" r="3.5" fill="#29180E" />
-                  <circle cx="142" cy="74" r="3.5" fill="#29180E" />
-                  <path d="M123 88C127 92 133 92 137 88" stroke="#C87550" strokeWidth="2.5" strokeLinecap="round" />
-                  
-                  {/* Body / Suit Jacket */}
-                  <path d="M72 195C72 145 90 115 130 115C170 115 188 145 188 195L130 215L72 195Z" fill="#1E293B" />
-                  <path d="M110 115L130 155L150 115H110Z" fill="#FFFFFF" />
-                  <path d="M126 115L130 170L134 118H126Z" fill="#DC2626" />
-                  
-                  {/* Laptop Screen & Glow */}
-                  <rect x="75" y="158" width="110" height="66" rx="8" fill="#334155" />
-                  <rect x="80" y="163" width="100" height="54" rx="5" fill="#0F172A" />
-                  
-                  {/* Laptop Screen Content Visual Accent */}
-                  <rect x="88" y="172" width="45" height="4" rx="2" fill="#DC2626" opacity="0.9" />
-                  <rect x="88" y="180" width="70" height="3" rx="1.5" fill="#38BDF8" opacity="0.7" />
-                  <rect x="88" y="187" width="55" height="3" rx="1.5" fill="#94A3B8" opacity="0.5" />
-                  <circle cx="160" cy="198" r="8" fill="#DC2626" opacity="0.3" />
+            <div className="bg-slate-900/50 border border-white/10 rounded-xl p-4 mb-8 relative z-10 shadow-inner">
+              <div className="flex justify-between items-end mb-2.5">
+                <span className="text-[11px] font-bold text-slate-300">Avg. Student Score Improvement</span>
+                <span className="text-[11px] font-bold text-emerald-400">+1.5 Bands in 6 Weeks</span>
+              </div>
+              <div className="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden">
+                <div className="bg-gradient-to-r from-amber-400 to-emerald-400 h-full rounded-full w-[85%] relative shadow-[0_0_10px_rgba(52,211,153,0.4)]"></div>
+              </div>
+            </div>
 
-                  {/* Laptop Base Keyboard */}
-                  <polygon points="55,224 205,224 190,235 70,235" fill="#94A3B8" />
-                  
-                  {/* Crossed Legs & Pants */}
-                  <path d="M50 228C50 210 80 216 130 216C180 216 210 210 210 228C210 245 180 252 130 252C80 252 50 245 50 228Z" fill="#0F172A" />
-                  
-                  {/* Shoes */}
-                  <ellipse cx="65" cy="242" rx="14" ry="7" fill="#58351D" />
-                  <ellipse cx="195" cy="242" rx="14" ry="7" fill="#58351D" />
-                </svg>
+            <div className="mt-auto flex flex-col sm:flex-row sm:items-center justify-between pt-6 border-t border-white/10 relative z-10 gap-4 sm:gap-0">
+               <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4">
+                 <div className="flex flex-wrap items-center gap-1">
+                   <span className="text-amber-400 text-sm">★</span>
+                   <span className="font-bold text-white text-[13px]">4.9</span>
+                   <span className="text-slate-400 text-[11px] font-medium">(9.8k learners)</span>
+                 </div>
+                 <div className="hidden sm:block text-slate-500 font-bold">•</div>
+                 <div className="text-[11px] text-slate-400 font-medium">Academic & General Training</div>
+               </div>
+               <Link href="/courses" className="bg-[#DC2626] hover:bg-[#B91C1C] text-white text-[13px] font-bold px-5 py-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5 shrink-0 shadow-lg shadow-red-500/30 w-full sm:w-auto">
+                 View 12 Courses <span className="text-[15px] leading-none font-normal transform -translate-y-[1px]">&rarr;</span>
+               </Link>
+            </div>
+          </div>
+
+        </div>
+
+        {/* Small Categories Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          {/* Card 1 */}
+          <div className="bg-white rounded-[1.75rem] p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200/80 group flex flex-col h-full cursor-pointer hover:-translate-y-1">
+            <div className="flex justify-between items-start mb-4">
+              <div className="w-12 h-12 bg-indigo-50 border border-indigo-100/50 rounded-xl flex items-center justify-center text-indigo-600 group-hover:scale-110 group-hover:bg-indigo-600 group-hover:text-white transition-all shadow-sm">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              </div>
+              <div className="flex gap-2">
+                <span className="text-[10px] font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-full border border-indigo-100">Career Boost</span>
+                <span className="text-[10px] font-bold text-slate-600 bg-slate-100 px-2.5 py-1 rounded-full border border-slate-200">8 Courses</span>
+              </div>
+            </div>
+            <h3 className="text-xl font-bold text-slate-900 mb-2 tracking-tight">Business English</h3>
+            <p className="text-sm text-slate-500 mb-6 flex-grow font-medium leading-relaxed">Executive communication, client pitches, emails & boardroom fluency.</p>
+            <div className="flex items-center justify-between pt-4 border-t border-slate-100">
+              <div className="flex items-center gap-1.5 text-[11px] text-slate-500 font-bold">
+                <span className="text-amber-400 text-sm">★ <span className="font-bold text-slate-700">4.8</span></span> <span className="text-slate-300">•</span> 6.2k learners
+              </div>
+              <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-slate-900 group-hover:text-white transition-colors border border-slate-200 group-hover:border-transparent shadow-sm">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"/></svg>
               </div>
             </div>
           </div>
 
-          {/* Right Category Cards Grid - Mirrored Layout for Perfect Symmetry */}
-          <div className="lg:col-span-4 grid grid-cols-1 gap-4 sm:gap-4.5">
-            {rightCategories.map((item) => (
-              <div 
-                key={item.id}
-                className="group bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-[#DC2626]/60 flex items-center justify-between h-[80px] sm:h-[84px] transition-all duration-300 transform hover:-translate-y-1 cursor-pointer relative"
-              >
-                {/* Left Arrow Indicator (Pointed Inward) */}
-                <div className="pl-4 text-slate-400 group-hover:text-[#DC2626] group-hover:-translate-x-1 transition-all duration-300 order-1">
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-                  </svg>
-                </div>
-
-                {/* Card Title & Course Counter (Right Aligned to Face Inward) */}
-                <div className="flex-1 px-4 py-2 text-right order-2">
-                  <h3 className="text-sm sm:text-base font-bold text-slate-800 group-hover:text-[#DC2626] transition-colors leading-snug">
-                    {item.name}
-                  </h3>
-                  <span className="inline-block mt-1 text-[11px] font-semibold text-slate-500 group-hover:text-[#DC2626] bg-slate-100 group-hover:bg-red-50 px-2.5 py-0.5 rounded-full transition-colors border border-slate-200 group-hover:border-red-200">
-                    {item.courses}
-                  </span>
-                </div>
-
-                {/* Right Floating Icon Container (Mirrored Capsule) */}
-                <div className="w-12 sm:w-14 h-12 sm:h-14 mr-3 sm:mr-4 bg-slate-900 group-hover:bg-slate-800 border border-slate-800 flex items-center justify-center rounded-2xl shrink-0 transition-all duration-300 shadow-sm group-hover:shadow-red-500/20 order-3">
-                  <div className="transform group-hover:scale-110 transition-transform duration-300 text-[#EF4444]">
-                    {item.icon}
-                  </div>
-                </div>
+          {/* Card 2 */}
+          <div className="bg-white rounded-[1.75rem] p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200/80 group flex flex-col h-full cursor-pointer hover:-translate-y-1">
+            <div className="flex justify-between items-start mb-4">
+              <div className="w-12 h-12 bg-emerald-50 border border-emerald-100/50 rounded-xl flex items-center justify-center text-emerald-600 group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition-all shadow-sm">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
               </div>
-            ))}
+              <div className="flex gap-2">
+                <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-100">Foundation</span>
+                <span className="text-[10px] font-bold text-slate-600 bg-slate-100 px-2.5 py-1 rounded-full border border-slate-200">20 Courses</span>
+              </div>
+            </div>
+            <h3 className="text-xl font-bold text-slate-900 mb-2 tracking-tight">English Grammar</h3>
+            <p className="text-sm text-slate-500 mb-6 flex-grow font-medium leading-relaxed">Complete foundation from basic tenses and syntax to advanced sentence structure.</p>
+            <div className="flex items-center justify-between pt-4 border-t border-slate-100">
+              <div className="flex items-center gap-1.5 text-[11px] text-slate-500 font-bold">
+                <span className="text-amber-400 text-sm">★ <span className="font-bold text-slate-700">4.9</span></span> <span className="text-slate-300">•</span> 15.1k learners
+              </div>
+              <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-slate-900 group-hover:text-white transition-colors border border-slate-200 group-hover:border-transparent shadow-sm">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 3 */}
+          <div className="bg-white rounded-[1.75rem] p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200/80 group flex flex-col h-full cursor-pointer hover:-translate-y-1">
+            <div className="flex justify-between items-start mb-4">
+              <div className="w-12 h-12 bg-purple-50 border border-purple-100/50 rounded-xl flex items-center justify-center text-purple-600 group-hover:scale-110 group-hover:bg-purple-600 group-hover:text-white transition-all shadow-sm">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+              </div>
+              <div className="flex gap-2">
+                <span className="text-[10px] font-bold text-purple-600 bg-purple-50 px-2.5 py-1 rounded-full border border-purple-100">Essential</span>
+                <span className="text-[10px] font-bold text-slate-600 bg-slate-100 px-2.5 py-1 rounded-full border border-slate-200">14 Courses</span>
+              </div>
+            </div>
+            <h3 className="text-xl font-bold text-slate-900 mb-2 tracking-tight">Vocabulary Building</h3>
+            <p className="text-sm text-slate-500 mb-6 flex-grow font-medium leading-relaxed">Contextual word power, idioms, phrasal verbs & articulate expression.</p>
+            <div className="flex items-center justify-between pt-4 border-t border-slate-100">
+              <div className="flex items-center gap-1.5 text-[11px] text-slate-500 font-bold">
+                <span className="text-amber-400 text-sm">★ <span className="font-bold text-slate-700">4.8</span></span> <span className="text-slate-300">•</span> 8.4k learners
+              </div>
+              <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-slate-900 group-hover:text-white transition-colors border border-slate-200 group-hover:border-transparent shadow-sm">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 4 */}
+          <div className="bg-white rounded-[1.75rem] p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200/80 group flex flex-col h-full cursor-pointer hover:-translate-y-1">
+            <div className="flex justify-between items-start mb-4">
+              <div className="w-12 h-12 bg-cyan-50 border border-cyan-100/50 rounded-xl flex items-center justify-center text-cyan-600 group-hover:scale-110 group-hover:bg-cyan-600 group-hover:text-white transition-all shadow-sm">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+              </div>
+              <div className="flex gap-2">
+                <span className="text-[10px] font-bold text-cyan-600 bg-cyan-50 px-2.5 py-1 rounded-full border border-cyan-100">Job Ready</span>
+                <span className="text-[10px] font-bold text-slate-600 bg-slate-100 px-2.5 py-1 rounded-full border border-slate-200">10 Courses</span>
+              </div>
+            </div>
+            <h3 className="text-xl font-bold text-slate-900 mb-2 tracking-tight">Interview Prep</h3>
+            <p className="text-sm text-slate-500 mb-6 flex-grow font-medium leading-relaxed">Crack HR & leadership rounds with structured answers and mock drills.</p>
+            <div className="flex items-center justify-between pt-4 border-t border-slate-100">
+              <div className="flex items-center gap-1.5 text-[11px] text-slate-500 font-bold">
+                <span className="text-amber-400 text-sm">★ <span className="font-bold text-slate-700">4.9</span></span> <span className="text-slate-300">•</span> 7.9k learners
+              </div>
+              <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-slate-900 group-hover:text-white transition-colors border border-slate-200 group-hover:border-transparent shadow-sm">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 5 */}
+          <div className="bg-white rounded-[1.75rem] p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200/80 group flex flex-col h-full cursor-pointer hover:-translate-y-1">
+            <div className="flex justify-between items-start mb-4">
+              <div className="w-12 h-12 bg-amber-50 border border-amber-100/50 rounded-xl flex items-center justify-center text-amber-600 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-white transition-all shadow-sm">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <div className="flex gap-2">
+                <span className="text-[10px] font-bold text-amber-600 bg-amber-50 px-2.5 py-1 rounded-full border border-amber-100">Ages 5-14</span>
+                <span className="text-[10px] font-bold text-slate-600 bg-slate-100 px-2.5 py-1 rounded-full border border-slate-200">6 Courses</span>
+              </div>
+            </div>
+            <h3 className="text-xl font-bold text-slate-900 mb-2 tracking-tight">Kids English</h3>
+            <p className="text-sm text-slate-500 mb-6 flex-grow font-medium leading-relaxed">Gamified phonics, interactive storytelling & early speaking confidence.</p>
+            <div className="flex items-center justify-between pt-4 border-t border-slate-100">
+              <div className="flex items-center gap-1.5 text-[11px] text-slate-500 font-bold">
+                <span className="text-amber-400 text-sm">★ <span className="font-bold text-slate-700">4.9</span></span> <span className="text-slate-300">•</span> 5.3k learners
+              </div>
+              <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-slate-900 group-hover:text-white transition-colors border border-slate-200 group-hover:border-transparent shadow-sm">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 6 (Highlighted) */}
+          <div className="bg-white rounded-[1.75rem] p-6 shadow-[0_4px_30px_rgba(220,38,38,0.08)] hover:shadow-[0_8px_40px_rgba(220,38,38,0.15)] border border-rose-200 transition-all duration-300 group flex flex-col h-full cursor-pointer relative overflow-hidden hover:-translate-y-1">
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-rose-500 to-orange-400"></div>
+            <div className="flex justify-between items-start mb-4">
+              <div className="w-12 h-12 bg-rose-50 border border-rose-100 rounded-xl flex items-center justify-center text-rose-600 group-hover:scale-110 group-hover:bg-rose-600 group-hover:text-white transition-all shadow-sm">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/></svg>
+              </div>
+              <div className="flex gap-2">
+                <span className="text-[10px] font-bold text-rose-600 bg-rose-50 px-2.5 py-1 rounded-full border border-rose-200">Audio Labs</span>
+                <span className="text-[10px] font-bold text-slate-600 bg-slate-100 px-2.5 py-1 rounded-full border border-slate-200">9 Courses</span>
+              </div>
+            </div>
+            <h3 className="text-xl font-bold text-rose-600 mb-2 tracking-tight">Accent Training</h3>
+            <p className="text-sm text-slate-500 mb-6 flex-grow font-medium leading-relaxed">Phonetics, intonation, syllable stress & neutral global pronunciation.</p>
+            <div className="flex items-center justify-between pt-4 border-t border-slate-100">
+              <div className="flex items-center gap-1.5 text-[11px] text-slate-500 font-bold">
+                <span className="text-amber-400 text-sm">★ <span className="font-bold text-slate-700">4.8</span></span> <span className="text-slate-300">•</span> 4.7k learners
+              </div>
+              <div className="w-8 h-8 rounded-full bg-rose-50 flex items-center justify-center text-rose-600 group-hover:bg-rose-600 group-hover:text-white transition-colors border border-rose-200 group-hover:border-transparent shadow-sm">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"/></svg>
+              </div>
+            </div>
           </div>
 
         </div>
@@ -332,4 +282,3 @@ export default function TrendingCategories() {
     </section>
   );
 }
-

@@ -9,6 +9,7 @@ import React, { useState, useMemo, useEffect, useRef } from 'react';
 import TransformHero from "@/components/TransformHero";
 import EnrollModal from "@/components/EnrollModal";
 import Newsletter from "@/components/Newsletter";
+import { useWishlist } from '@/context/WishlistContext';
 
 const CustomDropdown = ({ value, onChange, options, className }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -189,6 +190,22 @@ export default function CoursesPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('All');
   const [priceFilter, setPriceFilter] = useState('All');
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const cat = params.get('category');
+    if (cat) {
+      let filterValue = cat;
+      // Map Category page titles to Course page categories
+      if (cat.includes('IELTS')) filterValue = 'IELTS';
+      if (cat.includes('Grammar')) filterValue = 'Basic English';
+      if (cat.includes('Corporate')) filterValue = 'Business English';
+      if (cat.includes('Vocabulary')) filterValue = 'Advanced English';
+      if (cat.includes('Accent')) filterValue = 'Advanced English';
+      
+      setCategoryFilter(filterValue);
+    }
+  }, []);
   const [levelFilter, setLevelFilter] = useState('All');
   const [ratingFilter, setRatingFilter] = useState('All');
   const [sortBy, setSortBy] = useState('Latest');
@@ -196,6 +213,7 @@ export default function CoursesPage() {
   
   const [isEnrollModalOpen, setIsEnrollModalOpen] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState(null);
+  const { toggleWishlist, isInWishlist } = useWishlist();
 
   const handleEnrollClick = (e, course) => {
     e.preventDefault();
@@ -515,11 +533,11 @@ export default function CoursesPage() {
 
                           {/* Heart Icon */}
                           <button 
-                            className="absolute top-2 right-2 sm:top-3 sm:right-3 w-6.5 h-6.5 sm:w-8 sm:h-8 bg-slate-950/80 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center shadow-lg text-slate-200 hover:text-red-400 transition-all z-10" 
-                            onClick={(e) => e.preventDefault()} 
+                            className={`absolute top-2 right-2 sm:top-3 sm:right-3 w-6.5 h-6.5 sm:w-8 sm:h-8 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center shadow-lg transition-all z-10 ${isInWishlist(course.id) ? 'bg-white text-red-500' : 'bg-slate-950/80 text-slate-200 hover:text-red-400'}`} 
+                            onClick={(e) => { e.preventDefault(); toggleWishlist(course); }} 
                             aria-label="Save to Wishlist"
                           >
-                            <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.2"><path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                            <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" fill={isInWishlist(course.id) ? "currentColor" : "none"} viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.2"><path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
                           </button>
                         </div>
 
@@ -617,8 +635,8 @@ export default function CoursesPage() {
                         </div>
 
                         {/* Heart Icon */}
-                        <button className="absolute top-4 right-4 w-9 h-9 bg-slate-950/80 backdrop-blur-xl border border-white/20 rounded-full flex items-center justify-center shadow-xl text-slate-200 hover:text-red-400 hover:scale-110 transition-all z-20" onClick={(e) => e.preventDefault()} aria-label="Save to Wishlist">
-                          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.2"><path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                        <button className={`absolute top-4 right-4 w-9 h-9 backdrop-blur-xl border border-white/20 rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-all z-20 ${isInWishlist(course.id) ? 'bg-white text-red-500' : 'bg-slate-950/80 text-slate-200 hover:text-red-400'}`} onClick={(e) => { e.preventDefault(); toggleWishlist(course); }} aria-label="Save to Wishlist">
+                          <svg className="w-4 h-4" fill={isInWishlist(course.id) ? "currentColor" : "none"} viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.2"><path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
                         </button>
 
                         {/* Title overlayed over bottom of dark image gradient */}

@@ -3,6 +3,7 @@
 import { useState, useRef } from 'react';
 import Image from 'next/image';
 import EnrollModal from './EnrollModal';
+import { useWishlist } from '@/context/WishlistContext';
 
 const filterOptions = [
   { id: 'all', label: 'All Courses', icon: '▦' },
@@ -82,6 +83,7 @@ const popularCoursesData = [
 export default function PopularCourses() {
   const [activeFilter, setActiveFilter] = useState('all');
   const scrollRef = useRef(null);
+  const { toggleWishlist, isInWishlist } = useWishlist();
   
   const [isEnrollModalOpen, setIsEnrollModalOpen] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState(null);
@@ -135,7 +137,7 @@ export default function PopularCourses() {
 
 
         {/* Carousel Container */}
-        <div className="relative group px-0 sm:px-10 md:px-14 lg:px-16">
+        <div className="relative px-0 sm:px-10 md:px-14 lg:px-16">
           
           {/* Nav Arrows (Visible on Tablets & Desktop - hidden on mobile to avoid text overlap) */}
           <button 
@@ -159,18 +161,24 @@ export default function PopularCourses() {
             
             {popularCoursesData.map((course) => (
               <div key={course.id} className="snap-start shrink-0 w-full sm:w-[320px] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] px-2 sm:px-0">
-                <div className="group h-full bg-white/5 backdrop-blur-xl rounded-3xl shadow-2xl shadow-black/20 border border-white/10 overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-2 hover:bg-white/10 hover:border-red-500/40">
+                <div className="group h-full bg-white/5 backdrop-blur-xl rounded-3xl shadow-2xl shadow-black/20 border border-white/10 overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-2 hover:bg-white/10 hover:border-red-500/40 transform-gpu will-change-transform">
                 
                 {/* Image Section */}
                 <div className="relative h-48 sm:h-52 w-full p-2.5">
-                  <div className="w-full h-full rounded-2xl overflow-hidden relative">
-                    <Image src={course.image} alt={course.title} width={400} height={250} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" />
+                  <div className="w-full h-full rounded-2xl overflow-hidden relative bg-[#0b101c]">
+                    <Image src={course.image} alt={course.title} width={400} height={250} className="w-full h-full object-cover scale-[1.02] group-hover:scale-110 transition-transform duration-500 ease-out" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                   </div>
                   
                   {/* Heart Icon */}
-                  <button className="absolute top-5 right-5 w-9 h-9 bg-black/40 backdrop-blur-md rounded-full flex items-center justify-center shadow-md text-slate-300 hover:text-red-500 hover:bg-white transition-all duration-200 hover:scale-110 z-10" aria-label="Wishlist">
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.2"><path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                  <button 
+                    onClick={() => toggleWishlist(course)}
+                    className={`absolute top-5 right-5 w-9 h-9 backdrop-blur-md rounded-full flex items-center justify-center shadow-md transition-all duration-200 hover:scale-110 z-10 ${
+                      isInWishlist(course.id) ? 'bg-white text-red-500' : 'bg-black/40 text-slate-300 hover:text-red-500 hover:bg-white'
+                    }`} 
+                    aria-label="Wishlist"
+                  >
+                    <svg className="w-4 h-4" fill={isInWishlist(course.id) ? "currentColor" : "none"} viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.2"><path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
                   </button>
 
                   {/* Category Badge */}

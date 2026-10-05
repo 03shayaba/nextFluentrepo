@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import PopularCourses from "@/components/PopularCourses";
 import TransformHero from "@/components/TransformHero";
 import React, { useState, useEffect } from 'react';
+import { useWishlist } from '@/context/WishlistContext';
 
 const CurriculumModule = ({ section, idx }) => {
   const [isOpen, setIsOpen] = useState(idx === 0);
@@ -79,6 +80,38 @@ const CurriculumModule = ({ section, idx }) => {
 
 export default function CourseDetailsPage() {
   const [activeTab, setActiveTab] = useState('overview');
+  const [isCopied, setIsCopied] = useState(false);
+  const { toggleWishlist, isInWishlist } = useWishlist();
+
+  const currentCourse = {
+    id: 'master-spoken-english',
+    title: "Master Spoken English & Achieve Fluency Bootcamp.",
+    description: "This comprehensive program takes you from the fundamentals of English grammar and vocabulary to speaking fluently and confidently in real-world professional scenarios.",
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
+    category: "English",
+    rating: "4.7",
+    reviews: "3",
+    currentPrice: "₹1,499",
+    originalPrice: "₹2,499",
+    discount: "40% OFF",
+    lessons: "15",
+    hours: "20"
+  };
+
+  const isWishlisted = isInWishlist(currentCourse.id);
+
+  const handleShare = () => {
+    if (navigator.share) {
+      navigator.share({
+        title: 'Course Details',
+        url: window.location.href
+      }).catch(console.error);
+    } else {
+      navigator.clipboard.writeText(window.location.href);
+      setIsCopied(true);
+      setTimeout(() => setIsCopied(false), 2000);
+    }
+  };
 
   const scrollToSection = (id) => {
     setActiveTab(id);
@@ -216,17 +249,33 @@ export default function CourseDetailsPage() {
 
               {/* Action Buttons */}
               <div className="flex items-center gap-3 w-full sm:w-auto">
-                <button className="flex-1 sm:flex-none flex items-center justify-center gap-2 bg-white border border-slate-200 hover:border-red-400 hover:text-[#DC2626] text-[#0F172A] font-semibold py-2.5 px-6 rounded-full shadow-sm transition-all duration-300">
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
-                  </svg>
-                  Share
+                <button 
+                  onClick={handleShare}
+                  className="flex-1 sm:flex-none flex items-center justify-center gap-2 bg-white border border-slate-200 hover:border-red-400 hover:text-[#DC2626] text-[#0F172A] font-semibold py-2.5 px-6 rounded-full shadow-sm transition-all duration-300 cursor-pointer"
+                >
+                  {isCopied ? (
+                    <svg className="w-4 h-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  ) : (
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                    </svg>
+                  )}
+                  {isCopied ? 'Copied!' : 'Share'}
                 </button>
-                <button className="flex-1 sm:flex-none flex items-center justify-center gap-2 bg-white border border-slate-200 hover:border-red-400 hover:text-red-500 text-[#0F172A] font-semibold py-2.5 px-6 rounded-full shadow-sm transition-all duration-300">
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <button 
+                  onClick={() => toggleWishlist(currentCourse)}
+                  className={`flex-1 sm:flex-none flex items-center justify-center gap-2 border font-semibold py-2.5 px-6 rounded-full shadow-sm transition-all duration-300 ${
+                    isWishlisted 
+                      ? 'bg-rose-50 border-red-300 text-[#DC2626]' 
+                      : 'bg-white border-slate-200 hover:border-red-400 hover:text-red-500 text-[#0F172A]'
+                  }`}
+                >
+                  <svg className="w-4 h-4" fill={isWishlisted ? "currentColor" : "none"} viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                   </svg>
-                  Wishlist
+                  {isWishlisted ? 'Saved' : 'Wishlist'}
                 </button>
               </div>
 

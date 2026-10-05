@@ -216,7 +216,7 @@ export default function CategoriesPage() {
               {categories.map((cat, i) => (
                 <a 
                   key={cat.id} 
-                  href="/courses"
+                  href={`/courses?category=${encodeURIComponent(cat.title)}`}
                   className="bg-white rounded-[2rem] border border-slate-100 p-8 shadow-sm hover:shadow-[0_20px_40px_rgba(220,38,38,0.1)] hover:-translate-y-2 hover:border-red-200 transition-all duration-300 flex flex-col items-center text-center group cursor-pointer relative overflow-hidden"
                 >
                   {/* Top glowing edge on hover */}
