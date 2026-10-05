@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 const slides = [
   {
@@ -8,32 +9,32 @@ const slides = [
     tag: "ENGLISH LEARNING",
     title: "EXCEL IN YOUR CAREER & ACADEMICS",
     subtitle: "Crack IELTS, TOEFL, and Spoken English with expert guidance.",
-    bgImage: "/banner.webp",
-    bgMobile: "bg-[position:80%_center]"
+    bgImage: "/ban1.webp",
+    bgMobile: "object-[80%_center]"
   },
   {
     id: 2,
     tag: "ONLINE COURSES",
     title: "SPOKEN ENGLISH MASTERY",
     subtitle: "Speak fluently and naturally in professional & daily situations.",
-    bgImage: "/banner2.webp",
-    bgMobile: "bg-[position:85%_center]"
+    bgImage: "/banner.webp",
+    bgMobile: "object-[85%_center]"
   },
   {
     id: 3,
     tag: "GRAMMAR & WRITING",
     title: "MASTER ESSENTIAL SKILLS",
     subtitle: "Build confidence, improve communication skills, and unlock new opportunities.",
-    bgImage: "/banner3.webp",
-    bgMobile: "bg-[position:85%_center]"
+    bgImage: "/ban3.webp",
+    bgMobile: "object-[85%_center]"
   },
   {
     id: 4,
     tag: "EXPERT SOLUTIONS",
     title: "LEARN TODAY. BRIGHTER TOMORROW.",
     subtitle: "Interactive lessons and structured pathways tailored to your goals.",
-    bgImage: "/banner4.webp",
-    bgMobile: "bg-[position:85%_center]"
+    bgImage: "/ban4.webp",
+    bgMobile: "object-[85%_center]"
   }
 ];
 
@@ -101,10 +102,15 @@ export default function HeroSlider() {
             className="relative w-full h-full flex-shrink-0"
           >
             {/* Background Image (Per-slide mobile focus positioning) */}
-            <div
-              className={`absolute inset-0 bg-cover ${slide.bgMobile || 'bg-[position:85%_center]'} sm:bg-center bg-no-repeat transition-all duration-500`}
-              style={{ backgroundImage: `url(${slide.bgImage})` }}
-            />
+            <div className="absolute inset-0 transition-all duration-500">
+              <Image 
+                src={slide.bgImage}
+                alt={slide.title}
+                fill
+                priority={i <= 2}
+                className={`object-cover ${slide.bgMobile || 'object-[85%_center]'} sm:object-center`}
+              />
+            </div>
 
             {/* Subtle Gradient Overlay: Dark on left for crisp text contrast, clear on right for instructor face visibility */}
             <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/40 to-transparent sm:from-slate-950/85 sm:via-slate-950/35 sm:to-transparent"></div>
