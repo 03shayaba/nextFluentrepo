@@ -47,7 +47,7 @@ export default function Header() {
             
             {/* Logo Section */}
             <Link href="/" className="flex items-center gap-3 cursor-pointer z-10 transition-opacity hover:opacity-90">
-              <Image src="/logo_transparent.png" alt="NextFluent Logo" width={200} height={48} className="h-10 sm:h-12 w-auto object-contain" />
+              <Image src="/logo_transparent.webp" alt="NextFluent Logo" width={200} height={48} className="h-10 sm:h-12 w-auto object-contain" />
             </Link>
 
             {/* Desktop Navigation Links */}

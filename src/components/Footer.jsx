@@ -19,7 +19,7 @@ export default function Footer() {
           <div className="sm:col-span-2 lg:col-span-4 space-y-5">
             <div className="space-y-2">
               <Link href="/" className="inline-flex items-center gap-3 cursor-pointer group">
-                <Image src="/logo_transparent.png" alt="NextFluent Logo" width={200} height={56} className="h-12 sm:h-14 w-auto object-contain transition-transform group-hover:scale-105" />
+                <Image src="/logo_transparent.webp" alt="NextFluent Logo" width={200} height={56} className="h-12 sm:h-14 w-auto object-contain transition-transform group-hover:scale-105" />
                 <span className="text-xl sm:text-2xl font-bold text-white tracking-tight">Next<span className="text-[#DC2626]">Fluent</span></span>
               </Link>
               <p className="text-xs font-semibold text-[#DC2626] tracking-wide">

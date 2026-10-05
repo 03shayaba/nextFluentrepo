@@ -8,7 +8,7 @@ const slides = [
     tag: "ENGLISH LEARNING",
     title: "EXCEL IN YOUR CAREER & ACADEMICS",
     subtitle: "Crack IELTS, TOEFL, and Spoken English with expert guidance.",
-    bgImage: "/banner.png",
+    bgImage: "/banner.webp",
     bgMobile: "bg-[position:80%_center]"
   },
   {
