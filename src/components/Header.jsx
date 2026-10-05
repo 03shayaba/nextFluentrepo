@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Header() {
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -46,7 +47,7 @@ export default function Header() {
             
             {/* Logo Section */}
             <Link href="/" className="flex items-center gap-3 cursor-pointer z-10 transition-opacity hover:opacity-90">
-              <img src="/logo_transparent.png" alt="NextFluent Logo" className="h-10 sm:h-12 w-auto object-contain" />
+              <Image src="/logo_transparent.png" alt="NextFluent Logo" width={200} height={48} className="h-10 sm:h-12 w-auto object-contain" />
             </Link>
 
             {/* Desktop Navigation Links */}
@@ -69,8 +70,8 @@ export default function Header() {
                 {activeDropdown === 'courses' && (
                   <div className="absolute left-0 top-full pt-1 w-48 z-50">
                     <div className="bg-white border border-slate-100 rounded-xl shadow-lg py-2 animate-in fade-in slide-in-from-top-2 duration-150">
-                      <Link href="/courses" className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-[#DC2626]">Browse Courses</Link>
-                      <Link href="/categories" className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-[#DC2626]">Course Category</Link>
+                      <Link href="/courses" className={`block px-4 py-2 text-sm transition-colors ${isActive('/courses') ? 'text-[#DC2626] font-bold bg-slate-50' : 'text-slate-600 hover:bg-slate-50 hover:text-[#DC2626]'}`}>Browse Courses</Link>
+                      <Link href="/categories" className={`block px-4 py-2 text-sm transition-colors ${isActive('/categories') ? 'text-[#DC2626] font-bold bg-slate-50' : 'text-slate-600 hover:bg-slate-50 hover:text-[#DC2626]'}`}>Course Category</Link>
                     </div>
                   </div>
                 )}
@@ -138,8 +139,8 @@ export default function Header() {
                 </button>
                 {activeDropdown === 'mobile-courses' && (
                   <div className="pl-6 space-y-1 py-1">
-                    <Link href="/courses" onClick={closeMobileMenu} className="block px-3 py-2 text-sm font-semibold text-slate-600 hover:text-[#DC2626]">Browse Courses</Link>
-                    <Link href="/categories" onClick={closeMobileMenu} className="block px-3 py-2 text-sm font-semibold text-slate-600 hover:text-[#DC2626]">Course Category</Link>
+                    <Link href="/courses" onClick={closeMobileMenu} className={`block px-3 py-2 text-sm transition-colors ${isActive('/courses') ? 'text-[#DC2626] font-bold bg-rose-50 rounded-lg' : 'font-semibold text-slate-600 hover:text-[#DC2626]'}`}>Browse Courses</Link>
+                    <Link href="/categories" onClick={closeMobileMenu} className={`block px-3 py-2 text-sm transition-colors ${isActive('/categories') ? 'text-[#DC2626] font-bold bg-rose-50 rounded-lg' : 'font-semibold text-slate-600 hover:text-[#DC2626]'}`}>Course Category</Link>
                   </div>
                 )}
               </div>

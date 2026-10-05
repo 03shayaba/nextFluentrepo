@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef } from 'react';
+import Image from 'next/image';
 import EnrollModal from './EnrollModal';
 
 const filterOptions = [
@@ -163,7 +164,7 @@ export default function PopularCourses() {
                 {/* Image Section */}
                 <div className="relative h-48 sm:h-52 w-full p-2.5">
                   <div className="w-full h-full rounded-2xl overflow-hidden relative">
-                    <img src={course.image} alt={course.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" />
+                    <Image src={course.image} alt={course.title} width={400} height={250} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                   </div>
                   

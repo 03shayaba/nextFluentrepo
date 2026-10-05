@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 
 const trendingCourses = [
   {
@@ -81,9 +82,11 @@ export default function TrendingCourses() {
 
               {/* Left Circular Photo Thumbnail */}
               <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden shrink-0 border-2 border-slate-700 shadow-sm group-hover:border-[#DC2626]/40 group-hover:scale-105 transition-all duration-300">
-                <img 
+                <Image 
                   src={course.image} 
                   alt={course.title}
+                  width={112}
+                  height={112}
                   className="w-full h-full object-cover"
                 />
               </div>

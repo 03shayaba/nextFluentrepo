@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 
 const journeySteps = [
   {
@@ -98,9 +99,11 @@ export default function OurJourney() {
             <div className="relative group">
               <div className="absolute -inset-2 bg-gradient-to-r from-red-600 to-rose-600 rounded-full blur-md opacity-75 group-hover:opacity-100 transition duration-500"></div>
               <div className="relative w-28 h-28 rounded-full border-4 border-[#0b101c] overflow-hidden bg-slate-800 shadow-2xl">
-                <img 
+                <Image 
                   src="/t1.avif" 
                   alt="Lead Mentor" 
+                  width={112}
+                  height={112}
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                 />
               </div>

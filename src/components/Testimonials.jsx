@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Star, Globe, Users, ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 
 const testimonials = [
   {
@@ -184,9 +185,11 @@ export default function Testimonials() {
                     <div>
                       {/* User Avatar & Stars */}
                       <div className="flex gap-4 items-center mb-5">
-                        <img 
+                        <Image 
                           src={card.image} 
                           alt={card.name} 
+                          width={56}
+                          height={56}
                           className="w-14 h-14 rounded-full object-cover border-2 border-slate-100 shadow-sm shrink-0" 
                         />
                         <div>

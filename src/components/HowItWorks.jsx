@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 
 const steps = [
   {
@@ -95,9 +96,11 @@ export default function HowItWorks() {
                 {/* Image */}
                 <div className="w-full h-48 rounded-[1.5rem] overflow-hidden mb-6 relative shadow-inner">
                   <div className="absolute inset-0 bg-red-500/10 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-500 z-10"></div>
-                  <img 
+                  <Image 
                     src={step.image} 
                     alt={step.title}
+                    width={300}
+                    height={200}
                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
                   />
                 </div>

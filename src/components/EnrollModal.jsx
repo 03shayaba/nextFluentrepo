@@ -5,11 +5,13 @@ import React, { useState } from 'react';
 export default function EnrollModal({ isOpen, onClose, course }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [phoneError, setPhoneError] = useState('');
 
   if (!isOpen) return null;
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (phoneError) return;
     setIsSubmitting(true);
     // Simulate API call
     setTimeout(() => {
@@ -62,7 +64,7 @@ export default function EnrollModal({ isOpen, onClose, course }) {
                   type="text" 
                   required
                   placeholder="John Doe"
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#DC2626] focus:ring-2 focus:ring-[#DC2626]/20 transition-all outline-none"
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#DC2626] focus:ring-2 focus:ring-[#DC2626]/20 transition-all outline-none text-slate-900"
                 />
               </div>
 
@@ -72,7 +74,7 @@ export default function EnrollModal({ isOpen, onClose, course }) {
                   type="email" 
                   required
                   placeholder="john@example.com"
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#DC2626] focus:ring-2 focus:ring-[#DC2626]/20 transition-all outline-none"
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#DC2626] focus:ring-2 focus:ring-[#DC2626]/20 transition-all outline-none text-slate-900"
                 />
               </div>
 
@@ -81,9 +83,21 @@ export default function EnrollModal({ isOpen, onClose, course }) {
                 <input 
                   type="tel" 
                   required
-                  placeholder="+91 98765 43210"
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#DC2626] focus:ring-2 focus:ring-[#DC2626]/20 transition-all outline-none"
+                  maxLength={10}
+                  pattern="[6-9][0-9]{9}"
+                  placeholder="9876543210"
+                  className={`w-full px-4 py-3 rounded-xl border ${phoneError ? 'border-red-500 focus:ring-red-500/20' : 'border-slate-200 focus:border-[#DC2626] focus:ring-[#DC2626]/20'} focus:ring-2 transition-all outline-none text-slate-900`}
+                  onInput={(e) => { 
+                    let val = e.target.value.replace(/[^0-9]/g, '');
+                    if (val.length > 0 && !/^[6-9]/.test(val)) {
+                      setPhoneError('Please enter a valid mobile number.');
+                    } else {
+                      setPhoneError('');
+                    }
+                    e.target.value = val;
+                  }}
                 />
+                {phoneError && <p className="text-red-500 text-xs font-semibold mt-1">{phoneError}</p>}
               </div>
 
               {course && (

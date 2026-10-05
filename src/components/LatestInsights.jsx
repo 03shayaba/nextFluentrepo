@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import Link from 'next/link';
 
 const insights = [
@@ -74,9 +75,11 @@ export default function LatestInsights() {
             >
               {/* Card Image Header */}
               <div className="relative overflow-hidden rounded-2xl aspect-[4/3] bg-slate-100">
-                <img 
+                <Image 
                   src={item.image} 
                   alt={item.title} 
+                  width={300}
+                  height={200}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -90,8 +93,8 @@ export default function LatestInsights() {
 
                 <div className="flex flex-wrap items-center gap-4 text-xs font-medium text-slate-400">
                   <div className="flex items-center gap-1.5">
-                    <span className="w-5 h-5 rounded-full bg-slate-200 overflow-hidden inline-block border border-slate-100">
-                      <img src={item.authorAvatar} alt={item.author} className="w-full h-full object-cover" />
+                    <span className="w-5 h-5 rounded-full bg-slate-200 overflow-hidden inline-block border border-slate-100 shrink-0">
+                      <Image src={item.authorAvatar} alt={item.author} width={20} height={20} className="w-full h-full object-cover" />
                     </span>
                     <span>By <strong className="text-slate-300 font-semibold">{item.author}</strong></span>
                   </div>

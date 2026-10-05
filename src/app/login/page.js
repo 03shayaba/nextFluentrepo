@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 
 export default function LoginPage() {
@@ -52,7 +53,7 @@ export default function LoginPage() {
             <div className="flex items-center gap-3">
               <div className="flex -space-x-2">
                 {[1, 2, 3].map((i) => (
-                  <img key={i} src={`https://i.pravatar.cc/100?img=${i + 10}`} alt="Student" className="w-8 h-8 rounded-full border-2 border-[#0F172A] object-cover" />
+                  <Image key={i} src={`https://i.pravatar.cc/100?img=${i + 10}`} alt="Student" width={32} height={32} className="w-8 h-8 rounded-full border-2 border-[#0F172A] object-cover" />
                 ))}
               </div>
               <p className="text-xs text-slate-300">Join <span className="font-bold text-white">10K+</span> active learners</p>
@@ -77,7 +78,7 @@ export default function LoginPage() {
                 onChange={handleChange}
                 required
                 placeholder="Enter your email"
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-red-500/20 focus:border-[#DC2626] transition-all outline-none text-sm"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-red-500/20 focus:border-[#DC2626] transition-all outline-none text-sm text-slate-900"
               />
             </div>
             
@@ -93,7 +94,7 @@ export default function LoginPage() {
                 onChange={handleChange}
                 required 
                 placeholder="••••••••"
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-red-500/20 focus:border-[#DC2626] transition-all outline-none text-sm"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-red-500/20 focus:border-[#DC2626] transition-all outline-none text-sm text-slate-900"
               />
             </div>
 

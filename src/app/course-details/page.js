@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import Link from 'next/link';
 
 import Header from "@/components/Header";
@@ -205,7 +206,7 @@ export default function CourseDetailsPage() {
               {/* Creator Profile */}
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-md">
-                  <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="Devoin Lanee" className="w-full h-full object-cover" />
+                  <Image src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="Devoin Lanee" width={56} height={56} className="w-full h-full object-cover" />
                 </div>
                 <div>
                   <p className="text-xs text-slate-500 font-medium mb-0.5">Created by</p>
@@ -242,9 +243,11 @@ export default function CourseDetailsPage() {
               
               {/* Video Player Dummy */}
               <div className="relative w-full aspect-video bg-slate-100 rounded-3xl overflow-hidden shadow-sm mb-8 group cursor-pointer border border-slate-200">
-                <img 
+                <Image 
                   src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" 
                   alt="Course Preview" 
+                  width={800}
+                  height={450}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
@@ -358,7 +361,7 @@ export default function CourseDetailsPage() {
                   <h3 className="text-2xl font-bold text-[#0F172A] mb-6">Your Instructor</h3>
                   <div className="flex flex-col sm:flex-row gap-6 items-start">
                     <div className="w-24 h-24 rounded-full overflow-hidden shrink-0 border-2 border-slate-100 shadow-sm">
-                      <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="Devoin Lanee" className="w-full h-full object-cover" />
+                      <Image src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="Devoin Lanee" width={48} height={48} className="w-full h-full object-cover" />
                     </div>
                     <div>
                       <h4 className="text-lg font-bold text-[#0F172A]">Devoin Lanee</h4>

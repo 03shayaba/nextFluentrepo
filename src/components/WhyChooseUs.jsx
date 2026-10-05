@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { 
   Star, 
   Users, 
@@ -146,9 +147,11 @@ export default function WhyChooseUs() {
 
             {/* Main Center Image */}
             <div className="relative z-10 w-full max-w-[240px] md:max-w-[260px] lg:max-w-[300px] mx-auto rounded-t-[6rem] md:rounded-t-[7rem] lg:rounded-t-[8rem] rounded-b-3xl overflow-hidden shadow-xl border-[5px] border-white/80">
-              <img 
+              <Image 
                 src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
                 alt="Student learning on laptop" 
+                width={300}
+                height={340}
                 className="w-full h-[260px] md:h-[290px] lg:h-[340px] object-cover"
               />
               {/* Laptop mock overlay text */}
@@ -194,9 +197,9 @@ export default function WhyChooseUs() {
           {/* Bottom Left: Learners Stat */}
           <div className="flex items-center gap-3 sm:gap-4 bg-slate-50 border border-slate-100 px-5 py-3 rounded-full shadow-xs shrink-0">
             <div className="flex -space-x-3 shrink-0">
-              <img className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80" alt="Learner" />
-              <img className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&q=80" alt="Learner" />
-              <img className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Learner" />
+              <Image width={40} height={40} className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80" alt="Learner" />
+              <Image width={40} height={40} className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&q=80" alt="Learner" />
+              <Image width={40} height={40} className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Learner" />
             </div>
             <div>
               <div className="font-extrabold text-slate-900 text-sm sm:text-base leading-none">10,000+</div>

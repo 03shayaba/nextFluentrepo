@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -161,9 +162,11 @@ export default function CategoriesPage() {
                 <div className="relative aspect-square w-full">
                   <div className="absolute inset-0 bg-gradient-to-tr from-red-600 to-rose-400 rounded-[3rem] rotate-3 opacity-30 blur-sm"></div>
                   <div className="absolute inset-0 bg-[#0F172A] rounded-[3rem] -rotate-3 overflow-hidden border-4 border-slate-700 shadow-2xl">
-                    <img 
+                    <Image 
                       src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80" 
                       alt="Students Learning" 
+                      width={600}
+                      height={600}
                       className="w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-500"
                     />
                   </div>

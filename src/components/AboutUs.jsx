@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function AboutUs() {
@@ -81,9 +82,11 @@ export default function AboutUs() {
 
             {/* Main Large Image */}
             <div className="absolute top-0 right-0 w-[70%] h-[75%] rounded-3xl overflow-hidden shadow-xl z-10 border-4 border-white">
-              <img 
+              <Image 
                 src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80" 
                 alt="Students collaborating" 
+                width={400}
+                height={500}
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-red-500/5 mix-blend-multiply"></div>
@@ -91,18 +94,22 @@ export default function AboutUs() {
 
             {/* Small Image 1 (Bottom Left) */}
             <div className="absolute bottom-0 left-0 w-[55%] h-[45%] rounded-3xl overflow-hidden shadow-xl z-20 border-4 border-white">
-              <img 
+              <Image 
                 src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=600&q=80" 
                 alt="Online tutoring" 
+                width={300}
+                height={300}
                 className="w-full h-full object-cover"
               />
             </div>
 
             {/* Small Image 2 (Bottom Right) */}
             <div className="absolute bottom-10 right-4 w-[35%] h-[35%] rounded-3xl overflow-hidden shadow-xl z-20 border-4 border-white">
-              <img 
+              <Image 
                 src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=400&q=80" 
                 alt="Books" 
+                width={200}
+                height={200}
                 className="w-full h-full object-cover"
               />
             </div>

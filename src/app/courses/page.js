@@ -1,18 +1,71 @@
 'use client';
+import Image from 'next/image';
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HowItWorks from "@/components/HowItWorks";
 import Testimonials from "@/components/Testimonials";
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import TransformHero from "@/components/TransformHero";
 import EnrollModal from "@/components/EnrollModal";
 import Newsletter from "@/components/Newsletter";
 
+const CustomDropdown = ({ value, onChange, options, className }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const selectedLabel = options.find(opt => opt.value === value)?.label || value;
+
+  return (
+    <div className="relative w-full" ref={ref}>
+      <div 
+        onClick={() => setIsOpen(!isOpen)}
+        className={`${className} flex items-center justify-between select-none transition-colors ${isOpen ? 'ring-1 ring-red-400 border-red-400 bg-slate-50' : ''}`}
+      >
+        <span className="truncate pr-2">{selectedLabel}</span>
+        <svg className={`w-4 h-4 text-slate-400 transform transition-transform duration-200 shrink-0 ${isOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+      </div>
+      
+      {isOpen && (
+        <div className="absolute z-[100] w-full mt-1.5 bg-white border border-slate-100 rounded-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] py-1 animate-in fade-in slide-in-from-top-2 duration-200 max-h-60 overflow-auto">
+          {options.map((opt) => (
+            <div
+              key={opt.value}
+              onClick={() => {
+                onChange(opt.value);
+                setIsOpen(false);
+              }}
+              className={`px-3.5 py-2.5 text-xs sm:text-sm font-semibold cursor-pointer transition-colors ${
+                value === opt.value 
+                  ? 'bg-red-50 text-[#DC2626]' 
+                  : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+              }`}
+            >
+              {opt.label}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
 const courses = [
   {
     id: 1,
-    image: "course1.avif",
+    image: "/course1.avif",
     price: "₹799",
     category: "Basic English",
     instructorImage: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop",
@@ -27,7 +80,7 @@ const courses = [
   },
   {
     id: 2,
-    image: "course2.avif",
+    image: "/course2.avif",
     price: "₹999",
     category: "Intermediate English",
     instructorImage: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop",
@@ -42,7 +95,7 @@ const courses = [
   },
   {
     id: 3,
-    image: "course3.avif",
+    image: "/course3.avif",
     price: "₹1,299",
     category: "Advanced English",
     instructorImage: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop",
@@ -57,7 +110,7 @@ const courses = [
   },
   {
     id: 4,
-    image: "course4.avif",
+    image: "/course4.avif",
     price: "₹1,499",
     category: "Spoken English",
     instructorImage: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop",
@@ -72,7 +125,7 @@ const courses = [
   },
   {
     id: 5,
-    image: "course5.avif",
+    image: "/course5.avif",
     price: "₹1,999",
     category: "IELTS",
     instructorImage: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop",
@@ -87,7 +140,7 @@ const courses = [
   },
   {
     id: 6,
-    image: "course6.avif",
+    image: "/course6.avif",
     price: "₹1,199",
     category: "Personality & Communication",
     instructorImage: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop",
@@ -102,7 +155,7 @@ const courses = [
   },
   {
     id: 7,
-    image: "t1.avif",
+    image: "/t1.avif",
     price: "₹1,299",
     category: "Public Speaking",
     instructorImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",
@@ -117,7 +170,7 @@ const courses = [
   },
   {
     id: 8,
-    image: "t2.avif",
+    image: "/t2.avif",
     price: "₹1,499",
     category: "Business English",
     instructorImage: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop",
@@ -318,57 +371,65 @@ export default function CoursesPage() {
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 flex-[2]">
                 {/* Categories */}
                 <div className="relative">
-                  <select value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)} className="w-full bg-white border border-slate-200 pl-3.5 pr-8 py-2.5 sm:py-3 rounded-2xl sm:rounded-full text-xs sm:text-sm text-slate-700 font-semibold appearance-none focus:outline-none focus:border-red-400 focus:ring-1 focus:ring-red-400 shadow-xs cursor-pointer truncate">
-                    <option value="All">All Categories</option>
-                    <option value="Basic English">Basic English</option>
-                    <option value="Intermediate English">Intermediate English</option>
-                    <option value="Advanced English">Advanced English</option>
-                    <option value="Spoken English">Spoken English</option>
-                    <option value="IELTS">IELTS</option>
-                    <option value="Business English">Business English</option>
-                    <option value="Public Speaking">Public Speaking</option>
-                  </select>
-                  <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                    <svg className="w-3.5 h-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
-                  </div>
+                  <CustomDropdown 
+                    value={categoryFilter}
+                    onChange={setCategoryFilter}
+                    className="w-full bg-white border border-slate-200 px-3.5 py-2.5 sm:py-3 rounded-2xl sm:rounded-full text-xs sm:text-sm text-slate-700 font-semibold shadow-xs cursor-pointer"
+                    options={[
+                      { value: "All", label: "All Categories" },
+                      { value: "Basic English", label: "Basic English" },
+                      { value: "Intermediate English", label: "Intermediate English" },
+                      { value: "Advanced English", label: "Advanced English" },
+                      { value: "Spoken English", label: "Spoken English" },
+                      { value: "IELTS", label: "IELTS" },
+                      { value: "Business English", label: "Business English" },
+                      { value: "Public Speaking", label: "Public Speaking" }
+                    ]}
+                  />
                 </div>
 
                 {/* Prices */}
                 <div className="relative">
-                  <select value={priceFilter} onChange={(e) => setPriceFilter(e.target.value)} className="w-full bg-white border border-slate-200 pl-3.5 pr-8 py-2.5 sm:py-3 rounded-2xl sm:rounded-full text-xs sm:text-sm text-slate-700 font-semibold appearance-none focus:outline-none focus:border-red-400 focus:ring-1 focus:ring-red-400 shadow-xs cursor-pointer truncate">
-                    <option value="All">All Prices</option>
-                    <option value="Under ₹1000">Under ₹1000</option>
-                    <option value="₹1000 - ₹1500">₹1000 - ₹1500</option>
-                    <option value="Above ₹1500">Above ₹1500</option>
-                  </select>
-                  <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                    <svg className="w-3.5 h-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
-                  </div>
+                  <CustomDropdown 
+                    value={priceFilter}
+                    onChange={setPriceFilter}
+                    className="w-full bg-white border border-slate-200 px-3.5 py-2.5 sm:py-3 rounded-2xl sm:rounded-full text-xs sm:text-sm text-slate-700 font-semibold shadow-xs cursor-pointer"
+                    options={[
+                      { value: "All", label: "All Prices" },
+                      { value: "Under ₹1000", label: "Under ₹1000" },
+                      { value: "₹1000 - ₹1500", label: "₹1000 - ₹1500" },
+                      { value: "Above ₹1500", label: "Above ₹1500" }
+                    ]}
+                  />
                 </div>
 
                 {/* Levels */}
                 <div className="relative">
-                  <select value={levelFilter} onChange={(e) => setLevelFilter(e.target.value)} className="w-full bg-white border border-slate-200 pl-3.5 pr-8 py-2.5 sm:py-3 rounded-2xl sm:rounded-full text-xs sm:text-sm text-slate-700 font-semibold appearance-none focus:outline-none focus:border-red-400 focus:ring-1 focus:ring-red-400 shadow-xs cursor-pointer truncate">
-                    <option value="All">All Levels</option>
-                    <option value="Beginner">Beginner</option>
-                    <option value="Intermediate">Intermediate</option>
-                    <option value="Advanced">Advanced</option>
-                  </select>
-                  <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                    <svg className="w-3.5 h-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
-                  </div>
+                  <CustomDropdown 
+                    value={levelFilter}
+                    onChange={setLevelFilter}
+                    className="w-full bg-white border border-slate-200 px-3.5 py-2.5 sm:py-3 rounded-2xl sm:rounded-full text-xs sm:text-sm text-slate-700 font-semibold shadow-xs cursor-pointer"
+                    options={[
+                      { value: "All", label: "All Levels" },
+                      { value: "Beginner", label: "Beginner" },
+                      { value: "Intermediate", label: "Intermediate" },
+                      { value: "Advanced", label: "Advanced" }
+                    ]}
+                  />
                 </div>
 
                 {/* Rating */}
                 <div className="relative">
-                  <select value={ratingFilter} onChange={(e) => setRatingFilter(e.target.value)} className="w-full bg-white border border-slate-200 pl-3.5 pr-8 py-2.5 sm:py-3 rounded-2xl sm:rounded-full text-xs sm:text-sm text-slate-700 font-semibold appearance-none focus:outline-none focus:border-red-400 focus:ring-1 focus:ring-red-400 shadow-xs cursor-pointer truncate">
-                    <option value="All">All Ratings</option>
-                    <option value="4.5+">4.5 & up</option>
-                    <option value="4.8+">4.8 & up</option>
-                  </select>
-                  <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                    <svg className="w-3.5 h-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
-                  </div>
+                  <CustomDropdown 
+                    value={ratingFilter}
+                    onChange={setRatingFilter}
+                    className="w-full bg-white border border-slate-200 px-3.5 py-2.5 sm:py-3 rounded-2xl sm:rounded-full text-xs sm:text-sm text-slate-700 font-semibold shadow-xs cursor-pointer"
+                    options={[
+                      { value: "All", label: "All Ratings" },
+                      { value: "4.5+", label: "4.5 & up" },
+                      { value: "4.8+", label: "4.8 & up" }
+                    ]}
+                  />
                 </div>
               </div>
 
@@ -383,15 +444,17 @@ export default function CoursesPage() {
               <div className="flex items-center gap-2 sm:gap-4">
                 <div className="flex items-center text-xs sm:text-sm">
                   <span className="text-slate-500 mr-2 hidden sm:inline">Sort by</span>
-                  <div className="relative">
-                    <select value={sortBy} onChange={(e) => setSortBy(e.target.value)} className="appearance-none bg-white border border-slate-200 pl-3 pr-8 py-1.5 sm:py-2 rounded-xl sm:rounded-full text-xs sm:text-sm text-[#0F172A] font-bold focus:outline-none focus:border-red-400 shadow-xs transition-colors cursor-pointer">
-                      <option value="Latest">Latest</option>
-                      <option value="Price: Low to High">Price: Low to High</option>
-                      <option value="Price: High to Low">Price: High to Low</option>
-                    </select>
-                    <div className="absolute inset-y-0 right-0 flex items-center pr-2.5 pointer-events-none">
-                      <svg className="w-3.5 h-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
-                    </div>
+                  <div className="relative min-w-[140px]">
+                    <CustomDropdown 
+                      value={sortBy}
+                      onChange={setSortBy}
+                      className="bg-white border border-slate-200 px-3 py-1.5 sm:py-2 rounded-xl sm:rounded-full text-xs sm:text-sm text-[#0F172A] font-bold shadow-xs cursor-pointer w-full"
+                      options={[
+                        { value: "Latest", label: "Latest" },
+                        { value: "Price: Low to High", label: "Price: Low to High" },
+                        { value: "Price: High to Low", label: "Price: High to Low" }
+                      ]}
+                    />
                   </div>
                 </div>
 
@@ -435,9 +498,11 @@ export default function CoursesPage() {
                       >
                         {/* List Image Left Column */}
                         <div className="relative w-28 min-h-[140px] sm:w-[240px] md:w-[280px] shrink-0 overflow-hidden bg-slate-900 flex items-center justify-center">
-                          <img 
+                          <Image 
                             src={course.image} 
                             alt={course.title} 
+                            width={280}
+                            height={140}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" 
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
@@ -541,7 +606,7 @@ export default function CoursesPage() {
                       {/* Top Header Image & Dark Gradient Title Container */}
                       <div className="relative w-full h-64 bg-[#0A0710] overflow-hidden">
                         <div className="w-full h-full overflow-hidden relative bg-[#0A0710]">
-                          <img src={course.image} alt={course.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out block select-none transform-gpu" />
+                          <Image src={course.image} alt={course.title} width={400} height={250} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out block select-none transform-gpu" />
                           <div className="absolute inset-0 bg-gradient-to-t from-[#0A0710] via-[#0A0710]/60 to-transparent pointer-events-none"></div>
                         </div>
                         
