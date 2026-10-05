@@ -63,7 +63,7 @@ export default function AssessmentSection() {
                   <div className="w-full h-full rounded-full overflow-hidden relative">
                     {/* Using a placeholder avatar, you can replace it with the actual image path */}
                     <Image 
-                      src="/b1.webp" 
+                      src="/ban1.webp" 
                       alt="Sarah Jenkins - Senior Language Coach"
                       fill
                       className="object-cover object-[100%_center]"
