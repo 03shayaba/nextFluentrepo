@@ -10,7 +10,7 @@ const slides = [
     title: "EXCEL IN YOUR CAREER & ACADEMICS",
     subtitle: "Crack IELTS, TOEFL, and Spoken English with expert guidance.",
     bgImage: "/ban1.webp",
-    bgMobile: "object-[80%_center]"
+    bgMobile: "object-[95%_center]"
   },
   {
     id: 2,
