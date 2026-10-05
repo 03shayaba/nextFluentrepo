@@ -493,9 +493,9 @@ export default function CourseDetailsPage() {
                 
                 {/* Price Header */}
                 <div className="flex items-end gap-3 mb-6">
-                  <span className="text-4xl font-bold text-[#0F172A]">$80.00</span>
-                  <span className="text-lg text-slate-400 line-through mb-1">$100.00</span>
-                  <span className="bg-red-100 text-[#DC2626] text-xs font-bold px-2.5 py-1 rounded-full mb-2.5">20% off</span>
+                  <span className="text-4xl font-bold text-[#0F172A]">{currentCourse.currentPrice}</span>
+                  <span className="text-lg text-slate-400 line-through mb-1">{currentCourse.originalPrice}</span>
+                  <span className="bg-red-100 text-[#DC2626] text-xs font-bold px-2.5 py-1 rounded-full mb-2.5">{currentCourse.discount}</span>
                 </div>
 
                 {/* Buttons */}
