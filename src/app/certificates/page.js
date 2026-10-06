@@ -605,48 +605,47 @@ function CertificateContent() {
           </div> */}
 
           {/* 4-Step Accreditation Journey */}
-          <div className="no-print print:hidden mt-8 md:mt-12 mb-8 md:mb-12">
-            <div className="text-center mb-6">
+          {/* <div className="no-print print:hidden mt-8 md:mt-12 mb-8 md:mb-12">
+            {/* <div className="text-center mb-6">
               <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-[#D92338]">ACCREDITATION PROCESS</span>
               <h3 className="text-xl md:text-2xl font-extrabold text-slate-900 tracking-tight mt-0.5">
                 How Our Certificates Work
               </h3>
-            </div>
+            </div> */}
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
-              <div className="bg-white rounded-xl md:rounded-2xl p-4 border border-rose-100 shadow-2xs">
+            {/* <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+              {/* <div className="bg-white rounded-xl md:rounded-2xl p-4 border border-rose-100 shadow-2xs">
                 <span className="text-xs font-bold text-[#D92338] block mb-1">01. Exam</span>
                 <h4 className="font-bold text-slate-900 text-xs md:text-sm mb-0.5">AI-Proctored Exam</h4>
                 <p className="text-[11px] md:text-xs text-slate-500 leading-snug">
                   Evaluates reading, listening, speaking & syntax.
                 </p>
-              </div>
+              </div> */}
 
-              <div className="bg-white rounded-xl md:rounded-2xl p-4 border border-rose-100 shadow-2xs">
+              {/* <div className="bg-white rounded-xl md:rounded-2xl p-4 border border-rose-100 shadow-2xs">
                 <span className="text-xs font-bold text-[#D92338] block mb-1">02. CEFR</span>
                 <h4 className="font-bold text-slate-900 text-xs md:text-sm mb-0.5">Benchmarking</h4>
                 <p className="text-[11px] md:text-xs text-slate-500 leading-snug">
                   Scored to CEFR international proficiency standards.
                 </p>
-              </div>
+              </div> */}
 
-              <div className="bg-white rounded-xl md:rounded-2xl p-4 border border-rose-100 shadow-2xs">
+              {/* <div className="bg-white rounded-xl md:rounded-2xl p-4 border border-rose-100 shadow-2xs">
                 <span className="text-xs font-bold text-[#D92338] block mb-1">03. Ledger</span>
                 <h4 className="font-bold text-slate-900 text-xs md:text-sm mb-0.5">SHA-256 Hash</h4>
                 <p className="text-[11px] md:text-xs text-slate-500 leading-snug">
                   Cryptographic tamper-proof record security.
                 </p>
-              </div>
+              </div> */}
 
-              <div className="bg-white rounded-xl md:rounded-2xl p-4 border border-rose-100 shadow-2xs">
+              {/* <div className="bg-white rounded-xl md:rounded-2xl p-4 border border-rose-100 shadow-2xs">
                 <span className="text-xs font-bold text-[#D92338] block mb-1">04. Share</span>
                 <h4 className="font-bold text-slate-900 text-xs md:text-sm mb-0.5">LinkedIn & PDF</h4>
                 <p className="text-[11px] md:text-xs text-slate-500 leading-snug">
                   Share directly on LinkedIn or download vector PDF.
                 </p>
-              </div>
-            </div>
-          </div>
+              </div> */}
+           {/* </div>           </div> */}
         </div>
       </div>
 
