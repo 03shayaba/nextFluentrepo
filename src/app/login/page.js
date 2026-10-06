@@ -2,6 +2,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { useAuth } from '@/context/AuthContext';
 
 export default function LoginPage() {
   const [formData, setFormData] = useState({
@@ -9,6 +11,9 @@ export default function LoginPage() {
     password: '',
     remember: false
   });
+
+  const router = useRouter();
+  const { login } = useAuth();
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -21,7 +26,16 @@ export default function LoginPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Login attempt with:', formData);
-    // Add authentication logic here
+    
+    // Simulate successful login with dummy data
+    login({
+      name: "Alex Johnson",
+      email: formData.email,
+      avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=100&q=80"
+    });
+    
+    // Redirect to home page
+    router.push('/');
   };
 
   return (

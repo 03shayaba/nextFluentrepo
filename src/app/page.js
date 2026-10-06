@@ -5,11 +5,8 @@ import StatsBar from "@/components/StatsBar";
 import CourseCategories from "@/components/CourseCategories";
 import Footer from "@/components/Footer";
 
-// Dynamically import heavy below-the-fold components for max Lighthouse score & instant load
-const TrendingCategories = dynamic(() => import("@/components/TrendingCategories"));
-const HowItWorks = dynamic(() => import("@/components/HowItWorks"));
+// Dynamically import heavy below-the-fold components for max Lighthouse score & instant lo
 const WhyChooseUs = dynamic(() => import("@/components/WhyChooseUs"));
-const OurAchievements = dynamic(() => import("@/components/OurAchievements"));
 const PopularCourses = dynamic(() => import("@/components/PopularCourses"));
 const TrendingCourses = dynamic(() => import("@/components/TrendingCourses"));
 const Testimonials = dynamic(() => import("@/components/Testimonials"));
@@ -26,11 +23,10 @@ export default function Home() {
         <HeroSlider />
         <CourseCategories />
         <AssessmentSection />
-        <TrendingCategories />
-        <PopularCourses />
         <WhyChooseUs />
-        <TrendingCourses />
+        <PopularCourses />
         <Testimonials />
+        <TrendingCourses />
         <LatestInsights />
         <GetInTouch />
         <Newsletter />

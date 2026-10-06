@@ -130,7 +130,7 @@ function CertificateContent() {
         {/* STANDALONE DARK HERO SECTION - Matched to Contact Page Height & Styling */}
         <section className="no-print print:hidden relative w-full bg-[#0B1120] pt-20 pb-32 overflow-hidden border-b border-white/10 z-0 mb-8 select-none">
           {/* Dynamic Background Orbs */}
-          <div className="absolute top-[0%] left-[-10%] w-[500px] h-[500px] rounded-full bg-blue-600/20 blur-[120px] pointer-events-none z-[-1]"></div>
+          <div className="absolute top-[0%] left-[-10%] w-[500px] h-[500px] rounded-full bg-rose-600/20 blur-[120px] pointer-events-none z-[-1]"></div>
           <div className="absolute bottom-[0%] right-[-10%] w-[600px] h-[600px] rounded-full bg-red-600/15 blur-[120px] pointer-events-none z-[-1]"></div>
           <div className="absolute top-[30%] left-[30%] w-[400px] h-[400px] rounded-full bg-emerald-500/10 blur-[100px] pointer-events-none z-[-1]"></div>
 

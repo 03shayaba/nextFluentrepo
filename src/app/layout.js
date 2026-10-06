@@ -1,5 +1,6 @@
 import FloatingContactButtons from "@/components/FloatingContactButtons";
 import { WishlistProvider } from "@/context/WishlistContext";
+import { AuthProvider } from "@/context/AuthContext";
 import "./globals.css";
 
 export const metadata = {
@@ -20,10 +21,12 @@ export default function RootLayout({ children }) {
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
       </head>
       <body className="min-h-full flex flex-col relative bg-white text-slate-900" suppressHydrationWarning>
-        <WishlistProvider>
-          {children}
-          <FloatingContactButtons />
-        </WishlistProvider>
+        <AuthProvider>
+          <WishlistProvider>
+            {children}
+            <FloatingContactButtons />
+          </WishlistProvider>
+        </AuthProvider>
       </body>
     </html>
   );

@@ -5,12 +5,14 @@ import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useWishlist } from '@/context/WishlistContext';
+import { useAuth } from '@/context/AuthContext';
 
 export default function Header() {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   const { wishlistCount } = useWishlist();
+  const { user, logout } = useAuth();
 
   const toggleDropdown = (menu) => {
     setActiveDropdown(activeDropdown === menu ? null : menu);
@@ -104,13 +106,28 @@ export default function Header() {
               </Link>
               <div className="w-px h-5 bg-slate-200"></div>
 
-              <Link href="/login" className="text-[13.5px] font-bold text-slate-800 hover:text-[#DC2626] transition-colors cursor-pointer whitespace-nowrap">
-                Sign In
-              </Link>
+              {user ? (
+                <div className="flex items-center gap-2 cursor-pointer group relative">
+                  <img src={user.avatar} alt="Profile" className="w-9 h-9 rounded-full border-2 border-slate-200 object-cover" />
+                  <span className="font-bold text-sm text-slate-800">{user.name}</span>
+                  
+                  <div className="absolute top-10 right-0 bg-white shadow-xl rounded-xl border border-slate-100 p-2 hidden group-hover:block z-50 min-w-[150px]">
+                    <button onClick={logout} className="text-sm font-bold text-red-500 hover:bg-red-50 px-4 py-2 rounded-lg w-full text-left">
+                      Logout
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <>
+                  <Link href="/login" className="text-[13.5px] font-bold text-slate-800 hover:text-[#DC2626] transition-colors cursor-pointer whitespace-nowrap">
+                    Sign In
+                  </Link>
 
-              <Link href="/signup" className="bg-[#DC2626] hover:bg-[#B91C1C] text-white text-[13.5px] font-bold px-4 xl:px-5 py-2.5 rounded-full shadow-md shadow-red-500/20 transition-all flex items-center gap-1.5 cursor-pointer whitespace-nowrap">
-                Register <span className="font-normal">&rarr;</span>
-              </Link>
+                  <Link href="/signup" className="bg-[#DC2626] hover:bg-[#B91C1C] text-white text-[13.5px] font-bold px-4 xl:px-5 py-2.5 rounded-full shadow-md shadow-red-500/20 transition-all flex items-center gap-1.5 cursor-pointer whitespace-nowrap">
+                    Register <span className="font-normal">&rarr;</span>
+                  </Link>
+                </>
+              )}
             </div>
 
             {/* Mobile/Tablet Hamburger Button */}
