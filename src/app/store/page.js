@@ -227,7 +227,7 @@ export default function StorePage() {
 
             <div className="relative w-full max-w-sm h-64 sm:h-72 rounded-2xl overflow-hidden border border-white/10 shadow-2xl shrink-0 bg-slate-950">
               <Image 
-                src="/ban5.png" 
+                src="/store1.png" 
                 alt="Fluency Combo" 
                 fill 
                 className="object-cover" 
