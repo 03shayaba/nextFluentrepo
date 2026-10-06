@@ -17,8 +17,8 @@ const slides = [
     tag: "ONLINE COURSES",
     title: "SPOKEN ENGLISH MASTERY",
     subtitle: "Speak fluently and naturally in professional & daily situations.",
-    bgImage: "/banner.webp",
-    bgMobile: "object-[85%_center]"
+    bgImage: "/ban6.png",
+    bgMobile: "object-[95%_center]"
   },
   {
     id: 3,
@@ -26,15 +26,15 @@ const slides = [
     title: "MASTER ESSENTIAL SKILLS",
     subtitle: "Build confidence, improve communication skills, and unlock new opportunities.",
     bgImage: "/ban3.webp",
-    bgMobile: "object-[85%_center]"
+    bgMobile: "object-[90%_center]"
   },
   {
     id: 4,
     tag: "EXPERT SOLUTIONS",
     title: "LEARN TODAY. BRIGHTER TOMORROW.",
     subtitle: "Interactive lessons and structured pathways tailored to your goals.",
-    bgImage: "/ban4.webp",
-    bgMobile: "object-[85%_center]"
+    bgImage: "/ban5.png",
+    bgMobile: "object-[92%_center]"
   }
 ];
 
