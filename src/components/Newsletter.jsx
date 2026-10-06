@@ -41,7 +41,7 @@ export default function Newsletter() {
               Subscribe for <span className="bg-gradient-to-r from-[#EF4444] to-rose-400 bg-clip-text text-transparent">Exclusive Offers & News!</span>
             </h2>
             <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-              Don't miss out! Get the latest courses, special discount vouchers, and premium learning tips delivered straight to your inbox.
+              "Your next level begins with the way you communicate." — Stay ahead with the latest courses, offers & learning tips.
             </p>
           </div>
 

@@ -155,7 +155,7 @@ function CertificateContent() {
             </h1>
 
             <p className="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
-              Inspect, verify, and download accredited language mastery credentials verified by AI-proctored evaluation.
+              "English isn't just a language. It's your passport to a bigger world."
             </p>
           </div>
         </section>

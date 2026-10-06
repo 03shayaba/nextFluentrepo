@@ -89,9 +89,8 @@ export default function WhyChooseUs() {
           <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 mb-6 tracking-tight">
             Why Learn With <span className="text-[#DC2626]">NextFluent</span>?
           </h2>
-          <p className="text-lg text-slate-600 leading-relaxed">
-            More than just courses — we give you a complete learning experience 
-            to help you speak English confidently in the real world.
+          <p className="text-lg text-slate-600 leading-relaxed font-medium">
+            "We don’t teach you to speak English. We help you find your voice."
           </p>
         </div>
 

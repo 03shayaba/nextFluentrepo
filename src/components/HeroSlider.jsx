@@ -8,33 +8,37 @@ const slides = [
     id: 1,
     tag: "ENGLISH LEARNING",
     title: "EXCEL IN YOUR CAREER & ACADEMICS",
-    subtitle: "Crack IELTS, TOEFL, and Spoken English with expert guidance.",
+    subtitle: "Think in English. Speak naturally. Live confidently.",
     bgImage: "/ban1.webp",
-    bgMobile: "object-[95%_center]"
+    bgMobile: "object-[95%_center]",
+    bgDesktop: "object-[75%_center]"
   },
   {
     id: 2,
     tag: "ONLINE COURSES",
     title: "SPOKEN ENGLISH MASTERY",
-    subtitle: "Speak fluently and naturally in professional & daily situations.",
+    subtitle: "Master the language. Unlock the confidence. Expand your world.",
     bgImage: "/ban6.png",
-    bgMobile: "object-[95%_center]"
+    bgMobile: "object-[95%_center]",
+    bgDesktop: "object-[72%_center]"
   },
   {
     id: 3,
     tag: "GRAMMAR & WRITING",
     title: "MASTER ESSENTIAL SKILLS",
-    subtitle: "Build confidence, improve communication skills, and unlock new opportunities.",
+    subtitle: "Your next level begins with the way you communicate.",
     bgImage: "/ban3.webp",
-    bgMobile: "object-[90%_center]"
+    bgMobile: "object-[90%_center]",
+    bgDesktop: "object-[70%_center]"
   },
   {
     id: 4,
     tag: "EXPERT SOLUTIONS",
     title: "LEARN TODAY. BRIGHTER TOMORROW.",
-    subtitle: "Interactive lessons and structured pathways tailored to your goals.",
+    subtitle: "English isn’t just a language. It’s your passport to a bigger world.",
     bgImage: "/ban5.png",
-    bgMobile: "object-[92%_center]"
+    bgMobile: "object-[92%_center]",
+    bgDesktop: "object-[75%_center]"
   }
 ];
 
@@ -108,7 +112,7 @@ export default function HeroSlider() {
                 alt={slide.title}
                 fill
                 priority={i <= 2}
-                className={`object-cover ${slide.bgMobile || 'object-[85%_center]'} sm:object-center`}
+                className={`object-cover ${slide.bgMobile || 'object-[85%_center]'} sm:${slide.bgDesktop || 'object-[75%_center]'}`}
               />
             </div>
 
