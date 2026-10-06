@@ -319,7 +319,7 @@ export default function CoursesPage() {
                   </div>
                   
                   <div>
-                    <h2 className="text-xl sm:text-4xl lg:text-5xl font-extrabold text-white group-hover:text-red-400 transition-colors drop-shadow-md leading-tight">9+</h2>
+                    <h2 className="text-xl sm:text-4xl lg:text-5xl font-extrabold text-white group-hover:text-red-400 transition-colors drop-shadow-md leading-tight">15+</h2>
                     <p className="text-[10px] sm:text-xs lg:text-sm text-slate-300 font-medium mt-0.5 sm:mt-1 leading-tight">Online Courses</p>
                   </div>
                 </div>
@@ -335,7 +335,7 @@ export default function CoursesPage() {
                   </div>
                   
                   <div>
-                    <h2 className="text-xl sm:text-4xl lg:text-5xl font-extrabold text-white group-hover:text-blue-400 transition-colors drop-shadow-md leading-tight">6+</h2>
+                    <h2 className="text-xl sm:text-4xl lg:text-5xl font-extrabold text-white group-hover:text-blue-400 transition-colors drop-shadow-md leading-tight">12+</h2>
                     <p className="text-[10px] sm:text-xs lg:text-sm text-slate-300 font-medium mt-0.5 sm:mt-1 leading-tight">Expert Mentors</p>
                   </div>
                 </div>
@@ -351,7 +351,7 @@ export default function CoursesPage() {
                   </div>
                   
                   <div>
-                    <h2 className="text-xl sm:text-4xl lg:text-5xl font-extrabold text-white group-hover:text-emerald-400 transition-colors drop-shadow-md leading-tight">10k+</h2>
+                    <h2 className="text-xl sm:text-4xl lg:text-5xl font-extrabold text-white group-hover:text-emerald-400 transition-colors drop-shadow-md leading-tight">50k+</h2>
                     <p className="text-[10px] sm:text-xs lg:text-sm text-slate-300 font-medium mt-0.5 sm:mt-1 leading-tight">Active Learners</p>
                   </div>
                 </div>

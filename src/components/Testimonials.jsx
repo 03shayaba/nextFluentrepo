@@ -71,9 +71,7 @@ const extendedTestimonials = Array(40).fill(testimonials).flat();
 
 export default function Testimonials() {
   const [activeIndex, setActiveIndex] = useState(testimonials.length * 20);
-  const [isAnimating, setIsAnimating] = useState(false);
-
-
+  const [isPaused, setIsPaused] = useState(false);
 
   const handleNext = () => {
     setActiveIndex((prev) => prev + 1);
@@ -82,6 +80,26 @@ export default function Testimonials() {
   const handlePrev = () => {
     setActiveIndex((prev) => prev - 1);
   };
+
+  // Reset index to stay near middle range for seamless infinite looping
+  useEffect(() => {
+    if (activeIndex >= extendedTestimonials.length - testimonials.length) {
+      setActiveIndex(testimonials.length * 20 + (activeIndex % testimonials.length));
+    } else if (activeIndex < testimonials.length) {
+      setActiveIndex(testimonials.length * 20 + (activeIndex % testimonials.length));
+    }
+  }, [activeIndex]);
+
+  // Auto-slide interval (every 1.3 seconds for fast sliding)
+  useEffect(() => {
+    if (isPaused) return;
+
+    const timer = setInterval(() => {
+      handleNext();
+    }, 1300);
+
+    return () => clearInterval(timer);
+  }, [isPaused]);
 
   return (
     <section className="relative bg-[#FDFCF8] pt-16 lg:pt-24 pb-8 lg:pb-12 overflow-hidden font-sans ">
@@ -163,7 +181,7 @@ export default function Testimonials() {
           {/* Cards Track Container */}
           <div className="w-full relative h-[430px] sm:h-[460px] overflow-hidden [--card-step:284px] sm:[--card-step:340px]">
             <div 
-              className="absolute top-0 left-1/2 h-full flex items-center transition-transform duration-500 ease-out"
+              className="absolute top-0 left-1/2 h-full flex items-center transition-transform duration-300 ease-out"
               style={{ 
                 transform: `translateX(calc(-${activeIndex} * var(--card-step) - (var(--card-step) / 2)))`,
               }}
@@ -175,7 +193,9 @@ export default function Testimonials() {
                   <div 
                     key={idx}
                     onClick={() => setActiveIndex(idx)}
-                    className={`transition-all duration-500 ease-out relative flex-shrink-0 w-[268px] sm:w-[316px] mx-[8px] sm:mx-[12px] cursor-pointer ${
+                    onMouseEnter={() => { if (isCenter) setIsPaused(true); }}
+                    onMouseLeave={() => setIsPaused(false)}
+                    className={`transition-all duration-300 ease-out relative flex-shrink-0 w-[268px] sm:w-[316px] mx-[8px] sm:mx-[12px] cursor-pointer ${
                       isCenter 
                         ? 'scale-100 z-20 opacity-100 shadow-[0_20px_40px_rgba(0,0,0,0.08)] border-2 border-[#DC2626]' 
                         : 'scale-95 z-10 opacity-40 blur-[0.3px] border border-slate-200/60 shadow-sm hover:opacity-70'

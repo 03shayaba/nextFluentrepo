@@ -143,15 +143,15 @@ export default function CategoriesPage() {
                 {/* Quick Stats in Hero */}
                 <div className="grid grid-cols-3 gap-2 sm:gap-8 border-t border-slate-800/80 pt-6 sm:pt-8 mt-6 sm:mt-8 text-center sm:text-left">
                   <div className="p-2 sm:p-0 bg-slate-900/40 sm:bg-transparent rounded-xl sm:rounded-none border border-slate-800/50 sm:border-none">
-                    <h4 className="text-xl sm:text-3xl font-black text-white">8+</h4>
+                    <h4 className="text-xl sm:text-3xl font-black text-white">15+</h4>
                     <p className="text-[10px] sm:text-sm text-slate-400 font-medium mt-0.5 sm:mt-1">Learning Tracks</p>
                   </div>
                   <div className="p-2 sm:p-0 bg-slate-900/40 sm:bg-transparent rounded-xl sm:rounded-none border border-slate-800/50 sm:border-none">
-                    <h4 className="text-xl sm:text-3xl font-black text-white">150+</h4>
+                    <h4 className="text-xl sm:text-3xl font-black text-white">300+</h4>
                     <p className="text-[10px] sm:text-sm text-slate-400 font-medium mt-0.5 sm:mt-1">Total Courses</p>
                   </div>
                   <div className="p-2 sm:p-0 bg-slate-900/40 sm:bg-transparent rounded-xl sm:rounded-none border border-slate-800/50 sm:border-none">
-                    <h4 className="text-xl sm:text-3xl font-black text-white">10k+</h4>
+                    <h4 className="text-xl sm:text-3xl font-black text-white">50k+</h4>
                     <p className="text-[10px] sm:text-sm text-slate-400 font-medium mt-0.5 sm:mt-1">Active Students</p>
                   </div>
                 </div>

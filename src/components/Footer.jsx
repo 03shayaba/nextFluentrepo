@@ -20,7 +20,7 @@ export default function Footer() {
             <div className="space-y-2">
               <Link href="/" className="inline-flex items-center gap-3 cursor-pointer group">
                 <Image src="/logo_transparent.webp" alt="NextFluent Logo" width={200} height={56} className="h-12 sm:h-14 w-auto object-contain transition-transform group-hover:scale-105" />
-                <span className="text-xl sm:text-2xl font-bold text-white tracking-tight">Next<span className="text-[#DC2626]">Fluent</span></span>
+                <span className="text-xl sm:text-2xl font-bold text-white tracking-tight">Next Gen. <span className="text-[#DC2626]">English Classes</span></span>
               </Link>
               <p className="text-xs font-semibold text-[#DC2626] tracking-wide">
                 Learn Today. Brighter Tomorrow.
@@ -82,8 +82,10 @@ export default function Footer() {
             <ul className="space-y-2 text-xs sm:text-sm font-medium text-slate-400">
               <li><Link href="/" className="hover:text-[#DC2626] transition-colors flex items-center gap-1.5"><span>Home</span></Link></li>
               <li><Link href="/courses" className="hover:text-[#DC2626] transition-colors flex items-center gap-1.5"><span>Browse Courses</span></Link></li>
+              <li><Link href="/store" className="hover:text-[#DC2626] transition-colors flex items-center gap-1.5"><span>Official Store</span></Link></li>
               <li><Link href="/quiz" className="hover:text-[#DC2626] transition-colors flex items-center gap-1.5"><span>Quizzes & Tests</span></Link></li>
               <li><Link href="/certificates" className="hover:text-[#DC2626] transition-colors flex items-center gap-1.5"><span>Certificates</span></Link></li>
+              <li><Link href="/blogs" className="hover:text-[#DC2626] transition-colors flex items-center gap-1.5"><span>Blogs & Articles</span></Link></li>
             </ul>
           </div>
 

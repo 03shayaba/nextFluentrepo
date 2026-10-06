@@ -34,12 +34,12 @@ export default function AboutUs() {
             <div className="grid grid-cols-2 gap-6 pt-4 border-t border-slate-100">
               
               <div className="space-y-1">
-                <h4 className="text-3xl sm:text-4xl font-black text-[#EF4444]">10K+</h4>
+                <h4 className="text-3xl sm:text-4xl font-black text-[#EF4444]">50K+</h4>
                 <p className="text-sm font-bold text-slate-700">Happy Students</p>
               </div>
 
               <div className="space-y-1">
-                <h4 className="text-3xl sm:text-4xl font-black text-[#EF4444]">50+</h4>
+                <h4 className="text-3xl sm:text-4xl font-black text-[#EF4444]">15+</h4>
                 <p className="text-sm font-bold text-slate-700">Expert Tutors</p>
               </div>
 
@@ -75,7 +75,7 @@ export default function AboutUs() {
                 🏆
               </div>
               <div>
-                <p className="text-[#0F172A] font-black text-lg leading-none">10+ Years</p>
+                <p className="text-[#0F172A] font-black text-lg leading-none">15+ Years</p>
                 <p className="text-slate-500 font-bold text-xs mt-1 uppercase tracking-wider">Of Excellence</p>
               </div>
             </div>

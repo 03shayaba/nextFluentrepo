@@ -87,7 +87,7 @@ export default function WhyChooseUs() {
             Why Choose Us
           </div>
           <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 mb-6 tracking-tight">
-            Why Learn With <span className="text-[#DC2626]">NextFluent</span>?
+            Why Learn With <span className="text-[#DC2626]">Next Gen. English Classes</span>?
           </h2>
           <p className="text-lg text-slate-600 leading-relaxed font-medium">
             "We don’t teach you to speak English. We help you find your voice."
@@ -147,7 +147,7 @@ export default function WhyChooseUs() {
             {/* Main Center Image */}
             <div className="relative z-10 w-full max-w-[240px] md:max-w-[260px] lg:max-w-[300px] mx-auto rounded-t-[6rem] md:rounded-t-[7rem] lg:rounded-t-[8rem] rounded-b-3xl overflow-hidden shadow-xl border-[5px] border-white/80">
               <Image 
-                src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                src="/whychoose.webp" 
                 alt="Student learning on laptop" 
                 width={300}
                 height={340}

@@ -35,20 +35,20 @@ export default function Header() {
     <>
       <div className="bg-[#111726] text-white text-xs sm:text-sm font-semibold py-2.5 overflow-hidden flex items-center relative whitespace-nowrap z-50">
         <div className="animate-marquee flex gap-10 min-w-full">
-           <span className="flex items-center gap-2">🚀 Welcome to NextFluent! Enroll now and get <span className="text-[#EF4444] font-bold">50% off</span> on all Premium Courses!</span>
-           <span className="flex items-center gap-2">⭐ Join <span className="text-[#EF4444] font-bold">10,000+</span> successful learners today.</span>
-           <span className="flex items-center gap-2">🎓 Special <span className="text-[#EF4444] font-bold">IELTS Preparation</span> batches starting this week.</span>
-           {/* Duplicate for seamless loop */}
-           <span className="flex items-center gap-2">🚀 Welcome to NextFluent! Enroll now and get <span className="text-[#EF4444] font-bold">50% off</span> on all Premium Courses!</span>
-           <span className="flex items-center gap-2">⭐ Join <span className="text-[#EF4444] font-bold">10,000+</span> successful learners today.</span>
-           <span className="flex items-center gap-2">🎓 Special <span className="text-[#EF4444] font-bold">IELTS Preparation</span> batches starting this week.</span>
+          <span className="flex items-center gap-2">🚀 Welcome to NextFluent! Enroll now and get <span className="text-[#EF4444] font-bold">50% off</span> on all Premium Courses!</span>
+          <span className="flex items-center gap-2">⭐ Join <span className="text-[#EF4444] font-bold">10,000+</span> successful learners today.</span>
+          <span className="flex items-center gap-2">🎓 Special <span className="text-[#EF4444] font-bold">IELTS Preparation</span> batches starting this week.</span>
+          {/* Duplicate for seamless loop */}
+          <span className="flex items-center gap-2">🚀 Welcome to NextFluent! Enroll now and get <span className="text-[#EF4444] font-bold">50% off</span> on all Premium Courses!</span>
+          <span className="flex items-center gap-2">⭐ Join <span className="text-[#EF4444] font-bold">10,000+</span> successful learners today.</span>
+          <span className="flex items-center gap-2">🎓 Special <span className="text-[#EF4444] font-bold">IELTS Preparation</span> batches starting this week.</span>
         </div>
       </div>
 
       <header className="sticky w-full top-0 z-50 bg-white shadow-sm border-b border-slate-100 text-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20 relative">
-            
+
             {/* Logo Section */}
             <Link href="/" className="flex items-center gap-3 cursor-pointer z-10 transition-opacity hover:opacity-90">
               <Image src="/logo_transparent.webp" alt="NextFluent Logo" width={200} height={48} className="h-10 sm:h-12 w-auto object-contain" />
@@ -56,8 +56,8 @@ export default function Header() {
 
             {/* Desktop Navigation Links */}
             <nav className="hidden lg:flex items-center space-x-4 xl:space-x-8 text-[14px] xl:text-[15px] font-semibold">
-              <Link 
-                href="/" 
+              <Link
+                href="/"
                 className={`transition-colors py-2 whitespace-nowrap ${isActive('/') ? activeLinkClass : inactiveLinkClass}`}
               >
                 Home
@@ -87,13 +87,19 @@ export default function Header() {
               {/* Certificates Link */}
               <Link href="/certificates" className={`transition-colors py-2 whitespace-nowrap ${isActive('/certificates') ? activeLinkClass : inactiveLinkClass}`}>Certificates</Link>
 
+              {/* Store Link */}
+              <Link href="/store" className={`transition-colors py-2 whitespace-nowrap ${isActive('/store') ? activeLinkClass : inactiveLinkClass}`}>Store</Link>
+
+              {/* Blogs Link */}
+              <Link href="/blogs" className={`transition-colors py-2 whitespace-nowrap ${isActive('/blogs') ? activeLinkClass : inactiveLinkClass}`}>Blogs</Link>
+
               <Link href="/about" className={`transition-colors py-2 whitespace-nowrap ${isActive('/about') ? activeLinkClass : inactiveLinkClass}`}>About Us</Link>
               <Link href="/contact" className={`transition-colors py-2 whitespace-nowrap ${isActive('/contact') ? activeLinkClass : inactiveLinkClass}`}>Contact Us</Link>
             </nav>
 
             {/* Right Action Buttons */}
             <div className="hidden lg:flex items-center space-x-3 xl:space-x-5">
-              
+
               <Link href="/wishlist" className={`relative transition-colors p-1.5 ${isActive('/wishlist') ? 'text-[#DC2626]' : 'text-slate-600 hover:text-[#DC2626]'}`} aria-label="Wishlist">
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
@@ -110,7 +116,7 @@ export default function Header() {
                 <div className="flex items-center gap-2 cursor-pointer group relative">
                   <img src={user.avatar} alt="Profile" className="w-9 h-9 rounded-full border-2 border-slate-200 object-cover" />
                   <span className="font-bold text-sm text-slate-800">{user.name}</span>
-                  
+
                   <div className="absolute top-10 right-0 bg-white shadow-xl rounded-xl border border-slate-100 p-2 hidden group-hover:block z-50 min-w-[150px]">
                     <button onClick={logout} className="text-sm font-bold text-red-500 hover:bg-red-50 px-4 py-2 rounded-lg w-full text-left">
                       Logout
@@ -132,7 +138,7 @@ export default function Header() {
 
             {/* Mobile/Tablet Hamburger Button */}
             <div className="lg:hidden flex items-center">
-              <button 
+              <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="text-slate-800 hover:text-[#DC2626] p-2 rounded-lg focus:outline-none"
                 aria-label="Toggle Navigation Menu"
@@ -151,16 +157,16 @@ export default function Header() {
           {/* Mobile/Tablet Navigation Drawer */}
           {mobileMenuOpen && (
             <div className="lg:hidden border-t border-slate-200 py-4 px-4 space-y-2 bg-white shadow-2xl absolute w-full left-0 top-full z-50 animate-in fade-in slide-in-from-top-2 duration-200">
-              <Link 
-                href="/" 
+              <Link
+                href="/"
                 onClick={closeMobileMenu}
                 className={`block px-4 py-2.5 rounded-xl font-bold transition-colors ${isActive('/') ? 'bg-rose-50 text-[#DC2626]' : 'text-slate-700 hover:bg-slate-50 hover:text-[#DC2626]'}`}
               >
                 Home
               </Link>
-              
+
               <div className="space-y-1">
-                <button 
+                <button
                   onClick={() => toggleDropdown('mobile-courses')}
                   className={`flex items-center justify-between w-full px-4 py-2.5 rounded-xl font-bold transition-colors ${isActive('/courses') || isActive('/categories') ? 'bg-rose-50 text-[#DC2626]' : 'text-slate-700 hover:bg-slate-50 hover:text-[#DC2626]'}`}
                 >
@@ -177,32 +183,48 @@ export default function Header() {
                 )}
               </div>
 
-              <Link 
-                href="/quiz" 
+              <Link
+                href="/quiz"
                 onClick={closeMobileMenu}
                 className={`block px-4 py-2.5 rounded-xl font-bold transition-colors ${isActive('/quiz') ? 'bg-rose-50 text-[#DC2626]' : 'text-slate-700 hover:bg-slate-50 hover:text-[#DC2626]'}`}
               >
                 Quiz
               </Link>
 
-              <Link 
-                href="/certificates" 
+              <Link
+                href="/certificates"
                 onClick={closeMobileMenu}
                 className={`block px-4 py-2.5 rounded-xl font-bold transition-colors ${isActive('/certificates') ? 'bg-rose-50 text-[#DC2626]' : 'text-slate-700 hover:bg-slate-50 hover:text-[#DC2626]'}`}
               >
                 Certificates
               </Link>
 
-              <Link 
-                href="/about" 
+              <Link
+                href="/store"
+                onClick={closeMobileMenu}
+                className={`block px-4 py-2.5 rounded-xl font-bold transition-colors ${isActive('/store') ? 'bg-rose-50 text-[#DC2626]' : 'text-slate-700 hover:bg-slate-50 hover:text-[#DC2626]'}`}
+              >
+                Store
+              </Link>
+
+              <Link
+                href="/blogs"
+                onClick={closeMobileMenu}
+                className={`block px-4 py-2.5 rounded-xl font-bold transition-colors ${isActive('/blogs') ? 'bg-rose-50 text-[#DC2626]' : 'text-slate-700 hover:bg-slate-50 hover:text-[#DC2626]'}`}
+              >
+                Blogs
+              </Link>
+
+              <Link
+                href="/about"
                 onClick={closeMobileMenu}
                 className={`block px-4 py-2.5 rounded-xl font-bold transition-colors ${isActive('/about') ? 'bg-rose-50 text-[#DC2626]' : 'text-slate-700 hover:bg-slate-50 hover:text-[#DC2626]'}`}
               >
                 About Us
               </Link>
 
-              <Link 
-                href="/contact" 
+              <Link
+                href="/contact"
                 onClick={closeMobileMenu}
                 className={`block px-4 py-2.5 rounded-xl font-bold transition-colors ${isActive('/contact') ? 'bg-rose-50 text-[#DC2626]' : 'text-slate-700 hover:bg-slate-50 hover:text-[#DC2626]'}`}
               >

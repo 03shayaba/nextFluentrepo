@@ -496,10 +496,10 @@ function CertificateContent() {
           </div>
 
           {/* Audited Skill Breakdown Section - Hidden on Print */}
-          <div className="no-print print:hidden mt-12 bg-white rounded-2xl md:rounded-3xl p-5 md:p-7 border border-rose-100 shadow-sm">
+          {/* <div className="no-print print:hidden mt-12 bg-white rounded-2xl md:rounded-3xl p-5 md:p-7 border border-rose-100 shadow-sm">
             
-            {/* Header */}
-            <div className="flex items-center justify-between mb-4 md:mb-6 pb-3 md:pb-4 border-b border-slate-100">
+           
+            {/* <div className="flex items-center justify-between mb-4 md:mb-6 pb-3 md:pb-4 border-b border-slate-100">
               <div>
                 <h3 className="text-sm md:text-base font-bold text-slate-900 leading-none">
                   Audited Skill Breakdown
@@ -517,10 +517,10 @@ function CertificateContent() {
                   {levels.find(l => l.id === selectedLevel)?.score}
                 </span>
               </div>
-            </div>
+            </div> 
 
-            {/* Skill Bars */}
-            <div className="space-y-3 md:space-y-4">
+            
+            {/* <div className="space-y-3 md:space-y-4">
               {currentSkillData.map((skill, idx) => (
                 <div key={idx} className="space-y-1 md:space-y-1.5">
                   <div className="flex justify-between items-center text-xs md:text-sm">
@@ -535,12 +535,12 @@ function CertificateContent() {
                   </div>
                 </div>
               ))}
-            </div>
+            </div> 
 
-          </div>
+          </div> */}
 
           {/* Real-time Employer Credential Verification Lookup */}
-          <div className="no-print print:hidden mt-8 md:mt-10 bg-gradient-to-br from-[#351D22] via-[#2A161A] to-[#1E0F12] rounded-2xl md:rounded-3xl p-5 md:p-8 text-white shadow-lg border border-[#4A2A31]">
+          {/* <div className="no-print print:hidden mt-8 md:mt-10 bg-gradient-to-br from-[#351D22] via-[#2A161A] to-[#1E0F12] rounded-2xl md:rounded-3xl p-5 md:p-8 text-white shadow-lg border border-[#4A2A31]">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div className="max-w-xs md:max-w-md">
                 <span className="inline-block text-[9.5px] md:text-xs font-bold uppercase tracking-widest bg-rose-500/20 text-rose-300 px-2.5 py-0.5 rounded-full mb-2 border border-rose-500/30">
@@ -576,7 +576,7 @@ function CertificateContent() {
               </form>
             </div>
 
-            {/* Verification Result Drawer */}
+           
             {verifyResult && (
               <div className="mt-4 pt-4 border-t border-white/15">
                 <div className="bg-white/10 backdrop-blur-md rounded-xl p-3 md:p-4 border border-white/10 grid grid-cols-2 md:grid-cols-4 gap-3 text-xs">
@@ -602,7 +602,7 @@ function CertificateContent() {
                 </div>
               </div>
             )}
-          </div>
+          </div> */}
 
           {/* 4-Step Accreditation Journey */}
           <div className="no-print print:hidden mt-8 md:mt-12 mb-8 md:mb-12">

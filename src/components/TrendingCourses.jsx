@@ -51,7 +51,7 @@ export default function TrendingCourses() {
             ⭐ Trending Courses
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white tracking-tight mb-4">
-            Over 200+ <span className="text-[#EF4444]">Online Courses</span>
+            Our BestSeller <span className="text-[#EF4444]">Online Courses</span>
           </h2>
           <p className="text-slate-400 text-sm sm:text-base leading-relaxed max-w-xl mx-auto">
             The ultimate learning solution for students and professionals looking to reach their personal goals.

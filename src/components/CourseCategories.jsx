@@ -72,6 +72,7 @@ const coursesData = [
 export default function CourseCategories() {
   const scrollRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(-1);
+  const [isPaused, setIsPaused] = useState(false);
 
   // Create an array with many duplicates to simulate infinite scrolling
   const extendedCourses = Array(10).fill(coursesData).flat();
@@ -81,6 +82,17 @@ export default function CourseCategories() {
     const container = scrollRef.current;
     const cards = Array.from(container.children).filter(child => child.classList.contains('card-item'));
     if (cards.length === 0) return;
+
+    // Boundary check for endless continuous loop
+    const gap = window.innerWidth >= 768 ? 24 : 16;
+    const singleSetWidth = (cards[0].offsetWidth + gap) * coursesData.length;
+    if (singleSetWidth > 0) {
+      if (container.scrollLeft >= container.scrollWidth - container.clientWidth - 300) {
+        container.scrollLeft -= singleSetWidth * 3;
+      } else if (container.scrollLeft <= 300) {
+        container.scrollLeft += singleSetWidth * 3;
+      }
+    }
 
     const containerCenter = container.scrollLeft + container.clientWidth / 2;
 
@@ -120,6 +132,17 @@ export default function CourseCategories() {
 
     handleScroll();
   }, []);
+
+  // Automatic slide interval (every 1.3 seconds for fast sliding)
+  useEffect(() => {
+    if (isPaused) return;
+
+    const timer = setInterval(() => {
+      scrollRight();
+    }, 1300);
+
+    return () => clearInterval(timer);
+  }, [isPaused]);
 
   const scrollLeft = () => {
     if (scrollRef.current && scrollRef.current.firstElementChild) {
@@ -193,6 +216,8 @@ export default function CourseCategories() {
               return (
                 <div
                   key={index}
+                  onMouseEnter={() => { if (isActive) setIsPaused(true); }}
+                  onMouseLeave={() => setIsPaused(false)}
                   className={`card-item snap-center shrink-0 w-full sm:w-[240px] md:w-[calc((100%-48px)/3)] xl:w-[calc((100%-96px)/5)] px-3 sm:px-0 group relative transition-all duration-300 ${isActive ? 'scale-105 z-10' : 'scale-100 opacity-90'}`}
                 >
                   <div className={`h-full bg-white rounded-[1.5rem] p-6 flex flex-col items-center text-center transition-all duration-300 border ${isActive ? 'border-[#DC2626] shadow-xl shadow-red-500/10 -translate-y-1.5' : 'border-slate-200/80 shadow-sm'}`}>
