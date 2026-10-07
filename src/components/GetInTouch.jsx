@@ -211,10 +211,12 @@ export default function GetInTouch() {
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="text-xs font-semibold text-slate-600">
+                    <label htmlFor="get-in-touch-service" className="text-xs font-semibold text-slate-600">
                       Select Service <span className="text-amber-500">*</span>
                     </label>
                     <select
+                      id="get-in-touch-service"
+                      name="service"
                       required
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}

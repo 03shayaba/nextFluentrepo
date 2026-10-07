@@ -104,6 +104,7 @@ export default function OurJourney() {
                   alt="Lead Mentor" 
                   width={112}
                   height={112}
+                  sizes="112px"
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                 />
               </div>

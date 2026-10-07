@@ -238,7 +238,7 @@ export default function Testimonials() {
                       <div className="flex items-center gap-2 flex-1 min-w-0">
                         <div>
                           <div className="font-bold text-slate-900 text-sm">{card.beforeLevel}</div>
-                          <div className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">BEFORE</div>
+                          <div className="text-[10px] text-slate-600 font-bold uppercase tracking-wider">BEFORE</div>
                         </div>
                         
                         {/* Dotted Arrow */}
@@ -251,7 +251,7 @@ export default function Testimonials() {
 
                         <div className="text-right">
                           <div className="font-bold text-slate-900 text-sm">{card.afterLevel}</div>
-                          <div className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">AFTER</div>
+                          <div className="text-[10px] text-slate-600 font-bold uppercase tracking-wider">AFTER</div>
                         </div>
                       </div>
 

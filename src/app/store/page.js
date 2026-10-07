@@ -284,9 +284,11 @@ export default function StorePage() {
 
               {/* Sort Selector */}
               <div className="flex items-center gap-2 shrink-0 self-end md:self-auto">
-                <Filter className="w-4 h-4 text-slate-500" />
-                <span className="text-xs text-slate-500 font-semibold">Sort by:</span>
+                <Filter className="w-4 h-4 text-slate-600" />
+                <label htmlFor="store-sort-select" className="text-xs text-slate-600 font-semibold cursor-pointer">Sort by:</label>
                 <select 
+                  id="store-sort-select"
+                  aria-label="Sort products by"
                   value={sortBy} 
                   onChange={(e) => setSortBy(e.target.value)}
                   className="bg-white border border-slate-200 rounded-xl px-3 py-1.5 text-xs text-slate-800 font-bold focus:outline-none cursor-pointer shadow-sm"

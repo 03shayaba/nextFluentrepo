@@ -19,10 +19,10 @@ export default function Footer() {
           <div className="sm:col-span-2 lg:col-span-4 space-y-5">
             <div className="space-y-2">
               <Link href="/" className="inline-flex items-center gap-3 cursor-pointer group">
-                <Image src="/logo_transparent.webp" alt="NextFluent Logo" width={200} height={56} className="h-12 sm:h-14 w-auto object-contain transition-transform group-hover:scale-105" />
+                <Image src="/logo_transparent.webp" alt="NextFluent Logo" width={200} height={56} sizes="(max-width: 640px) 160px, 200px" className="h-12 sm:h-14 w-auto object-contain transition-transform group-hover:scale-105" />
                 <span className="text-xl sm:text-2xl font-bold text-white tracking-tight">Next Gen. <span className="text-[#DC2626]">English Classes</span></span>
               </Link>
-              <p className="text-xs font-semibold text-[#DC2626] tracking-wide">
+              <p className="text-xs font-semibold text-[#F87171] tracking-wide">
                 Learn Today. Brighter Tomorrow.
               </p>
             </div>
@@ -79,7 +79,7 @@ export default function Footer() {
               Quick Links
               <span className="block w-6 h-0.5 bg-[#DC2626] rounded-full mt-1.5" />
             </h4>
-            <ul className="space-y-2 text-xs sm:text-sm font-medium text-slate-400">
+            <ul className="space-y-2 text-xs sm:text-sm font-medium text-slate-400" suppressHydrationWarning>
               <li><Link href="/" className="hover:text-[#DC2626] transition-colors flex items-center gap-1.5"><span>Home</span></Link></li>
               <li><Link href="/courses" className="hover:text-[#DC2626] transition-colors flex items-center gap-1.5"><span>Browse Courses</span></Link></li>
               <li><Link href="/store" className="hover:text-[#DC2626] transition-colors flex items-center gap-1.5"><span>Official Store</span></Link></li>

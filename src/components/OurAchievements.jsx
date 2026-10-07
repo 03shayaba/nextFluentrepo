@@ -120,7 +120,7 @@ export default function OurAchievements() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0F172A] tracking-tight">
             Empowering Learners Worldwide
           </h2>
-          <p className="text-sm sm:text-base text-slate-500 font-medium leading-relaxed max-w-xl mx-auto">
+          <p className="text-sm sm:text-base text-slate-600 font-medium leading-relaxed max-w-xl mx-auto">
             We are proud of the impact we've made in the education space. Our growing community is a testament to our commitment to quality learning.
           </p>
         </div>

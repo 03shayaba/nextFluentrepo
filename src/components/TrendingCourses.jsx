@@ -1,44 +1,9 @@
 'use client';
 import Image from 'next/image';
+import Link from 'next/link';
+import { trendingCoursesData } from '@/data/coursesData';
 
-const trendingCourses = [
-  {
-    id: 1,
-    title: "Sales Training: Practical Sales Techniques",
-    instructor: "Masum Billah",
-    lessons: "14 Lessons",
-    price: "Free",
-    originalPrice: null,
-    image: "/course1.avif"
-  },
-  {
-    id: 2,
-    title: "Information About UI/UX Design Degree",
-    instructor: "Masum Billah",
-    lessons: "15 Lessons",
-    price: "₹2,499",
-    originalPrice: "₹3,499",
-    image: "/course2.avif"
-  },
-  {
-    id: 3,
-    title: "Advanced Spoken English & Accent Training",
-    instructor: "Dr. Sarah Khan",
-    lessons: "18 Lessons",
-    price: "₹1,899",
-    originalPrice: "₹2,699",
-    image: "/course3.avif"
-  },
-  {
-    id: 4,
-    title: "Complete IELTS Academic Prep Masterclass",
-    instructor: "John Miller",
-    lessons: "20 Lessons",
-    price: "Free",
-    originalPrice: null,
-    image: "/course4.avif"
-  }
-];
+
 
 export default function TrendingCourses() {
   return (
@@ -47,22 +12,22 @@ export default function TrendingCourses() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 relative z-10">
-          <span className="inline-flex items-center gap-2 bg-red-500/15 backdrop-blur-md border border-red-500/30 text-[#EF4444] font-bold text-xs sm:text-sm px-4 py-1.5 rounded-full tracking-wide mb-4 uppercase">
+          <span className="inline-flex items-center gap-2 bg-red-500/15 backdrop-blur-md border border-red-500/30 text-[#F87171] font-bold text-xs sm:text-sm px-4 py-1.5 rounded-full tracking-wide mb-4 uppercase">
             ⭐ Trending Courses
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white tracking-tight mb-4">
-            Our BestSeller <span className="text-[#EF4444]">Online Courses</span>
+            Our BestSeller <span className="text-[#F87171]">Online Courses</span>
           </h2>
-          <p className="text-slate-400 text-sm sm:text-base leading-relaxed max-w-xl mx-auto">
+          <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-xl mx-auto">
             The ultimate learning solution for students and professionals looking to reach their personal goals.
           </p>
         </div>
 
         {/* 2-Column Grid of Horizontal Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          {trendingCourses.map((course) => (
-            <a 
-              href="/course-details"
+          {trendingCoursesData.map((course) => (
+            <Link 
+              href={`/course-details/${course.slug}`}
               key={course.id}
               className="relative bg-gradient-to-br from-[#1E293B] to-[#0F172A] rounded-2xl p-5 border border-slate-700 hover:border-[#DC2626]/40 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center gap-5 group cursor-pointer block sm:flex overflow-hidden"
             >
@@ -123,7 +88,7 @@ export default function TrendingCourses() {
                 </div>
               </div>
 
-            </a>
+            </Link>
           ))}
         </div>
 

@@ -51,11 +51,11 @@ export default function Header() {
 
             {/* Logo Section */}
             <Link href="/" className="flex items-center gap-3 cursor-pointer z-10 transition-opacity hover:opacity-90">
-              <Image src="/logo_transparent.webp" alt="NextFluent Logo" width={200} height={48} className="h-10 sm:h-12 w-auto object-contain" />
+              <Image src="/logo_transparent.webp" alt="NextFluent Logo" width={200} height={48} sizes="(max-width: 640px) 160px, 200px" className="h-10 sm:h-12 w-auto object-contain" />
             </Link>
 
             {/* Desktop Navigation Links */}
-            <nav className="hidden lg:flex items-center space-x-4 xl:space-x-8 text-[14px] xl:text-[15px] font-semibold">
+            <nav className="hidden lg:flex items-center space-x-4 xl:space-x-8 text-[14px] xl:text-[15px] font-semibold" suppressHydrationWarning>
               <Link
                 href="/"
                 className={`transition-colors py-2 whitespace-nowrap ${isActive('/') ? activeLinkClass : inactiveLinkClass}`}

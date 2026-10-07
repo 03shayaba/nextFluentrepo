@@ -66,7 +66,8 @@ export default function AssessmentSection() {
                       src="/about1.webp" 
                       alt="Sarah Jenkins - Senior Language Coach"
                       fill
-                      className="object-cover "
+                      sizes="(max-width: 640px) 280px, 340px"
+                      className="object-cover"
                     />
                   </div>
                 </div>

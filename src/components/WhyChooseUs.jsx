@@ -82,8 +82,8 @@ export default function WhyChooseUs() {
         
         {/* Header Section */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-red-50 text-[#DC2626] border border-red-200/60 text-sm font-bold tracking-wide uppercase mb-6">
-            <Star className="w-4 h-4 fill-[#DC2626]" />
+          <div className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-red-50 text-[#B91C1C] border border-red-200/60 text-sm font-bold tracking-wide uppercase mb-6">
+            <Star className="w-4 h-4 fill-[#B91C1C]" />
             Why Choose Us
           </div>
           <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 mb-6 tracking-tight">

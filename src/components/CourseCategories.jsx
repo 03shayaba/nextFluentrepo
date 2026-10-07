@@ -172,13 +172,13 @@ export default function CourseCategories() {
 
         {/* Header Content */}
         <div className="text-center mb-12 flex flex-col items-center">
-          <div className="bg-red-50 text-[#DC2626] border border-red-200/60 text-xs font-bold px-4 py-1.5 rounded-full inline-flex items-center gap-2 mb-4 uppercase tracking-wider">
+          <div className="bg-red-50 text-[#B91C1C] border border-red-200/60 text-xs font-bold px-4 py-1.5 rounded-full inline-flex items-center gap-2 mb-4 uppercase tracking-wider">
             <span className="text-sm">🎓</span> Learning Resources
           </div>
           <h2 className="text-4xl md:text-5xl font-semibold text-[#0F172A] mb-4">
             Our <span className="text-[#DC2626]">Courses</span>
           </h2>
-          <p className="text-slate-500 text-sm md:text-base max-w-2xl">
+          <p className="text-slate-600 text-sm md:text-base max-w-2xl">
             Explore our carefully designed English learning courses to build your skills step by step.
           </p>
         </div>
@@ -235,7 +235,7 @@ export default function CourseCategories() {
                     </div>
 
                     <h3 className="text-lg font-bold text-slate-800 mb-3">{course.title}</h3>
-                    <p className="text-slate-500 text-sm mb-6 flex-grow">{course.description}</p>
+                    <p className="text-slate-600 text-sm mb-6 flex-grow">{course.description}</p>
 
                     {/* Bottom Action */}
                     <div className="w-full mt-auto">
