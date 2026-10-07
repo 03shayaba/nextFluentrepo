@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useWishlist } from '@/context/WishlistContext';
 import { useAuth } from '@/context/AuthContext';
+import { Rocket, Star, GraduationCap } from 'lucide-react';
 
 export default function Header() {
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -35,13 +36,13 @@ export default function Header() {
     <>
       <div className="bg-[#111726] text-white text-xs sm:text-sm font-semibold py-2.5 overflow-hidden flex items-center relative whitespace-nowrap z-50">
         <div className="animate-marquee flex gap-10 min-w-full">
-          <span className="flex items-center gap-2">🚀 Welcome to NextFluent! Enroll now and get <span className="text-[#EF4444] font-bold">50% off</span> on all Premium Courses!</span>
-          <span className="flex items-center gap-2">⭐ Join <span className="text-[#EF4444] font-bold">10,000+</span> successful learners today.</span>
-          <span className="flex items-center gap-2">🎓 Special <span className="text-[#EF4444] font-bold">IELTS Preparation</span> batches starting this week.</span>
+          <span className="flex items-center gap-2"><Rocket className="w-4 h-4 text-orange-400" /> Welcome to NextFluent! Enroll now and get <span className="text-[#EF4444] font-bold">50% off</span> on all Premium Courses!</span>
+          <span className="flex items-center gap-2"><Star className="w-4 h-4 text-amber-400 fill-amber-400" /> Join <span className="text-[#EF4444] font-bold">10,000+</span> successful learners today.</span>
+          <span className="flex items-center gap-2"><GraduationCap className="w-4 h-4 text-blue-400" /> Special <span className="text-[#EF4444] font-bold">IELTS Preparation</span> batches starting this week.</span>
           {/* Duplicate for seamless loop */}
-          <span className="flex items-center gap-2">🚀 Welcome to NextFluent! Enroll now and get <span className="text-[#EF4444] font-bold">50% off</span> on all Premium Courses!</span>
-          <span className="flex items-center gap-2">⭐ Join <span className="text-[#EF4444] font-bold">10,000+</span> successful learners today.</span>
-          <span className="flex items-center gap-2">🎓 Special <span className="text-[#EF4444] font-bold">IELTS Preparation</span> batches starting this week.</span>
+          <span className="flex items-center gap-2"><Rocket className="w-4 h-4 text-orange-400" /> Welcome to NextFluent! Enroll now and get <span className="text-[#EF4444] font-bold">50% off</span> on all Premium Courses!</span>
+          <span className="flex items-center gap-2"><Star className="w-4 h-4 text-amber-400 fill-amber-400" /> Join <span className="text-[#EF4444] font-bold">10,000+</span> successful learners today.</span>
+          <span className="flex items-center gap-2"><GraduationCap className="w-4 h-4 text-blue-400" /> Special <span className="text-[#EF4444] font-bold">IELTS Preparation</span> batches starting this week.</span>
         </div>
       </div>
 

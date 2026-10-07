@@ -1,11 +1,14 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import EnrollModal from './EnrollModal';
 import { useWishlist } from '@/context/WishlistContext';
 import { popularCoursesData } from '@/data/coursesData';
+import { Star, Users } from 'lucide-react';
+import { useAuth } from '@/context/AuthContext';
+import { useRouter } from 'next/navigation';
 
 const filterOptions = [
   { id: 'all', label: 'All Courses', icon: '▦' },
@@ -21,31 +24,117 @@ export default function PopularCourses() {
   const [activeFilter, setActiveFilter] = useState('all');
   const scrollRef = useRef(null);
   const { toggleWishlist, isInWishlist } = useWishlist();
+  
+  const { user } = useAuth();
+  const router = useRouter();
 
   const [isEnrollModalOpen, setIsEnrollModalOpen] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState(null);
 
   const handleEnrollClick = (course) => {
+    if (!user) {
+      alert("Please log in first to enroll in this course.");
+      router.push('/login');
+      return;
+    }
     setSelectedCourse(course);
     setIsEnrollModalOpen(true);
   };
 
+  const isAnimating = useRef(false);
+  
+  // For API later: replace popularCoursesData.slice(0, 4) with your API data
+  const apiData = popularCoursesData.slice(0, 4);
+  const extendedCourses = [...apiData, ...apiData, ...apiData];
+
+  const handleScroll = () => {
+    if (!scrollRef.current || isAnimating.current) return;
+    const container = scrollRef.current;
+    if (container.children.length === 0) return;
+
+    const gap = window.innerWidth >= 640 ? 24 : 0;
+    const singleSetWidth = (container.children[0].offsetWidth + gap) * apiData.length;
+    
+    if (singleSetWidth > 0) {
+      if (container.scrollLeft >= singleSetWidth * 2 - 5) {
+        container.scrollLeft -= singleSetWidth;
+      } else if (container.scrollLeft <= 5) {
+        container.scrollLeft += singleSetWidth;
+      }
+    }
+  };
+
   const scrollLeft = () => {
-    if (scrollRef.current) {
-      const containerWidth = scrollRef.current.clientWidth;
-      scrollRef.current.scrollBy({ left: -containerWidth, behavior: 'smooth' });
+    if (scrollRef.current && !isAnimating.current) {
+      const container = scrollRef.current;
+      const gap = window.innerWidth >= 640 ? 24 : 0;
+      const cardWidth = container.children[0].offsetWidth;
+      const singleSetWidth = (cardWidth + gap) * apiData.length;
+
+      if (container.scrollLeft <= 50) {
+        container.scrollLeft += singleSetWidth;
+      }
+      
+      isAnimating.current = true;
+      requestAnimationFrame(() => {
+        container.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
+        setTimeout(() => { isAnimating.current = false; }, 600);
+      });
     }
   };
 
   const scrollRight = () => {
-    if (scrollRef.current) {
-      const containerWidth = scrollRef.current.clientWidth;
-      scrollRef.current.scrollBy({ left: containerWidth, behavior: 'smooth' });
+    if (scrollRef.current && !isAnimating.current) {
+      const container = scrollRef.current;
+      const gap = window.innerWidth >= 640 ? 24 : 0;
+      const cardWidth = container.children[0].offsetWidth;
+      const singleSetWidth = (cardWidth + gap) * apiData.length;
+
+      if (container.scrollLeft >= singleSetWidth * 2 - 50) {
+        container.scrollLeft -= singleSetWidth;
+      }
+      
+      isAnimating.current = true;
+      requestAnimationFrame(() => {
+        container.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
+        setTimeout(() => { isAnimating.current = false; }, 600);
+      });
     }
   };
 
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(() => {
+      if (scrollRef.current) {
+        const container = scrollRef.current;
+        scrollRight();
+      }
+    }, 2500);
+    return () => clearInterval(timer);
+  }, [isPaused]);
+
+  // Set initial position to the middle set
+  useEffect(() => {
+    if (scrollRef.current && apiData.length > 0) {
+      const container = scrollRef.current;
+      const gap = window.innerWidth >= 640 ? 24 : 0;
+      setTimeout(() => {
+        if (container.children[0]) {
+          const singleSetWidth = (container.children[0].offsetWidth + gap) * apiData.length;
+          container.scrollLeft = singleSetWidth;
+        }
+      }, 100);
+    }
+  }, [apiData.length]);
+
   return (
-    <section className="relative bg-[#0b101c] py-10 lg:py-12 overflow-hidden font-sans border-t border-[#1E293B]">
+    <section 
+      className="relative bg-[#0b101c] py-10 lg:py-12 overflow-hidden font-sans border-t border-[#1E293B]"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
 
 
 
@@ -61,7 +150,7 @@ export default function PopularCourses() {
         {/* Header Content */}
         <div className="text-center mb-10 flex flex-col items-center">
           <div className="inline-flex items-center gap-2 bg-red-500/15 backdrop-blur-md border border-red-500/30 text-[#EF4444] font-bold text-xs sm:text-sm px-4 py-1.5 rounded-full tracking-wide mb-4 uppercase">
-            ⭐ LEARN & GROW
+            <Star className="w-4 h-4 fill-[#EF4444]" /> LEARN & GROW
           </div>
           <h2 className="text-4xl md:text-5xl font-semibold text-white mb-4">
             Explore Our <span className="text-[#EF4444]">Popular Courses</span>
@@ -94,10 +183,15 @@ export default function PopularCourses() {
           </button>
 
           {/* Scrollable Area */}
-          <div ref={scrollRef} className="flex overflow-x-auto gap-0 sm:gap-6 pb-6 sm:pb-8 pt-4 px-0 sm:px-2 snap-x snap-mandatory hide-scrollbar relative" style={{ scrollbarWidth: 'none' }}>
+          <div 
+            ref={scrollRef} 
+            onScroll={handleScroll}
+            className="flex overflow-x-auto gap-0 sm:gap-6 pb-6 sm:pb-8 pt-4 px-0 sm:px-2 snap-x snap-mandatory hide-scrollbar relative" 
+            style={{ scrollbarWidth: 'none' }}
+          >
 
-            {popularCoursesData.map((course) => (
-              <div key={course.id} className="snap-start shrink-0 w-full sm:w-[320px] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] px-2 sm:px-0">
+            {extendedCourses.map((course, index) => (
+              <div key={`${course.id}-${index}`} className="snap-start shrink-0 w-full sm:w-[320px] md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] px-2 sm:px-0 card-item">
                 <Link href={`/course-details/${course.slug}`} className="block h-full">
                 <div className="group h-full bg-white/5 backdrop-blur-xl rounded-3xl shadow-2xl shadow-black/20 border border-white/10 overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-2 hover:bg-white/10 hover:border-red-500/40 transform-gpu will-change-transform cursor-pointer">
 
@@ -133,11 +227,11 @@ export default function PopularCourses() {
                     {/* Rating & Enrollment */}
                     <div className="flex flex-wrap items-center gap-2 text-xs font-bold text-slate-400 mb-4 pb-4 border-b border-white/10">
                       <div className="flex items-center gap-1.5 bg-amber-500/10 text-amber-400 px-2.5 py-1 rounded-md">
-                        <span>⭐</span> <span>{course.rating}</span> <span className="text-slate-400 font-semibold text-[11px]">({course.reviews})</span>
+                        <Star className="w-3 h-3 fill-amber-400" /> <span>{course.rating}</span> <span className="text-slate-400 font-semibold text-[11px]">({course.reviews})</span>
                       </div>
                       <span className="text-slate-600 hidden sm:inline">•</span>
                       <div className="flex items-center gap-1.5 text-slate-400 font-medium text-[11px] sm:text-xs">
-                        <span className="text-slate-200 font-semibold">👥 {course.enrolled}</span> enrolled
+                        <span className="text-slate-200 font-semibold flex items-center gap-1"><Users className="w-3 h-3" /> {course.enrolled}</span> enrolled
                       </div>
                     </div>
 

@@ -133,13 +133,13 @@ export default function CourseCategories() {
     handleScroll();
   }, []);
 
-  // Automatic slide interval (every 1.3 seconds for fast sliding)
+  // Automatic slide interval (every 3 seconds for slower reading speed)
   useEffect(() => {
     if (isPaused) return;
 
     const timer = setInterval(() => {
       scrollRight();
-    }, 1300);
+    }, 2500);
 
     return () => clearInterval(timer);
   }, [isPaused]);

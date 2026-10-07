@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { Star, Flame, Sparkles, Target, Globe, User } from 'lucide-react';
 
 export default function TrendingCategories() {
   return (
@@ -11,7 +12,7 @@ export default function TrendingCategories() {
         <div className="text-center mb-12">
           {/* Tag */}
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 border border-red-100 text-[#DC2626] text-xs font-bold uppercase tracking-wider mb-4 shadow-sm">
-            <span className="text-amber-500">⭐</span> TRENDING CATEGORIES
+            <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-500" /> TRENDING CATEGORIES
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4 tracking-tight">
             Browse Trending <span className="text-[#DC2626]">Categories</span>
@@ -34,7 +35,7 @@ export default function TrendingCategories() {
                  </div>
                  <div>
                    <div className="flex items-center gap-2 mb-1">
-                     <span className="bg-rose-50 text-rose-600 text-[10px] sm:text-xs font-bold px-2 py-0.5 rounded-full flex items-center gap-1 border border-rose-100">🔥 Most Popular</span>
+                     <span className="bg-rose-50 text-rose-600 text-[10px] sm:text-xs font-bold px-2 py-0.5 rounded-full flex items-center gap-1 border border-rose-100"><Flame className="w-3 h-3 text-rose-600" /> Most Popular</span>
                      <span className="bg-slate-100 text-slate-600 text-[10px] sm:text-xs font-bold px-2 py-0.5 rounded-full border border-slate-200">15 Courses</span>
                    </div>
                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">Spoken English</h3>
@@ -55,9 +56,9 @@ export default function TrendingCategories() {
             </p>
 
             <div className="flex flex-wrap gap-2 mb-8">
-              <span className="text-xs font-bold text-slate-600 border border-slate-200 px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm bg-white"><span className="text-rose-500 text-sm">👩‍🏫</span> 1-on-1 Live Practice</span>
-              <span className="text-xs font-bold text-slate-600 border border-slate-200 px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm bg-white"><span className="text-amber-500 text-sm">✨</span> AI Speech Coach</span>
-              <span className="text-xs font-bold text-slate-600 border border-slate-200 px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm bg-white"><span className="text-blue-500 text-sm">🌍</span> Real-World Scenarios</span>
+              <span className="text-xs font-bold text-slate-600 border border-slate-200 px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm bg-white"><User className="text-rose-500 w-3.5 h-3.5" /> 1-on-1 Live Practice</span>
+              <span className="text-xs font-bold text-slate-600 border border-slate-200 px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm bg-white"><Sparkles className="text-amber-500 w-3.5 h-3.5" /> AI Speech Coach</span>
+              <span className="text-xs font-bold text-slate-600 border border-slate-200 px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm bg-white"><Globe className="text-blue-500 w-3.5 h-3.5" /> Real-World Scenarios</span>
             </div>
 
             <div className="mt-auto flex flex-col sm:flex-row sm:items-center justify-between pt-6 border-t border-slate-100 gap-4">
@@ -70,7 +71,7 @@ export default function TrendingCategories() {
                  </div>
                  <div>
                    <div className="flex flex-wrap items-center gap-1">
-                     <span className="text-amber-400 text-sm">★</span>
+                     <span className="text-amber-400 text-sm"><Star className="w-3.5 h-3.5 fill-amber-400" /></span>
                      <span className="font-bold text-slate-900 text-[13px]">4.9</span>
                      <span className="text-slate-500 text-[11px] font-medium">(12.4k active learners)</span>
                    </div>
@@ -94,7 +95,7 @@ export default function TrendingCategories() {
                  </div>
                  <div>
                    <div className="flex items-center gap-2 mb-1">
-                     <span className="bg-rose-500/20 text-rose-300 text-[10px] sm:text-xs font-bold px-2 py-0.5 rounded-full flex items-center gap-1 border border-rose-500/30">🎯 High Demand</span>
+                     <span className="bg-rose-500/20 text-rose-300 text-[10px] sm:text-xs font-bold px-2 py-0.5 rounded-full flex items-center gap-1 border border-rose-500/30"><Target className="w-3 h-3 text-rose-300" /> High Demand</span>
                      <span className="bg-white/10 text-slate-300 text-[10px] sm:text-xs font-bold px-2 py-0.5 rounded-full border border-white/10">12 Courses</span>
                    </div>
                    <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">IELTS Preparation</h3>

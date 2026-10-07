@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Header from '@/components/Header';
@@ -21,7 +21,18 @@ import {
   X, 
   CreditCard,
   Check,
-  Eye
+  Eye,
+  ArrowUp,
+  ArrowDown,
+  ChevronDown,
+  SlidersHorizontal,
+  LayoutGrid,
+  BookOpen,
+  FileText,
+  Package,
+  Layers,
+  Flame,
+  Zap
 } from 'lucide-react';
 
 const storeFaqs = [
@@ -46,16 +57,70 @@ const storeFaqs = [
 export default function StorePage() {
   const [activeCategory, setActiveCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
+  const [inputValue, setInputValue] = useState('');
+  const [showSuggestions, setShowSuggestions] = useState(false);
   const [sortBy, setSortBy] = useState('featured');
   const [checkoutProduct, setCheckoutProduct] = useState(null);
   const [toastMessage, setToastMessage] = useState(null);
   const [orderComplete, setOrderComplete] = useState(false);
+  const [showSortDropdown, setShowSortDropdown] = useState(false);
+  const catalogRef = useRef(null);
+  const searchInputRef = useRef(null);
+  const sortRef = useRef(null);
 
   const { toggleWishlist, isInWishlist } = useWishlist();
 
   const showToast = (msg) => {
     setToastMessage(msg);
     setTimeout(() => setToastMessage(null), 3000);
+  };
+
+  // Live autocomplete suggestions based on inputValue
+  const suggestions = useMemo(() => {
+    if (!inputValue.trim() || inputValue.length < 2) return [];
+    const q = inputValue.toLowerCase();
+    const seen = new Set();
+    const results = [];
+    products.forEach((p) => {
+      const words = [p.title, p.description, p.category, p.tag].join(' ');
+      if (words.toLowerCase().includes(q) && !seen.has(p.title)) {
+        seen.add(p.title);
+        results.push({ label: p.title, category: p.tag });
+      }
+    });
+    return results.slice(0, 6);
+  }, [inputValue]);
+
+  const scrollToCatalog = useCallback(() => {
+    if (catalogRef.current) {
+      const y = catalogRef.current.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  }, []);
+
+  const handleSearch = useCallback(() => {
+    setSearchQuery(inputValue);
+    setShowSuggestions(false);
+    setTimeout(scrollToCatalog, 50);
+  }, [inputValue, scrollToCatalog]);
+
+  const handleSuggestionClick = useCallback((label) => {
+    setInputValue(label);
+    setSearchQuery(label);
+    setShowSuggestions(false);
+    setTimeout(scrollToCatalog, 50);
+  }, [scrollToCatalog]);
+
+  const handleInputChange = (e) => {
+    const val = e.target.value;
+    setInputValue(val);
+    setSearchQuery(val);
+    setShowSuggestions(true);
+  };
+
+  const handleInputKeyDown = (e) => {
+    if (e.key === 'Enter') handleSearch();
+    if (e.key === 'Escape') setShowSuggestions(false);
   };
 
   const filteredProducts = useMemo(() => {
@@ -128,22 +193,59 @@ export default function StorePage() {
             <div className="max-w-2xl mx-auto relative mb-10">
               <div className="relative flex items-center bg-white/10 backdrop-blur-xl border border-white/20 rounded-full p-2 shadow-2xl focus-within:border-red-500/50 transition-all">
                 <Search className="w-5 h-5 text-slate-300 ml-4 shrink-0" />
-                <input 
-                  type="text" 
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search books, IELTS prep kits, flashcards..." 
+                <input
+                  ref={searchInputRef}
+                  type="text"
+                  value={inputValue}
+                  onChange={handleInputChange}
+                  onKeyDown={handleInputKeyDown}
+                  onFocus={() => inputValue.length >= 2 && setShowSuggestions(true)}
+                  onBlur={() => setTimeout(() => setShowSuggestions(false), 150)}
+                  placeholder="Search books, IELTS prep kits, flashcards..."
                   className="w-full bg-transparent px-3 py-2 text-sm text-white placeholder-slate-400 focus:outline-none"
                 />
-                {searchQuery && (
-                  <button onClick={() => setSearchQuery('')} className="p-1 text-slate-400 hover:text-white mr-2">
+                {inputValue && (
+                  <button
+                    onClick={() => { setInputValue(''); setSearchQuery(''); setShowSuggestions(false); }}
+                    className="p-1 text-slate-400 hover:text-white mr-2"
+                  >
                     <X className="w-4 h-4" />
                   </button>
                 )}
-                <button className="bg-[#DC2626] hover:bg-[#B91C1C] text-white font-bold text-xs sm:text-sm px-6 py-2.5 rounded-full transition-all shadow-md shrink-0">
+                <button
+                  onClick={handleSearch}
+                  className="bg-[#DC2626] hover:bg-[#B91C1C] text-white font-bold text-xs sm:text-sm px-6 py-2.5 rounded-full transition-all shadow-md shrink-0"
+                >
                   Search
                 </button>
               </div>
+
+              {/* Live Autocomplete Dropdown */}
+              {showSuggestions && suggestions.length > 0 && (
+                <div className="absolute top-full left-0 right-0 mt-2 bg-[#0f1829] border border-white/15 rounded-2xl shadow-2xl overflow-hidden z-50">
+                  <div className="px-4 py-2 border-b border-white/10">
+                    <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Suggestions</span>
+                  </div>
+                  {suggestions.map((s, idx) => (
+                    <button
+                      key={idx}
+                      onMouseDown={() => handleSuggestionClick(s.label)}
+                      className="w-full flex items-center gap-3 px-4 py-3 text-left hover:bg-white/10 transition-colors group"
+                    >
+                      <div className="w-7 h-7 rounded-lg bg-red-500/15 border border-red-500/20 flex items-center justify-center shrink-0">
+                        <Search className="w-3.5 h-3.5 text-red-400" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm font-semibold text-white group-hover:text-red-300 transition-colors truncate">{s.label}</p>
+                        <p className="text-[11px] text-slate-400 font-medium">{s.category}</p>
+                      </div>
+                      <svg className="w-4 h-4 text-slate-500 group-hover:text-red-400 shrink-0 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
 
             {/* Trust Pills Bar */}
@@ -193,8 +295,8 @@ export default function StorePage() {
         <section className="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative rounded-3xl bg-gradient-to-r from-red-950 via-[#0e1526] to-[#0e1526] border border-red-500/30 overflow-hidden p-6 sm:p-10 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8 text-white">
             <div className="max-w-xl space-y-4">
-              <span className="inline-block bg-[#DC2626] text-white text-[11px] font-black uppercase tracking-wider px-3.5 py-1 rounded-full shadow-md">
-                🔥 SPECIAL COMBO DEAL - 50% OFF
+              <span className="inline-flex items-center gap-1.5 bg-[#DC2626] text-white text-[11px] font-black uppercase tracking-wider px-3.5 py-1 rounded-full shadow-md">
+                <Flame className="w-3.5 h-3.5 text-orange-300" /> SPECIAL COMBO DEAL - 50% OFF
               </span>
               <h2 className="text-2xl sm:text-4xl font-extrabold text-white leading-tight">
                 Fluency Master All-in-One Super Combo Pack
@@ -234,15 +336,15 @@ export default function StorePage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
               <div className="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-md p-3 rounded-xl border border-white/10 text-xs font-bold text-white flex justify-between items-center">
-                <span>📦 Free Express Shipping</span>
-                <span className="text-amber-400">⭐⭐⭐⭐⭐ 5.0</span>
+                <span className="flex items-center gap-1.5 text-emerald-300"><Truck className="w-4 h-4" /> <span className="text-white">Free Express Shipping</span></span>
+                <span className="text-amber-400 flex items-center gap-1"><Star className="w-3.5 h-3.5 fill-amber-400" /> <span className="text-white">5.0</span></span>
               </div>
             </div>
           </div>
         </section>
 
         {/* SECTION 4: LIGHT MAIN CATALOG & FILTERS */}
-        <section className="py-12 bg-white">
+        <section ref={catalogRef} className="py-12 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             {/* Controls Header */}
@@ -252,64 +354,162 @@ export default function StorePage() {
               <div className="flex flex-wrap items-center gap-2">
                 <button 
                   onClick={() => setActiveCategory('all')}
-                  className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${activeCategory === 'all' ? 'bg-[#DC2626] text-white shadow-lg shadow-red-500/20' : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100'}`}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${activeCategory === 'all' ? 'bg-[#DC2626] text-white shadow-lg shadow-red-500/20' : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 hover:text-slate-900'}`}
                 >
+                  <LayoutGrid className={`w-4 h-4 ${activeCategory === 'all' ? 'text-red-100' : 'text-slate-400'}`} />
                   All Products ({products.length})
                 </button>
                 <button 
                   onClick={() => setActiveCategory('books')}
-                  className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${activeCategory === 'books' ? 'bg-[#DC2626] text-white shadow-lg shadow-red-500/20' : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100'}`}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${activeCategory === 'books' ? 'bg-[#DC2626] text-white shadow-lg shadow-red-500/20' : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 hover:text-slate-900'}`}
                 >
-                  📚 Printed Workbooks
+                  <BookOpen className={`w-4 h-4 ${activeCategory === 'books' ? 'text-red-100' : 'text-slate-400'}`} />
+                  Printed Workbooks
                 </button>
                 <button 
                   onClick={() => setActiveCategory('ebooks')}
-                  className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${activeCategory === 'ebooks' ? 'bg-[#DC2626] text-white shadow-lg shadow-red-500/20' : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100'}`}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${activeCategory === 'ebooks' ? 'bg-[#DC2626] text-white shadow-lg shadow-red-500/20' : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 hover:text-slate-900'}`}
                 >
-                  📄 Digital E-Books
+                  <FileText className={`w-4 h-4 ${activeCategory === 'ebooks' ? 'text-red-100' : 'text-slate-400'}`} />
+                  Digital E-Books
                 </button>
                 <button 
                   onClick={() => setActiveCategory('bundles')}
-                  className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${activeCategory === 'bundles' ? 'bg-[#DC2626] text-white shadow-lg shadow-red-500/20' : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100'}`}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${activeCategory === 'bundles' ? 'bg-[#DC2626] text-white shadow-lg shadow-red-500/20' : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 hover:text-slate-900'}`}
                 >
-                  📦 Combo Kits
+                  <Package className={`w-4 h-4 ${activeCategory === 'bundles' ? 'text-red-100' : 'text-slate-400'}`} />
+                  Combo Kits
                 </button>
                 <button 
                   onClick={() => setActiveCategory('flashcards')}
-                  className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${activeCategory === 'flashcards' ? 'bg-[#DC2626] text-white shadow-lg shadow-red-500/20' : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100'}`}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${activeCategory === 'flashcards' ? 'bg-[#DC2626] text-white shadow-lg shadow-red-500/20' : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 hover:text-slate-900'}`}
                 >
-                  🃏 Flashcards
+                  <Layers className={`w-4 h-4 ${activeCategory === 'flashcards' ? 'text-red-100' : 'text-slate-400'}`} />
+                  Flashcards
                 </button>
               </div>
 
-              {/* Sort Selector */}
-              <div className="flex items-center gap-2 shrink-0 self-end md:self-auto">
-                <Filter className="w-4 h-4 text-slate-600" />
-                <label htmlFor="store-sort-select" className="text-xs text-slate-600 font-semibold cursor-pointer">Sort by:</label>
-                <select 
-                  id="store-sort-select"
-                  aria-label="Sort products by"
-                  value={sortBy} 
-                  onChange={(e) => setSortBy(e.target.value)}
-                  className="bg-white border border-slate-200 rounded-xl px-3 py-1.5 text-xs text-slate-800 font-bold focus:outline-none cursor-pointer shadow-sm"
+              {/* Custom Sort Dropdown */}
+              <div ref={sortRef} className="relative shrink-0 self-end md:self-auto">
+                <button
+                  onClick={() => setShowSortDropdown((v) => !v)}
+                  onBlur={() => setTimeout(() => setShowSortDropdown(false), 150)}
+                  className="flex items-center gap-2 bg-white/90 backdrop-blur-md border border-slate-200/90 hover:border-red-500/40 rounded-xl px-3.5 py-2 text-xs font-semibold text-slate-700 shadow-xs hover:shadow-md transition-all duration-200 group cursor-pointer"
                 >
-                  <option value="featured">Featured</option>
-                  <option value="price-low">Price: Low to High</option>
-                  <option value="price-high">Price: High to Low</option>
-                  <option value="rating">Top Rated</option>
-                </select>
+                  <SlidersHorizontal className="w-3.5 h-3.5 text-slate-400 group-hover:text-red-600 transition-colors" />
+                  <span className="text-slate-400 font-medium">Sort:</span>
+                  <span className="text-slate-800 font-semibold flex items-center gap-1.5">
+                    {sortBy === 'featured' && (
+                      <>
+                        <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+                        <span>Featured</span>
+                      </>
+                    )}
+                    {sortBy === 'price-low' && (
+                      <>
+                        <ArrowUp className="w-3.5 h-3.5 text-indigo-500" />
+                        <span>Price: Low → High</span>
+                      </>
+                    )}
+                    {sortBy === 'price-high' && (
+                      <>
+                        <ArrowDown className="w-3.5 h-3.5 text-rose-500" />
+                        <span>Price: High → Low</span>
+                      </>
+                    )}
+                    {sortBy === 'rating' && (
+                      <>
+                        <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
+                        <span>Top Rated</span>
+                      </>
+                    )}
+                  </span>
+                  <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-200 ${showSortDropdown ? 'rotate-180 text-slate-700' : ''}`} />
+                </button>
+
+                {showSortDropdown && (
+                  <div className="absolute right-0 top-full mt-2 w-56 bg-white/95 backdrop-blur-xl border border-slate-200/80 rounded-2xl shadow-xl shadow-slate-900/10 z-50 overflow-hidden py-1.5 animate-in fade-in zoom-in-95 duration-150">
+                    <div className="px-3.5 py-1.5 mb-1 border-b border-slate-100/80 flex items-center justify-between">
+                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Sort Products</span>
+                      <span className="text-[10px] font-medium text-slate-300">4 options</span>
+                    </div>
+                    {[
+                      { 
+                        value: 'featured', 
+                        label: 'Featured', 
+                        icon: Sparkles
+                      },
+                      { 
+                        value: 'price-low', 
+                        label: 'Price: Low to High', 
+                        icon: ArrowUp
+                      },
+                      { 
+                        value: 'price-high', 
+                        label: 'Price: High to Low', 
+                        icon: ArrowDown
+                      },
+                      { 
+                        value: 'rating', 
+                        label: 'Top Rated', 
+                        icon: Star
+                      },
+                    ].map((opt) => {
+                      const IconComponent = opt.icon;
+                      const isActive = sortBy === opt.value;
+                      return (
+                        <button
+                          key={opt.value}
+                          onMouseDown={() => { setSortBy(opt.value); setShowSortDropdown(false); }}
+                          className={`w-full flex items-center gap-2.5 px-3 py-1.5 text-xs font-medium transition-all cursor-pointer ${
+                            isActive
+                              ? 'bg-red-50/70 text-red-600 font-semibold'
+                              : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                          }`}
+                        >
+                          <div className={`w-5 h-5 rounded flex items-center justify-center shrink-0 ${
+                            isActive ? 'bg-red-100/60' : 'bg-slate-100/80'
+                          }`}>
+                            <IconComponent className={`w-3 h-3 ${isActive ? 'text-red-600' : 'text-slate-500'}`} />
+                          </div>
+                          <span className="flex-1 text-left">{opt.label}</span>
+                          {isActive && (
+                            <Check className="w-3.5 h-3.5 text-red-600 shrink-0" />
+                          )}
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
               </div>
 
             </div>
 
             {/* Products Grid */}
+            {searchQuery && (
+              <div className="mb-5 flex items-center gap-2 flex-wrap">
+                <span className="text-sm font-semibold text-slate-700">
+                  {filteredProducts.length} result{filteredProducts.length !== 1 ? 's' : ''} for
+                </span>
+                <span className="bg-red-50 border border-red-200 text-[#DC2626] font-bold text-sm px-3 py-0.5 rounded-full">
+                  &ldquo;{searchQuery}&rdquo;
+                </span>
+                <button
+                  onClick={() => { setSearchQuery(''); setInputValue(''); }}
+                  className="text-xs text-slate-400 hover:text-slate-700 flex items-center gap-1 transition-colors"
+                >
+                  <X className="w-3.5 h-3.5" /> Clear
+                </button>
+              </div>
+            )}
+
             {filteredProducts.length === 0 ? (
               <div className="text-center py-20 bg-white rounded-3xl border border-slate-200 shadow-sm">
                 <Search className="w-12 h-12 text-slate-400 mx-auto mb-3" />
-                <h3 className="text-lg font-bold text-slate-900 mb-1">No products found</h3>
+                <h3 className="text-lg font-bold text-slate-900 mb-1">No products found for &ldquo;{searchQuery}&rdquo;</h3>
                 <p className="text-slate-500 text-xs">Try searching for something else or reset filters.</p>
-                <button 
-                  onClick={() => { setActiveCategory('all'); setSearchQuery(''); }}
+                <button
+                  onClick={() => { setActiveCategory('all'); setSearchQuery(''); setInputValue(''); }}
                   className="mt-4 bg-[#DC2626] text-white font-bold text-xs px-5 py-2.5 rounded-xl shadow-md"
                 >
                   Reset Filters
@@ -357,8 +557,8 @@ export default function StorePage() {
                         </button>
 
                         {/* Format Tag */}
-                        <div className="absolute bottom-5 left-5 right-5 text-[11px] font-bold text-white truncate bg-slate-950/70 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10">
-                          {product.type === 'digital' ? '⚡ Digital Instant PDF' : '🚚 Physical Delivery'}
+                        <div className="absolute bottom-5 left-5 right-5 text-[11px] font-bold text-white truncate bg-slate-950/70 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10 flex items-center justify-center gap-1.5">
+                          {product.type === 'digital' ? <><Zap className="w-3.5 h-3.5 text-blue-400" /> Digital Instant PDF</> : <><Truck className="w-3.5 h-3.5 text-emerald-400" /> Physical Delivery</>}
                         </div>
                       </Link>
 

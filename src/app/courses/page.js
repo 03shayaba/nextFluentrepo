@@ -10,6 +10,9 @@ import TransformHero from "@/components/TransformHero";
 import EnrollModal from "@/components/EnrollModal";
 import Newsletter from "@/components/Newsletter";
 import { useWishlist } from '@/context/WishlistContext';
+import { useAuth } from '@/context/AuthContext';
+import { useRouter } from 'next/navigation';
+import { Star, Users, PlayCircle, Clock, BarChart, ArrowRight } from 'lucide-react';
 
 const CustomDropdown = ({ value, onChange, options, className }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -214,9 +217,17 @@ export default function CoursesPage() {
   const [isEnrollModalOpen, setIsEnrollModalOpen] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState(null);
   const { toggleWishlist, isInWishlist } = useWishlist();
+  
+  const { user } = useAuth();
+  const router = useRouter();
 
   const handleEnrollClick = (e, course) => {
     e.preventDefault();
+    if (!user) {
+      alert("Please log in first to enroll in this course.");
+      router.push('/login');
+      return;
+    }
     setSelectedCourse(course);
     setIsEnrollModalOpen(true);
   };
@@ -512,18 +523,16 @@ export default function CoursesPage() {
                       <a 
                         href="/course-details" 
                         key={course.id} 
-                        className="bg-white rounded-2xl shadow-sm hover:shadow-xl border border-slate-200/80 overflow-hidden flex flex-row items-stretch group transition-all duration-300 hover:-translate-y-1 hover:border-red-200"
+                        className="bg-white rounded-[1.5rem] p-3 sm:p-4 shadow-sm hover:shadow-2xl hover:shadow-red-500/10 border border-slate-200/70 grid grid-cols-1 md:grid-cols-[280px_1fr] lg:grid-cols-[340px_1fr] gap-4 md:gap-6 group transition-all duration-500 hover:-translate-y-1"
                       >
                         {/* List Image Left Column */}
-                        <div className="relative w-28 min-h-[140px] sm:w-[240px] md:w-[280px] shrink-0 overflow-hidden bg-slate-900 flex items-center justify-center">
-                          <Image 
+                        <div className="relative w-full h-full min-h-[220px] overflow-hidden bg-slate-900 rounded-2xl md:rounded-[1.25rem]">
+                          <img 
                             src={course.image} 
                             alt={course.title} 
-                            width={280}
-                            height={140}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" 
+                            className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" 
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
                           
                           {/* Category Badge */}
                           <div className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-slate-950/85 backdrop-blur-md text-white border border-white/20 text-[9px] sm:text-[11px] font-extrabold uppercase tracking-wider px-2 py-0.5 sm:px-3 sm:py-1 rounded-full shadow-md flex items-center gap-1 z-10">
@@ -542,77 +551,77 @@ export default function CoursesPage() {
                         </div>
 
                         {/* List Content Right Column */}
-                        <div className="p-3 sm:p-5 flex flex-col flex-grow justify-between bg-white text-slate-900 min-w-0">
-                          <div>
-                            {/* Title */}
-                            <h3 className="text-xs sm:text-lg font-extrabold text-slate-900 leading-snug group-hover:text-[#DC2626] transition-colors mb-1 sm:mb-2 line-clamp-2">
+                        <div className="flex flex-col bg-white text-slate-900 min-w-0 py-2 md:py-3 md:pr-4">
+                          
+                          {/* Title & Description */}
+                          <div className="mb-6">
+                            <div className="flex flex-wrap items-center gap-3 mb-3">
+                              <div className="flex items-center gap-1.5 bg-amber-50 text-amber-600 px-2.5 py-1 rounded-md border border-amber-200/60 font-bold text-xs">
+                                <Star className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
+                                {course.rating}
+                              </div>
+                              <span className="text-slate-400 text-xs font-semibold tracking-wide flex items-center gap-1.5">
+                                <Users className="w-4 h-4 text-slate-400" /> {course.students}+ Enrolled
+                              </span>
+                            </div>
+
+                            <h3 className="text-lg md:text-2xl font-black text-slate-900 leading-tight group-hover:text-[#DC2626] transition-colors mb-3">
                               {course.title}
                             </h3>
 
-                            {/* Description - hidden on mobile screens to keep list row compact */}
-                            <p className="hidden sm:block text-slate-600 text-xs sm:text-sm font-medium leading-relaxed mb-3 line-clamp-2">
+                            <p className="text-slate-600 text-sm md:text-[15px] font-medium leading-relaxed line-clamp-2 md:line-clamp-3">
                               {course.description}
                             </p>
+                          </div>
 
-                            {/* Rating & Enrolled Row */}
-                            <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs font-semibold text-slate-600 mb-2 sm:mb-3">
-                              <div className="flex items-center gap-1 bg-amber-50 text-amber-700 px-1.5 py-0.5 sm:px-2.5 sm:py-0.5 rounded border border-amber-200/80 font-bold">
-                                <svg className="w-3 h-3 fill-amber-400 text-amber-400" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                                {course.rating}
+                          {/* Clean Specs Row */}
+                          <div className="flex flex-wrap items-center gap-4 md:gap-6 mb-8 text-slate-600 text-sm font-semibold">
+                            <div className="flex items-center gap-2">
+                              <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-500">
+                                <PlayCircle className="w-4 h-4" />
                               </div>
-                              <span className="hidden xs:inline text-slate-500 font-medium text-[10px] sm:text-[11px]">({course.students})</span>
-                              <span className="hidden xs:inline text-slate-300">•</span>
-                              <span className="text-slate-600 text-[10px] sm:text-[11px] font-medium">👥 <strong className="text-slate-900">{course.students}+</strong></span>
+                              <span>{course.lessons} Lessons</span>
                             </div>
-
-                            {/* Specs Grid */}
-                            <div className="grid grid-cols-3 gap-1 sm:gap-2 bg-slate-50 border border-slate-200/80 p-1.5 sm:p-2.5 rounded-xl sm:rounded-2xl mb-2 sm:mb-4 text-center max-w-md">
-                              <div className="flex flex-col items-center justify-center p-0.5">
-                                <div className="flex items-center gap-1 text-slate-500 text-[9px] sm:text-[10px] uppercase font-bold mb-0.5">
-                                  <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
-                                  <span className="hidden sm:inline">Lessons</span>
-                                </div>
-                                <span className="text-[10px] sm:text-xs font-extrabold text-slate-900">{course.lessons} <span className="sm:hidden text-[9px]">L</span></span>
+                            <div className="hidden sm:block w-1.5 h-1.5 rounded-full bg-slate-200"></div>
+                            <div className="flex items-center gap-2">
+                              <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-500">
+                                <Clock className="w-4 h-4" />
                               </div>
-                              <div className="flex flex-col items-center justify-center p-0.5 border-x border-slate-200/70">
-                                <div className="flex items-center gap-1 text-slate-500 text-[9px] sm:text-[10px] uppercase font-bold mb-0.5">
-                                  <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                                  <span className="hidden sm:inline">Duration</span>
-                                </div>
-                                <span className="text-[10px] sm:text-xs font-extrabold text-slate-900">{course.hours} H</span>
+                              <span>{course.hours} Hours</span>
+                            </div>
+                            <div className="hidden sm:block w-1.5 h-1.5 rounded-full bg-slate-200"></div>
+                            <div className="flex items-center gap-2">
+                              <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-500">
+                                <BarChart className="w-4 h-4" />
                               </div>
-                              <div className="flex flex-col items-center justify-center p-0.5">
-                                <div className="flex items-center gap-1 text-slate-500 text-[9px] sm:text-[10px] uppercase font-bold mb-0.5">
-                                  <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-                                  <span className="hidden sm:inline">Level</span>
-                                </div>
-                                <span className="text-[10px] sm:text-xs font-extrabold text-slate-900 truncate max-w-full px-1">{course.level}</span>
-                              </div>
+                              <span>{course.level}</span>
                             </div>
                           </div>
 
                           {/* Pricing & Buttons Row */}
-                          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4 pt-2 sm:pt-3 border-t border-slate-100">
-                            <div className="flex items-baseline gap-1.5 sm:gap-2">
-                              <span className="text-base sm:text-2xl font-black text-[#DC2626] tracking-tight">{course.price}</span>
-                              <span className="text-[10px] sm:text-xs font-bold text-slate-400 line-through">{originalPrice}</span>
-                              <span className="text-[9px] sm:text-[10px] font-black bg-emerald-100 text-emerald-700 border border-emerald-200/80 px-1.5 py-0.5 rounded uppercase">{discountPercent}% OFF</span>
-                            </div>
-
-                            <div className="flex items-center gap-1.5 sm:gap-2.5">
-                              <button className="hidden sm:block flex-1 sm:flex-none px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-700 font-extrabold text-xs hover:bg-slate-900 hover:text-white transition-all shadow-xs">
-                                Details
-                              </button>
-                                <button 
-                                  onClick={(e) => handleEnrollClick(e, course)}
-                                  className="w-full sm:w-auto px-3 py-1.5 sm:px-5 sm:py-2.5 rounded-lg sm:rounded-xl bg-gradient-to-r from-[#DC2626] to-[#EF4444] hover:from-[#B91C1C] hover:to-[#DC2626] text-white font-extrabold text-xs shadow-sm shadow-red-500/20 hover:shadow-lg transition-all cursor-pointer text-center"
-                                >
-                                  Enroll Now &rarr;
-                                </button>
+                          <div className="mt-auto flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-6 border-t border-slate-100">
+                            <div className="flex items-center gap-3">
+                              <span className="text-3xl font-black text-slate-900 tracking-tight">{course.price}</span>
+                              <div className="flex flex-col">
+                                <span className="text-xs font-bold text-slate-400 line-through">{originalPrice}</span>
+                                <span className="text-[10px] font-black text-emerald-600 uppercase tracking-wider">{discountPercent}% OFF</span>
                               </div>
                             </div>
 
+                            <div className="flex items-center gap-3 w-full sm:w-auto">
+                              <button className="hidden md:flex flex-1 sm:flex-none items-center justify-center px-6 py-3 rounded-xl border-2 border-slate-200 text-slate-700 font-bold text-sm hover:border-slate-800 hover:text-slate-900 transition-all">
+                                View Details
+                              </button>
+                              <button 
+                                onClick={(e) => handleEnrollClick(e, course)}
+                                className="w-full sm:w-auto px-8 py-3 rounded-xl bg-slate-900 hover:bg-[#DC2626] text-white font-bold text-sm shadow-md transition-all cursor-pointer text-center flex items-center justify-center gap-2"
+                              >
+                                Enroll Now <ArrowRight className="w-4 h-4" />
+                              </button>
+                            </div>
                           </div>
+
+                        </div>
                         </a>
                       );
                     }

@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import { Rocket } from 'lucide-react';
 
 const journeySteps = [
   {
@@ -79,7 +80,7 @@ export default function OurJourney() {
         <div className="text-center max-w-3xl mx-auto mb-20 space-y-4 relative">
           
           <span className="inline-flex items-center gap-2 bg-red-500/10 backdrop-blur-md border border-red-500/20 text-[#EF4444] font-bold text-xs sm:text-sm px-4 py-1.5 rounded-full tracking-wider uppercase">
-            🚀 The 4-Step Framework
+            <Rocket className="w-4 h-4" /> The 4-Step Framework
           </span>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">

@@ -77,7 +77,7 @@ export default function AssessmentSection() {
                   <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">Sarah Jenkins</h3>
                   <p className="text-[#e1a851] font-semibold text-sm sm:text-[15px]">Senior Language Coach</p>
                   <p className="text-[#e1a851] font-semibold text-sm sm:text-[15px]">Spoken English Expert</p>
-                  <p className="text-slate-300/80 text-xs sm:text-[13px] pt-1">TESOL Certified, 10+ Years Exp.</p>
+                  <p className="text-slate-300/80 text-xs sm:text-[13px] pt-1">TESOL Certified, 12+ Years Exp.</p>
                 </div>
               </div>
             </div>
