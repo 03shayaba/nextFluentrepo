@@ -6,39 +6,60 @@ import Image from 'next/image';
 const slides = [
   {
     id: 1,
-    tag: "ENGLISH LEARNING",
-    title: "EXCEL IN YOUR CAREER & ACADEMICS",
-    subtitle: "Think in English. Speak naturally. Live confidently.",
-    bgImage: "/ban1.webp",
-    bgMobile: "object-[95%_center]",
-    bgDesktop: "object-[75%_center]"
+    bgImage: "/banner1.png",
+    heading: (
+      <>
+        Unlock Your <br />
+        <span className="text-[#2563EB]">English</span> <br />
+        Potential
+      </>
+    ),
+    subtitle: "Confident communication starts here — join us and speak with clarity."
   },
   {
     id: 2,
-    tag: "ONLINE COURSES",
-    title: "SPOKEN ENGLISH MASTERY",
-    subtitle: "Master the language. Unlock the confidence. Expand your world.",
-    bgImage: "/ban6.png",
-    bgMobile: "object-[95%_center]",
-    bgDesktop: "object-[72%_center]"
+    bgImage: "/banner2.png",
+    heading: (
+      <>
+        YOUR WORDS <br />
+        <span className="text-[#A3E635]">YOUR MOMENT!</span>
+      </>
+    ),
+    subtitle: "Speak clearly, express freely, and let your confidence do the talking!"
   },
   {
     id: 3,
-    tag: "GRAMMAR & WRITING",
-    title: "MASTER ESSENTIAL SKILLS",
-    subtitle: "Your next level begins with the way you communicate.",
-    bgImage: "/ban3.webp",
-    bgMobile: "object-[90%_center]",
-    bgDesktop: "object-[70%_center]"
+    bgImage: "/banner3.png",
+    heading: (
+      <>
+        <span className="text-[#2563EB]">ENGLISH BOLNE KA</span> <br />
+        SAFAR EK CLICK KI <br />
+        DOORI PAR!
+      </>
+    ),
+    subtitle: "Seekhein behtar, bolein behjijak!"
   },
   {
     id: 4,
-    tag: "EXPERT SOLUTIONS",
-    title: "LEARN TODAY. BRIGHTER TOMORROW.",
-    subtitle: "English isn’t just a language. It’s your passport to a bigger world.",
-    bgImage: "/ban5.png",
-    bgMobile: "object-[92%_center]",
-    bgDesktop: "object-[75%_center]"
+    bgImage: "/banner4.png",
+    heading: (
+      <>
+        Ready to Sound Like You <br />
+        Mean It?
+      </>
+    ),
+    subtitle: "Turn better communication into confidence that actually shows!"
+  },
+  {
+    id: 5,
+    bgImage: "/banner5.png",
+    heading: (
+      <>
+        Aapki English, <br />
+        Aapki Pehchan
+      </>
+    ),
+    subtitle: "Behtar communication, zyda confidence aur behtareen opportunities— sab ki shuruaat yahi se!"
   }
 ];
 
@@ -92,7 +113,7 @@ export default function HeroSlider() {
   const activeDotIndex = (currentIndex % slides.length + slides.length) % slides.length;
 
   return (
-    <section className="relative w-full h-[500px] sm:h-[580px] lg:h-[620px] overflow-hidden bg-white text-white select-none">
+    <section className="relative w-full h-[320px] sm:h-[480px] lg:h-[600px] overflow-hidden bg-slate-950 text-white select-none">
 
       {/* Horizontal Carousel Track (Smooth Infinite Right-to-Left Sliding) */}
       <div
@@ -103,49 +124,39 @@ export default function HeroSlider() {
         {displaySlides.map((slide, i) => (
           <div
             key={`${slide.id}-${i}`}
-            className="relative w-full h-full flex-shrink-0"
+            className="relative w-full h-full flex-shrink-0 overflow-hidden"
           >
-            {/* Background Image (Per-slide mobile focus positioning) */}
+            {/* Background Image */}
             <div className="absolute inset-0 transition-all duration-500">
               <Image 
                 src={slide.bgImage}
-                alt={slide.title}
+                alt="Hero Banner"
                 fill
                 priority={i <= 2}
-                className={`object-cover ${slide.bgMobile || 'object-[85%_center]'} sm:${slide.bgDesktop || 'object-[75%_center]'}`}
+                className="object-cover object-center"
               />
             </div>
 
-            {/* Subtle Gradient Overlay: Dark on left for crisp text contrast, clear on right for instructor face visibility */}
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/40 to-transparent sm:from-slate-950/85 sm:via-slate-950/35 sm:to-transparent"></div>
+            {/* Dark Left Overlay for crisp text contrast */}
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/40 to-transparent z-10"></div>
 
-            {/* Main Content Area */}
-            <div className="relative z-20 max-w-7xl mx-auto h-full px-6 sm:px-12 md:px-16 lg:px-20 flex flex-col items-center sm:items-start text-center sm:text-left justify-center">
-
-              {/* Text Content with Spacious Padding */}
-              <div className="max-w-xl space-y-3 sm:space-y-4 pt-2 sm:pt-4 px-2 sm:px-6 flex flex-col items-center sm:items-start">
-
-                {/* Red Badge */}
-                <div>
-                  <div className="inline-block bg-[#DC2626] text-white text-[10px] sm:text-xs md:text-sm font-bold uppercase tracking-wider px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full shadow-md">
-                    {slide.tag}
-                  </div>
-                </div>
-
-                {/* Main Slide Title */}
-                <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-tight text-white leading-snug sm:leading-tight drop-shadow-lg">
-                  {slide.title}
+            {/* Standardized Left-Aligned Content Container for ALL Slides */}
+            <div className="relative z-20 max-w-7xl mx-auto h-full px-6 sm:px-12 lg:px-20 flex flex-col justify-center items-start">
+              <div className="max-w-xl text-left space-y-3 sm:space-y-4">
+                
+                {/* Standardized Heading Style */}
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight uppercase leading-tight text-white drop-shadow-md">
+                  {slide.heading}
                 </h1>
-
-                {/* Subtitle */}
-                <p className="text-slate-100 text-xs sm:text-base lg:text-lg font-medium drop-shadow-md leading-relaxed max-w-md">
+                
+                {/* Standardized Subtitle Style */}
+                <p className="text-xs sm:text-base lg:text-lg font-medium text-slate-100 max-w-lg leading-relaxed drop-shadow-sm pt-1">
                   {slide.subtitle}
                 </p>
 
-                {/* Red Accent Line */}
-                <div className="w-12 sm:w-16 h-1 bg-[#DC2626] rounded-full mt-2 sm:mt-3 shadow-sm"></div>
               </div>
             </div>
+
           </div>
         ))}
       </div>
@@ -153,7 +164,7 @@ export default function HeroSlider() {
       {/* Prev / Next Slider Navigation Arrow Buttons */}
       <button
         onClick={handlePrev}
-        className="absolute left-2 sm:left-8 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-black/30 hover:bg-black/60 text-white/80 hover:text-white flex items-center justify-center transition-all focus:outline-none backdrop-blur-sm"
+        className="absolute left-2 sm:left-8 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center transition-all focus:outline-none backdrop-blur-sm shadow-md"
         aria-label="Previous Slide"
       >
         <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
@@ -163,7 +174,7 @@ export default function HeroSlider() {
 
       <button
         onClick={handleNext}
-        className="absolute right-2 sm:right-8 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-black/30 hover:bg-black/60 text-white/80 hover:text-white flex items-center justify-center transition-all focus:outline-none backdrop-blur-sm"
+        className="absolute right-2 sm:right-8 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center transition-all focus:outline-none backdrop-blur-sm shadow-md"
         aria-label="Next Slide"
       >
         <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
@@ -182,7 +193,7 @@ export default function HeroSlider() {
             }}
             className={`transition-all duration-300 rounded-full cursor-pointer focus:outline-none ${activeDotIndex === index
               ? 'w-9 h-2.5 bg-[#DC2626] shadow-sm'
-              : 'w-2.5 h-2.5 bg-white/40 hover:bg-white/70'
+              : 'w-2.5 h-2.5 bg-white/50 hover:bg-white/80'
               }`}
             aria-label={`Slide ${index + 1}`}
           />

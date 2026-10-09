@@ -7,63 +7,63 @@ import Image from 'next/image';
 const testimonials = [
   {
     id: 1,
-    name: "Rohit Mehta",
-    role: "Working Professional, Bengaluru",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop",
-    quote: "The interactive lessons and speaking practice helped me become more confident in just a few months!",
+    name: "Zeeshan",
+    role: "Offline Student, Ganderbal, Kashmir",
+    image: "/profilemale.jpg",
+    quote: "I joined the offline classes because I wanted to improve my communication skills and the experience has been amazing. The teachers are approachable, patient, and genuinely interested in every student's progress. I've become more confident in conversations and expressing my thoughts.",
     beforeLevel: "A2",
     afterLevel: "B2",
     themeColor: "text-emerald-500",
     bgTheme: "bg-emerald-50",
-    outcome: "Now I can speak confidently in meetings!",
+    outcome: "More confident in conversations!",
   },
   {
     id: 2,
-    name: "Priya Sharma",
-    role: "Student, Mumbai",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop",
-    quote: "NextFluent made learning English fun and practical. The live classes, study materials and constant support really helped me improve.",
+    name: "Anousha",
+    role: "Online Student, Kupwara, Kashmir",
+    image: "/profile-female1.jpg",
+    quote: "My daughter actually looks forward to her English classes! Now the sessions are fun, interactive, and easy for her to understand. We have noticed a big change in her confidence vocabulary and willingness to speak.",
     beforeLevel: "A1",
     afterLevel: "B1",
     themeColor: "text-[#E59719]",
     bgTheme: "bg-amber-50",
-    outcome: "Now I can speak freely and express my ideas!",
+    outcome: "Big boost in confidence & vocabulary!",
   },
   {
     id: 3,
-    name: "Arjun Nair",
-    role: "Student, Kochi",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop",
-    quote: "I used to struggle with grammar and speaking, but NextFluent's structured courses and feedback system made a big difference.",
+    name: "Saoodah",
+    role: "Online Student, Pulwama, Kashmir",
+    image: "/profile-female2.jpg",
+    quote: "Joining the classes online was honestly one of the best decisions I made. I was initially unsure whether online learning would work for me, but the sessions were interactive and engaging. I have become more confident while speaking English and the regular feedback has really helped me improve.",
     beforeLevel: "A2",
-    afterLevel: "B1",
+    afterLevel: "B2",
     themeColor: "text-indigo-500",
     bgTheme: "bg-indigo-50",
-    outcome: "More confident in college and daily conversations!",
+    outcome: "More confident & regular feedback!",
   },
   {
     id: 4,
-    name: "Aisha Khan",
-    role: "Freelancer, Delhi",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop",
-    quote: "Amazing platform! I passed my IELTS with a 7.5 band score thanks to the excellent tutors here.",
+    name: "Rabia",
+    role: "Online Student, Habbakadel Srinagar, Kashmir",
+    image: "/profile-female3.jpg",
+    quote: "I joined the offline classes because I wanted to improve my communication skills and the experience has been amazing. The teachers are approachable, patient, and genuinely interested in every student's progress. I've become more confident in conversations and expressing my thoughts.",
     beforeLevel: "B1",
     afterLevel: "C1",
     themeColor: "text-blue-500",
     bgTheme: "bg-blue-50",
-    outcome: "Ready for my international career!",
+    outcome: "Great progress & supportive teachers!",
   },
   {
     id: 5,
-    name: "Vijay Singh",
-    role: "Entrepreneur, Pune",
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop",
-    quote: "Pitching to international clients used to be scary. Now, I have the vocabulary and confidence to close deals.",
+    name: "Ghaziya",
+    role: "Online Student, Pulwama, Kashmir",
+    image: "/profile-female4.jpg",
+    quote: "What stood out to me was the individual attention, whether online or off-line, the learning experience felt structured, supportive, and genuinely focussed on improvement. Honestly, I used to overthink every sentence before speaking. now I just speak. That confidence is a huge win for me.",
     beforeLevel: "B2",
     afterLevel: "C1",
-    themeColor: "text-rose-500",
-    bgTheme: "bg-rose-50",
-    outcome: "Closed 3 international deals this month!",
+    themeColor: "text-purple-500",
+    bgTheme: "bg-purple-50",
+    outcome: "Overcame overthinking & built confidence!",
   }
 ];
 
@@ -153,7 +153,7 @@ export default function Testimonials() {
         </div>
 
         {/* CAROUSEL SECTION */}
-        <div className="relative flex flex-col items-center justify-center min-h-[460px] mb-8 sm:mb-16 max-w-[1080px] mx-auto px-1 sm:px-12 md:px-14">
+        <div className="relative flex flex-col items-center justify-center min-h-[500px] sm:min-h-[540px] mb-8 sm:mb-16 max-w-[1140px] mx-auto px-1 sm:px-12 md:px-14">
           
           {/* Soft Left & Right Edge Vignette Gradient Overlays */}
           <div className="absolute top-0 left-0 w-8 sm:w-28 h-full bg-gradient-to-r from-[#FDFCF8] via-[#FDFCF8]/90 to-transparent z-30 pointer-events-none"></div>
@@ -179,7 +179,7 @@ export default function Testimonials() {
           </button>
 
           {/* Cards Track Container */}
-          <div className="w-full relative h-[430px] sm:h-[460px] overflow-hidden [--card-step:284px] sm:[--card-step:340px]">
+          <div className="w-full relative h-[480px] sm:h-[510px] overflow-hidden [--card-step:316px] sm:[--card-step:384px]">
             <div 
               className="absolute top-0 left-1/2 h-full flex items-center transition-transform duration-300 ease-out"
               style={{ 
@@ -195,68 +195,70 @@ export default function Testimonials() {
                     onClick={() => setActiveIndex(idx)}
                     onMouseEnter={() => { if (isCenter) setIsPaused(true); }}
                     onMouseLeave={() => setIsPaused(false)}
-                    className={`transition-all duration-300 ease-out relative flex-shrink-0 w-[268px] sm:w-[316px] mx-[8px] sm:mx-[12px] cursor-pointer ${
+                    className={`transition-all duration-300 ease-out relative flex-shrink-0 w-[300px] sm:w-[360px] mx-[8px] sm:mx-[12px] cursor-pointer ${
                       isCenter 
                         ? 'scale-100 z-20 opacity-100 shadow-[0_20px_40px_rgba(0,0,0,0.08)] border-2 border-[#DC2626]' 
                         : 'scale-95 z-10 opacity-40 blur-[0.3px] border border-slate-200/60 shadow-sm hover:opacity-70'
-                    } bg-white rounded-3xl p-5 sm:p-7 flex flex-col justify-between h-[410px] select-none`}
+                    } bg-white rounded-3xl p-5 sm:p-6 flex flex-col justify-between h-[460px] sm:h-[480px] select-none`}
                   >
                     
-                    <div>
+                    <div className="flex flex-col flex-1 min-h-0">
                       {/* User Avatar & Stars */}
-                      <div className="flex gap-4 items-center mb-5">
+                      <div className="flex gap-3.5 items-center mb-4 shrink-0">
                         <Image 
                           src={card.image} 
                           alt={card.name} 
                           width={56}
                           height={56}
-                          className="w-14 h-14 rounded-full object-cover border-2 border-slate-100 shadow-sm shrink-0" 
+                          className="w-13 h-13 sm:w-14 sm:h-14 rounded-full object-cover border-2 border-slate-100 shadow-sm shrink-0" 
                         />
-                        <div>
-                          <div className="flex gap-1 mb-1">
+                        <div className="min-w-0">
+                          <div className="flex gap-1 mb-0.5">
                             {[...Array(5)].map((_, i) => (
-                              <Star key={i} className="w-4 h-4 fill-[#DC2626] text-[#DC2626]" />
+                              <Star key={i} className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-[#DC2626] text-[#DC2626]" />
                             ))}
                           </div>
-                          <h3 className="font-bold text-slate-900 text-lg leading-tight">{card.name}</h3>
-                          <p className="text-xs text-slate-500 font-medium mt-0.5">{card.role}</p>
+                          <h3 className="font-bold text-slate-900 text-base sm:text-lg leading-tight truncate">{card.name}</h3>
+                          <p className="text-[11px] sm:text-xs text-slate-500 font-medium mt-0.5 line-clamp-1">{card.role}</p>
                         </div>
                       </div>
 
                       {/* Quote Text */}
-                      <p className="text-slate-600 font-medium text-sm leading-relaxed mb-4 relative min-h-[72px]">
-                        <span className="text-3xl text-slate-200 font-serif leading-none select-none">“</span>
-                        {card.quote}
-                        <span className="text-3xl text-slate-200 font-serif leading-none select-none">”</span>
-                      </p>
+                      <div className="flex-1 overflow-y-auto pr-1 custom-scrollbar">
+                        <p className="text-slate-600 font-medium text-xs sm:text-sm leading-relaxed relative">
+                          <span className="text-2xl text-slate-300 font-serif leading-none select-none mr-1">“</span>
+                          {card.quote}
+                          <span className="text-2xl text-slate-300 font-serif leading-none select-none ml-1">”</span>
+                        </p>
+                      </div>
                     </div>
 
                     {/* Before & After Level Tracker */}
-                    <div className="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                    <div className="flex items-center justify-between mt-4 pt-3 border-t border-slate-100 shrink-0">
                       
                       {/* Level Track */}
-                      <div className="flex items-center gap-2 flex-1 min-w-0">
+                      <div className="flex items-center gap-1.5 flex-1 min-w-0">
                         <div>
-                          <div className="font-bold text-slate-900 text-sm">{card.beforeLevel}</div>
-                          <div className="text-[10px] text-slate-600 font-bold uppercase tracking-wider">BEFORE</div>
+                          <div className="font-bold text-slate-900 text-xs sm:text-sm">{card.beforeLevel}</div>
+                          <div className="text-[9px] sm:text-[10px] text-slate-600 font-bold uppercase tracking-wider">BEFORE</div>
                         </div>
                         
                         {/* Dotted Arrow */}
                         <div className={`flex-1 flex items-center justify-center ${card.themeColor} px-1`}>
                           <div className="h-[2px] w-full border-b-2 border-dashed border-current opacity-40"></div>
-                          <svg className="w-4 h-4 fill-current shrink-0 -ml-1" viewBox="0 0 24 24">
+                          <svg className="w-3.5 h-3.5 fill-current shrink-0 -ml-1" viewBox="0 0 24 24">
                             <path d="M8 5v14l11-7z"/>
                           </svg>
                         </div>
 
                         <div className="text-right">
-                          <div className="font-bold text-slate-900 text-sm">{card.afterLevel}</div>
-                          <div className="text-[10px] text-slate-600 font-bold uppercase tracking-wider">AFTER</div>
+                          <div className="font-bold text-slate-900 text-xs sm:text-sm">{card.afterLevel}</div>
+                          <div className="text-[9px] sm:text-[10px] text-slate-600 font-bold uppercase tracking-wider">AFTER</div>
                         </div>
                       </div>
 
                       {/* Result Bubble */}
-                      <div className={`${card.bgTheme} ${card.themeColor} text-[11px] font-semibold px-3 py-1.5 rounded-xl ml-3 max-w-[130px] leading-tight text-center shrink-0`}>
+                      <div className={`${card.bgTheme} ${card.themeColor} text-[10px] sm:text-[11px] font-semibold px-2.5 py-1.5 rounded-xl ml-2 max-w-[130px] leading-tight text-center shrink-0`}>
                         {card.outcome}
                       </div>
 

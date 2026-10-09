@@ -196,9 +196,9 @@ export default function WhyChooseUs() {
           {/* Bottom Left: Learners Stat */}
           <div className="flex items-center gap-3 sm:gap-4 bg-slate-50 border border-slate-100 px-5 py-3 rounded-full shadow-xs shrink-0">
             <div className="flex -space-x-3 shrink-0">
-              <Image width={40} height={40} className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80" alt="Learner" />
-              <Image width={40} height={40} className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&q=80" alt="Learner" />
-              <Image width={40} height={40} className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Learner" />
+              <Image width={40} height={40} className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-white object-cover" src="/profilemale.jpg" alt="Learner" />
+              <Image width={40} height={40} className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-white object-cover" src="/profile-female1.jpg" alt="Learner" />
+              <Image width={40} height={40} className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-white object-cover" src="/profile-female2.jpg" alt="Learner" />
             </div>
             <div>
               <div className="font-extrabold text-slate-900 text-sm sm:text-base leading-none">10,000+</div>

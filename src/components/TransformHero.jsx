@@ -49,32 +49,32 @@ export default function TransformHero() {
 
         {/* Top Left Avatar */}
         <div className="absolute top-16 left-[18%] w-16 h-16 rounded-full border-[3px] border-[#1E293B] shadow-xl overflow-hidden animate-[float_6s_ease-in-out_infinite]">
-          <Image src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop" alt="Student" width={64} height={64} className="w-full h-full object-cover" />
+          <Image src="/profilemale.jpg" alt="Student" width={64} height={64} className="w-full h-full object-cover" />
         </div>
 
         {/* Middle Left Avatar (Large) */}
         <div className="absolute top-[55%] left-[8%] -translate-y-1/2 w-32 h-32 rounded-full border-4 border-[#1E293B] shadow-2xl overflow-hidden animate-[float_7s_ease-in-out_infinite_1s]">
-          <Image src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=250&h=250&fit=crop" alt="Student" width={128} height={128} className="w-full h-full object-cover" />
+          <Image src="/profile-female1.jpg" alt="Student" width={128} height={128} className="w-full h-full object-cover" />
         </div>
 
         {/* Bottom Left Avatar */}
         <div className="absolute bottom-16 left-[22%] w-24 h-24 rounded-full border-4 border-[#1E293B] shadow-xl overflow-hidden animate-[float_5s_ease-in-out_infinite_2s]">
-          <Image src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=200&h=200&fit=crop" alt="Student" width={96} height={96} className="w-full h-full object-cover" />
+          <Image src="/profile-female2.jpg" alt="Student" width={96} height={96} className="w-full h-full object-cover" />
         </div>
 
         {/* Top Right Avatar (Large) */}
         <div className="absolute top-20 right-[15%] w-28 h-28 rounded-full border-4 border-[#1E293B] shadow-2xl overflow-hidden animate-[float_6.5s_ease-in-out_infinite_1.5s]">
-          <Image src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=250&h=250&fit=crop" alt="Student" width={112} height={112} className="w-full h-full object-cover" />
+          <Image src="/profile-female3.jpg" alt="Student" width={112} height={112} className="w-full h-full object-cover" />
         </div>
 
         {/* Middle Right Avatar (Small) */}
         <div className="absolute top-1/2 right-[5%] w-14 h-14 rounded-full border-[3px] border-[#1E293B] shadow-lg overflow-hidden animate-[float_5.5s_ease-in-out_infinite_0.5s]">
-          <Image src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop" alt="Student" width={56} height={56} className="w-full h-full object-cover" />
+          <Image src="/profile-female4.jpg" alt="Student" width={56} height={56} className="w-full h-full object-cover" />
         </div>
 
         {/* Bottom Right Avatar */}
         <div className="absolute bottom-20 right-[20%] w-20 h-20 rounded-full border-[3px] border-[#1E293B] shadow-xl overflow-hidden animate-[float_7.5s_ease-in-out_infinite_2.5s]">
-          <Image src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop" alt="Student" width={80} height={80} className="w-full h-full object-cover" />
+          <Image src="/profilemale.jpg" alt="Student" width={80} height={80} className="w-full h-full object-cover" />
         </div>
 
       </div>
