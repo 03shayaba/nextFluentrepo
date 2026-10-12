@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -69,6 +70,7 @@ const CustomDropdown = ({ value, onChange, options, className }) => {
 const courses = [
   {
     id: 1,
+    slug: "spoken-english-mastery",
     image: "/course1.avif",
     price: "₹799",
     category: "Basic English",
@@ -84,6 +86,7 @@ const courses = [
   },
   {
     id: 2,
+    slug: "intermediate-english-tenses-fluency",
     image: "/course2.avif",
     price: "₹999",
     category: "Intermediate English",
@@ -99,6 +102,7 @@ const courses = [
   },
   {
     id: 3,
+    slug: "advanced-english-accent-training",
     image: "/course3.avif",
     price: "₹1,299",
     category: "Advanced English",
@@ -114,6 +118,7 @@ const courses = [
   },
   {
     id: 4,
+    slug: "spoken-english-conversation-practice",
     image: "/course4.avif",
     price: "₹1,499",
     category: "Spoken English",
@@ -129,6 +134,7 @@ const courses = [
   },
   {
     id: 5,
+    slug: "ielts-preparation-masterclass",
     image: "/course5.avif",
     price: "₹1,999",
     category: "IELTS",
@@ -144,6 +150,7 @@ const courses = [
   },
   {
     id: 6,
+    slug: "personality-development-communication",
     image: "/course6.avif",
     price: "₹1,199",
     category: "Personality & Communication",
@@ -159,6 +166,7 @@ const courses = [
   },
   {
     id: 7,
+    slug: "public-speaking-presentation-skills",
     image: "/t1.avif",
     price: "₹1,299",
     category: "Public Speaking",
@@ -174,6 +182,7 @@ const courses = [
   },
   {
     id: 8,
+    slug: "business-english-pro-corporate-email",
     image: "/t2.avif",
     price: "₹1,499",
     category: "Business English",
@@ -520,8 +529,8 @@ export default function CoursesPage() {
 
                   if (viewMode === 'list') {
                     return (
-                      <a 
-                        href="/course-details" 
+                      <Link 
+                        href={`/course-details/${course.slug || course.id}`} 
                         key={course.id} 
                         className="bg-white rounded-[1.5rem] p-3 sm:p-4 shadow-sm hover:shadow-2xl hover:shadow-red-500/10 border border-slate-200/70 grid grid-cols-1 md:grid-cols-[280px_1fr] lg:grid-cols-[340px_1fr] gap-4 md:gap-6 group transition-all duration-500 hover:-translate-y-1"
                       >
@@ -622,13 +631,13 @@ export default function CoursesPage() {
                           </div>
 
                         </div>
-                        </a>
-                      );
-                    }
+                      </Link>
+                    );
+                  }
 
                   // Default Grid Mode Rendering
                   return (
-                    <a href="/course-details" key={course.id} className="bg-white rounded-2xl shadow-md hover:shadow-xl border border-slate-200/90 overflow-hidden flex flex-col group transition-all duration-300 hover:-translate-y-1.5 hover:border-red-200">
+                    <Link href={`/course-details/${course.slug || course.id}`} key={course.id} className="bg-white rounded-2xl shadow-md hover:shadow-xl border border-slate-200/90 overflow-hidden flex flex-col group transition-all duration-300 hover:-translate-y-1.5 hover:border-red-200">
                       
                       {/* Top Header Image & Dark Gradient Title Container */}
                       <div className="relative w-full h-64 bg-[#0A0710] overflow-hidden">
@@ -727,7 +736,7 @@ export default function CoursesPage() {
                         </div>
 
                       </div>
-                    </a>
+                    </Link>
                   );
                 })
               )}

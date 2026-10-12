@@ -9,7 +9,7 @@ import PopularCourses from "@/components/PopularCourses";
 import TransformHero from "@/components/TransformHero";
 import React, { useState, useEffect } from 'react';
 import { useWishlist } from '@/context/WishlistContext';
-import { getCourseBySlug } from '@/data/coursesData';
+import { getCourseBySlug, getCourseById } from '@/data/coursesData';
 
 const CurriculumModule = ({ section, idx }) => {
   const [isOpen, setIsOpen] = useState(idx === 0);
@@ -85,8 +85,8 @@ export default function CourseDetailsPage() {
   const [isCopied, setIsCopied] = useState(false);
   const { toggleWishlist, isInWishlist } = useWishlist();
 
-  // Resolve course from slug; fall back to a default if not found
-  const courseData = slug ? getCourseBySlug(slug) : null;
+  // Resolve course from slug or numeric ID; fall back to a default if not found
+  const courseData = slug ? (getCourseBySlug(slug) || getCourseById(slug)) : null;
 
   const currentCourse = courseData || {
     id: 'master-spoken-english',

@@ -1,7 +1,6 @@
 import dynamic from "next/dynamic";
 import Header from "@/components/Header";
 import HeroSlider from "@/components/HeroSlider";
-import StatsBar from "@/components/StatsBar";
 import CourseCategories from "@/components/CourseCategories";
 import Footer from "@/components/Footer";
 
